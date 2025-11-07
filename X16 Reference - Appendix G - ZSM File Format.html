@@ -1,665 +1,169 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appendix G: ZSM File Format &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Appendix G: ZSM File Format &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - Appendix G - ZSM File Format';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Appendix H: How to update your X16 to latest release" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html" />
-    <link rel="prev" title="Appendix F: The 65C816 Processor" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Appendix F: The 65C816 Processor" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">Chapter 4: BASIC Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">Chapter 5: KERNAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">Appendix C: The 65C02 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">Appendix F: The 65C816 Processor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix G: ZSM File Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zsound-repo">Zsound Repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#current-zsm-revision-1">Current ZSM Revision: 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#headerless-data-file-format">Headerless Data File Format:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zsm-file-composition">ZSM file composition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zsm-header">ZSM Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zsm-music-data-stream-format">ZSM Music Data Stream Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cmd-command-byte-values">CMD (command) byte values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extcmd">EXTCMD:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pcm-header">PCM Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instrument-definition">Instrument definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pcm-sample-data">PCM Sample Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#extcmd-channel-specifications">EXTCMD Channel Specifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extcmd-in-zsm-stream-context">EXTCMD in ZSM stream context:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extcmd-byte-format">EXTCMD byte format:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extcmd-channels">EXTCMD Channels:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extcmd-channel">EXTCMD Channel:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pcm-audio">0: PCM audio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expansion-sound-devices">1: Expansion Sound Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#synchronization-events">2: Synchronization Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom">3: Custom</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Appendix G: ZSM File Format</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - Appendix G - ZSM File Format.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Appendix G: ZSM File Format</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="appendix-g-zsm-file-format">
-<h1>Appendix G: ZSM File Format<a class="headerlink" href="#appendix-g-zsm-file-format" title="Link to this heading">#</a></h1>
+<h1>Appendix G: ZSM File Format<a class="headerlink" href="#appendix-g-zsm-file-format" title="Link to this heading"></a></h1>
 <section id="zsound-repo">
-<h2>Zsound Repo<a class="headerlink" href="#zsound-repo" title="Link to this heading">#</a></h2>
+<h2>Zsound Repo<a class="headerlink" href="#zsound-repo" title="Link to this heading"></a></h2>
 <p>The Zsound suite of Commander X16 audio tools contains the original ZSM reference player, found at:<br />
 https://github.com/ZeroByteOrg/zsound/</p>
 <p>A newer, more flexible, and more recently maintained library with PCM support, ZSMKit, is available at:<br />
 https://github.com/mooinglemur/ZSMKit/</p>
 </section>
 <section id="current-zsm-revision-1">
-<h2>Current ZSM Revision: 1<a class="headerlink" href="#current-zsm-revision-1" title="Link to this heading">#</a></h2>
+<h2>Current ZSM Revision: 1<a class="headerlink" href="#current-zsm-revision-1" title="Link to this heading"></a></h2>
 <p>ZSM is a standard specifying both a data stream format and a file structure for containing the data stream. This document provides the standard for both the ZSM stream format and for the ZSM container file format.</p>
 <p>Whenever it becomes necessary to modify the ZSM standard in such a way that existing software will not be compatible with files using the newer standard, this version number will be incremented, up to a maximum value of 254.</p>
 <p>Version 255 (-1) is reserved for internal use by the player</p>
 </section>
 <section id="headerless-data-file-format">
-<h2>Headerless Data File Format:<a class="headerlink" href="#headerless-data-file-format" title="Link to this heading">#</a></h2>
+<h2>Headerless Data File Format:<a class="headerlink" href="#headerless-data-file-format" title="Link to this heading"></a></h2>
 <p>Since Kernal version r39, it is possible to load data files that do not have the CBM 2-byte load-to-address header. As of version r41, this functionality is equally accessible in the standard interactive BASIC interface. As the “PRG” header is no longer necessary, ZSM files will NOT contain this header in order to appear as any other common data file such as <code class="docutils literal notranslate"><span class="pre">.wav</span></code>, <code class="docutils literal notranslate"><span class="pre">.png</span></code>, etc. As such, users and programs must use the “headerless mode” when loading a ZSM into memory on the Commander X16. The previously-suggested dummy PRG header has been incorporated to the ZSM header as a magic header for file identity verification purposes.</p>
 </section>
 <section id="zsm-file-composition">
-<h2>ZSM file composition<a class="headerlink" href="#zsm-file-composition" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>ZSM file composition<a class="headerlink" href="#zsm-file-composition" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
 <th class="head"><p>Length</p></th>
@@ -685,15 +189,14 @@ https://github.com/mooinglemur/ZSMKit/</p>
 </tr>
 </tbody>
 </table>
-</div>
 <section id="zsm-header">
-<h3>ZSM Header<a class="headerlink" href="#zsm-header" title="Link to this heading">#</a></h3>
+<h3>ZSM Header<a class="headerlink" href="#zsm-header" title="Link to this heading"></a></h3>
 <p>The ZSM header is 16 bytes long.</p>
 <ul class="simple">
 <li><p>All multi-byte values are little endian unless specified otherwise</p></li>
 <li><p>All offsets are relative to the beginning of the ZSM header</p></li>
 </ul>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
 <th class="head"><p>Length</p></th>
@@ -744,11 +247,10 @@ https://github.com/mooinglemur/ZSMKit/</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="zsm-music-data-stream-format">
-<h3>ZSM Music Data Stream Format<a class="headerlink" href="#zsm-music-data-stream-format" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<h3>ZSM Music Data Stream Format<a class="headerlink" href="#zsm-music-data-stream-format" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Byte 0</p></th>
 <th class="head"><p>Byte 1 (variable)</p></th>
@@ -768,11 +270,10 @@ https://github.com/mooinglemur/ZSMKit/</p>
 </tr>
 </tbody>
 </table>
-</div>
 <section id="cmd-command-byte-values">
-<h4>CMD (command) byte values<a class="headerlink" href="#cmd-command-byte-values" title="Link to this heading">#</a></h4>
+<h4>CMD (command) byte values<a class="headerlink" href="#cmd-command-byte-values" title="Link to this heading"></a></h4>
 <p>CMD bytes are bit-packed to hold a command Type ID and a value (n) as follows:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>CMD</p></th>
 <th class="head"><p>Bit Pattern</p></th>
@@ -814,19 +315,18 @@ https://github.com/mooinglemur/ZSMKit/</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="extcmd">
-<h4>EXTCMD:<a class="headerlink" href="#extcmd" title="Link to this heading">#</a></h4>
+<h4>EXTCMD:<a class="headerlink" href="#extcmd" title="Link to this heading"></a></h4>
 <p>The EXTCMD byte is formatted as <code class="docutils literal notranslate"><span class="pre">ccnnnnnn</span></code> where <code class="docutils literal notranslate"><span class="pre">c</span></code>=channel and <code class="docutils literal notranslate"><span class="pre">n</span></code>=number of bytes that follow. If the player wishes to ignore a channel, it can simply advance <code class="docutils literal notranslate"><span class="pre">n</span></code> bytes and continue processing. See EXTCMD Channel Specifications below for more details.</p>
 </section>
 </section>
 <section id="pcm-header">
-<h3>PCM Header<a class="headerlink" href="#pcm-header" title="Link to this heading">#</a></h3>
+<h3>PCM Header<a class="headerlink" href="#pcm-header" title="Link to this heading"></a></h3>
 <p>If the PCM header exists in the ZSM file, it will immediately follow the 0x80 end-of-data marker. The PCM header exists only if at least one PCM instrument exists.</p>
 <p>Since each instrument defined is 16 bytes, the size of the PCM header can be calculated
 as 4+(16*(last_instrument_index+1)).</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
 <th class="head"><p>Type</p></th>
@@ -856,11 +356,10 @@ as 4+(16*(last_instrument_index+1)).</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="instrument-definition">
-<h3>Instrument definition<a class="headerlink" href="#instrument-definition" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<h3>Instrument definition<a class="headerlink" href="#instrument-definition" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
 <th class="head"><p>Type</p></th>
@@ -898,20 +397,19 @@ as 4+(16*(last_instrument_index+1)).</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Any offset values contained in the PCM data header block are relative to the beginning of the PCM sample data section, not to the PCM header or ZSM header. The intention is to present the digital audio portion as a set of digi clips (“samples” in tracker terminology) whose playback can be triggered by EXTCMD channel zero.</p>
 </section>
 <section id="pcm-sample-data">
-<h3>PCM Sample Data<a class="headerlink" href="#pcm-sample-data" title="Link to this heading">#</a></h3>
+<h3>PCM Sample Data<a class="headerlink" href="#pcm-sample-data" title="Link to this heading"></a></h3>
 <p>This is a blob of PCM data with no internal formatting. Offsets into this blob are provided via the PCM header. The end of this blob will be the end of the ZSM file.</p>
 </section>
 </section>
 <section id="extcmd-channel-specifications">
-<h2>EXTCMD Channel Specifications<a class="headerlink" href="#extcmd-channel-specifications" title="Link to this heading">#</a></h2>
+<h2>EXTCMD Channel Specifications<a class="headerlink" href="#extcmd-channel-specifications" title="Link to this heading"></a></h2>
 <p>Extension commands provide optional functionality within a ZSM music file. EXTCMD may be ignored by any player. EXTCMD defines 4 “channels” of message streams. Players may implement support for any, all, or none of the channels as desired. An EXTCMD may specify up to 63 bytes of data. If more data than this is required, then it must be broken up into multiple EXTCMDs.</p>
 <section id="extcmd-in-zsm-stream-context">
-<h3>EXTCMD in ZSM stream context:<a class="headerlink" href="#extcmd-in-zsm-stream-context" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<h3>EXTCMD in ZSM stream context:<a class="headerlink" href="#extcmd-in-zsm-stream-context" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>…</p></th>
 <th class="head"><p>CMD 0x40</p></th>
@@ -922,11 +420,10 @@ as 4+(16*(last_instrument_index+1)).</p>
 </tr>
 </thead>
 </table>
-</div>
 </section>
 <section id="extcmd-byte-format">
-<h3>EXTCMD byte format:<a class="headerlink" href="#extcmd-byte-format" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<h3>EXTCMD byte format:<a class="headerlink" href="#extcmd-byte-format" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Bit Pattern</p></th>
 <th class="head"><p>C</p></th>
@@ -940,10 +437,9 @@ as 4+(16*(last_instrument_index+1)).</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="extcmd-channels">
-<h3>EXTCMD Channels:<a class="headerlink" href="#extcmd-channels" title="Link to this heading">#</a></h3>
+<h3>EXTCMD Channels:<a class="headerlink" href="#extcmd-channels" title="Link to this heading"></a></h3>
 <ol class="arabic simple" start="0">
 <li><p>PCM instrument channel</p></li>
 <li><p>Expansion Sound Devices</p></li>
@@ -954,11 +450,11 @@ as 4+(16*(last_instrument_index+1)).</p>
 <p>The Custom channel data may take whatever format is desired for any particular purpose with the understanding that the general ecosystem of ZSM-aware applications will most likely ignore them.</p>
 </section>
 <section id="extcmd-channel">
-<h3>EXTCMD Channel:<a class="headerlink" href="#extcmd-channel" title="Link to this heading">#</a></h3>
+<h3>EXTCMD Channel:<a class="headerlink" href="#extcmd-channel" title="Link to this heading"></a></h3>
 <section id="pcm-audio">
-<h4>0: PCM audio<a class="headerlink" href="#pcm-audio" title="Link to this heading">#</a></h4>
+<h4>0: PCM audio<a class="headerlink" href="#pcm-audio" title="Link to this heading"></a></h4>
 <p>This EXTCMD stream can contain one or more command + argument pairs.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>command</p></th>
 <th class="head"><p>meaning</p></th>
@@ -984,15 +480,14 @@ as 4+(16*(last_instrument_index+1)).</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="expansion-sound-devices">
-<h4>1: Expansion Sound Devices<a class="headerlink" href="#expansion-sound-devices" title="Link to this heading">#</a></h4>
+<h4>1: Expansion Sound Devices<a class="headerlink" href="#expansion-sound-devices" title="Link to this heading"></a></h4>
 <p>This channel is for data intended for “well-known” expansion hardware used with the Commander X16. As the community adopts various expansion hardware, such devices will be given a standard “ID” number so that all ZSM files will agree on which device is being referenced by expansion HW data.</p>
 <p>The specification of new chip IDs should not affect the format of ZSM itself, and thus will not result in a ZSM version update. Players will simply need to update their list of known hardware.</p>
 <p>Players implementing this channel should implement detection routines during init to determine which (if any) expansion hardware is present. Any messages intended for a chip that is not present in the system should be skipped.</p>
 <p>An expansion HW write will contain the following data:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Chip ID</p></th>
 <th class="head"><p><code class="docutils literal notranslate"><span class="pre">nnnnnn-1</span></code> bytes of data</p></th>
@@ -1004,12 +499,11 @@ as 4+(16*(last_instrument_index+1)).</p>
 </tr>
 </tbody>
 </table>
-</div>
 <ul class="simple">
 <li><p>The length of the EXTCMD <code class="docutils literal notranslate"><span class="pre">nnnnnn</span></code> encompasses the chip_id byte and the data bytes which follow.</p></li>
 </ul>
 <section id="chip-ids">
-<h5>Chip IDs<a class="headerlink" href="#chip-ids" title="Link to this heading">#</a></h5>
+<h5>Chip IDs<a class="headerlink" href="#chip-ids" title="Link to this heading"></a></h5>
 <ul class="simple">
 <li><p>0x00 - reserved</p></li>
 <li><p>0x01 - MIDI 1 (Primary MIDI)</p>
@@ -1042,10 +536,10 @@ as 4+(16*(last_instrument_index+1)).</p>
 </section>
 </section>
 <section id="synchronization-events">
-<h4>2: Synchronization Events<a class="headerlink" href="#synchronization-events" title="Link to this heading">#</a></h4>
+<h4>2: Synchronization Events<a class="headerlink" href="#synchronization-events" title="Link to this heading"></a></h4>
 <p>The purpose of this channel is to provide for music synchronization cues that applications may use to perform operations in sync with the music (such as when the Goombas jump in New Super Mario Bros in time with the BOP! BOP! notes in the music). It is intended for the reference player to provide a sync channel callback, passing the data bytes to the callback function, and then to proceed with playback.</p>
 <p>The synchronization format currently defines these event types:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Event Type</p></th>
 <th class="head"><p>Description</p></th>
@@ -1063,11 +557,10 @@ as 4+(16*(last_instrument_index+1)).</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>An example of an EXTCMD containing one sync event might look as follows: <code class="docutils literal notranslate"><span class="pre">0x40</span> <span class="pre">0x82</span> <span class="pre">0x00</span> <span class="pre">0x05</span></code></p>
 </section>
 <section id="custom">
-<h4>3: Custom<a class="headerlink" href="#custom" title="Link to this heading">#</a></h4>
+<h4>3: Custom<a class="headerlink" href="#custom" title="Link to this heading"></a></h4>
 <p>The purpose for this channel is that any project with an idea that does not fit neatly into the above categories may pack data into the project’s music files in whatever form is required. It should be understood that these ZSMs will not be expected to use the extended behaviors outside of the project they were designed for. The music itself, however, should play properly. The only constraint is that the data must conform to the EXTCMD byte - supplying exactly the specified number of bytes per EXTCMD.</p>
 <p>The reference playback library in Zsound will implement this channel as a simple callback passing the memory location and data size to the referenced function, and take no further action internally.</p>
 <!-- For PDF formatting -->
@@ -1078,150 +571,34 @@ as 4+(16*(last_instrument_index+1)).</p>
 </section>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Appendix F: The 65C816 Processor</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Appendix H: How to update your X16 to latest release</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zsound-repo">Zsound Repo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-zsm-revision-1">Current ZSM Revision: 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#headerless-data-file-format">Headerless Data File Format:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zsm-file-composition">ZSM file composition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zsm-header">ZSM Header</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zsm-music-data-stream-format">ZSM Music Data Stream Format</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd-command-byte-values">CMD (command) byte values</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extcmd">EXTCMD:</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcm-header">PCM Header</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrument-definition">Instrument definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcm-sample-data">PCM Sample Data</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extcmd-channel-specifications">EXTCMD Channel Specifications</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extcmd-in-zsm-stream-context">EXTCMD in ZSM stream context:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extcmd-byte-format">EXTCMD byte format:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extcmd-channels">EXTCMD Channels:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extcmd-channel">EXTCMD Channel:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pcm-audio">0: PCM audio</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-sound-devices">1: Expansion Sound Devices</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#chip-ids">Chip IDs</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-events">2: Synchronization Events</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom">3: Custom</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - Appendix G - ZSM File Format.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html" class="btn btn-neutral float-left" title="Appendix F: The 65C816 Processor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html" class="btn btn-neutral float-right" title="Appendix H: How to update your X16 to latest release" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>

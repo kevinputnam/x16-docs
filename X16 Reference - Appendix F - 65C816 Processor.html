@@ -1,647 +1,233 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appendix F: The 65C816 Processor &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Appendix F: The 65C816 Processor &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - Appendix F - 65C816 Processor';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Appendix G: ZSM File Format" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html" />
-    <link rel="prev" title="Appendix E: Diagnostic Bank" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Appendix E: Diagnostic Bank" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">Chapter 4: BASIC Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">Chapter 5: KERNAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">Appendix C: The 65C02 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix F: The 65C816 Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table Of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compatibility-with-the-65c02">Compatibility with the 65C02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registers">Registers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#status-flags">Status Flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bit-mode">16 bit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#address-modes">Address Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vectors">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decimal-mode">Decimal Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instruction-tables">Instruction Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instructions-by-opcode">Instructions By Opcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instructions-by-name">Instructions By Name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instructions-by-category">Instructions By Category</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adc">ADC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overflow-vs-carry">Overflow vs Carry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#and">AND</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asl">ASL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bcc">BCC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bcs">BCS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#beq">BEQ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bit">BIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bmi">BMI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bne">BNE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bpl">BPL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bra">BRA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brk">BRK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brl">BRL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bvc">BVC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bvs">BVS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clc">CLC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cld">CLD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cli">CLI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clv">CLV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmp">CMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cop">COP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpx">CPX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpy">CPY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dec">DEC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dex">DEX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dey">DEY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eor">EOR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inc">INC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inx">INX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iny">INY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jmp">JMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jml">JML</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jsl">JSL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jsr">JSR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lda">LDA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ldx">LDX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ldy">LDY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lsr">LSR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvn">MVN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mvp">MVP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nop">NOP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ora">ORA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pea">PEA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pei">PEI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#per">PER</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pha">PHA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phb">PHB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phd">PHD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phk">PHK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#php">PHP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phx">PHX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phy">PHY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pla">PLA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plb">PLB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pld">PLD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plp">PLP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plx">PLX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ply">PLY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rep">REP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rol">ROL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ror">ROR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rti">RTI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rtl">RTL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rts">RTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbc">SBC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec">SEC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sed">SED</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sei">SEI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sep">SEP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sta">STA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stp">STP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stx">STX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sty">STY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stz">STZ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tax">TAX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tay">TAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tcd">TCD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tcs">TCS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tdc">TDC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trb">TRB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tsb">TSB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tsc">TSC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tsx">TSX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#txa">TXA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#txs">TXS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#txy">TXY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tya">TYA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tyx">TYX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wai">WAI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wdm">WDM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xba">XBA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xce">XCE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">Appendix G: ZSM File Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Appendix F: The 65C816 Processor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - Appendix F - 65C816 Processor.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Appendix F: The 65C816 Processor</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="appendix-f-the-65c816-processor">
-<h1>Appendix F: The 65C816 Processor<a class="headerlink" href="#appendix-f-the-65c816-processor" title="Link to this heading">#</a></h1>
+<h1>Appendix F: The 65C816 Processor<a class="headerlink" href="#appendix-f-the-65c816-processor" title="Link to this heading"></a></h1>
 <section id="table-of-contents">
-<h2>Table Of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<h2>Table Of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#overview"><span class="xref myst">Overview</span></a></p></li>
 <li><p><a class="reference internal" href="#compatibility-with-the-65c02"><span class="xref myst">Compatibility with the 65C02</span></a></p></li>
@@ -654,7 +240,7 @@
 </ol>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>This document is a brief introduction and quick reference for the 65C816
 Microprocessor. For more details, see the <a class="reference external" href="https://www.westerndesigncenter.com/wdc/documentation/w65c816s.pdf">65C816 data
 sheet</a> or
@@ -673,15 +259,15 @@ This allows for a much larger stack, and the combination of stack and DP
 relocation offer interesting multitasking opportunities.</p>
 </section>
 <section id="compatibility-with-the-65c02">
-<h2>Compatibility with the 65C02<a class="headerlink" href="#compatibility-with-the-65c02" title="Link to this heading">#</a></h2>
+<h2>Compatibility with the 65C02<a class="headerlink" href="#compatibility-with-the-65c02" title="Link to this heading"></a></h2>
 <p>The 65C816 CPU is generally compatible with the 65C02 instruction set, with the
 exception of the <code class="docutils literal notranslate"><span class="pre">BBRx</span></code>, <code class="docutils literal notranslate"><span class="pre">BBSx</span></code>, <code class="docutils literal notranslate"><span class="pre">RMBx</span></code>, and <code class="docutils literal notranslate"><span class="pre">SMBx</span></code> instructions. We recommend
 programmers avoid these instructions when writing X16 software, using the more
 conventional Boolean logic instructions, instead.</p>
 </section>
 <section id="registers">
-<h2>Registers<a class="headerlink" href="#registers" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>Registers<a class="headerlink" href="#registers" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Notation</p></th>
 <th class="head"><p>Name</p></th>
@@ -723,7 +309,6 @@ conventional Boolean logic instructions, instead.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>.A, .X, and .Y can be 8 or 16 bits wide, based on the flag settings (see below).</p>
 <p>The Stack Pointer (.S) is 16 bits wide in Native mode and 8 bits wide (and fixed
 to the $100-1FF range) in Emulation mode.</p>
@@ -732,7 +317,7 @@ to the $100-1FF range) in Emulation mode.</p>
 registers, instead using addresses $00 and $01 for banking.)</p>
 </section>
 <section id="status-flags">
-<h2>Status Flags<a class="headerlink" href="#status-flags" title="Link to this heading">#</a></h2>
+<h2>Status Flags<a class="headerlink" href="#status-flags" title="Link to this heading"></a></h2>
 <p>The native mode flags are as follows:</p>
 <p><code class="docutils literal notranslate"><span class="pre">nvmx</span> <span class="pre">dizc</span> <span class="pre">e</span></code></p>
 <p>n = Negative<br />
@@ -767,7 +352,7 @@ will be pushed to the stack instead of the <strong>x</strong> flag. This can be 
 to test for a BRK vs IRQ in the Interrupt handler.</p>
 </section>
 <section id="bit-mode">
-<h2>16 bit mode<a class="headerlink" href="#bit-mode" title="Link to this heading">#</a></h2>
+<h2>16 bit mode<a class="headerlink" href="#bit-mode" title="Link to this heading"></a></h2>
 <p>The 65C816 CPU boots up in emulation mode. This locks the register width to
 8 bits and locks out certain operations.</p>
 <p>If you want to use the ‘816 features, including 16-bit operation, you will
@@ -815,13 +400,13 @@ all <em>emulate</em> 65C02 behavior when <em>set</em>.</p>
 </section>
 <hr class="docutils" />
 <section id="address-modes">
-<h2>Address Modes<a class="headerlink" href="#address-modes" title="Link to this heading">#</a></h2>
+<h2>Address Modes<a class="headerlink" href="#address-modes" title="Link to this heading"></a></h2>
 <p>The 65C816 now has 24 distinct address modes, although most are variations on a
 theme. Make note of the new syntax for Stack relative instructions (,S), the use
 of brackets for [24 bit indirect] addressing, and the fact that Zero Page has
 been renamed to Direct Page. This means that $0001 and $01 are now two different
 addresses (although they would be the same if .DP is set to $00.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mode</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -927,10 +512,9 @@ addresses (although they would be the same if .DP is set to $00.</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="vectors">
-<h2>Vectors<a class="headerlink" href="#vectors" title="Link to this heading">#</a></h2>
+<h2>Vectors<a class="headerlink" href="#vectors" title="Link to this heading"></a></h2>
 <p>The 65C816 has two different sets of interrupt vectors. In emulation mode, the
 vectors are the same as the 65C02. In native mode (.e = 0), the native vectors
 are used. This allows you to switch to the desired operation mode, based on the
@@ -939,7 +523,7 @@ operating mode of your interrupt handlers.</p>
 on the X16 will switch to emulation mode, then simply call the 8-bit interrupt
 handlers.</p>
 <p>The vectors are:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Emu</p></th>
@@ -973,7 +557,6 @@ handlers.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>The 65C02 shares the same interrupt for BRK and IRQ, and the <strong>b</strong> flag tells
 the interrupt handler whether to execute a break or interrupt.</p>
 <p>In emulation mode, the 65C816 pushes a modified version of the flags to the
@@ -984,7 +567,7 @@ pushed verbatim, since BRK has its own handler.</p>
 mode. The CPU always starts at the address stored in $FFFC.</p>
 </section>
 <section id="decimal-mode">
-<h2>Decimal Mode<a class="headerlink" href="#decimal-mode" title="Link to this heading">#</a></h2>
+<h2>Decimal Mode<a class="headerlink" href="#decimal-mode" title="Link to this heading"></a></h2>
 <p>When the <strong>d</strong> flag is set, the CPU operates in Decimal mode. In this mode, a
 byte is treated as two decimal digits, rather than a binary number. As a result,
 you can easily add, subtract, and display decimal numbers.</p>
@@ -1001,7 +584,7 @@ needed to represent values from 0 to 199.</p>
 <p>If you perform an ADC with the Carry bit set, this will add an extra 1 to the
 result.</p>
 <p>Examples</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>.A</p></th>
@@ -1022,10 +605,9 @@ result.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>When subtracting, the Carry bit operates as a <em>borrow</em> bit, and the sense is
 inverted: 0 indicates a borrow took place, and 1 means it did not.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>.A</p></th>
@@ -1046,7 +628,6 @@ inverted: 0 indicates a borrow took place, and 1 means it did not.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>In the second example ($00 - $01), the final result was $99 with a borrow.</p>
 <p>Note that the <strong>n</strong> flag tracks the high bit, but two’s complement doesn’t work
 as expected in Decimal mode. Instead, we have to use <em>Ten’s complement</em>.</p>
@@ -1057,10 +638,10 @@ values to positive values for printing, you would subtract from 99 and add 1.</p
 as <code class="docutils literal notranslate"><span class="pre">-49</span></code>.</p>
 </section>
 <section id="instruction-tables">
-<h2>Instruction Tables<a class="headerlink" href="#instruction-tables" title="Link to this heading">#</a></h2>
+<h2>Instruction Tables<a class="headerlink" href="#instruction-tables" title="Link to this heading"></a></h2>
 <section id="instructions-by-opcode">
-<h3>Instructions By Opcode<a class="headerlink" href="#instructions-by-opcode" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<h3>Instructions By Opcode<a class="headerlink" href="#instructions-by-opcode" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>x0</p></th>
@@ -1372,11 +953,10 @@ as <code class="docutils literal notranslate"><span class="pre">-49</span></code
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="instructions-by-name">
-<h3>Instructions By Name<a class="headerlink" href="#instructions-by-name" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<h3>Instructions By Name<a class="headerlink" href="#instructions-by-name" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -1503,11 +1083,10 @@ as <code class="docutils literal notranslate"><span class="pre">-49</span></code
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="instructions-by-category">
-<h3>Instructions By Category<a class="headerlink" href="#instructions-by-category" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<h3>Instructions By Category<a class="headerlink" href="#instructions-by-category" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Category</p></th>
 <th class="head"><p>Instructions</p></th>
@@ -1561,9 +1140,8 @@ as <code class="docutils literal notranslate"><span class="pre">-49</span></code
 </tr>
 </tbody>
 </table>
-</div>
 <section id="adc">
-<h4>ADC<a class="headerlink" href="#adc" title="Link to this heading">#</a></h4>
+<h4>ADC<a class="headerlink" href="#adc" title="Link to this heading"></a></h4>
 <p><strong>Add with Carry</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 ADC #$20/#$1234  imm        69  3-m 3-m         nv....zc .
@@ -1614,7 +1192,7 @@ tested with BEQ and BNE. (BEQ and BNE test the Zero bit, which is also the
 </ul>
 </section>
 <section id="overflow-vs-carry">
-<h4>Overflow vs Carry<a class="headerlink" href="#overflow-vs-carry" title="Link to this heading">#</a></h4>
+<h4>Overflow vs Carry<a class="headerlink" href="#overflow-vs-carry" title="Link to this heading"></a></h4>
 <p>The CPU detects addition that goes past the 7 or 15 bit boundary of a signed
 number, as well as the 8 bit boundary of an unsigned number.</p>
 <p>In 8-bit mode, when you add two positive numbers that result in a sum
@@ -1632,7 +1210,7 @@ be set. This bit can be added to the next higher byte with ADC #0.</p>
 </section>
 <hr class="docutils" />
 <section id="and">
-<h4>AND<a class="headerlink" href="#and" title="Link to this heading">#</a></h4>
+<h4>AND<a class="headerlink" href="#and" title="Link to this heading"></a></h4>
 <p><strong>Boolean AND</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 AND #$20/#$1234  imm        29  3-m 3-m         n.....z. .
@@ -1673,7 +1251,7 @@ Result:    1000
 </section>
 <hr class="docutils" />
 <section id="asl">
-<h4>ASL<a class="headerlink" href="#asl" title="Link to this heading">#</a></h4>
+<h4>ASL<a class="headerlink" href="#asl" title="Link to this heading"></a></h4>
 <p><strong>Arithmetic Shift Left</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 ASL              acc        0A  1   2           n.....zc .
@@ -1690,7 +1268,7 @@ the Carry flag and a zero into the low bit.</p>
 </section>
 <hr class="docutils" />
 <section id="bcc">
-<h4>BCC<a class="headerlink" href="#bcc" title="Link to this heading">#</a></h4>
+<h4>BCC<a class="headerlink" href="#bcc" title="Link to this heading"></a></h4>
 <p><strong>Branch on Carry Clear</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BCC LABEL        rel8       90  2   2+t+t*e*p   ........ .
@@ -1710,7 +1288,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="bcs">
-<h4>BCS<a class="headerlink" href="#bcs" title="Link to this heading">#</a></h4>
+<h4>BCS<a class="headerlink" href="#bcs" title="Link to this heading"></a></h4>
 <p><strong>Branch on Carry Set</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BCS LABEL        rel8       B0  2   2+t+t*e*p   ........ .
@@ -1730,7 +1308,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="beq">
-<h4>BEQ<a class="headerlink" href="#beq" title="Link to this heading">#</a></h4>
+<h4>BEQ<a class="headerlink" href="#beq" title="Link to this heading"></a></h4>
 <p><strong>Branch on Equal.</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BEQ LABEL        rel8       F0  2   2+t+t*e*p   ........ .
@@ -1747,7 +1325,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="bit">
-<h4>BIT<a class="headerlink" href="#bit" title="Link to this heading">#</a></h4>
+<h4>BIT<a class="headerlink" href="#bit" title="Link to this heading"></a></h4>
 <p><strong>Bit Test</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BIT #$20/#$1234  imm        89  3-m 3-m         ......z. .
@@ -1767,7 +1345,7 @@ memory.</p>
 </section>
 <hr class="docutils" />
 <section id="bmi">
-<h4>BMI<a class="headerlink" href="#bmi" title="Link to this heading">#</a></h4>
+<h4>BMI<a class="headerlink" href="#bmi" title="Link to this heading"></a></h4>
 <p><strong>Branch on Minus</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BMI LABEL        rel8       30  2   2+t+t*e*p   ........ .
@@ -1783,7 +1361,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="bne">
-<h4>BNE<a class="headerlink" href="#bne" title="Link to this heading">#</a></h4>
+<h4>BNE<a class="headerlink" href="#bne" title="Link to this heading"></a></h4>
 <p><strong>Branch on Not Equal.</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BNE LABEL        rel8       D0  2   2+t+t*e*p   ........ .
@@ -1800,7 +1378,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="bpl">
-<h4>BPL<a class="headerlink" href="#bpl" title="Link to this heading">#</a></h4>
+<h4>BPL<a class="headerlink" href="#bpl" title="Link to this heading"></a></h4>
 <p><strong>Branch on Plus</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BPL LABEL        rel8       10  2   2+t+t*e*p   ........ .
@@ -1816,7 +1394,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="bra">
-<h4>BRA<a class="headerlink" href="#bra" title="Link to this heading">#</a></h4>
+<h4>BRA<a class="headerlink" href="#bra" title="Link to this heading"></a></h4>
 <p><strong>Branch Always</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BRA LABEL        rel8       80  2   3+e*p       ........ .
@@ -1830,7 +1408,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="brk">
-<h4>BRK<a class="headerlink" href="#brk" title="Link to this heading">#</a></h4>
+<h4>BRK<a class="headerlink" href="#brk" title="Link to this heading"></a></h4>
 <p><strong>Break</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BRK #$20         imm        00  1   8-e         ....di.. .
@@ -1873,7 +1451,7 @@ pushed PC address.</p>
 </section>
 <hr class="docutils" />
 <section id="brl">
-<h4>BRL<a class="headerlink" href="#brl" title="Link to this heading">#</a></h4>
+<h4>BRL<a class="headerlink" href="#brl" title="Link to this heading"></a></h4>
 <p><strong>Branch Long</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BRL LABEL        rel16      82  3   4           ........ .
@@ -1892,7 +1470,7 @@ JMP, can be moved around in memory without the need for re-assembly.</p>
 </section>
 <hr class="docutils" />
 <section id="bvc">
-<h4>BVC<a class="headerlink" href="#bvc" title="Link to this heading">#</a></h4>
+<h4>BVC<a class="headerlink" href="#bvc" title="Link to this heading"></a></h4>
 <p><strong>Branch on Overflow Clear</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BVC LABEL        rel8       50  2   2+t+t*e*p   ........ .
@@ -1906,7 +1484,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="bvs">
-<h4>BVS<a class="headerlink" href="#bvs" title="Link to this heading">#</a></h4>
+<h4>BVS<a class="headerlink" href="#bvs" title="Link to this heading"></a></h4>
 <p><strong>Branch on Overflow Set</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 BVS LABEL        rel8       70  2   2+t+t*e*p   ........ .
@@ -1920,7 +1498,7 @@ or 128 bytes after the branch instruction.</p>
 </section>
 <hr class="docutils" />
 <section id="clc">
-<h4>CLC<a class="headerlink" href="#clc" title="Link to this heading">#</a></h4>
+<h4>CLC<a class="headerlink" href="#clc" title="Link to this heading"></a></h4>
 <p><strong>Clear Carry</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 CLC              imp        18  1   2           .......c .
@@ -1933,7 +1511,7 @@ calling certain KERNAL routines that use the <strong>c</strong> bit as an input 
 </section>
 <hr class="docutils" />
 <section id="cld">
-<h4>CLD<a class="headerlink" href="#cld" title="Link to this heading">#</a></h4>
+<h4>CLD<a class="headerlink" href="#cld" title="Link to this heading"></a></h4>
 <p><strong>Clear Decimal</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 CLD              imp        D8  1   2           ....d... .
@@ -1947,7 +1525,7 @@ Clearing this flag restores the CPU to binary operation. See
 </section>
 <hr class="docutils" />
 <section id="cli">
-<h4>CLI<a class="headerlink" href="#cli" title="Link to this heading">#</a></h4>
+<h4>CLI<a class="headerlink" href="#cli" title="Link to this heading"></a></h4>
 <p><strong>Clear Interrupt Flag</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 CLI              imp        58  1   2           .....i.. .
@@ -1962,7 +1540,7 @@ interrupts to be handled.</p>
 </section>
 <hr class="docutils" />
 <section id="clv">
-<h4>CLV<a class="headerlink" href="#clv" title="Link to this heading">#</a></h4>
+<h4>CLV<a class="headerlink" href="#clv" title="Link to this heading"></a></h4>
 <p><strong>Clear Overflow</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 CLV              imp        B8  1   2           .v...... .
@@ -1976,7 +1554,7 @@ set with SEP #$40.</p>
 </section>
 <hr class="docutils" />
 <section id="cmp">
-<h4>CMP<a class="headerlink" href="#cmp" title="Link to this heading">#</a></h4>
+<h4>CMP<a class="headerlink" href="#cmp" title="Link to this heading"></a></h4>
 <p><strong>Compare</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 CMP #$20/#$1234  imm        C9  3-m 3-m         n.....zc .
@@ -2059,7 +1637,7 @@ skip:
 </section>
 <hr class="docutils" />
 <section id="cop">
-<h4>COP<a class="headerlink" href="#cop" title="Link to this heading">#</a></h4>
+<h4>COP<a class="headerlink" href="#cop" title="Link to this heading"></a></h4>
 <p><strong>COP interrupt.</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 COP #$20         imm        02  2   8-e         ....di.. .
@@ -2072,7 +1650,7 @@ is to switch to a Co-Processor, but this can be used for any purpose on the X16
 </section>
 <hr class="docutils" />
 <section id="cpx">
-<h4>CPX<a class="headerlink" href="#cpx" title="Link to this heading">#</a></h4>
+<h4>CPX<a class="headerlink" href="#cpx" title="Link to this heading"></a></h4>
 <p><strong>Compare X Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 CPX #$20/#$1234  imm        E0  3-x 3-x         n.....zc .
@@ -2086,7 +1664,7 @@ CPX $1234        abs        EC  3   5-x         n.....zc .
 </section>
 <hr class="docutils" />
 <section id="cpy">
-<h4>CPY<a class="headerlink" href="#cpy" title="Link to this heading">#</a></h4>
+<h4>CPY<a class="headerlink" href="#cpy" title="Link to this heading"></a></h4>
 <p><strong>Compare Y Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 CPY #$20/#$1234  imm        C0  3-x 3-x         n.....zc .
@@ -2100,7 +1678,7 @@ CPY $1234        abs        CC  3   5-x         n.....zc .
 </section>
 <hr class="docutils" />
 <section id="dec">
-<h4>DEC<a class="headerlink" href="#dec" title="Link to this heading">#</a></h4>
+<h4>DEC<a class="headerlink" href="#dec" title="Link to this heading"></a></h4>
 <p><strong>Decrement</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 DEC              acc        3A  1   2           n.....z. .
@@ -2119,7 +1697,7 @@ iterations, the repeated operation, then DEX followed by BNE.</p>
 </section>
 <hr class="docutils" />
 <section id="dex">
-<h4>DEX<a class="headerlink" href="#dex" title="Link to this heading">#</a></h4>
+<h4>DEX<a class="headerlink" href="#dex" title="Link to this heading"></a></h4>
 <p><strong>Decrement .X</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 DEX              imp        CA  1   2           n.....z. .
@@ -2134,7 +1712,7 @@ iterations, the repeated operation, then DEX followed by BNE.</p>
 </section>
 <hr class="docutils" />
 <section id="dey">
-<h4>DEY<a class="headerlink" href="#dey" title="Link to this heading">#</a></h4>
+<h4>DEY<a class="headerlink" href="#dey" title="Link to this heading"></a></h4>
 <p><strong>Decrement .Y</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 DEY              imp        88  1   2           n.....z. .
@@ -2149,7 +1727,7 @@ iterations, the repeated operation, then DEX followed by BNE.</p>
 </section>
 <hr class="docutils" />
 <section id="eor">
-<h4>EOR<a class="headerlink" href="#eor" title="Link to this heading">#</a></h4>
+<h4>EOR<a class="headerlink" href="#eor" title="Link to this heading"></a></h4>
 <p><strong>Exclusive OR</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 EOR #$20/#$1234  imm        49  3-m 3-m         n.....z. .
@@ -2186,7 +1764,7 @@ Result:    0110
 </section>
 <hr class="docutils" />
 <section id="inc">
-<h4>INC<a class="headerlink" href="#inc" title="Link to this heading">#</a></h4>
+<h4>INC<a class="headerlink" href="#inc" title="Link to this heading"></a></h4>
 <p><strong>Increment</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 INC              acc        1A  1   2           n.....z. .
@@ -2205,7 +1783,7 @@ especially with indirect and indexed addressing modes.</p>
 </section>
 <hr class="docutils" />
 <section id="inx">
-<h4>INX<a class="headerlink" href="#inx" title="Link to this heading">#</a></h4>
+<h4>INX<a class="headerlink" href="#inx" title="Link to this heading"></a></h4>
 <p><strong>Increment .X</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 INX              imp        E8  1   2           n.....z. .
@@ -2228,7 +1806,7 @@ done:
 </section>
 <hr class="docutils" />
 <section id="iny">
-<h4>INY<a class="headerlink" href="#iny" title="Link to this heading">#</a></h4>
+<h4>INY<a class="headerlink" href="#iny" title="Link to this heading"></a></h4>
 <p><strong>Increment .Y</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 INY              imp        C8  1   2           n.....z. .
@@ -2240,7 +1818,7 @@ INY              imp        C8  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="jmp">
-<h4>JMP<a class="headerlink" href="#jmp" title="Link to this heading">#</a></h4>
+<h4>JMP<a class="headerlink" href="#jmp" title="Link to this heading"></a></h4>
 <p><strong>Jump</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 JMP $2034        abs        4C  3   3           ........ .
@@ -2256,7 +1834,7 @@ subroutine by setting X to the index into the vector table.</p>
 </section>
 <hr class="docutils" />
 <section id="jml">
-<h4>JML<a class="headerlink" href="#jml" title="Link to this heading">#</a></h4>
+<h4>JML<a class="headerlink" href="#jml" title="Link to this heading"></a></h4>
 <p><strong>Jump Long</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 JML $FEDCBA      long       5C  4   4           ........ .
@@ -2270,7 +1848,7 @@ program banks.</p>
 </section>
 <hr class="docutils" />
 <section id="jsl">
-<h4>JSL<a class="headerlink" href="#jsl" title="Link to this heading">#</a></h4>
+<h4>JSL<a class="headerlink" href="#jsl" title="Link to this heading"></a></h4>
 <p><strong>Jmp to Subroutine Long</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 JSL $203456      long       22  4   8           ........ .
@@ -2283,7 +1861,7 @@ program bank.</p>
 </section>
 <hr class="docutils" />
 <section id="jsr">
-<h4>JSR<a class="headerlink" href="#jsr" title="Link to this heading">#</a></h4>
+<h4>JSR<a class="headerlink" href="#jsr" title="Link to this heading"></a></h4>
 <p><strong>Jump to Subroutine</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 JSR $2034        abs        20  3   6           ........ .
@@ -2301,7 +1879,7 @@ RTS.</p>
 </section>
 <hr class="docutils" />
 <section id="lda">
-<h4>LDA<a class="headerlink" href="#lda" title="Link to this heading">#</a></h4>
+<h4>LDA<a class="headerlink" href="#lda" title="Link to this heading"></a></h4>
 <p><strong>Load Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 LDA #$20/#$1234  imm        A9  3-m 3-m         n.....z. .
@@ -2327,7 +1905,7 @@ allowing you to use BMI, BPL, BEQ, and BNE to act based on the value being read.
 </section>
 <hr class="docutils" />
 <section id="ldx">
-<h4>LDX<a class="headerlink" href="#ldx" title="Link to this heading">#</a></h4>
+<h4>LDX<a class="headerlink" href="#ldx" title="Link to this heading"></a></h4>
 <p><strong>Load X Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 LDX #$20/#$1234  imm        A2  3-x 3-x         n.....z. .
@@ -2343,7 +1921,7 @@ use BMI, BPL, BEQ, and BNE to act based on the value being read.</p>
 </section>
 <hr class="docutils" />
 <section id="ldy">
-<h4>LDY<a class="headerlink" href="#ldy" title="Link to this heading">#</a></h4>
+<h4>LDY<a class="headerlink" href="#ldy" title="Link to this heading"></a></h4>
 <p><strong>Load X Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 LDY #$20/#$1234  imm        A0  3-x 3-x         n.....z. .
@@ -2359,7 +1937,7 @@ use BMI, BPL, BEQ, and BNE to act based on the value being read.</p>
 </section>
 <hr class="docutils" />
 <section id="lsr">
-<h4>LSR<a class="headerlink" href="#lsr" title="Link to this heading">#</a></h4>
+<h4>LSR<a class="headerlink" href="#lsr" title="Link to this heading"></a></h4>
 <p><strong>Logical Shift Right</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 LSR              acc        4A  1   2           n.....zc .
@@ -2381,7 +1959,7 @@ LSR $1234,X      abs,X      5E  3   9-2*m       n.....zc .
 </section>
 <hr class="docutils" />
 <section id="mvn">
-<h4>MVN<a class="headerlink" href="#mvn" title="Link to this heading">#</a></h4>
+<h4>MVN<a class="headerlink" href="#mvn" title="Link to this heading"></a></h4>
 <p><strong>Block Copy/Move Negative</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 MVN #$20,#$34    src,dest   54  3   7           ........ .
@@ -2401,7 +1979,7 @@ wise to clear <strong>m</strong> and <strong>x</strong> with <code class="docuti
 </section>
 <hr class="docutils" />
 <section id="mvp">
-<h4>MVP<a class="headerlink" href="#mvp" title="Link to this heading">#</a></h4>
+<h4>MVP<a class="headerlink" href="#mvp" title="Link to this heading"></a></h4>
 <p><strong>Block Copy/Move Positive</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 MVP #$20,#$34    src,dest   44  3   7           ........ .
@@ -2421,7 +1999,7 @@ wise to clear <strong>m</strong> and <strong>x</strong> with <code class="docuti
 </section>
 <hr class="docutils" />
 <section id="nop">
-<h4>NOP<a class="headerlink" href="#nop" title="Link to this heading">#</a></h4>
+<h4>NOP<a class="headerlink" href="#nop" title="Link to this heading"></a></h4>
 <p><strong>No Operation</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 NOP              imp        EA  1   2           ........ .
@@ -2433,7 +2011,7 @@ reserving space for later use.</p>
 </section>
 <hr class="docutils" />
 <section id="ora">
-<h4>ORA<a class="headerlink" href="#ora" title="Link to this heading">#</a></h4>
+<h4>ORA<a class="headerlink" href="#ora" title="Link to this heading"></a></h4>
 <p><strong>Boolean OR</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 ORA #$20/#$1234  imm        09  3-m 3-m         n.....z. .
@@ -2467,7 +2045,7 @@ Result:    1110
 </section>
 <hr class="docutils" />
 <section id="pea">
-<h4>PEA<a class="headerlink" href="#pea" title="Link to this heading">#</a></h4>
+<h4>PEA<a class="headerlink" href="#pea" title="Link to this heading"></a></h4>
 <p><strong>Push Absolute</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PEA $2034        abs        F4  3   5           ........ .
@@ -2482,7 +2060,7 @@ their own syntax rules.</p>
 </section>
 <hr class="docutils" />
 <section id="pei">
-<h4>PEI<a class="headerlink" href="#pei" title="Link to this heading">#</a></h4>
+<h4>PEI<a class="headerlink" href="#pei" title="Link to this heading"></a></h4>
 <p><strong>Push Effective Indirect Address</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PEI ($20)        (dir)      D4  2   6+w         ........ .
@@ -2502,7 +2080,7 @@ PEI and PEA follow their own syntax rules.</p>
 </section>
 <hr class="docutils" />
 <section id="per">
-<h4>PER<a class="headerlink" href="#per" title="Link to this heading">#</a></h4>
+<h4>PER<a class="headerlink" href="#per" title="Link to this heading"></a></h4>
 <p><strong>Push Effective PC Relative Indirect Address</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PER LABEL        rel16      62  3   6           ........ .
@@ -2525,7 +2103,7 @@ stack. See <a class="reference internal" href="#jsr"><span class="xref myst">JSR
 </section>
 <hr class="docutils" />
 <section id="pha">
-<h4>PHA<a class="headerlink" href="#pha" title="Link to this heading">#</a></h4>
+<h4>PHA<a class="headerlink" href="#pha" title="Link to this heading"></a></h4>
 <p><strong>Push Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PHA              imp        48  1   4-m         ........ .
@@ -2544,7 +2122,7 @@ stack can be anywhere in the first 64KB of RAM.</p>
 </section>
 <hr class="docutils" />
 <section id="phb">
-<h4>PHB<a class="headerlink" href="#phb" title="Link to this heading">#</a></h4>
+<h4>PHB<a class="headerlink" href="#phb" title="Link to this heading"></a></h4>
 <p><strong>Push Data Bank register.</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PHB              imp        8B  1   3           ........ .
@@ -2557,7 +2135,7 @@ and LDY.</p>
 </section>
 <hr class="docutils" />
 <section id="phd">
-<h4>PHD<a class="headerlink" href="#phd" title="Link to this heading">#</a></h4>
+<h4>PHD<a class="headerlink" href="#phd" title="Link to this heading"></a></h4>
 <p><strong>Push Direct Page</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PHD              imp        0B  1   4           ........ .
@@ -2570,7 +2148,7 @@ preserving the location of .D before relocating Direct Page for another use
 </section>
 <hr class="docutils" />
 <section id="phk">
-<h4>PHK<a class="headerlink" href="#phk" title="Link to this heading">#</a></h4>
+<h4>PHK<a class="headerlink" href="#phk" title="Link to this heading"></a></h4>
 <p><strong>Push Program Bank</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PHK              imp        4B  1   3           ........ .
@@ -2582,7 +2160,7 @@ bits of the 24-bit Program Counter address.</p>
 </section>
 <hr class="docutils" />
 <section id="php">
-<h4>PHP<a class="headerlink" href="#php" title="Link to this heading">#</a></h4>
+<h4>PHP<a class="headerlink" href="#php" title="Link to this heading"></a></h4>
 <p><strong>Push Program Status (Flags)</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PHP              imp        08  1   3           ........ .
@@ -2599,7 +2177,7 @@ bits, when dispatching an IRQ/BRK interrupt.</p>
 </section>
 <hr class="docutils" />
 <section id="phx">
-<h4>PHX<a class="headerlink" href="#phx" title="Link to this heading">#</a></h4>
+<h4>PHX<a class="headerlink" href="#phx" title="Link to this heading"></a></h4>
 <p><strong>Push X Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PHX              imp        DA  1   4-x         ........ .
@@ -2613,7 +2191,7 @@ by 1 byte. A 16-bit stack push moves the stack pointer down 2 bytes.</p>
 </section>
 <hr class="docutils" />
 <section id="phy">
-<h4>PHY<a class="headerlink" href="#phy" title="Link to this heading">#</a></h4>
+<h4>PHY<a class="headerlink" href="#phy" title="Link to this heading"></a></h4>
 <p><strong>Push Y Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PHY              imp        5A  1   4-x         ........ .
@@ -2627,7 +2205,7 @@ by 1 byte. A 16-bit stack push moves the stack pointer down 2 bytes.</p>
 </section>
 <hr class="docutils" />
 <section id="pla">
-<h4>PLA<a class="headerlink" href="#pla" title="Link to this heading">#</a></h4>
+<h4>PLA<a class="headerlink" href="#pla" title="Link to this heading"></a></h4>
 <p><strong>Pull Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PLA              imp        68  1   5-m         n.....z. .
@@ -2641,7 +2219,7 @@ stack and <em>increments</em> the stack pointer by 1 or 2 bytes.</p>
 </section>
 <hr class="docutils" />
 <section id="plb">
-<h4>PLB<a class="headerlink" href="#plb" title="Link to this heading">#</a></h4>
+<h4>PLB<a class="headerlink" href="#plb" title="Link to this heading"></a></h4>
 <p><strong>Pull Data Bank Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PLB              imp        AB  1   4           n.....z. .
@@ -2654,7 +2232,7 @@ stack and <em>increments</em> the stack pointer by 1 byte.</p>
 </section>
 <hr class="docutils" />
 <section id="pld">
-<h4>PLD<a class="headerlink" href="#pld" title="Link to this heading">#</a></h4>
+<h4>PLD<a class="headerlink" href="#pld" title="Link to this heading"></a></h4>
 <p><strong>Pull Direct Page Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PLD              imp        2B  1   5           n.....z. .
@@ -2666,7 +2244,7 @@ PLD              imp        2B  1   5           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="plp">
-<h4>PLP<a class="headerlink" href="#plp" title="Link to this heading">#</a></h4>
+<h4>PLP<a class="headerlink" href="#plp" title="Link to this heading"></a></h4>
 <p><strong>Pull Program Status Byte (flags)</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PLP              imp        28  1   4           nvmxdizc .
@@ -2679,7 +2257,7 @@ PLA, PLX, or PLY operation.</p>
 </section>
 <hr class="docutils" />
 <section id="plx">
-<h4>PLX<a class="headerlink" href="#plx" title="Link to this heading">#</a></h4>
+<h4>PLX<a class="headerlink" href="#plx" title="Link to this heading"></a></h4>
 <p><strong>Pull X Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PLX              imp        FA  1   5-x         n.....z. .
@@ -2693,7 +2271,7 @@ stack and <em>increments</em> the stack pointer by 1 or 2 bytes.</p>
 </section>
 <hr class="docutils" />
 <section id="ply">
-<h4>PLY<a class="headerlink" href="#ply" title="Link to this heading">#</a></h4>
+<h4>PLY<a class="headerlink" href="#ply" title="Link to this heading"></a></h4>
 <p><strong>Pull Y Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 PLY              imp        7A  1   5-x         n.....z. .
@@ -2707,7 +2285,7 @@ stack and <em>increments</em> the stack pointer by 1 or 2 bytes.</p>
 </section>
 <hr class="docutils" />
 <section id="rep">
-<h4>REP<a class="headerlink" href="#rep" title="Link to this heading">#</a></h4>
+<h4>REP<a class="headerlink" href="#rep" title="Link to this heading"></a></h4>
 <p><strong>Reset Program Status Bit</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 REP #$20/#$1234  imm        C2  2   3           nvmxdizc .
@@ -2719,7 +2297,7 @@ cleared in the flags, so REP #$30 will set the <strong>a</strong> and <strong>x<
 </section>
 <hr class="docutils" />
 <section id="rol">
-<h4>ROL<a class="headerlink" href="#rol" title="Link to this heading">#</a></h4>
+<h4>ROL<a class="headerlink" href="#rol" title="Link to this heading"></a></h4>
 <p><strong>Rotate Left</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 ROL              acc        2A  1   2           n.....zc .
@@ -2735,7 +2313,7 @@ shifted into bit 0. The high bit (7 or 15) is shifted into <strong>c</strong>.</
 </section>
 <hr class="docutils" />
 <section id="ror">
-<h4>ROR<a class="headerlink" href="#ror" title="Link to this heading">#</a></h4>
+<h4>ROR<a class="headerlink" href="#ror" title="Link to this heading"></a></h4>
 <p><strong>Rotate Right</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 ROR              acc        6A  1   2           n.....zc .
@@ -2751,7 +2329,7 @@ shifted into the high bit (15 or 7). The low bit (0) is shifted into <strong>c</
 </section>
 <hr class="docutils" />
 <section id="rti">
-<h4>RTI<a class="headerlink" href="#rti" title="Link to this heading">#</a></h4>
+<h4>RTI<a class="headerlink" href="#rti" title="Link to this heading"></a></h4>
 <p><strong>Return From Interrupt</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 RTI              imp        40  1   7-e         nvmxdizc .
@@ -2769,7 +2347,7 @@ switch to 8/16 bit mode, as appropriate.</p></li>
 </section>
 <hr class="docutils" />
 <section id="rtl">
-<h4>RTL<a class="headerlink" href="#rtl" title="Link to this heading">#</a></h4>
+<h4>RTL<a class="headerlink" href="#rtl" title="Link to this heading"></a></h4>
 <p><strong>Return From Subroutine Long</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 RTL              imp        6B  1   6           ........ .
@@ -2784,7 +2362,7 @@ instruction after the JSL that jumped to the subroutine.</p>
 </section>
 <hr class="docutils" />
 <section id="rts">
-<h4>RTS<a class="headerlink" href="#rts" title="Link to this heading">#</a></h4>
+<h4>RTS<a class="headerlink" href="#rts" title="Link to this heading"></a></h4>
 <p><strong>Return From Subroutine</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 RTS              imp        60  1   6           ........ .
@@ -2798,7 +2376,7 @@ instruction after the JSR that jumped to the subroutine.</p>
 </section>
 <hr class="docutils" />
 <section id="sbc">
-<h4>SBC<a class="headerlink" href="#sbc" title="Link to this heading">#</a></h4>
+<h4>SBC<a class="headerlink" href="#sbc" title="Link to this heading"></a></h4>
 <p><strong>Subtract With Carry</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 SBC #$20/#$1234  imm        E9  3-m 3-m         nv....zc .
@@ -2833,7 +2411,7 @@ subtraction.</p>
 </section>
 <hr class="docutils" />
 <section id="sec">
-<h4>SEC<a class="headerlink" href="#sec" title="Link to this heading">#</a></h4>
+<h4>SEC<a class="headerlink" href="#sec" title="Link to this heading"></a></h4>
 <p><strong>Set Carry</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 SEC              imp        38  1   2           .......c .
@@ -2844,7 +2422,7 @@ SEC              imp        38  1   2           .......c .
 </section>
 <hr class="docutils" />
 <section id="sed">
-<h4>SED<a class="headerlink" href="#sed" title="Link to this heading">#</a></h4>
+<h4>SED<a class="headerlink" href="#sed" title="Link to this heading"></a></h4>
 <p><strong>Set Decimal</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 SED              imp        F8  1   2           ....d... .
@@ -2866,7 +2444,7 @@ So if you have a number like $1A on the accumulator and you SED, you can convert
 </section>
 <hr class="docutils" />
 <section id="sei">
-<h4>SEI<a class="headerlink" href="#sei" title="Link to this heading">#</a></h4>
+<h4>SEI<a class="headerlink" href="#sei" title="Link to this heading"></a></h4>
 <p><strong>Set IRQ Disable</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 SEI              imp        78  1   2           .....i.. .
@@ -2883,7 +2461,7 @@ interrupts to be handled and SEI <em>blocks</em> interrupt handling.</p>
 </section>
 <hr class="docutils" />
 <section id="sep">
-<h4>SEP<a class="headerlink" href="#sep" title="Link to this heading">#</a></h4>
+<h4>SEP<a class="headerlink" href="#sep" title="Link to this heading"></a></h4>
 <p><strong>Set Processor Status Bit</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 SEP #$20/#$1234  imm        E2  2   3           nvmxdizc .
@@ -2896,7 +2474,7 @@ loaded into the flags, so SEP #$30 will set the <strong>a</strong> and <strong>x
 </section>
 <hr class="docutils" />
 <section id="sta">
-<h4>STA<a class="headerlink" href="#sta" title="Link to this heading">#</a></h4>
+<h4>STA<a class="headerlink" href="#sta" title="Link to this heading"></a></h4>
 <p><strong>Store Accumulator to Memory</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 STA $20          dir        85  2   4-m+w       ........ .
@@ -2923,7 +2501,7 @@ RAM.</p>
 </section>
 <hr class="docutils" />
 <section id="stp">
-<h4>STP<a class="headerlink" href="#stp" title="Link to this heading">#</a></h4>
+<h4>STP<a class="headerlink" href="#stp" title="Link to this heading"></a></h4>
 <p><strong>Stop the Clock</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 STP              imp        DB  1   3           ........ .
@@ -2935,7 +2513,7 @@ is asserted.</p>
 </section>
 <hr class="docutils" />
 <section id="stx">
-<h4>STX<a class="headerlink" href="#stx" title="Link to this heading">#</a></h4>
+<h4>STX<a class="headerlink" href="#stx" title="Link to this heading"></a></h4>
 <p><strong>Store Index X to Memory</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 STX $20          dir        86  2   4-x+w       ........ .
@@ -2951,7 +2529,7 @@ byte of RAM.</p>
 </section>
 <hr class="docutils" />
 <section id="sty">
-<h4>STY<a class="headerlink" href="#sty" title="Link to this heading">#</a></h4>
+<h4>STY<a class="headerlink" href="#sty" title="Link to this heading"></a></h4>
 <p><strong>Store Index Y to Memory</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 STY $20          dir        84  2   4-x+w       ........ .
@@ -2967,7 +2545,7 @@ byte of RAM.</p>
 </section>
 <hr class="docutils" />
 <section id="stz">
-<h4>STZ<a class="headerlink" href="#stz" title="Link to this heading">#</a></h4>
+<h4>STZ<a class="headerlink" href="#stz" title="Link to this heading"></a></h4>
 <p><strong>Store Zero to Memory</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 STZ $20          dir        64  2   4-m+w       ........ .
@@ -2984,7 +2562,7 @@ RAM.</p>
 </section>
 <hr class="docutils" />
 <section id="tax">
-<h4>TAX<a class="headerlink" href="#tax" title="Link to this heading">#</a></h4>
+<h4>TAX<a class="headerlink" href="#tax" title="Link to this heading"></a></h4>
 <p><strong>Transfer Accumulator to Index X</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TAX              imp        AA  1   2           n.....z. .
@@ -2995,7 +2573,7 @@ TAX              imp        AA  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="tay">
-<h4>TAY<a class="headerlink" href="#tay" title="Link to this heading">#</a></h4>
+<h4>TAY<a class="headerlink" href="#tay" title="Link to this heading"></a></h4>
 <p><strong>Transfer Accumulator to Index Y</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TAY              imp        A8  1   2           n.....z. .
@@ -3006,7 +2584,7 @@ TAY              imp        A8  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="tcd">
-<h4>TCD<a class="headerlink" href="#tcd" title="Link to this heading">#</a></h4>
+<h4>TCD<a class="headerlink" href="#tcd" title="Link to this heading"></a></h4>
 <p><strong>Transfer C Accumulator to Direct Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TCD              imp        5B  1   2           n.....z. .
@@ -3020,7 +2598,7 @@ operates on a 16-bit value, regardless of the state of the <strong>m</strong> fl
 </section>
 <hr class="docutils" />
 <section id="tcs">
-<h4>TCS<a class="headerlink" href="#tcs" title="Link to this heading">#</a></h4>
+<h4>TCS<a class="headerlink" href="#tcs" title="Link to this heading"></a></h4>
 <p><strong>Transfer C Accumulator to Stack Pointer</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TCS              imp        1B  1   2           ........ .
@@ -3034,7 +2612,7 @@ operates on a 16-bit value, regardless of the state of the <strong>m</strong> fl
 </section>
 <hr class="docutils" />
 <section id="tdc">
-<h4>TDC<a class="headerlink" href="#tdc" title="Link to this heading">#</a></h4>
+<h4>TDC<a class="headerlink" href="#tdc" title="Link to this heading"></a></h4>
 <p><strong>Transfer Direct Register to C Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TDC              imp        7B  1   2           n.....z. .
@@ -3047,7 +2625,7 @@ operates on a 16-bit value, regardless of the state of the <strong>m</strong> fl
 </section>
 <hr class="docutils" />
 <section id="trb">
-<h4>TRB<a class="headerlink" href="#trb" title="Link to this heading">#</a></h4>
+<h4>TRB<a class="headerlink" href="#trb" title="Link to this heading"></a></h4>
 <p><strong>Test and Reset Bit</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TRB $20          dir        14  2   7-2*m+w     ......z. .
@@ -3077,7 +2655,7 @@ TRB $1234
 </section>
 <hr class="docutils" />
 <section id="tsb">
-<h4>TSB<a class="headerlink" href="#tsb" title="Link to this heading">#</a></h4>
+<h4>TSB<a class="headerlink" href="#tsb" title="Link to this heading"></a></h4>
 <p><strong>Test and Set Bit</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TSB $20          dir        04  2   7-2*m+w     ......z. .
@@ -3094,7 +2672,7 @@ operation.</p>
 </section>
 <hr class="docutils" />
 <section id="tsc">
-<h4>TSC<a class="headerlink" href="#tsc" title="Link to this heading">#</a></h4>
+<h4>TSC<a class="headerlink" href="#tsc" title="Link to this heading"></a></h4>
 <p><strong>Transfer Stack Pointer to C accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TSC              imp        3B  1   2           n.....z. .
@@ -3107,7 +2685,7 @@ operates on a 16-bit value, regardless of the state of the <strong>m</strong> fl
 </section>
 <hr class="docutils" />
 <section id="tsx">
-<h4>TSX<a class="headerlink" href="#tsx" title="Link to this heading">#</a></h4>
+<h4>TSX<a class="headerlink" href="#tsx" title="Link to this heading"></a></h4>
 <p><strong>Transfer Stack Pointer X Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TSX              imp        BA  1   2           n.....z. .
@@ -3118,7 +2696,7 @@ TSX              imp        BA  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="txa">
-<h4>TXA<a class="headerlink" href="#txa" title="Link to this heading">#</a></h4>
+<h4>TXA<a class="headerlink" href="#txa" title="Link to this heading"></a></h4>
 <p><strong>Transfer X Register to Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TXA              imp        8A  1   2           n.....z. .
@@ -3129,7 +2707,7 @@ TXA              imp        8A  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="txs">
-<h4>TXS<a class="headerlink" href="#txs" title="Link to this heading">#</a></h4>
+<h4>TXS<a class="headerlink" href="#txs" title="Link to this heading"></a></h4>
 <p><strong>Transfer X Register to Stack Pointer</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TXS              imp        9A  1   2           ........ .
@@ -3141,7 +2719,7 @@ known location, usually at boot or when context-switching.</p>
 </section>
 <hr class="docutils" />
 <section id="txy">
-<h4>TXY<a class="headerlink" href="#txy" title="Link to this heading">#</a></h4>
+<h4>TXY<a class="headerlink" href="#txy" title="Link to this heading"></a></h4>
 <p><strong>Transfer X Register to Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TXY              imp        9B  1   2           n.....z. .
@@ -3152,7 +2730,7 @@ TXY              imp        9B  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="tya">
-<h4>TYA<a class="headerlink" href="#tya" title="Link to this heading">#</a></h4>
+<h4>TYA<a class="headerlink" href="#tya" title="Link to this heading"></a></h4>
 <p><strong>Transfer Y Register to Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TYA              imp        98  1   2           n.....z. .
@@ -3163,7 +2741,7 @@ TYA              imp        98  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="tyx">
-<h4>TYX<a class="headerlink" href="#tyx" title="Link to this heading">#</a></h4>
+<h4>TYX<a class="headerlink" href="#tyx" title="Link to this heading"></a></h4>
 <p><strong>Transfer Y Register to X Register</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 TYX              imp        BB  1   2           n.....z. .
@@ -3174,7 +2752,7 @@ TYX              imp        BB  1   2           n.....z. .
 </section>
 <hr class="docutils" />
 <section id="wai">
-<h4>WAI<a class="headerlink" href="#wai" title="Link to this heading">#</a></h4>
+<h4>WAI<a class="headerlink" href="#wai" title="Link to this heading"></a></h4>
 <p><strong>Wait For Interrupt</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 WAI              imp        CB  1   3           ........ .
@@ -3187,7 +2765,7 @@ complete.</p>
 </section>
 <hr class="docutils" />
 <section id="wdm">
-<h4>WDM<a class="headerlink" href="#wdm" title="Link to this heading">#</a></h4>
+<h4>WDM<a class="headerlink" href="#wdm" title="Link to this heading"></a></h4>
 <p><strong>WDM</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 WDM              imm        42  2   2           ........ .
@@ -3201,7 +2779,7 @@ programs.</p>
 </section>
 <hr class="docutils" />
 <section id="xba">
-<h4>XBA<a class="headerlink" href="#xba" title="Link to this heading">#</a></h4>
+<h4>XBA<a class="headerlink" href="#xba" title="Link to this heading"></a></h4>
 <p><strong>Exchange B and A Accumulator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 XBA              imp        EB  1   3           n.....z. .
@@ -3213,7 +2791,7 @@ Accumulator. XBA functions the same in both 8 and 16 bit modes.</p>
 </section>
 <hr class="docutils" />
 <section id="xce">
-<h4>XCE<a class="headerlink" href="#xce" title="Link to this heading">#</a></h4>
+<h4>XCE<a class="headerlink" href="#xce" title="Link to this heading"></a></h4>
 <p><strong>Exchange Carry and Emulation Flags</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX           MODE       HEX LEN CYCLES      FLAGS   
 XCE              imp        FB  1   2           .......c e
@@ -3240,229 +2818,34 @@ XCE
 </section>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Appendix E: Diagnostic Bank</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Appendix G: ZSM File Format</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table Of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-with-the-65c02">Compatibility with the 65C02</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registers">Registers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#status-flags">Status Flags</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-mode">16 bit mode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#address-modes">Address Modes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-mode">Decimal Mode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-tables">Instruction Tables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-by-opcode">Instructions By Opcode</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-by-name">Instructions By Name</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-by-category">Instructions By Category</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adc">ADC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overflow-vs-carry">Overflow vs Carry</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#and">AND</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#asl">ASL</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bcc">BCC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bcs">BCS</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#beq">BEQ</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bit">BIT</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bmi">BMI</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bne">BNE</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bpl">BPL</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bra">BRA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#brk">BRK</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#brl">BRL</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bvc">BVC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bvs">BVS</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clc">CLC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cld">CLD</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cli">CLI</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clv">CLV</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cmp">CMP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cop">COP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cpx">CPX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cpy">CPY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dec">DEC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dex">DEX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dey">DEY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eor">EOR</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inc">INC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inx">INX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iny">INY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jmp">JMP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jml">JML</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jsl">JSL</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jsr">JSR</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ldx">LDX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ldy">LDY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lsr">LSR</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mvn">MVN</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mvp">MVP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nop">NOP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ora">ORA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pea">PEA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pei">PEI</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#per">PER</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pha">PHA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phb">PHB</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phd">PHD</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phk">PHK</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#php">PHP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phx">PHX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phy">PHY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pla">PLA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plb">PLB</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pld">PLD</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plp">PLP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plx">PLX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ply">PLY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rep">REP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rol">ROL</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ror">ROR</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rti">RTI</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rtl">RTL</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rts">RTS</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sbc">SBC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sec">SEC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sed">SED</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sei">SEI</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sep">SEP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sta">STA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stp">STP</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stx">STX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sty">STY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stz">STZ</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tax">TAX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tay">TAY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tcd">TCD</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tcs">TCS</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tdc">TDC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trb">TRB</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tsb">TSB</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tsc">TSC</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tsx">TSX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#txa">TXA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#txs">TXS</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#txy">TXY</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tya">TYA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tyx">TYX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wai">WAI</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wdm">WDM</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xba">XBA</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xce">XCE</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - Appendix F - 65C816 Processor.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html" class="btn btn-neutral float-left" title="Appendix E: Diagnostic Bank" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html" class="btn btn-neutral float-right" title="Appendix G: ZSM File Format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>

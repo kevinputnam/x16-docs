@@ -1,648 +1,144 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 13: Working With CMDR-DOS &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Chapter 13: Working With CMDR-DOS &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - 13 - Working with CMDR-DOS';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 14: Hardware Pinouts" href="X16%20Reference%20-%2014%20-%20Hardware.html" />
-    <link rel="prev" title="Chapter 12: I/O Programming" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Chapter 12: I/O Programming" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">Chapter 4: BASIC Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">Chapter 5: KERNAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 13: Working With CMDR-DOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cmdr-dos">CMDR-DOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binary-load-save">Binary Load/Save</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load">LOAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save">SAVE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsave">BSAVE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bload">BLOAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vload">VLOAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bvload">BVLOAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dos-wedge">DOS WEDGE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sequential-files">Sequential Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-channel">Command Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dos-features">DOS Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-working-directory">Current Working Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appending-to-file">Appending to file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">Appendix C: The 65C02 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">Appendix F: The 65C816 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">Appendix G: ZSM File Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Chapter 13: Working With CMDR-DOS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - 13 - Working with CMDR-DOS.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 13: Working With CMDR-DOS</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="chapter-13-working-with-cmdr-dos">
-<h1>Chapter 13: Working With CMDR-DOS<a class="headerlink" href="#chapter-13-working-with-cmdr-dos" title="Link to this heading">#</a></h1>
+<h1>Chapter 13: Working With CMDR-DOS<a class="headerlink" href="#chapter-13-working-with-cmdr-dos" title="Link to this heading"></a></h1>
 <p>This manual describes Commodore DOS on FAT32, aka CMDR-DOS.</p>
 <section id="cmdr-dos">
-<h2>CMDR-DOS<a class="headerlink" href="#cmdr-dos" title="Link to this heading">#</a></h2>
+<h2>CMDR-DOS<a class="headerlink" href="#cmdr-dos" title="Link to this heading"></a></h2>
 <p>Commander X16 duplicates and extends the programming interface used by Commodore’s line of disk drives, including the
 famous (or infamous) VIC-1541. CMDR-DOS uses the industry-standard FAT-32 format. Partitions can be 32MB up to
 (in theory) 2TB and supports CMD-style partitions, subdirectories, timestamps and filenames up to 255 characters.
@@ -654,12 +150,12 @@ to  <a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.htm
 to navigate directories.</p>
 </section>
 <section id="binary-load-save">
-<h2>Binary Load/Save<a class="headerlink" href="#binary-load-save" title="Link to this heading">#</a></h2>
+<h2>Binary Load/Save<a class="headerlink" href="#binary-load-save" title="Link to this heading"></a></h2>
 <p>The primary use of the binary interface is loading and saving program files and loading binary files into RAM.</p>
 <p>Your binary commands are LOAD, SAVE, BLOAD, VLOAD, BVLOAD, VERIFY, and BVERIFY.</p>
 <p>This is a brief summary of the LOAD and SAVE commands. For full documentation, refer to <a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html#chapter-4-basic-programming"><span class="std std-ref">Chapter 4: BASIC Programming</span></a>.</p>
 <section id="load">
-<h3>LOAD<a class="headerlink" href="#load" title="Link to this heading">#</a></h3>
+<h3>LOAD<a class="headerlink" href="#load" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&lt;filename&gt;</span> <span class="pre">[,device][,secondary_address]</span></code>
 <code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&lt;filename&gt;</span> <span class="pre">[,device][,ram_bank,start_address]</span></code></p>
 <p>This reads a program file from disk. The first two bytes of the file are the memory location to which the file will be
@@ -682,7 +178,7 @@ information about using * and ? to access files of a certain type or with unprin
 <p><code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&quot;DATA.BIN&quot;,8,1,$A000</span></code> loads a file into banked RAM, RAM bank 1, starting at $A000. The first two bytes of the file are skipped. To avoid skipping the first two bytes, use the <code class="docutils literal notranslate"><span class="pre">BLOAD</span></code> command instead.</p>
 </section>
 <section id="save">
-<h3>SAVE<a class="headerlink" href="#save" title="Link to this heading">#</a></h3>
+<h3>SAVE<a class="headerlink" href="#save" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">SAVE</span> <span class="pre">&lt;filename&gt;[,device]</span></code></p>
 <p>Saves a file from the computer to the SD card. SAVE always reads from the beginning of BASIC memory at $0801, up to the
 end of the BASIC program. Device is optional and defaults to 8 (the SD card, or an IEC disk drive, if one is plugged in.)</p>
@@ -691,7 +187,7 @@ the filename with &#64;:, like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">SAVE</span> <span class="pre">&quot;&#64;:DEMO.PRG&quot;</span></code></p>
 </section>
 <section id="bsave">
-<h3>BSAVE<a class="headerlink" href="#bsave" title="Link to this heading">#</a></h3>
+<h3>BSAVE<a class="headerlink" href="#bsave" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">BSAVE</span> <span class="pre">&lt;filename&gt;,&lt;device&gt;,&lt;ram_bank&gt;,&lt;start_address&gt;,&lt;end_address&gt;</span></code></p>
 <p>Saves an arbitrary region of memory to a file without a two-byte header. To allow concatenating multiple regions of RAM into a single file with multiple successive calls to BSAVE, BSAVE allows the use of append mode in the filename string. To make use of this option, the first call to BSAVE can be called normally, which creates the file anew, while subsequent calls should be in append mode to the same file.</p>
 <p>Another way to save arbitrary binary data from arbitrary locations is to use the S command in the MONITOR: <a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html#chapter-7-machine-language-monitor"><span class="std std-ref">Chapter 7: Machine Language Monitor</span></a>.</p>
@@ -711,26 +207,26 @@ the filename with &#64;:, like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">SAVE</span> <span class="pre">&quot;&#64;:HELLO&quot;</span></code></p>
 </section>
 <section id="bload">
-<h3>BLOAD<a class="headerlink" href="#bload" title="Link to this heading">#</a></h3>
+<h3>BLOAD<a class="headerlink" href="#bload" title="Link to this heading"></a></h3>
 <p>BLOAD loads a file <em>without an address header</em> to an arbitrary location in memory. Usage is similar to LOAD. However, BLOAD does not require
 or use the 2-byte header. The first byte in the file is the first byte loaded into memory.</p>
 <p><code class="docutils literal notranslate"><span class="pre">BLOAD</span> <span class="pre">&quot;filename&quot;,8,&lt;ram_bank&gt;,&lt;start_address&gt;</span></code></p>
 </section>
 <section id="vload">
-<h3>VLOAD<a class="headerlink" href="#vload" title="Link to this heading">#</a></h3>
+<h3>VLOAD<a class="headerlink" href="#vload" title="Link to this heading"></a></h3>
 <p>Read binary data into VERA. VLOAD skips the 2-byte address header and starts reading at the third byte of the file.</p>
 <p><code class="docutils literal notranslate"><span class="pre">VLOAD</span> <span class="pre">&quot;filename&quot;,8,&lt;vram_bank&gt;,&lt;start_address&gt;</span></code></p>
 </section>
 <section id="bvload">
-<h3>BVLOAD<a class="headerlink" href="#bvload" title="Link to this heading">#</a></h3>
+<h3>BVLOAD<a class="headerlink" href="#bvload" title="Link to this heading"></a></h3>
 <p>Read binary data into VERA without a header. This works like BLOAD, but into VERA RAM.</p>
 <p><code class="docutils literal notranslate"><span class="pre">BVLOAD</span> <span class="pre">&quot;filename&quot;,8,&lt;vram_bank&gt;,&lt;start_address&gt;</span></code></p>
 </section>
 <section id="dos-wedge">
-<h3>DOS WEDGE<a class="headerlink" href="#dos-wedge" title="Link to this heading">#</a></h3>
+<h3>DOS WEDGE<a class="headerlink" href="#dos-wedge" title="Link to this heading"></a></h3>
 <p>The DOS wedge allows you to issue quick commands from BASIC with the &gt; or &#64;
 symbol.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Command</p></th>
 <th class="head"><p>Action</p></th>
@@ -766,16 +262,15 @@ symbol.</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 </section>
 <section id="sequential-files">
-<h2>Sequential Files<a class="headerlink" href="#sequential-files" title="Link to this heading">#</a></h2>
+<h2>Sequential Files<a class="headerlink" href="#sequential-files" title="Link to this heading"></a></h2>
 <p>Sequential files have two basic modes: read and write. The OPEN command opens a file for reading or writing. The PRINT# command writes to a file, and the GET# and INPUT# commands read from the file.</p>
 <p>todo: examples</p>
 </section>
 <section id="command-channel">
-<h2>Command Channel<a class="headerlink" href="#command-channel" title="Link to this heading">#</a></h2>
+<h2>Command Channel<a class="headerlink" href="#command-channel" title="Link to this heading"></a></h2>
 <p>The command channel allows you to send commands to the CMDR-DOS interface. You can open and write to the command channel using the OPEN command, or you can use the DOS command to issue commands and read the status. While DOS can be used in immediate mode or in a program, only the combination of OPEN/INPUT# can read the command response back into a variable for later processing.</p>
 <p>In either case, the ST pseudo-variable will allow you to quickly check the status. A status of 64 is “okay”, and any
 other value should be checked by reading the error channel (shown below.)</p>
@@ -812,9 +307,9 @@ other value should be checked by reading the error channel (shown below.)</p>
 <p><code class="docutils literal notranslate"><span class="pre">DOS</span> <span class="pre">&quot;$=C&quot;</span></code></p>
 </section>
 <section id="dos-features">
-<h2>DOS Features<a class="headerlink" href="#dos-features" title="Link to this heading">#</a></h2>
+<h2>DOS Features<a class="headerlink" href="#dos-features" title="Link to this heading"></a></h2>
 <p>This is the base features set compared to other Commodore DOS devices:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>1541</p></th>
@@ -890,7 +385,6 @@ other value should be checked by reading the error channel (shown below.)</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>It consists of the following components:</p>
 <ul class="simple">
 <li><p>Commodore DOS interface</p>
@@ -919,7 +413,7 @@ other value should be checked by reading the error channel (shown below.)</p>
 <p>CMDR-DOS does not contain a layer 2 implementation, i.e. IEEE-488 (PET) or Commodore Serial (C64, C128, …). By adding a Commodore Serial (aka “IEC”) implementation, CMDR-DOS could be adapted for use as the system software of a standalone 65c02-based Serial device for Commodore computers, similar to an sd2iec device.</p>
 <p>The Commodore DOS side and the FAT32 side are well separated, so a lot of code could be reused for a DOS that uses a different filesystem.</p>
 <p>Or the core feature set, these are the supported functions:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1030,12 +524,11 @@ other value should be checked by reading the error channel (shown below.)</p>
 </tr>
 </tbody>
 </table>
-</div>
 <ul class="simple">
 <li><p><sup>1</sup>: Warning: Risk of corrupting SD cards on older ROM versions, see <a class="reference internal" href="#appending-to-file"><span class="xref myst">Appending to file</span></a></p></li>
 </ul>
 <p>And this table shows which of the standard commands are supported:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1356,7 +849,6 @@ other value should be checked by reading the error channel (shown below.)</p>
 </tr>
 </tbody>
 </table>
-</div>
 <ul class="simple">
 <li><p><sup>1</sup>: outdated API, not useful, or can’t be supported on FAT32</p></li>
 <li><p><sup>2</sup>: is a no-op, returns <code class="docutils literal notranslate"><span class="pre">00,</span> <span class="pre">OK,00,00</span></code></p></li>
@@ -1366,7 +858,7 @@ other value should be checked by reading the error channel (shown below.)</p>
 <li><p><sup>6</sup>: Repurposed for SD card read and write mode. <em>flag</em> selects whether fast read (auto_tx) and fast writes are enabled. 0=none, 1=auto_tx, 2=fast writes, 3=both</p></li>
 </ul>
 <p>The following special file syntax and <code class="docutils literal notranslate"><span class="pre">OPEN</span></code> options are specific to CMDR-DOS:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1384,12 +876,11 @@ other value should be checked by reading the error channel (shown below.)</p>
 </tr>
 </tbody>
 </table>
-</div>
 <ul class="simple">
 <li><p><sup>7</sup>: once the EOF has been reached while reading, no further reads or writes are possible.</p></li>
 </ul>
 <p>The following added command channel features are specific to CMDR-DOS:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1407,7 +898,6 @@ other value should be checked by reading the error channel (shown below.)</p>
 </tr>
 </tbody>
 </table>
-</div>
 <ul class="simple">
 <li><p><sup>8</sup>: available in ROM version R48 and later</p></li>
 </ul>
@@ -1415,7 +905,7 @@ other value should be checked by reading the error channel (shown below.)</p>
 <p>If POSITION succeeds, <code class="docutils literal notranslate"><span class="pre">00,</span> <span class="pre">OK,00,00</span></code> is returned on the command channel.</p>
 <p>If TELL succeeds, <code class="docutils literal notranslate"><span class="pre">07,pppppppp</span> <span class="pre">ssssssss,00,00</span></code> is returned on the command channel, where <code class="docutils literal notranslate"><span class="pre">pppppppp</span></code> is a hexadecimal representation of the position, and <code class="docutils literal notranslate"><span class="pre">ssssssss</span></code> is a hexadecimal representation of the file’s size.</p>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="kr">OPEN</span><span class="w"> </span><span class="il">1</span><span class="p">,</span><span class="il">8</span><span class="p">,</span><span class="il">2</span><span class="p">,</span><span class="s2">&quot;LEVEL.DAT,S,R&quot;</span>
 <span class="kr">OPEN</span><span class="w"> </span><span class="il">15</span><span class="p">,</span><span class="il">8</span><span class="p">,</span><span class="il">15</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">2</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">0</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">1</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">0</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">0</span><span class="p">)</span>
 </pre></div>
@@ -1436,7 +926,7 @@ other value should be checked by reading the error channel (shown below.)</p>
 <p>This time, the secondary address is 5, and we’re fetching only the file’s size.</p>
 </section>
 <section id="current-working-directory">
-<h3>Current Working Directory<a class="headerlink" href="#current-working-directory" title="Link to this heading">#</a></h3>
+<h3>Current Working Directory<a class="headerlink" href="#current-working-directory" title="Link to this heading"></a></h3>
 <p>The $=C command will list the current working directory and its parent path. The current directory will be at the top of the listing, with each parent
 directory beneath, with / at the bottom.</p>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="vg">DOS</span><span class="s2">&quot;$=C&quot;</span>
@@ -1449,13 +939,13 @@ directory beneath, with / at the bottom.</p>
 </div>
 </section>
 <section id="appending-to-file">
-<h3>Appending to file<a class="headerlink" href="#appending-to-file" title="Link to this heading">#</a></h3>
+<h3>Appending to file<a class="headerlink" href="#appending-to-file" title="Link to this heading"></a></h3>
 <p>To append data to an existing file, open the file with <code class="docutils literal notranslate"><span class="pre">,?,A</span></code> and write to it.</p>
 <p><strong>Warning:</strong> Appending to an empty file using R48 or older, will corrupt the file system, due to a severe Kernal bug. The bug is fixed in <a class="reference external" href="https://github.com/X16Community/x16-rom/pull/369">#369</a>. Keep this in mind when releasing software which appends to files, as some users may have older ROM versions installed.</p>
 </section>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
 <p>Copyright 2020-2024 Michael Steil &lt;<a class="reference external" href="mailto:mist64&#37;&#52;&#48;mac&#46;com">mist64<span>&#64;</span>mac<span>&#46;</span>com</a>&gt;, et al.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <ol class="arabic simple">
@@ -1469,139 +959,34 @@ directory beneath, with / at the bottom.</p>
 </section>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%2012%20-%20IO%20Programming.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 12: I/O Programming</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%2014%20-%20Hardware.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 14: Hardware Pinouts</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmdr-dos">CMDR-DOS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-load-save">Binary Load/Save</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load">LOAD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save">SAVE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bsave">BSAVE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bload">BLOAD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vload">VLOAD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bvload">BVLOAD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dos-wedge">DOS WEDGE</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-files">Sequential Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-channel">Command Channel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dos-features">DOS Features</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current Working Directory</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-to-file">Appending to file</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - 13 - Working with CMDR-DOS.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%2012%20-%20IO%20Programming.html" class="btn btn-neutral float-left" title="Chapter 12: I/O Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%2014%20-%20Hardware.html" class="btn btn-neutral float-right" title="Chapter 14: Hardware Pinouts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>

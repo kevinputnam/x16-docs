@@ -1,657 +1,209 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appendix C: The 65C02 Processor &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Appendix C: The 65C02 Processor &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - Appendix C - 65C02 Processor';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Appendix D: Official Expansion Cards" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html" />
-    <link rel="prev" title="Appendix B: VERA Firmware Recovery" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Appendix B: VERA Firmware Recovery" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">Chapter 4: BASIC Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">Chapter 5: KERNAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix C: The 65C02 Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-note-about-65c816-compatibility">A note about 65C816 Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instruction-tables">Instruction Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions-by-number">Instructions By Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions-by-name">Instructions By Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions-by-category">Instructions By Category</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adc">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#and">AND</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asl">ASL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bbrx">BBRx</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bbr-example">BBR Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bbsx">BBSx</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bbs-example">BBS Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bit">BIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bcc">B<em>cc</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brk">BRK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clc">CLC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cld">CLD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cli">CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clv">CLV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmp">CMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cpx">CPX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cpy">CPY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dec">DEC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bit-dec-example">16-bit DEC Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eor">EOR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inc">INC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bit-inc-example">16-bit INC Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#jmp">JMP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#absolute-x-and-jump-tables">(Absolute,X) and Jump Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#jsr">JSR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lda">LDA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ldx">LDX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ldy">LDY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lsr">LSR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nop">NOP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ora">ORA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pha">PHA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pla">PLA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rmbx">RMBx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rol">ROL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ror">ROR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rti">RTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rts">RTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sbc">SBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sec">SEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sed">SED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sei">SEI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#smbx">SMBx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sta">STA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stp">STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stx">STX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sty">STY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stz">STZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trb">TRB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#trb-example">TRB Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tsb">TSB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#txx">Txx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wai">WAI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#status-flags">Status Flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#replacement-macros-for-bit-instructions">Replacement Macros for Bit Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">Appendix F: The 65C816 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">Appendix G: ZSM File Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Appendix C: The 65C02 Processor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - Appendix C - 65C02 Processor.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Appendix C: The 65C02 Processor</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="appendix-c-the-65c02-processor">
-<h1>Appendix C: The 65C02 Processor<a class="headerlink" href="#appendix-c-the-65c02-processor" title="Link to this heading">#</a></h1>
+<h1>Appendix C: The 65C02 Processor<a class="headerlink" href="#appendix-c-the-65c02-processor" title="Link to this heading"></a></h1>
 <p>This is not meant to be a complete manual on the 65C02 processor, though is
 meant to serve as a convenient quick reference. Much of this information comes
 from 6502.org and pagetable.com. It is been placed here for convenience though
 further information can be found at those (and other) sources.</p>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>The WDC65C02 CPU is a modern version of the MOS6502 with a few additional
 instructions and addressing modes and is capable of running at up to 14 MHz. On
 the Commander X16, it is clocked at 8 MHz.</p>
 </section>
 <section id="a-note-about-65c816-compatibility">
-<h2>A note about 65C816 Compatibility<a class="headerlink" href="#a-note-about-65c816-compatibility" title="Link to this heading">#</a></h2>
+<h2>A note about 65C816 Compatibility<a class="headerlink" href="#a-note-about-65c816-compatibility" title="Link to this heading"></a></h2>
 <p>The Commander X16 may be upgraded at some point to use the WDC 65C816 CPU.
 The 65C816 is mostly compatible with the 65C02, except for 4 instructions
 (<code class="docutils literal notranslate"><span class="pre">BBRx</span></code>, <code class="docutils literal notranslate"><span class="pre">BBSx</span></code>, <code class="docutils literal notranslate"><span class="pre">RMBx</span></code>, and <code class="docutils literal notranslate"><span class="pre">SMBx</span></code>).</p>
@@ -661,11 +213,11 @@ so we suggest not using these instructions. Some people are already using the
 programs to malfunction on these computers.</p>
 </section>
 <section id="instruction-tables">
-<h2>Instruction Tables<a class="headerlink" href="#instruction-tables" title="Link to this heading">#</a></h2>
+<h2>Instruction Tables<a class="headerlink" href="#instruction-tables" title="Link to this heading"></a></h2>
 </section>
 <section id="instructions-by-number">
-<h2>Instructions By Number<a class="headerlink" href="#instructions-by-number" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>Instructions By Number<a class="headerlink" href="#instructions-by-number" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>x0</p></th>
@@ -977,13 +529,12 @@ programs to malfunction on these computers.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <!-- For PDF formatting -->
 <div class="page-break"></div>
 </section>
 <section id="instructions-by-name">
-<h2>Instructions By Name<a class="headerlink" href="#instructions-by-name" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>Instructions By Name<a class="headerlink" href="#instructions-by-name" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -1091,11 +642,10 @@ programs to malfunction on these computers.</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="instructions-by-category">
-<h2>Instructions By Category<a class="headerlink" href="#instructions-by-category" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>Instructions By Category<a class="headerlink" href="#instructions-by-category" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -1288,11 +838,10 @@ programs to malfunction on these computers.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <!-- For PDF formatting -->
 <div class="page-break"></div>
 <section id="adc">
-<h3>ADC<a class="headerlink" href="#adc" title="Link to this heading">#</a></h3>
+<h3>ADC<a class="headerlink" href="#adc" title="Link to this heading"></a></h3>
 <p>Add with Carry</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 ADC #$20     Immediate      $69   2     2     NV----ZC 
@@ -1320,7 +869,7 @@ N is set when result is negative (bit 7=1)</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="and">
-<h3>AND<a class="headerlink" href="#and" title="Link to this heading">#</a></h3>
+<h3>AND<a class="headerlink" href="#and" title="Link to this heading"></a></h3>
 <p>Logical And</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 AND #$20     Immediate      $29   2     2     N-----Z- 
@@ -1344,7 +893,7 @@ clears it.</p></li>
 <code class="docutils literal notranslate"><span class="pre">AND</span> <span class="pre">#$00</span></code> will clear A.<br />
 <code class="docutils literal notranslate"><span class="pre">AND</span> <span class="pre">#$0F</span></code> will clear the high nibble of A, leaving a value of $00 to $0F
 in A.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>M</p></th>
 <th class="head"><p>A</p></th>
@@ -1370,7 +919,6 @@ in A.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>Other Boolean Instructions:</strong><br />
 <a class="reference internal" href="#eor"><span class="xref myst">EOR</span></a> exclusive-OR<br />
 <a class="reference internal" href="#ora"><span class="xref myst">ORA</span></a> bitwise OR</p>
@@ -1380,7 +928,7 @@ in A.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="asl">
-<h3>ASL<a class="headerlink" href="#asl" title="Link to this heading">#</a></h3>
+<h3>ASL<a class="headerlink" href="#asl" title="Link to this heading"></a></h3>
 <p>Arithmetic Shift Left</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 ASL A        Accumulator    $0A   1     2     N-----ZC 
@@ -1401,7 +949,7 @@ Bit 7 is shifted to Carry.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="bbrx">
-<h3>BBRx<a class="headerlink" href="#bbrx" title="Link to this heading">#</a></h3>
+<h3>BBRx<a class="headerlink" href="#bbrx" title="Link to this heading"></a></h3>
 <p>Branch on Bit Reset</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 BBR0 $20,$8080 ZP Relative    $0F   3     5     -------- +c -816
@@ -1419,7 +967,7 @@ specific bit (0-7).</p>
 <p>+c: New for the 65C02
 -816: <em>Not available</em> on the 65C816</p>
 <section id="bbr-example">
-<h4>BBR Example<a class="headerlink" href="#bbr-example" title="Link to this heading">#</a></h4>
+<h4>BBR Example<a class="headerlink" href="#bbr-example" title="Link to this heading"></a></h4>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nl">check_flag:</span>
 <span class="w">    </span><span class="nf">BBR3</span><span class="w"> </span><span class="no">zeropage_flag</span><span class="p">,</span><span class="w"> </span><span class="no">flag_not_set</span>
 <span class="w">  </span><span class="nl">flag_set:</span>
@@ -1438,7 +986,7 @@ taken to <code class="docutils literal notranslate"><span class="pre">&#64;flag_
 </section>
 </section>
 <section id="bbsx">
-<h3>BBSx<a class="headerlink" href="#bbsx" title="Link to this heading">#</a></h3>
+<h3>BBSx<a class="headerlink" href="#bbsx" title="Link to this heading"></a></h3>
 <p>Branch on Bit Set</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 BBS0 $20,$8080 ZP Relative    $8F   3     5     -------- +c -816
@@ -1456,7 +1004,7 @@ of the specific bit (0-7).</p>
 <p>+c: New for the 65C02
 -816: <em>Not available</em> on the 65C816</p>
 <section id="bbs-example">
-<h4>BBS Example<a class="headerlink" href="#bbs-example" title="Link to this heading">#</a></h4>
+<h4>BBS Example<a class="headerlink" href="#bbs-example" title="Link to this heading"></a></h4>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">check_flag:</span>
 <span class="w">    </span><span class="nf">BBS3</span><span class="w"> </span><span class="no">zeropage_flag</span><span class="p">,</span><span class="w"> </span><span class="no">flag_set</span>
 <span class="nl">flag_not_set:</span>
@@ -1475,7 +1023,7 @@ taken to <code class="docutils literal notranslate"><span class="pre">&#64;flag_
 </section>
 </section>
 <section id="bit">
-<h3>BIT<a class="headerlink" href="#bit" title="Link to this heading">#</a></h3>
+<h3>BIT<a class="headerlink" href="#bit" title="Link to this heading"></a></h3>
 <p>Test Bit</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 BIT $20      Zero Page      $24   2     3     NV----Z- 
@@ -1496,7 +1044,7 @@ BIT $8080,X  Absolute,X     $3C   3     4+    NV----Z- +c +p
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="bcc">
-<h3>B<em>cc</em><a class="headerlink" href="#bcc" title="Link to this heading">#</a></h3>
+<h3>B<em>cc</em><a class="headerlink" href="#bcc" title="Link to this heading"></a></h3>
 <p>Branch Instructions</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 BCC $8080    Relative       $90   2    2/3+   -------- +p Carry Clear
@@ -1533,7 +1081,7 @@ a comparison (some assemblers support a <code class="docutils literal notranslat
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="brk">
-<h3>BRK<a class="headerlink" href="#brk" title="Link to this heading">#</a></h3>
+<h3>BRK<a class="headerlink" href="#brk" title="Link to this heading"></a></h3>
 <p>Break: Software Interrupt</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 BRK          Implied        $00   1     7     ---BD--- 
@@ -1556,7 +1104,7 @@ does a warm boot of BASIC, rather than jumping to MONitor.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="clc">
-<h3>CLC<a class="headerlink" href="#clc" title="Link to this heading">#</a></h3>
+<h3>CLC<a class="headerlink" href="#clc" title="Link to this heading"></a></h3>
 <p>Clear Carry</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 CLC          Implied        $18   1     2     -------C 
@@ -1569,7 +1117,7 @@ routine or return certain information.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="cld">
-<h3>CLD<a class="headerlink" href="#cld" title="Link to this heading">#</a></h3>
+<h3>CLD<a class="headerlink" href="#cld" title="Link to this heading"></a></h3>
 <p>Clear Decimal Flag</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 CLD          Implied        $D8   1     2     ----D--- 
@@ -1581,7 +1129,7 @@ was previously in BCD mode.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="cli">
-<h3>CLI<a class="headerlink" href="#cli" title="Link to this heading">#</a></h3>
+<h3>CLI<a class="headerlink" href="#cli" title="Link to this heading"></a></h3>
 <p>Clear Interrupt Disable</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 CLI          Implied        $58   1     2     -----I-- 
@@ -1594,7 +1142,7 @@ and RST are always enabled.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="clv">
-<h3>CLV<a class="headerlink" href="#clv" title="Link to this heading">#</a></h3>
+<h3>CLV<a class="headerlink" href="#clv" title="Link to this heading"></a></h3>
 <p>Clear oVerflow</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 CLV          Implied        $B8   1     2     -V------ 
@@ -1605,7 +1153,7 @@ CLV          Implied        $B8   1     2     -V------
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="cmp">
-<h3>CMP<a class="headerlink" href="#cmp" title="Link to this heading">#</a></h3>
+<h3>CMP<a class="headerlink" href="#cmp" title="Link to this heading"></a></h3>
 <p>Compare A to memory</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 CMP #$20     Immediate      $C9   2     2     N-----ZC 
@@ -1634,7 +1182,7 @@ based on subtracting A - <em>Value</em>.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="cpx">
-<h3>CPX<a class="headerlink" href="#cpx" title="Link to this heading">#</a></h3>
+<h3>CPX<a class="headerlink" href="#cpx" title="Link to this heading"></a></h3>
 <p>Compare X to memory</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 CPX #$20     Immediate      $E0   2     2     N-----ZC 
@@ -1655,7 +1203,7 @@ based on subtracting X - <em>Value</em>.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="cpy">
-<h3>CPY<a class="headerlink" href="#cpy" title="Link to this heading">#</a></h3>
+<h3>CPY<a class="headerlink" href="#cpy" title="Link to this heading"></a></h3>
 <p>Compare Y to memory</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 CPY #$20     Immediate      $C0   2     2     N-----ZC 
@@ -1676,7 +1224,7 @@ based on subtracting Y - <em>Value</em>.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="dec">
-<h3>DEC<a class="headerlink" href="#dec" title="Link to this heading">#</a></h3>
+<h3>DEC<a class="headerlink" href="#dec" title="Link to this heading"></a></h3>
 <p>Decrement Value</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 DEC A        Accumulator    $3A   1     2     N-----Z- +c
@@ -1700,7 +1248,7 @@ leaving the new value in its place.</p>
 </ul>
 <p>+c: New for the 65C02</p>
 <section id="bit-dec-example">
-<h4>16-bit DEC Example<a class="headerlink" href="#bit-dec-example" title="Link to this heading">#</a></h4>
+<h4>16-bit DEC Example<a class="headerlink" href="#bit-dec-example" title="Link to this heading"></a></h4>
 <p>You can perform a 16-bit DEC by chaining two DECs together, testing the low
 byte before decrementing the high byte:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">;16 bit decrement</span>
@@ -1715,7 +1263,7 @@ byte before decrementing the high byte:</p>
 </section>
 </section>
 <section id="eor">
-<h3>EOR<a class="headerlink" href="#eor" title="Link to this heading">#</a></h3>
+<h3>EOR<a class="headerlink" href="#eor" title="Link to this heading"></a></h3>
 <p>Exclusive OR</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 EOR #$20     Immediate      $49   2     2     N-----Z- 
@@ -1740,7 +1288,7 @@ EOR ($20)    ZP Indirect    $52   2     5     N-----Z- +c
 tested. It returns a 0 for each bit that is the same.</p>
 <p><code class="docutils literal notranslate"><span class="pre">EOR</span> <span class="pre">#$00</span></code> has no effect on A, but still sets the Z and N flags.<br />
 <code class="docutils literal notranslate"><span class="pre">EOR</span> <span class="pre">#$FF</span></code> inverts the bits in A.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>M</p></th>
 <th class="head"><p>A</p></th>
@@ -1766,7 +1314,6 @@ tested. It returns a 0 for each bit that is the same.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>Other Boolean Instructions:</strong><br />
 <a class="reference internal" href="#ora"><span class="xref myst">ORA</span></a> bitwise OR<br />
 <a class="reference internal" href="#and"><span class="xref myst">AND</span></a> bitwise AND</p>
@@ -1776,7 +1323,7 @@ tested. It returns a 0 for each bit that is the same.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="inc">
-<h3>INC<a class="headerlink" href="#inc" title="Link to this heading">#</a></h3>
+<h3>INC<a class="headerlink" href="#inc" title="Link to this heading"></a></h3>
 <p>Increment Value</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 INC A        Accumulator    $1A   1     2     N-----Z- +c
@@ -1800,7 +1347,7 @@ new value in its place.</p>
 <code class="docutils literal notranslate"><span class="pre">INC</span> <span class="pre">A</span></code> or <code class="docutils literal notranslate"><span class="pre">INC</span></code> with no operand operates on the Accumulator.</p>
 <p>+c: New for the 65C02</p>
 <section id="bit-inc-example">
-<h4>16-bit INC Example<a class="headerlink" href="#bit-inc-example" title="Link to this heading">#</a></h4>
+<h4>16-bit INC Example<a class="headerlink" href="#bit-inc-example" title="Link to this heading"></a></h4>
 <p>You can perform a 16-bit INC by chaining two INCs together, testing the low
 byte after incrementing it.</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">;16 bit increment</span>
@@ -1815,7 +1362,7 @@ byte after incrementing it.</p>
 </section>
 </section>
 <section id="jmp">
-<h3>JMP<a class="headerlink" href="#jmp" title="Link to this heading">#</a></h3>
+<h3>JMP<a class="headerlink" href="#jmp" title="Link to this heading"></a></h3>
 <p>Jump to new address</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 JMP $8080    Absolute       $4C   3     3     -------- 
@@ -1829,7 +1376,7 @@ of the pointer from the next page, so you should never use a pointer address
 on the last byte of a page. ie: $12FF. <em>[Issue is fixed on 65C02]</em></p>
 <p>+c: New for the 65C02</p>
 <section id="absolute-x-and-jump-tables">
-<h4>(Absolute,X) and Jump Tables<a class="headerlink" href="#absolute-x-and-jump-tables" title="Link to this heading">#</a></h4>
+<h4>(Absolute,X) and Jump Tables<a class="headerlink" href="#absolute-x-and-jump-tables" title="Link to this heading"></a></h4>
 <p>(Absolute,X) is an additional mode for the 65C02 and is commonly used for
 implementing jump tables.</p>
 <p>So we might have something like:</p>
@@ -1850,7 +1397,7 @@ an RTS.</p>
 </section>
 </section>
 <section id="jsr">
-<h3>JSR<a class="headerlink" href="#jsr" title="Link to this heading">#</a></h3>
+<h3>JSR<a class="headerlink" href="#jsr" title="Link to this heading"></a></h3>
 <p>Jump to Subroutine</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 JSR $8080    Absolute       $20   3     6     -------- 
@@ -1867,7 +1414,7 @@ either overflow or underflow the stack.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="lda">
-<h3>LDA<a class="headerlink" href="#lda" title="Link to this heading">#</a></h3>
+<h3>LDA<a class="headerlink" href="#lda" title="Link to this heading"></a></h3>
 <p>Read memory to Accumulator</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 LDA #$20     Immediate      $A9   2     2     N-----Z- 
@@ -1892,7 +1439,7 @@ LDA ($20)    ZP Indirect    $B2   2     5     N-----Z- +c
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="ldx">
-<h3>LDX<a class="headerlink" href="#ldx" title="Link to this heading">#</a></h3>
+<h3>LDX<a class="headerlink" href="#ldx" title="Link to this heading"></a></h3>
 <p>Read memory to X Index Register</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 LDX #$20     Immediate      $A2   2     2     N-----Z- 
@@ -1912,7 +1459,7 @@ LDX $8080,Y  Absolute,Y     $BE   3     4+    N-----Z- +p
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="ldy">
-<h3>LDY<a class="headerlink" href="#ldy" title="Link to this heading">#</a></h3>
+<h3>LDY<a class="headerlink" href="#ldy" title="Link to this heading"></a></h3>
 <p>Read memory to Y Index Register</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 LDY #$20     Immediate      $A0   2     2     N-----Z- 
@@ -1932,7 +1479,7 @@ LDY $8080,X  Absolute,X     $BC   3     4+    N-----Z- +p
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="lsr">
-<h3>LSR<a class="headerlink" href="#lsr" title="Link to this heading">#</a></h3>
+<h3>LSR<a class="headerlink" href="#lsr" title="Link to this heading"></a></h3>
 <p>Logical Shift Right</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 LSR A        Accumulator    $4A   1     2     N-----Z- 
@@ -1952,7 +1499,7 @@ LSR $8080,X  Absolute,X     $5E   3    6/7    N-----Z-
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="nop">
-<h3>NOP<a class="headerlink" href="#nop" title="Link to this heading">#</a></h3>
+<h3>NOP<a class="headerlink" href="#nop" title="Link to this heading"></a></h3>
 <p>No Operation</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 NOP          Implied        $EA   1     2     -------- 
@@ -1969,7 +1516,7 @@ bit of delay when writing to the YM2151 chip (see <a class="reference internal" 
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="ora">
-<h3>ORA<a class="headerlink" href="#ora" title="Link to this heading">#</a></h3>
+<h3>ORA<a class="headerlink" href="#ora" title="Link to this heading"></a></h3>
 <p>Logical OR</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 ORA #$20     Immediate      $09   2     2     N-----Z- 
@@ -1991,7 +1538,7 @@ ORA ($20)    ZP Indirect    $12   2     5     N-----Z- +c
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">OR</span> <span class="pre">#$00</span></code> has no effect on A, but still sets the Z and N flags.<br />
 <code class="docutils literal notranslate"><span class="pre">OR</span> <span class="pre">#$FF</span></code> results in $FF.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>M</p></th>
 <th class="head"><p>A</p></th>
@@ -2017,7 +1564,6 @@ ORA ($20)    ZP Indirect    $12   2     5     N-----Z- +c
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>Other Boolean Instructions:</strong><br />
 <a class="reference internal" href="#eor"><span class="xref myst">EOR</span></a> exclusive-OR<br />
 <a class="reference internal" href="#and"><span class="xref myst">AND</span></a> bitwise AND</p>
@@ -2027,7 +1573,7 @@ ORA ($20)    ZP Indirect    $12   2     5     N-----Z- +c
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="pha">
-<h3>PHA<a class="headerlink" href="#pha" title="Link to this heading">#</a></h3>
+<h3>PHA<a class="headerlink" href="#pha" title="Link to this heading"></a></h3>
 <p>Push to stack</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 PHA          Implied        $48   1     3     -------- 
@@ -2049,7 +1595,7 @@ and <a class="reference internal" href="#pla"><span class="xref myst">PHY</span>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="pla">
-<h3>PLA<a class="headerlink" href="#pla" title="Link to this heading">#</a></h3>
+<h3>PLA<a class="headerlink" href="#pla" title="Link to this heading"></a></h3>
 <p>Pull from stack</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 PLA          Implied        $68   1     4     N-----Z- 
@@ -2072,7 +1618,7 @@ and <a class="reference internal" href="#pha"><span class="xref myst">PHY</span>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="rmbx">
-<h3>RMBx<a class="headerlink" href="#rmbx" title="Link to this heading">#</a></h3>
+<h3>RMBx<a class="headerlink" href="#rmbx" title="Link to this heading"></a></h3>
 <p>Memory Bit Operations</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 RMB0 $20     Zero Page      $07   2     5     -------- +c -816
@@ -2094,7 +1640,7 @@ specified bit (0-7).</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="rol">
-<h3>ROL<a class="headerlink" href="#rol" title="Link to this heading">#</a></h3>
+<h3>ROL<a class="headerlink" href="#rol" title="Link to this heading"></a></h3>
 <p>Rotate Left</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 ROL A        Accumulator    $2A   1     2     N-----ZC 
@@ -2113,7 +1659,7 @@ shifted into bit 0 and the original bit 7 is shifted into the carry (C).</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="ror">
-<h3>ROR<a class="headerlink" href="#ror" title="Link to this heading">#</a></h3>
+<h3>ROR<a class="headerlink" href="#ror" title="Link to this heading"></a></h3>
 <p>Rotate Right</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 ROR A        Accumulator    $6A   1     2     N-----ZC 
@@ -2133,7 +1679,7 @@ bit 0 is shifted into the carry (C).</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="rti">
-<h3>RTI<a class="headerlink" href="#rti" title="Link to this heading">#</a></h3>
+<h3>RTI<a class="headerlink" href="#rti" title="Link to this heading"></a></h3>
 <p>Return from Interrupt</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 RTI          Implied        $40   1     6     -------- 
@@ -2148,7 +1694,7 @@ return address (rather than address-1).</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="rts">
-<h3>RTS<a class="headerlink" href="#rts" title="Link to this heading">#</a></h3>
+<h3>RTS<a class="headerlink" href="#rts" title="Link to this heading"></a></h3>
 <p>Return from Subroutine</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 RTS          Implied        $60   1     6     -------- 
@@ -2162,7 +1708,7 @@ control to that address +1.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="sbc">
-<h3>SBC<a class="headerlink" href="#sbc" title="Link to this heading">#</a></h3>
+<h3>SBC<a class="headerlink" href="#sbc" title="Link to this heading"></a></h3>
 <p>Subtract With Carry</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 SBC #$20     Immediate      $E9   2     2     NV----ZC 
@@ -2191,7 +1737,7 @@ N is set when result is negative (bit 7=1)</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="sec">
-<h3>SEC<a class="headerlink" href="#sec" title="Link to this heading">#</a></h3>
+<h3>SEC<a class="headerlink" href="#sec" title="Link to this heading"></a></h3>
 <p>Set Carry</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 SEC          Implied        $38   1     2     -------C 
@@ -2204,7 +1750,7 @@ or return certain information.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="sed">
-<h3>SED<a class="headerlink" href="#sed" title="Link to this heading">#</a></h3>
+<h3>SED<a class="headerlink" href="#sed" title="Link to this heading"></a></h3>
 <p>Set Decimal</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 SED          Implied        $F8   1     2     ----D--- 
@@ -2221,7 +1767,7 @@ rounding.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="sei">
-<h3>SEI<a class="headerlink" href="#sei" title="Link to this heading">#</a></h3>
+<h3>SEI<a class="headerlink" href="#sei" title="Link to this heading"></a></h3>
 <p>Set Interrupt Disable</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 SEI          Implied        $78   1     2     -----I-- 
@@ -2234,7 +1780,7 @@ interrupts.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="smbx">
-<h3>SMBx<a class="headerlink" href="#smbx" title="Link to this heading">#</a></h3>
+<h3>SMBx<a class="headerlink" href="#smbx" title="Link to this heading"></a></h3>
 <p>Set Memory Bit</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 SMB0 $20     Zero Page      $87   2     5     -------- +c -816
@@ -2257,7 +1803,7 @@ of the specific bit (0-7).</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="sta">
-<h3>STA<a class="headerlink" href="#sta" title="Link to this heading">#</a></h3>
+<h3>STA<a class="headerlink" href="#sta" title="Link to this heading"></a></h3>
 <p>Store Accumulator contents to memory</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 STA $20      Zero Page      $85   2     3     -------- 
@@ -2277,7 +1823,7 @@ STA ($20)    ZP Indirect    $92   2     5     -------- +c
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="stp">
-<h3>STP<a class="headerlink" href="#stp" title="Link to this heading">#</a></h3>
+<h3>STP<a class="headerlink" href="#stp" title="Link to this heading"></a></h3>
 <p>Stop</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 STP          Implied        $DB   1     3     -------- +c
@@ -2294,7 +1840,7 @@ emulator or reset the emulation.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="stx">
-<h3>STX<a class="headerlink" href="#stx" title="Link to this heading">#</a></h3>
+<h3>STX<a class="headerlink" href="#stx" title="Link to this heading"></a></h3>
 <p>Save X Index Register contents to memory</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 STX $20      Zero Page      $86   2     3     -------- 
@@ -2306,7 +1852,7 @@ STX $8080    Absolute       $8E   3     4     --------
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="sty">
-<h3>STY<a class="headerlink" href="#sty" title="Link to this heading">#</a></h3>
+<h3>STY<a class="headerlink" href="#sty" title="Link to this heading"></a></h3>
 <p>Save Y Index Register contents to memory</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 STY $20      Zero Page      $84   2     3     -------- 
@@ -2318,7 +1864,7 @@ STY $8080    Absolute       $8C   3     4     --------
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="stz">
-<h3>STZ<a class="headerlink" href="#stz" title="Link to this heading">#</a></h3>
+<h3>STZ<a class="headerlink" href="#stz" title="Link to this heading"></a></h3>
 <p>Set memory to zero</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 STZ $20      Zero Page      $64   2     3     -------- +c
@@ -2332,7 +1878,7 @@ STZ $8080,X  Absolute,X     $9E   3     5     -------- +c
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="trb">
-<h3>TRB<a class="headerlink" href="#trb" title="Link to this heading">#</a></h3>
+<h3>TRB<a class="headerlink" href="#trb" title="Link to this heading"></a></h3>
 <p>Test and reset bit</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 TRB $20      Zero Page      $14   2     5     ------Z- +c
@@ -2346,7 +1892,7 @@ are 1 in the Accumulator are set to 0 in memory.</p>
 </ul>
 <p>+c: New for the 65C02</p>
 <section id="trb-example">
-<h4>TRB Example<a class="headerlink" href="#trb-example" title="Link to this heading">#</a></h4>
+<h4>TRB Example<a class="headerlink" href="#trb-example" title="Link to this heading"></a></h4>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">          </span><span class="c1">; Assume location $20 has a value of $11.</span>
 <span class="nf">LDA</span><span class="w"> </span><span class="c1">#$01  ; Load a bit mask of 0000 0001</span>
 <span class="nf">TRB</span><span class="w"> </span><span class="no">$20</span><span class="w">   </span><span class="c1">; Apply the mask and reset bit 0</span>
@@ -2365,7 +1911,7 @@ are 1 in the Accumulator are set to 0 in memory.</p>
 </section>
 </section>
 <section id="tsb">
-<h3>TSB<a class="headerlink" href="#tsb" title="Link to this heading">#</a></h3>
+<h3>TSB<a class="headerlink" href="#tsb" title="Link to this heading"></a></h3>
 <p>Test and set bit</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 TSB $20      Zero Page      $04   2     5     ------Z- +c
@@ -2382,7 +1928,7 @@ data is 0.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="txx">
-<h3>Txx<a class="headerlink" href="#txx" title="Link to this heading">#</a></h3>
+<h3>Txx<a class="headerlink" href="#txx" title="Link to this heading"></a></h3>
 <p>Transfer between registers</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 TAX          Implied        $AA   1     2     N-----Z- Copy from .A to .X
@@ -2405,7 +1951,7 @@ a specific address, you can use the following instructions.</p>
 <p>[<a class="reference internal" href="#instructions-by-number"><span class="xref myst">Opcodes</span></a>] | [<a class="reference internal" href="#instructions-by-name"><span class="xref myst">By Name</span></a>] | [<a class="reference internal" href="#instructions-by-category"><span class="xref myst">By Category</span></a>]</p>
 </section>
 <section id="wai">
-<h3>WAI<a class="headerlink" href="#wai" title="Link to this heading">#</a></h3>
+<h3>WAI<a class="headerlink" href="#wai" title="Link to this heading"></a></h3>
 <p>Wait</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SYNTAX       MODE           HEX  LEN  CYCLES  FLAGS    
 WAI          Implied        $CB   1     3     -------- +c
@@ -2423,7 +1969,7 @@ interrupt, and so the interrupt can be handled immediately.</p>
 </section>
 </section>
 <section id="status-flags">
-<h2>Status Flags<a class="headerlink" href="#status-flags" title="Link to this heading">#</a></h2>
+<h2>Status Flags<a class="headerlink" href="#status-flags" title="Link to this heading"></a></h2>
 <p>Flags are stored in the P register. PHP and PLP can be used
 to directly manipulate this register. Otherwise the flags
 are used to indicate certain statuses and changed by
@@ -2440,7 +1986,7 @@ Z = Zero<br />
 C = Carry</p>
 </section>
 <section id="replacement-macros-for-bit-instructions">
-<h2>Replacement Macros for Bit Instructions<a class="headerlink" href="#replacement-macros-for-bit-instructions" title="Link to this heading">#</a></h2>
+<h2>Replacement Macros for Bit Instructions<a class="headerlink" href="#replacement-macros-for-bit-instructions" title="Link to this heading"></a></h2>
 <p>Since <code class="docutils literal notranslate"><span class="pre">BBRx</span></code>, <code class="docutils literal notranslate"><span class="pre">BBSx</span></code>, <code class="docutils literal notranslate"><span class="pre">RMBx</span></code>, and <code class="docutils literal notranslate"><span class="pre">SMBx</span></code> should not be used, to maintain
 compatibility with the 65C816, here are some example macros that can be
 used to help convert existing software that may have been using these
@@ -2493,7 +2039,7 @@ languages. The logic can also be used to if using an assembly language tool
 that does not have macro support with small changes.</p>
 </section>
 <section id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.6502.org/tutorials/6502opcodes.html">http://www.6502.org/tutorials/6502opcodes.html</a></p></li>
 <li><p><a class="reference external" href="http://6502.org/tutorials/65c02opcodes.html">http://6502.org/tutorials/65c02opcodes.html</a></p></li>
@@ -2511,195 +2057,34 @@ that does not have macro support with small changes.</p>
 </section>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Appendix B: VERA Firmware Recovery</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Appendix D: Official Expansion Cards</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-65c816-compatibility">A note about 65C816 Compatibility</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-tables">Instruction Tables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-by-number">Instructions By Number</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-by-name">Instructions By Name</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-by-category">Instructions By Category</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adc">ADC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and">AND</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asl">ASL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bbrx">BBRx</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbr-example">BBR Example</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bbsx">BBSx</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bbs-example">BBS Example</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bit">BIT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bcc">B<em>cc</em></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brk">BRK</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clc">CLC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cld">CLD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cli">CLI</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clv">CLV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmp">CMP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cpx">CPX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cpy">CPY</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dec">DEC</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-dec-example">16-bit DEC Example</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eor">EOR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inc">INC</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bit-inc-example">16-bit INC Example</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jmp">JMP</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-x-and-jump-tables">(Absolute,X) and Jump Tables</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jsr">JSR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ldx">LDX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ldy">LDY</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lsr">LSR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nop">NOP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ora">ORA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pha">PHA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pla">PLA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rmbx">RMBx</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rol">ROL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ror">ROR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rti">RTI</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rts">RTS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sbc">SBC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sec">SEC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed">SED</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sei">SEI</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smbx">SMBx</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sta">STA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stp">STP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stx">STX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sty">STY</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stz">STZ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trb">TRB</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trb-example">TRB Example</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tsb">TSB</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#txx">Txx</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wai">WAI</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#status-flags">Status Flags</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replacement-macros-for-bit-instructions">Replacement Macros for Bit Instructions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - Appendix C - 65C02 Processor.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html" class="btn btn-neutral float-left" title="Appendix B: VERA Firmware Recovery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html" class="btn btn-neutral float-right" title="Appendix D: Official Expansion Cards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>

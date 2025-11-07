@@ -1,647 +1,168 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 11: Sound Programming &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Chapter 11: Sound Programming &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - 11 - Sound Programming';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 12: I/O Programming" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html" />
-    <link rel="prev" title="Chapter 10: VERA FX Reference" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Chapter 10: VERA FX Reference" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">Chapter 4: BASIC Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">Chapter 5: KERNAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 11: Sound Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#audio-bank-api">Audio bank API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#audio-api-routines">Audio API routines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a-note-on-semitones-get-it">A note on semitones (get it?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#direct-communication-with-the-ym2151-and-vera-psg-vs-api">Direct communication with the YM2151 and VERA PSG vs API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vera-psg-and-pcm-programming">VERA PSG and PCM Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ym2151-opm-fm-synthesis">YM2151 (OPM) FM Synthesis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ym2151-communication">YM2151 Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ym-write-procedure">YM Write Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-timing">Write Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-code">Example Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ym2151-internal-addressing">YM2151 Internal Addressing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ym2151-register-map">YM2151 Register Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-settings">Global Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#channel-cfg-registers">Channel CFG Registers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operator-cfg-registers">Operator CFG Registers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#ym2151-register-details">YM2151 Register Details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#global-parameters">Global Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#channel-control-parameters">Channel Control Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operator-control-parameters">Operator Control Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#triggering-and-releasing-notes">Triggering and Releasing Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pitch-control">Pitch Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ym-registers">YM Registers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#key-code-kc">Key Code (KC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-fraction-kf">Key Fraction (KF)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-a-patch">Loading a patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-lfo">Using the LFO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vibrato">Vibrato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amplitude-modulation">Amplitude Modulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">Appendix C: The 65C02 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">Appendix F: The 65C816 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">Appendix G: ZSM File Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Chapter 11: Sound Programming</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - 11 - Sound Programming.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 11: Sound Programming</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="chapter-11-sound-programming">
-<h1>Chapter 11: Sound Programming<a class="headerlink" href="#chapter-11-sound-programming" title="Link to this heading">#</a></h1>
+<h1>Chapter 11: Sound Programming<a class="headerlink" href="#chapter-11-sound-programming" title="Link to this heading"></a></h1>
 <section id="audio-bank-api">
-<h2>Audio bank API<a class="headerlink" href="#audio-bank-api" title="Link to this heading">#</a></h2>
+<h2>Audio bank API<a class="headerlink" href="#audio-bank-api" title="Link to this heading"></a></h2>
 <p>The Commander X16 provides many convenience routines for controlling the YM2151 and VERA PSG. These are called similarly to how KERNAL API calls are done in machine language.</p>
 <p>In order to gain access to these routines, you must either use <code class="docutils literal notranslate"><span class="pre">jsrfar</span></code> from the KERNAL API:</p>
 <div class="highlight-ASM notranslate"><div class="highlight"><pre><span></span><span class="nf">AUDIO_BANK</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="no">$0A</span>
@@ -658,9 +179,9 @@
 </div>
 <p>Conveniently, the KERNAL API still exists in this bank, and calling a KERNAL API routine will automatically switch your ROM bank back to the KERNAL bank to perform the routine and then switch back right before returning, so there’s usually no need for your audio-centric program to switch away from the audio bank to perform the occasional KERNAL API call.</p>
 <section id="audio-api-routines">
-<h3>Audio API routines<a class="headerlink" href="#audio-api-routines" title="Link to this heading">#</a></h3>
+<h3>Audio API routines<a class="headerlink" href="#audio-api-routines" title="Link to this heading"></a></h3>
 <p>For the audio chips, some of the documentation uses the words <em>channel</em> and <em>voice</em> interchangeably. This table of API routines uses <em>channel</em> for the 8 on the YM2151, and <em>voice</em> for the 16 on the PSG.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Label</p></th>
 <th class="head"><p>Address</p></th>
@@ -1114,11 +635,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 </section>
 <section id="a-note-on-semitones-get-it">
-<h2>A note on semitones (get it?)<a class="headerlink" href="#a-note-on-semitones-get-it" title="Link to this heading">#</a></h2>
+<h2>A note on semitones (get it?)<a class="headerlink" href="#a-note-on-semitones-get-it" title="Link to this heading"></a></h2>
 <p>It may be advantageous to consider storing note data internally as the MIDI
 representation with a fractional component if you want things like pitch slides
 to behave the same way between the PSG and YM2151.</p>
@@ -1134,27 +654,27 @@ component, you can then convert this directly over to PSG or YM2151 as required
 and end up with the same pitch (or close enough to it).</p>
 </section>
 <section id="direct-communication-with-the-ym2151-and-vera-psg-vs-api">
-<h2>Direct communication with the YM2151 and VERA PSG vs API<a class="headerlink" href="#direct-communication-with-the-ym2151-and-vera-psg-vs-api" title="Link to this heading">#</a></h2>
+<h2>Direct communication with the YM2151 and VERA PSG vs API<a class="headerlink" href="#direct-communication-with-the-ym2151-and-vera-psg-vs-api" title="Link to this heading"></a></h2>
 <p>Use of the API routines above is not required to access the capabilities of the sound chips. However, mixing raw writes to a chip and API access for the same chip is not recommended, particularly where PSG volumes and YM2151 TL and RLFBCON registers are concerned. The API processes volumes, calculating attenuation and adjusting the output volume accordingly, and the API will be oblivious to direct manipulation of the sound chips.</p>
 <p>The sections below describe how to do raw access to the sound chips outside of the API.</p>
 </section>
 <section id="vera-psg-and-pcm-programming">
-<h2>VERA PSG and PCM Programming<a class="headerlink" href="#vera-psg-and-pcm-programming" title="Link to this heading">#</a></h2>
+<h2>VERA PSG and PCM Programming<a class="headerlink" href="#vera-psg-and-pcm-programming" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>For VERA PSG and PCM, refer to <a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#chapter-9-vera-programmers-reference"><span class="std std-ref">Chapter 9</span></a>.</p></li>
 </ul>
 </section>
 <section id="ym2151-opm-fm-synthesis">
-<h2>YM2151 (OPM) FM Synthesis<a class="headerlink" href="#ym2151-opm-fm-synthesis" title="Link to this heading">#</a></h2>
+<h2>YM2151 (OPM) FM Synthesis<a class="headerlink" href="#ym2151-opm-fm-synthesis" title="Link to this heading"></a></h2>
 <p>The Yamaha YM2151 (OPM) sound chip is an FM synthesizer ASIC in the Commander X16.
 It is connected to the system bus at I/O address <code class="docutils literal notranslate"><span class="pre">0x9F40</span></code> (address register) and at <code class="docutils literal notranslate"><span class="pre">0x9F41</span></code> (data register). It has 8 independent voices with 4 FM operators each. Each
 voice is capable of left/right/both audio channel output. The four operators of each channel may be connected in one of 8 pre-defined “connection algorithms” in order to produce a wide variety of timbres.</p>
 <section id="ym2151-communication">
-<h3>YM2151 Communication<a class="headerlink" href="#ym2151-communication" title="Link to this heading">#</a></h3>
+<h3>YM2151 Communication<a class="headerlink" href="#ym2151-communication" title="Link to this heading"></a></h3>
 <p>There are 3 basic operations to communicate with the YM chip: Reading its status,
 address select, and data write. These are performed by reading from or writing to
 one of the two I/O addresses as follows:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Address</p></th>
 <th class="head"><p>Name</p></th>
@@ -1175,12 +695,11 @@ one of the two I/O addresses as follows:</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>The values stored in the YM’s internal registers are write-only. If you need
 to know the values in the registers, you must store a copy of the values somewhere in memory as you write updates to the YM.</p>
 </section>
 <section id="ym-write-procedure">
-<h3>YM Write Procedure<a class="headerlink" href="#ym-write-procedure" title="Link to this heading">#</a></h3>
+<h3>YM Write Procedure<a class="headerlink" href="#ym-write-procedure" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Ensure YM is not busy (see Write Timing below).</p></li>
 <li><p>Select the desired internal register address by writing it into <code class="docutils literal notranslate"><span class="pre">YM_address</span></code>.</p></li>
@@ -1189,7 +708,7 @@ to know the values in the registers, you must store a copy of the values somewhe
 <p><em>Note:</em> You may write into the same register multiple times without repeating a write to <code class="docutils literal notranslate"><span class="pre">YM_address</span></code>. The same register will be updated with each data write.</p>
 </section>
 <section id="write-timing">
-<h3>Write Timing<a class="headerlink" href="#write-timing" title="Link to this heading">#</a></h3>
+<h3>Write Timing<a class="headerlink" href="#write-timing" title="Link to this heading"></a></h3>
 <p><strong>The YM2151 is sensitive to the speed at which you write data into it. If you
 make writes when it is not ready to receive them, they will be dropped and the sound output will be corrupted.</strong></p>
 <p>You must include a delay between writes to the address select register ($9F40) and the subsequent data write. 10 CPU cycles is the recommended minimum delay.</p>
@@ -1198,7 +717,7 @@ make writes when it is not ready to receive them, they will be dropped and the s
 <p>Lastly, the <code class="docutils literal notranslate"><span class="pre">BUSY</span></code> flag sometimes takes a (very) short period before it goes high. This has only been observed when IMMEDIATELY polling the flag after a write into <code class="docutils literal notranslate"><span class="pre">YM_data.</span></code> As long as your code does not do so, this quirk should not be an issue.</p>
 </section>
 <section id="example-code">
-<h3>Example Code<a class="headerlink" href="#example-code" title="Link to this heading">#</a></h3>
+<h3>Example Code<a class="headerlink" href="#example-code" title="Link to this heading"></a></h3>
 <p><strong>Assembly Language:</strong></p>
 <div class="highlight-ASM notranslate"><div class="highlight"><pre><span></span><span class="nl">check_busy:</span>
 <span class="w">    </span><span class="nf">BIT</span><span class="w"> </span><span class="no">YM_data</span><span class="w">      </span><span class="c1">; check busy flag</span>
@@ -1230,9 +749,9 @@ make writes when it is not ready to receive them, they will be dropped and the s
 </section>
 </section>
 <section id="ym2151-internal-addressing">
-<h2>YM2151 Internal Addressing<a class="headerlink" href="#ym2151-internal-addressing" title="Link to this heading">#</a></h2>
+<h2>YM2151 Internal Addressing<a class="headerlink" href="#ym2151-internal-addressing" title="Link to this heading"></a></h2>
 <p>The YM register address space can be thought of as being divided into 3 ranges:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Range</p></th>
 <th class="head"><p>Type</p></th>
@@ -1254,12 +773,11 @@ make writes when it is not ready to receive them, they will be dropped and the s
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="ym2151-register-map">
-<h2>YM2151 Register Map<a class="headerlink" href="#ym2151-register-map" title="Link to this heading">#</a></h2>
+<h2>YM2151 Register Map<a class="headerlink" href="#ym2151-register-map" title="Link to this heading"></a></h2>
 <section id="global-settings">
-<h3>Global Settings<a class="headerlink" href="#global-settings" title="Link to this heading">#</a></h3>
+<h3>Global Settings<a class="headerlink" href="#global-settings" title="Link to this heading"></a></h3>
 <table>
   <tr>
     <th>Addr</th>
@@ -1400,7 +918,7 @@ make writes when it is not ready to receive them, they will be dropped and the s
   </tr>
 </table>
 <section id="channel-cfg-registers">
-<h4>Channel CFG Registers<a class="headerlink" href="#channel-cfg-registers" title="Link to this heading">#</a></h4>
+<h4>Channel CFG Registers<a class="headerlink" href="#channel-cfg-registers" title="Link to this heading"></a></h4>
 <table>
   <tr>
     <th>Register Range</th>
@@ -1453,7 +971,7 @@ make writes when it is not ready to receive them, they will be dropped and the s
 </table>
 </section>
 <section id="operator-cfg-registers">
-<h4>Operator CFG Registers<a class="headerlink" href="#operator-cfg-registers" title="Link to this heading">#</a></h4>
+<h4>Operator CFG Registers<a class="headerlink" href="#operator-cfg-registers" title="Link to this heading"></a></h4>
 <table>
   <tr>
     <th>Register Range</th>
@@ -1612,9 +1130,9 @@ make writes when it is not ready to receive them, they will be dropped and the s
 </section>
 </section>
 <section id="ym2151-register-details">
-<h1>YM2151 Register Details<a class="headerlink" href="#ym2151-register-details" title="Link to this heading">#</a></h1>
+<h1>YM2151 Register Details<a class="headerlink" href="#ym2151-register-details" title="Link to this heading"></a></h1>
 <section id="global-parameters">
-<h2>Global Parameters<a class="headerlink" href="#global-parameters" title="Link to this heading">#</a></h2>
+<h2>Global Parameters<a class="headerlink" href="#global-parameters" title="Link to this heading"></a></h2>
 <p><strong>LR</strong> (LFO Reset)</p>
 <p>Register $01, bit 1</p>
 <p>Setting this bit will disable the LFO and hold it at level 0. Clearing this bit
@@ -1691,7 +1209,7 @@ it running.</p>
 0: Sawtooth, 1: Square (50% duty cycle), 2: Triangle, 3: Noise</p>
 </section>
 <section id="channel-control-parameters">
-<h2>Channel Control Parameters<a class="headerlink" href="#channel-control-parameters" title="Link to this heading">#</a></h2>
+<h2>Channel Control Parameters<a class="headerlink" href="#channel-control-parameters" title="Link to this heading"></a></h2>
 <p><strong>RL</strong> (Right/Left output enable)</p>
 <p>Register $20 (+ channel), Bits 6-7</p>
 <p>Setting/Clearing these bits enables/disables audio output for the selected channel. (bit6=left, bit7=right)</p>
@@ -1706,7 +1224,7 @@ it running.</p>
 <p>Register $28 + channel, bits 0-6</p>
 <p>Sets the octave and semitone for the selected channel.
 Bits 4-6 specify the octave (0-7) and bits 0-3 specify the semitone:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>0</p></th>
 <th class="head"><p>1</p></th>
@@ -1738,7 +1256,6 @@ Bits 4-6 specify the octave (0-7) and bits 0-3 specify the semitone:</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Note that natural C is at the TOP of the selected octave, and that
 each 4th value is skipped. Thus if concert A (A-4, 440hz) is KC=$4A, then middle C is KC=$3E</p>
 <p><strong>KF</strong> (Key Fraction)</p>
@@ -1748,7 +1265,7 @@ each 4th value is skipped. Thus if concert A (A-4, 440hz) is KC=$4A, then middle
 <p>Register $38 + channel, Bits 4-6</p>
 <p>Sets the Phase Modulation (vibrato) sensitivity of the selected channel. The resulting vibrato depth is determined by the combination of the global PMD setting (see above) modified by each channel’s PMS.</p>
 <p>Sensitivity values: (+/- cents)</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>0</p></th>
 <th class="head"><p>1</p></th>
@@ -1772,12 +1289,11 @@ each 4th value is skipped. Thus if concert A (A-4, 440hz) is KC=$4A, then middle
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>AMS</strong> (Amplitude Modulation Sensitivity)</p>
 <p>Register $38 + channel, Bits 0-1</p>
 <p>Sets the Amplitude Modulation sensitivity of the selected channel. Note that each operator may individually enable or disable this effect on its output by setting/clearing the AMS-Ena bit (see below). Operators acting as outputs will exhibit a tremolo effect (varying volume) and operators acting as modulators will vary their effectiveness on the timbre when enabled for amplitude modulation.</p>
 <p>Sensitivity values: (dB)</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>0</p></th>
 <th class="head"><p>1</p></th>
@@ -1793,12 +1309,11 @@ each 4th value is skipped. Thus if concert A (A-4, 440hz) is KC=$4A, then middle
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="operator-control-parameters">
-<h2>Operator Control Parameters<a class="headerlink" href="#operator-control-parameters" title="Link to this heading">#</a></h2>
+<h2>Operator Control Parameters<a class="headerlink" href="#operator-control-parameters" title="Link to this heading"></a></h2>
 <p>Operators are arranged as follows:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>name</p></th>
 <th class="head"><p>M1</p></th>
@@ -1816,7 +1331,6 @@ each 4th value is skipped. Thus if concert A (A-4, 440hz) is KC=$4A, then middle
 </tr>
 </tbody>
 </table>
-</div>
 <p>These are the names used throughout this document for consistency, but they may function as either modulators or carriers, depending on which <code class="docutils literal notranslate"><span class="pre">CON</span></code> ALG is used.</p>
 <p>The Operator Control parameters are mapped to channels/operators as follows: Register + 8*op + channel. You may also choose to think of these register addresses as using bits 0-2 = channel, bits 3-4 = operator, and bits 5-7 = parameter. This reference will refer to them using the address range, e.g. $60-$7F = TL. To set TL for channel 2, operator 1, the register address would be $6A ($60 + 1*8 + 2).</p>
 <p><strong>DT1</strong> (Detune 1 - fine detune)</p>
@@ -1862,7 +1376,7 @@ until the level reaches zero or until the note is released.</p>
 </section>
 <hr class="docutils" />
 <section id="getting-sound-out-of-the-ym2151-a-brief-tutorial">
-<h1>Getting sound out of the YM2151 (a brief tutorial)<a class="headerlink" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial" title="Link to this heading">#</a></h1>
+<h1>Getting sound out of the YM2151 (a brief tutorial)<a class="headerlink" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial" title="Link to this heading"></a></h1>
 <p>While there is a large number of parameters that affect the sound of the YM2151, its operation can be thought of in simplified terms if you consider that there are basically three components to deal with: Instrument configuration (patch), voice pitch selection,
 and “pressing/releasing” the “key” to trigger (begin) and release (end) notes. It’s essentially the
 same as using a music keyboard. Pressing an instrument button (e.g. Marimba) makes the keyboard
@@ -1873,7 +1387,7 @@ On the music keyboard, pitch and note stop/start are done with a single piano ke
 YM2151, these are two distinct actions.</p>
 <p>For this tutorial, we will start with the simplest operation, (triggering notes) and proceed to note selection, and finally patch configuration.</p>
 <section id="triggering-and-releasing-notes">
-<h2>Triggering and Releasing Notes<a class="headerlink" href="#triggering-and-releasing-notes" title="Link to this heading">#</a></h2>
+<h2>Triggering and Releasing Notes<a class="headerlink" href="#triggering-and-releasing-notes" title="Link to this heading"></a></h2>
 <p><strong>Key On/Off (KON) Register ($08):</strong></p>
 <p>This is probably the most important single register in the YM2151. It is used to trigger and release notes. It controls the key on/off state for all 8 channels. A note is triggered whenever its key state changes from off to on, and is released whenever the state changes from on to off. Repeated writes of the same state (off-&gt;off or on-&gt;on) have no effect.</p>
 <p>Whenever an operator is triggered, it progresses through the states of attack, decay1, and sustain/decay2. Whenever an active note is released, it enters the release state where the volume decreases until reaching zero. It then remains silent until the next time the operator is triggered. If you are familiar with the C64 SID chip, this is the same behavior as the “gate” bit on that chip.</p>
@@ -1919,9 +1433,9 @@ YM2151, these are two distinct actions.</p>
 </table>
 </section>
 <section id="pitch-control">
-<h2>Pitch Control<a class="headerlink" href="#pitch-control" title="Link to this heading">#</a></h2>
+<h2>Pitch Control<a class="headerlink" href="#pitch-control" title="Link to this heading"></a></h2>
 <section id="ym-registers">
-<h3>YM Registers<a class="headerlink" href="#ym-registers" title="Link to this heading">#</a></h3>
+<h3>YM Registers<a class="headerlink" href="#ym-registers" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">KC</span></code> = $28 + channel number</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">KF</span></code> = $30 + channel number</p></li>
@@ -1933,10 +1447,10 @@ for basic musical playback. It is mostly useful for vibrato or pitch bend effect
 the pitch selected in <code class="docutils literal notranslate"><span class="pre">KC</span></code> in 1/64th increments of the way up to the next semitone.</p>
 <p>Like all registers in the YM, whenever a channel’s <code class="docutils literal notranslate"><span class="pre">KC</span></code> or <code class="docutils literal notranslate"><span class="pre">KF</span></code> value is written, it takes effect immediately. If a note is playing, its pitch immediately changes. When triggering new notes, it is not important whether you write the pitch or key the note first. This happens quickly in real-time and you will not hear any real difference. Changing the pitch without re-triggering the ADSR envelope is how to achieve pitch slides or a legato effect.</p>
 <section id="key-code-kc">
-<h4>Key Code (KC)<a class="headerlink" href="#key-code-kc" title="Link to this heading">#</a></h4>
+<h4>Key Code (KC)<a class="headerlink" href="#key-code-kc" title="Link to this heading"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">KC</span></code> codes are “conveniently” arranged so that the upper nybble is the octave (0-7) and the
 lower nybble is the pitch. The pitches are arranged as follows within an octave:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Note</p></th>
 <th class="head"><p>C♯</p></th>
@@ -1970,18 +1484,17 @@ lower nybble is the pitch. The pitches are arranged as follows within an octave:
 </tr>
 </tbody>
 </table>
-</div>
 <p>(Note that every 4th value is skipped.)</p>
 <p>Combine the above with an octave to get a note’s <code class="docutils literal notranslate"><span class="pre">KC</span></code> value. For instance: concert A (440hz) is (by sheer coincidence) <code class="docutils literal notranslate"><span class="pre">$4A</span></code>. Middle C is <code class="docutils literal notranslate"><span class="pre">$3E</span></code>, and so forth.</p>
 </section>
 <section id="key-fraction-kf">
-<h4>Key Fraction (KF)<a class="headerlink" href="#key-fraction-kf" title="Link to this heading">#</a></h4>
+<h4>Key Fraction (KF)<a class="headerlink" href="#key-fraction-kf" title="Link to this heading"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">KF</span></code> values are written into the top 6 bits of the voice’s <code class="docutils literal notranslate"><span class="pre">KF</span></code> register. Basically the value is <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1&lt;&lt;2,</span> <span class="pre">2&lt;&lt;2,</span> <span class="pre">..</span> <span class="pre">63&lt;&lt;2</span></code></p>
 </section>
 </section>
 </section>
 <section id="loading-a-patch">
-<h2>Loading a patch<a class="headerlink" href="#loading-a-patch" title="Link to this heading">#</a></h2>
+<h2>Loading a patch<a class="headerlink" href="#loading-a-patch" title="Link to this heading"></a></h2>
 <p>The patch configuration is by far the most complicated aspect of using the YM. If you take as given that a voice has a patch loaded, then playing notes on it is fairly straightforward. For the
 moment, we will assume a pre-patched voice.</p>
 <p>To get started quickly, here is some BASIC code to patch voice 0 with a marimba tone:</p>
@@ -2000,16 +1513,16 @@ moment, we will assume a pre-patched voice.</p>
 <p>Patches consist mostly of ADSR envelope parameters. A complete patch contains values for the $20 range register (LR|FB|CON), for the $38 range register (AMS|PMS), and 4 values for each of the parameter ranges starting at $40. (4 operators per voice means 4 values per parameter). Since this is a huge amount of flexibility, it is recommended to experiment with instrument creation in an application such as a chip tracker or VST, as the creative process of instrument design is very hands-on and subjective.</p>
 </section>
 <section id="using-the-lfo">
-<h2>Using the LFO<a class="headerlink" href="#using-the-lfo" title="Link to this heading">#</a></h2>
+<h2>Using the LFO<a class="headerlink" href="#using-the-lfo" title="Link to this heading"></a></h2>
 <p>There is a single global LFO in the YM2151 which can affect the level (volume) and/or pitch of all 8 channels simultaneously. It has a single frequency and waveform setting which must be shared among all channels, and shared between both phase and amplitude modulation. The global parameters <code class="docutils literal notranslate"><span class="pre">AMD</span></code> and <code class="docutils literal notranslate"><span class="pre">PMD</span></code> act as modifiers to the sensitivity settings of the channels. While the frequency and waveform of the LFO pattern must be shared, the depths of the two types of modulation are independent of each other.</p>
 <p>You can re-trigger the LFO by setting and then clearing the <code class="docutils literal notranslate"><span class="pre">LR</span></code> bit in the test register ($01).</p>
 <section id="vibrato">
-<h3>Vibrato<a class="headerlink" href="#vibrato" title="Link to this heading">#</a></h3>
+<h3>Vibrato<a class="headerlink" href="#vibrato" title="Link to this heading"></a></h3>
 <p>Use Phase Modulation on the desired channels. The <code class="docutils literal notranslate"><span class="pre">PMS</span></code> parameter for each channel allows them to vary their vibrato depths individually. Channels with <code class="docutils literal notranslate"><span class="pre">PMS</span></code> set to zero will have no vibrato. The values given earlier in the <code class="docutils literal notranslate"><span class="pre">PMS</span></code> parameter description represent their maximum amount of affect. These values are modified by the global <code class="docutils literal notranslate"><span class="pre">PMD.</span></code> A <code class="docutils literal notranslate"><span class="pre">PMD</span></code> value of $7F means 100% effectiveness, $40 means all channels’ vibrato depths will be reduced by half, etc.</p>
 <p>The vibrato speed is global, depending solely on the value set to <code class="docutils literal notranslate"><span class="pre">LFRQ.</span></code></p>
 </section>
 <section id="amplitude-modulation">
-<h3>Amplitude Modulation<a class="headerlink" href="#amplitude-modulation" title="Link to this heading">#</a></h3>
+<h3>Amplitude Modulation<a class="headerlink" href="#amplitude-modulation" title="Link to this heading"></a></h3>
 <p>Amplitude modulation works similarly to phase modulation, except that the intensity is a combination of the per-channel <code class="docutils literal notranslate"><span class="pre">AMS</span></code> value modified by the global <code class="docutils literal notranslate"><span class="pre">AMD</span></code> value. Additionally, within channels having non-zero amplitude modulation sensitivity, individual operators must have their <code class="docutils literal notranslate"><span class="pre">AMS-en</span></code> bit enabled in order to be affected by the modulation.</p>
 <p>If the active operators are acting as carriers (generating output directly), then amplitude modulation will vary the volume of the sound being produced by that operator. This can be described as a “tremolo” effect. If the operators are acting as modulators, then the timbre of the voice will vary as the output level of the affected operators increases and decreases. You may simultaneously enable amplitude modulation on both types of operators.</p>
 <p>The amplitude modulation speed is global, depending solely on the value set to <code class="docutils literal notranslate"><span class="pre">LFRQ.</span></code></p>
@@ -2020,170 +1533,34 @@ moment, we will assume a pre-patched voice.</p>
 </section>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 10: VERA FX Reference</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%2012%20-%20IO%20Programming.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 12: I/O Programming</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 11: Sound Programming</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-bank-api">Audio bank API</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-api-routines">Audio API routines</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-semitones-get-it">A note on semitones (get it?)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-communication-with-the-ym2151-and-vera-psg-vs-api">Direct communication with the YM2151 and VERA PSG vs API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vera-psg-and-pcm-programming">VERA PSG and PCM Programming</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ym2151-opm-fm-synthesis">YM2151 (OPM) FM Synthesis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ym2151-communication">YM2151 Communication</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ym-write-procedure">YM Write Procedure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-timing">Write Timing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-code">Example Code</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ym2151-internal-addressing">YM2151 Internal Addressing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ym2151-register-map">YM2151 Register Map</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-settings">Global Settings</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-cfg-registers">Channel CFG Registers</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-cfg-registers">Operator CFG Registers</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ym2151-register-details">YM2151 Register Details</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-parameters">Global Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-control-parameters">Channel Control Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-control-parameters">Operator Control Parameters</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggering-and-releasing-notes">Triggering and Releasing Notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch-control">Pitch Control</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ym-registers">YM Registers</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-code-kc">Key Code (KC)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-fraction-kf">Key Fraction (KF)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-patch">Loading a patch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-lfo">Using the LFO</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vibrato">Vibrato</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude-modulation">Amplitude Modulation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - 11 - Sound Programming.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html" class="btn btn-neutral float-left" title="Chapter 10: VERA FX Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%2012%20-%20IO%20Programming.html" class="btn btn-neutral float-right" title="Chapter 12: I/O Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>

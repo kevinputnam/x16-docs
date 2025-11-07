@@ -1,645 +1,215 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 4: BASIC Programming &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Chapter 4: BASIC Programming &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - 04 - BASIC';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 5: KERNAL" href="X16%20Reference%20-%2005%20-%20KERNAL.html" />
-    <link rel="prev" title="Chapter 3: Editor" href="X16%20Reference%20-%2003%20-%20Editor.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Chapter 3: Editor" href="X16%20Reference%20-%2003%20-%20Editor.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 4: BASIC Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-basic-statements-and-functions">Table of BASIC statements and functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commodore-64-compatibility">Commodore 64 Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-files">Saving Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-statements-and-functions">New Statements and Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asc">ASC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bin">BIN$</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bank">BANK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basload">BASLOAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binput">BINPUT#</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boot">BOOT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bload">BLOAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bsave">BSAVE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bvload">BVLOAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#char">CHAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#close">CLOSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cls">CLS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color">COLOR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dos">DOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit">EDIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exec">EXEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmchord">FMCHORD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmdrum">FMDRUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmfreq">FMFREQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fminit">FMINIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fminst">FMINST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmnote">FMNOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmpan">FMPAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmplay">FMPLAY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmpoke">FMPOKE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmvib">FMVIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fmvol">FMVOL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#frame">FRAME</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hex">HEX$</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help">HELP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i2cpeek">I2CPEEK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i2cpoke">I2CPOKE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#joy">JOY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keymap">KEYMAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line">LINE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linput">LINPUT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">LINPUT#</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list">LIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#locate">LOCATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menu">MENU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mon">MON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mouse">MOUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#movspr">MOVSPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mx-my-mb">MX/MY/MB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mwheel">MWHEEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#old">OLD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oval">OVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peek">PEEK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pointer">POINTER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#poke">POKE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#poweroff">POWEROFF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pset">PSET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psgchord">PSGCHORD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psgfreq">PSGFREQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psginit">PSGINIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psgnote">PSGNOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psgpan">PSGPAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psgplay">PSGPLAY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psgvol">PSGVOL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psgwav">PSGWAV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ring">RING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rect">RECT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reboot">REBOOT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ren">REN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reset">RESET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restore">RESTORE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpt">RPT$</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save">SAVE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#screen">SCREEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep">SLEEP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sprite">SPRITE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sprmem">SPRMEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strptr">STRPTR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sys">SYS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tile">TILE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tattr">TATTR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tdata">TDATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vpeek">VPEEK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vpoke">VPOKE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vload">VLOAD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-new-features">Other New Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hexadecimal-and-binary-literals">Hexadecimal and Binary Literals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-into-vram">LOAD into VRAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-device-numbers">Default Device Numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#internal-representation">Internal Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-boot">Auto-Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">Chapter 5: KERNAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">Appendix C: The 65C02 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">Appendix F: The 65C816 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">Appendix G: ZSM File Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Chapter 4: BASIC Programming</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - 04 - BASIC.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 4: BASIC Programming</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="chapter-4-basic-programming">
-<h1>Chapter 4: BASIC Programming<a class="headerlink" href="#chapter-4-basic-programming" title="Link to this heading">#</a></h1>
+<h1>Chapter 4: BASIC Programming<a class="headerlink" href="#chapter-4-basic-programming" title="Link to this heading"></a></h1>
 <!--
 ********************************************************************************
 NOTICE: This file uses two trailing spaces on some lines to indicate line breaks
@@ -647,8 +217,8 @@ for GitHub's Markdown flavor. Do not remove!
 ********************************************************************************
 -->
 <section id="table-of-basic-statements-and-functions">
-<h2>Table of BASIC statements and functions<a class="headerlink" href="#table-of-basic-statements-and-functions" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>Table of BASIC statements and functions<a class="headerlink" href="#table-of-basic-statements-and-functions" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Keyword</p></th>
 <th class="head"><p>Type</p></th>
@@ -1389,10 +959,9 @@ for GitHub's Markdown flavor. Do not remove!
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="commodore-64-compatibility">
-<h2>Commodore 64 Compatibility<a class="headerlink" href="#commodore-64-compatibility" title="Link to this heading">#</a></h2>
+<h2>Commodore 64 Compatibility<a class="headerlink" href="#commodore-64-compatibility" title="Link to this heading"></a></h2>
 <p>The Commander X16 BASIC interpreter is 100% backwards-compatible with the Commodore 64 one. This includes the following features:</p>
 <ul class="simple">
 <li><p>All statements and functions</p></li>
@@ -1420,7 +989,7 @@ for GitHub's Markdown flavor. Do not remove!
 <p>The BASIC interpreter also currently shares all problems of the C64 version, like the slow garbage collector.</p>
 </section>
 <section id="saving-files">
-<h2>Saving Files<a class="headerlink" href="#saving-files" title="Link to this heading">#</a></h2>
+<h2>Saving Files<a class="headerlink" href="#saving-files" title="Link to this heading"></a></h2>
 <p>By default, you cannot automatically overwrite a file with SAVE, BSAVE, or OPEN. To overwrite a file, you must prefix the filename with <code class="docutils literal notranslate"><span class="pre">&#64;:</span></code>, like this: <code class="docutils literal notranslate"><span class="pre">SAVE</span> <span class="pre">&quot;&#64;:HELLO</span> <span class="pre">WORLD&quot;</span></code>. (<code class="docutils literal notranslate"><span class="pre">&quot;&#64;0:filename&quot;</span></code> is also acceptable.)</p>
 <p>This follows the Commodore convention, which extended to all of their diskette drives and third party hard drives and flash drive readers.</p>
 <p>Always confirm you have successfully saved a file by checking the DOS status. When you use the SAVE command from Immediate (or Direct) mode, the system does this for you. In Program mode, you have to do it yourself.</p>
@@ -1438,10 +1007,10 @@ for GitHub's Markdown flavor. Do not remove!
 <p>Refer to <a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html#chapter-13-working-with-cmdr-dos"><span class="std std-ref">Chapter 13</span></a> for more details on CMDR-DOS and the command channel.</p>
 </section>
 <section id="new-statements-and-functions">
-<h2>New Statements and Functions<a class="headerlink" href="#new-statements-and-functions" title="Link to this heading">#</a></h2>
+<h2>New Statements and Functions<a class="headerlink" href="#new-statements-and-functions" title="Link to this heading"></a></h2>
 <p>There are several new statement and functions. Note that all BASIC keywords (such as <code class="docutils literal notranslate"><span class="pre">FOR</span></code>) get converted into tokens (such as <code class="docutils literal notranslate"><span class="pre">$81</span></code>), and the tokens for the new keywords have likely shifted from one ROM version to the next. Therefore, loading BASIC program saved from an old revision of BASIC may mix up keywords. As of ROM version R42, the keyword token positions should no longer shift and programs saved in R42 BASIC should be compatible with future versions.</p>
 <section id="asc">
-<h3>ASC<a class="headerlink" href="#asc" title="Link to this heading">#</a></h3>
+<h3>ASC<a class="headerlink" href="#asc" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Integer Function</strong><br />
 <strong>FORMAT: ASC(&lt;string&gt;)</strong></p>
 <p><strong>Action:</strong> Returns an integer value representing the PETSCII code for the first character of <code class="docutils literal notranslate"><span class="pre">string</span></code>. If <code class="docutils literal notranslate"><span class="pre">string</span></code> is the empty string, <code class="docutils literal notranslate"><span class="pre">ASC()</span></code> returns 0.</p>
@@ -1455,7 +1024,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="bin">
-<h3>BIN$<a class="headerlink" href="#bin" title="Link to this heading">#</a></h3>
+<h3>BIN$<a class="headerlink" href="#bin" title="Link to this heading"></a></h3>
 <p><strong>TYPE: String Function</strong><br />
 <strong>FORMAT: BIN$(n)</strong></p>
 <p><strong>Action:</strong> Return a string representing the binary value of n. If n &lt;= 255, 8 characters are returned and if 255 &lt; n &lt;= 65535, 16 characters are returned.</p>
@@ -1466,7 +1035,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="bank">
-<h3>BANK<a class="headerlink" href="#bank" title="Link to this heading">#</a></h3>
+<h3>BANK<a class="headerlink" href="#bank" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: BANK m[,n]</strong></p>
 <p><strong>Action:</strong> Set the active RAM (m) and ROM bank (n) for the purposes of <code class="docutils literal notranslate"><span class="pre">PEEK</span></code>, <code class="docutils literal notranslate"><span class="pre">POKE</span></code>, and <code class="docutils literal notranslate"><span class="pre">SYS</span></code>.  Specifying the ROM bank is optional. If it is not specified, its previous value is retained.</p>
@@ -1481,7 +1050,7 @@ for GitHub's Markdown flavor. Do not remove!
 <p>Note: Memory address <code class="docutils literal notranslate"><span class="pre">$00</span></code>, which is the hardware RAM bank register, will usually report the bank set by the <code class="docutils literal notranslate"><span class="pre">BANK</span></code> command. The one exception is after a <code class="docutils literal notranslate"><span class="pre">BLOAD</span></code> or <code class="docutils literal notranslate"><span class="pre">BVERIFY</span></code> inside of a running BASIC program.  <code class="docutils literal notranslate"><span class="pre">BLOAD</span></code> and <code class="docutils literal notranslate"><span class="pre">BVERIFY</span></code> change the RAM bank (as if you called <code class="docutils literal notranslate"><span class="pre">BANK</span></code>) to the bank that <code class="docutils literal notranslate"><span class="pre">BLOAD</span></code> or <code class="docutils literal notranslate"><span class="pre">BVERIFY</span></code> stopped at.</p>
 </section>
 <section id="basload">
-<h3>BASLOAD<a class="headerlink" href="#basload" title="Link to this heading">#</a></h3>
+<h3>BASLOAD<a class="headerlink" href="#basload" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: BASLOAD &lt;filename&gt;</strong></p>
 <p><strong>Action:</strong> Loads a plain text file with BASLOAD source and converts it into a runnable program.</p>
@@ -1499,7 +1068,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="binput">
-<h3>BINPUT#<a class="headerlink" href="#binput" title="Link to this heading">#</a></h3>
+<h3>BINPUT#<a class="headerlink" href="#binput" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: BINPUT# &lt;n&gt;,&lt;var$&gt;,&lt;len&gt;</strong></p>
 <p><strong>Action:</strong> <code class="docutils literal notranslate"><span class="pre">BINPUT#</span></code> Reads a block of data from an open file and stores the data into a string variable. If there are fewer than <code class="docutils literal notranslate"><span class="pre">&lt;len&gt;</span></code> bytes available to be read from the file, fewer bytes will be stored.  If the end of the file is reached, <code class="docutils literal notranslate"><span class="pre">ST</span> <span class="pre">AND</span> <span class="pre">64</span></code> will be true.</p>
@@ -1513,7 +1082,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="boot">
-<h3>BOOT<a class="headerlink" href="#boot" title="Link to this heading">#</a></h3>
+<h3>BOOT<a class="headerlink" href="#boot" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: BOOT</strong></p>
 <p><strong>Action:</strong> Load and run a PRG file named <code class="docutils literal notranslate"><span class="pre">AUTOBOOT.X16</span></code> from device 8. If the file is not found, nothing is done and no error is printed.</p>
@@ -1523,7 +1092,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="bload">
-<h3>BLOAD<a class="headerlink" href="#bload" title="Link to this heading">#</a></h3>
+<h3>BLOAD<a class="headerlink" href="#bload" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: BLOAD &lt;filename&gt;, &lt;device&gt;, &lt;bank&gt;, &lt;address&gt;</strong></p>
 <p><strong>Action:</strong> Loads a binary file directly into RAM</p>
@@ -1536,7 +1105,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="bsave">
-<h3>BSAVE<a class="headerlink" href="#bsave" title="Link to this heading">#</a></h3>
+<h3>BSAVE<a class="headerlink" href="#bsave" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: BSAVE &lt;filename&gt;, &lt;device&gt;, &lt;bank&gt;, &lt;start address&gt;, &lt;end address&gt;</strong></p>
 <p><strong>Action:</strong> Saves a region of memory to a binary file.</p>
@@ -1554,7 +1123,7 @@ for GitHub's Markdown flavor. Do not remove!
 <p><strong>Warning:</strong> Appending to file involves a risk of corrupting the file system of the SD card! See <a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html#appending-to-file"><span class="std std-ref">Appending to file</span></a>.</p>
 </section>
 <section id="bvload">
-<h3>BVLOAD<a class="headerlink" href="#bvload" title="Link to this heading">#</a></h3>
+<h3>BVLOAD<a class="headerlink" href="#bvload" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: BVLOAD &lt;filename&gt;, &lt;device&gt;, &lt;VERA_high_address&gt;, &lt;VERA_low_address&gt;</strong></p>
 <p><strong>Action:</strong> Loads a binary file directly into VERA RAM.</p>
@@ -1565,7 +1134,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="char">
-<h3>CHAR<a class="headerlink" href="#char" title="Link to this heading">#</a></h3>
+<h3>CHAR<a class="headerlink" href="#char" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: CHAR &lt;x&gt;,&lt;y&gt;,&lt;color&gt;,&lt;string&gt;</strong></p>
 <p><strong>Action:</strong> This command draws a text string on the graphics screen in a given color.</p>
@@ -1583,7 +1152,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="close">
-<h3>CLOSE<a class="headerlink" href="#close" title="Link to this heading">#</a></h3>
+<h3>CLOSE<a class="headerlink" href="#close" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong>
 <strong>FORMAT: CLOSE &lt;file number&gt;</strong></p>
 <p><strong>Action:</strong> Closes any files used by <code class="docutils literal notranslate"><span class="pre">OPEN</span></code> statements.  The <code class="docutils literal notranslate"><span class="pre">CLOSE</span></code> statement takes a single argument that is the file number to be closed.</p>
@@ -1594,7 +1163,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="cls">
-<h3>CLS<a class="headerlink" href="#cls" title="Link to this heading">#</a></h3>
+<h3>CLS<a class="headerlink" href="#cls" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: CLS</strong></p>
 <p><strong>Action:</strong> Clears the screen. Same effect as <code class="docutils literal notranslate"><span class="pre">?CHR$(147);</span></code>.</p>
@@ -1604,7 +1173,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="color">
-<h3>COLOR<a class="headerlink" href="#color" title="Link to this heading">#</a></h3>
+<h3>COLOR<a class="headerlink" href="#color" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: COLOR &lt;fgcol&gt;[,&lt;bgcol&gt;]</strong></p>
 <p><strong>Action:</strong> This command works sets the text mode foreground color, and optionally the background color.</p>
@@ -1615,7 +1184,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="dos">
-<h3>DOS<a class="headerlink" href="#dos" title="Link to this heading">#</a></h3>
+<h3>DOS<a class="headerlink" href="#dos" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: DOS &lt;string&gt;</strong></p>
 <p><strong>Action:</strong> This command works with the command/status channel or the directory of a Commodore DOS device and has different functionality depending on the type of argument.</p>
@@ -1633,7 +1202,7 @@ for GitHub's Markdown flavor. Do not remove!
 </div>
 </section>
 <section id="edit">
-<h3>EDIT<a class="headerlink" href="#edit" title="Link to this heading">#</a></h3>
+<h3>EDIT<a class="headerlink" href="#edit" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: EDIT [&lt;filename&gt;]</strong></p>
 <p><strong>Action:</strong> Opens the built-in text editor, X16-Edit, a modeless editor with features similar to GNU Nano.</p>
@@ -1649,7 +1218,7 @@ for GitHub's Markdown flavor. Do not remove!
 <p>A more elaborate X16-Edit manual can be found <a class="reference external" href="https://github.com/X16Community/x16-rom/blob/master/x16-edit/docs/manual.pdf">here</a></p>
 </section>
 <section id="exec">
-<h3>EXEC<a class="headerlink" href="#exec" title="Link to this heading">#</a></h3>
+<h3>EXEC<a class="headerlink" href="#exec" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: EXEC &lt;memory address&gt;[,&lt;ram bank&gt;]</strong></p>
 <p><strong>Action:</strong> Plays back a null-terminated script from MEMORY into the BASIC editor. Among other uses, this can be used to “type” in a program from a plain text file.</p>
@@ -1674,7 +1243,7 @@ it for you:</p>
 </div>
 </section>
 <section id="fmchord">
-<h3>FMCHORD<a class="headerlink" href="#fmchord" title="Link to this heading">#</a></h3>
+<h3>FMCHORD<a class="headerlink" href="#fmchord" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMCHORD &lt;first channel&gt;,&lt;string&gt;</strong></p>
 <p><strong>Action:</strong> This command uses the same syntax as <code class="docutils literal notranslate"><span class="pre">FMPLAY</span></code>, but instead of playing a series of notes, it will start all of the notes in the string simultaneously on one or more channels. The first parameter to <code class="docutils literal notranslate"><span class="pre">FMCHORD</span></code> is the first channel to use, and will be used for the first note in the string, and subsequent notes in the string will be started on subsequent channels, with the channel after 7 being channel 0.</p>
@@ -1701,13 +1270,13 @@ it for you:</p>
 <p>This will play the first few lines of <em>Silent Night</em> with a vibraphone lead and organ accompaniment.</p>
 </section>
 <section id="fmdrum">
-<h3>FMDRUM<a class="headerlink" href="#fmdrum" title="Link to this heading">#</a></h3>
+<h3>FMDRUM<a class="headerlink" href="#fmdrum" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMDRUM &lt;channel&gt;,&lt;drum number&gt;</strong></p>
 <p><strong>Action:</strong> Loads a <a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html#drum-presets"><span class="std std-ref">drum preset</span></a> onto the YM2151 and triggers it. Valid range is from 25 to 87, corresponding to the General MIDI percussion note values. FMDRUM will load a patch preset corresponding to the selected drum into the channel. If you then try to play notes on that same channel without loading an instrument patch, it will use the drum patch that was loaded for the drum sound instead, which may not sound particularly musical.</p>
 </section>
 <section id="fmfreq">
-<h3>FMFREQ<a class="headerlink" href="#fmfreq" title="Link to this heading">#</a></h3>
+<h3>FMFREQ<a class="headerlink" href="#fmfreq" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMFREQ &lt;channel&gt;,&lt;frequency&gt;</strong></p>
 <p><strong>Action:</strong> Play a note by frequency on the YM2151. The accepted range is in Hz from 17 to 4434. FMFREQ also accepts a frequency of 0 to release the note.</p>
@@ -1723,23 +1292,23 @@ it for you:</p>
 <p>The above BASIC program plays a sound similar to a North American dial tone for a few seconds.</p>
 </section>
 <section id="fminit">
-<h3>FMINIT<a class="headerlink" href="#fminit" title="Link to this heading">#</a></h3>
+<h3>FMINIT<a class="headerlink" href="#fminit" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMINIT</strong></p>
 <p><strong>Action:</strong> Initialize YM2151, silence all channels, and load a set of default patches into all 8 channels.</p>
 </section>
 <section id="fminst">
-<h3>FMINST<a class="headerlink" href="#fminst" title="Link to this heading">#</a></h3>
+<h3>FMINST<a class="headerlink" href="#fminst" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMINST &lt;channel&gt;,&lt;patch&gt;</strong></p>
 <p>Load an instrument onto the YM2151 in the form of a <a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html#fm-instrument-patch-presets"><span class="std std-ref">patch preset</span></a> into a channel. Valid channels range from 0 to 7. Valid patches range from 0 to 162.</p>
 </section>
 <section id="fmnote">
-<h3>FMNOTE<a class="headerlink" href="#fmnote" title="Link to this heading">#</a></h3>
+<h3>FMNOTE<a class="headerlink" href="#fmnote" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMNOTE &lt;channel&gt;,&lt;note&gt;</strong></p>
 <p><strong>Action:</strong> Play a note on the YM2151. The note value is constructed as follows. Using hexadecimal notation, the first nybble is the octave, 0-7, and the second nybble is the note within the octave as follows:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">$x0</span></code></p></th>
 <th class="head"><p><code class="docutils literal notranslate"><span class="pre">$x1</span></code></p></th>
@@ -1775,7 +1344,6 @@ it for you:</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Notes can also be represented by negative numbers to skip retriggering, and will thus snap to another note without restarting the playback of the note.</p>
 <p><strong>EXAMPLE of FMNOTE statement:</strong></p>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">0</span><span class="w"> </span><span class="vg">FMINST</span><span class="w"> </span><span class="il">1</span><span class="p">,</span><span class="il">64</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kr">REM</span><span class="w"> </span><span class="vg">LOAD</span><span class="w"> </span><span class="vg">SOPRANO</span><span class="w"> </span><span class="vg">SAX</span>
@@ -1792,7 +1360,7 @@ it for you:</p>
 </div>
 </section>
 <section id="fmpan">
-<h3>FMPAN<a class="headerlink" href="#fmpan" title="Link to this heading">#</a></h3>
+<h3>FMPAN<a class="headerlink" href="#fmpan" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMPAN &lt;channel&gt;,&lt;panning&gt;</strong></p>
 <p><strong>Action:</strong> Sets the simple stereo panning on a YM2151 channel. Valid values are as follows:</p>
@@ -1803,7 +1371,7 @@ it for you:</p>
 </ul>
 </section>
 <section id="fmplay">
-<h3>FMPLAY<a class="headerlink" href="#fmplay" title="Link to this heading">#</a></h3>
+<h3>FMPLAY<a class="headerlink" href="#fmplay" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMPLAY &lt;channel&gt;,&lt;string&gt;</strong></p>
 <p><strong>Action:</strong> This command is very similar to <code class="docutils literal notranslate"><span class="pre">PLAY</span></code> on other BASICs such as GWBASIC. It takes a string of notes, rests, tempo changes, note lengths, and other macros, and plays all of the notes synchronously.  That is, the FMPLAY command will not return control until all of the notes and rests in the string have been fully played.</p>
@@ -1818,7 +1386,7 @@ it for you:</p>
 </div>
 </section>
 <section id="fmpoke">
-<h3>FMPOKE<a class="headerlink" href="#fmpoke" title="Link to this heading">#</a></h3>
+<h3>FMPOKE<a class="headerlink" href="#fmpoke" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMPOKE &lt;register&gt;,&lt;value&gt;</strong></p>
 <p><strong>Action:</strong> This command uses the AUDIO API to write a value to one of the the YM2151’s registers at a low level.</p>
@@ -1831,7 +1399,7 @@ it for you:</p>
 </div>
 </section>
 <section id="fmvib">
-<h3>FMVIB<a class="headerlink" href="#fmvib" title="Link to this heading">#</a></h3>
+<h3>FMVIB<a class="headerlink" href="#fmvib" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMVIB &lt;speed&gt;,&lt;depth&gt;</strong></p>
 <p><strong>Action:</strong> This command sets the LFO speed and the phase and amplitude modulation depth values on the YM2151. The speed value ranges from 0 to 255, and corresponds to an LFO frequency from 0.008 Hz to 32.6 Hz.  The depth value ranges from 0-127 and affects both AMD and PMD.</p>
@@ -1848,13 +1416,13 @@ it for you:</p>
 <p>The above BASIC program plays a C major scale with a vibraphone patch, first with a vibrato/tremolo effect, and then plays the scale in reverse with the vibrato turned off.</p>
 </section>
 <section id="fmvol">
-<h3>FMVOL<a class="headerlink" href="#fmvol" title="Link to this heading">#</a></h3>
+<h3>FMVOL<a class="headerlink" href="#fmvol" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FMVOL &lt;channel&gt;,&lt;volume&gt;</strong></p>
 <p><strong>Action:</strong> This command sets the channel’s volume. The volume remains at the requested level until another <code class="docutils literal notranslate"><span class="pre">FMVOL</span></code> command for that channel or <code class="docutils literal notranslate"><span class="pre">FMINIT</span></code> is called.  Valid range is from 0 (completely silent) to 63 (full volume)</p>
 </section>
 <section id="frame">
-<h3>FRAME<a class="headerlink" href="#frame" title="Link to this heading">#</a></h3>
+<h3>FRAME<a class="headerlink" href="#frame" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: FRAME &lt;x1&gt;,&lt;y1&gt;,&lt;x2&gt;,&lt;y2&gt;,&lt;color&gt;</strong></p>
 <p><strong>Action:</strong> This command draws a rectangle frame on the graphics screen in a given color.</p>
@@ -1866,7 +1434,7 @@ it for you:</p>
 </div>
 </section>
 <section id="hex">
-<h3>HEX$<a class="headerlink" href="#hex" title="Link to this heading">#</a></h3>
+<h3>HEX$<a class="headerlink" href="#hex" title="Link to this heading"></a></h3>
 <p><strong>TYPE: String Function</strong><br />
 <strong>FORMAT: HEX$(n)</strong></p>
 <p><strong>Action:</strong> Return a string representing the hexadecimal value of n. If n &lt;= 255, 2 characters are returned and if 255 &lt; n &lt;= 65535, 4 characters are returned.</p>
@@ -1877,13 +1445,13 @@ it for you:</p>
 </div>
 </section>
 <section id="help">
-<h3>HELP<a class="headerlink" href="#help" title="Link to this heading">#</a></h3>
+<h3>HELP<a class="headerlink" href="#help" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: HELP</strong></p>
 <p><strong>Action:</strong> The <code class="docutils literal notranslate"><span class="pre">HELP</span></code> command displays a brief summary of the ROM build, and points users to this guide at its home on GitHub, and to the community forums website.</p>
 </section>
 <section id="i2cpeek">
-<h3>I2CPEEK<a class="headerlink" href="#i2cpeek" title="Link to this heading">#</a></h3>
+<h3>I2CPEEK<a class="headerlink" href="#i2cpeek" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Integer Function</strong><br />
 <strong>FORMAT: I2CPEEK(&lt;device&gt;,&lt;register&gt;)</strong></p>
 <p><strong>Action:</strong> Returns the value from a register on an I²C device.</p>
@@ -1894,7 +1462,7 @@ it for you:</p>
 <p>This command reports the seconds counter from the RTC by converting its internal BCD representation to a string.</p>
 </section>
 <section id="i2cpoke">
-<h3>I2CPOKE<a class="headerlink" href="#i2cpoke" title="Link to this heading">#</a></h3>
+<h3>I2CPOKE<a class="headerlink" href="#i2cpoke" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: I2CPOKE &lt;device&gt;,&lt;register&gt;,&lt;value&gt;</strong></p>
 <p><strong>Action:</strong> Sets the value to a register on an I²C device.</p>
@@ -1905,13 +1473,13 @@ it for you:</p>
 <p>This command sets a byte in NVRAM on the RTC to the value <code class="docutils literal notranslate"><span class="pre">$80</span></code></p>
 </section>
 <section id="joy">
-<h3>JOY<a class="headerlink" href="#joy" title="Link to this heading">#</a></h3>
+<h3>JOY<a class="headerlink" href="#joy" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Integer Function</strong><br />
 <strong>FORMAT: JOY(n)</strong></p>
 <p><strong>Action:</strong> Return the state of a joystick.</p>
 <p><code class="docutils literal notranslate"><span class="pre">JOY(1)</span></code> through <code class="docutils literal notranslate"><span class="pre">JOY(4)</span></code> return the state of SNES controllers connected to the system, and <code class="docutils literal notranslate"><span class="pre">JOY(0)</span></code> returns the state of the “keyboard joystick”, a set of keyboard keys that map to the SNES controller layout. See <a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html#function-name-joystick_get"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">joystick_get</span></code></span></a> for details.</p>
 <p>If no controller is connected to the SNES port (or no keyboard is connected), the function returns -1. Otherwise, the result is a bit field, with pressed buttons <code class="docutils literal notranslate"><span class="pre">OR</span></code>ed together:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Value</p></th>
 <th class="head"><p>Button</p></th>
@@ -1956,7 +1524,6 @@ it for you:</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Note that this bitfield is different from the <code class="docutils literal notranslate"><span class="pre">joystick_get</span></code> KERNEL API one. Also note that the keyboard joystick will allow LEFT and RIGHT as well as UP and DOWN to be pressed at the same time, while controllers usually prevent this mechanically.</p>
 <p><strong>EXAMPLE of JOY Function:</strong></p>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="c1">REM DETECT CONTROLLER, FALL BACK TO KEYBOARD</span>
@@ -1975,7 +1542,7 @@ it for you:</p>
 </div>
 </section>
 <section id="keymap">
-<h3>KEYMAP<a class="headerlink" href="#keymap" title="Link to this heading">#</a></h3>
+<h3>KEYMAP<a class="headerlink" href="#keymap" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: KEYMAP &lt;string&gt;</strong></p>
 <p><strong>Action:</strong> This command sets the current keyboard layout. It can be put into an AUTOBOOT file to always set the keyboard layout on boot.</p>
@@ -1986,7 +1553,7 @@ it for you:</p>
 </div>
 </section>
 <section id="line">
-<h3>LINE<a class="headerlink" href="#line" title="Link to this heading">#</a></h3>
+<h3>LINE<a class="headerlink" href="#line" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: LINE &lt;x1&gt;,&lt;y1&gt;,&lt;x2&gt;,&lt;y2&gt;,&lt;color&gt;</strong></p>
 <p><strong>Action:</strong> This command draws a line on the graphics screen in a given color.</p>
@@ -2006,7 +1573,7 @@ it for you:</p>
 </div>
 </section>
 <section id="linput">
-<h3>LINPUT<a class="headerlink" href="#linput" title="Link to this heading">#</a></h3>
+<h3>LINPUT<a class="headerlink" href="#linput" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 **FORMAT: LINPUT &lt;var$&gt;</p>
 <p><strong>Action:</strong> <code class="docutils literal notranslate"><span class="pre">LINPUT</span></code> Reads a line of data from the keyboard and stores the data into a string variable. Unlike <code class="docutils literal notranslate"><span class="pre">INPUT</span></code>, no parsing or cooking of the input is done, and therefore quotes, commas, and colons are stored in the string as typed. No prompt is displayed, either.</p>
@@ -2022,7 +1589,7 @@ it for you:</p>
 </div>
 </section>
 <section id="id1">
-<h3>LINPUT#<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>LINPUT#<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: LINPUT# &lt;n&gt;,&lt;var$&gt;[,&lt;delimiter&gt;]</strong></p>
 <p><strong>Action:</strong> <code class="docutils literal notranslate"><span class="pre">LINPUT#</span></code> Reads a line of data from an open file and stores the data into a string variable. The delimiter of a line by default is 13 (carriage return). The delimiter is not part of the stored value. If the end of the file is reached while reading, <code class="docutils literal notranslate"><span class="pre">ST</span> <span class="pre">AND</span> <span class="pre">64</span></code> will be true.</p>
@@ -2046,7 +1613,7 @@ it for you:</p>
 <p>The above example parses and prints out the filenames from a directory listing.</p>
 </section>
 <section id="list">
-<h3>LIST<a class="headerlink" href="#list" title="Link to this heading">#</a></h3>
+<h3>LIST<a class="headerlink" href="#list" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong>
 <strong>FORMAT: LIST [start] [-] [end]</strong></p>
 <p><strong>Action:</strong> <code class="docutils literal notranslate"><span class="pre">LIST</span></code> Displays the currently loaded BASIC program on the screen.
@@ -2066,7 +1633,7 @@ use the down arrow key to scroll by one line or use the <code class="docutils li
 approximately one screen full of text.</p>
 </section>
 <section id="locate">
-<h3>LOCATE<a class="headerlink" href="#locate" title="Link to this heading">#</a></h3>
+<h3>LOCATE<a class="headerlink" href="#locate" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: LOCATE &lt;line&gt;[,&lt;column&gt;]</strong></p>
 <p><strong>Action:</strong> This command positions the text mode cursor at the given location.
@@ -2086,7 +1653,7 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </div>
 </section>
 <section id="menu">
-<h3>MENU<a class="headerlink" href="#menu" title="Link to this heading">#</a></h3>
+<h3>MENU<a class="headerlink" href="#menu" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: MENU</strong></p>
 <p><strong>Action:</strong> This command currently invokes the Commander X16 Control Panel. In the future, the menu may instead present a menu of ROM-based applications and routines.</p>
@@ -2096,7 +1663,7 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </div>
 </section>
 <section id="mon">
-<h3>MON<a class="headerlink" href="#mon" title="Link to this heading">#</a></h3>
+<h3>MON<a class="headerlink" href="#mon" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: MON (Alternative: MONITOR)</strong></p>
 <p><strong>Action:</strong> This command enters the machine language monitor. See the <a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html#chapter-7-machine-language-monitor"><span class="std std-ref">Chapter 7: Machine Language Monitor</span></a> for a  description.</p>
@@ -2107,11 +1674,11 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </div>
 </section>
 <section id="mouse">
-<h3>MOUSE<a class="headerlink" href="#mouse" title="Link to this heading">#</a></h3>
+<h3>MOUSE<a class="headerlink" href="#mouse" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: MOUSE &lt;mode&gt;</strong></p>
 <p><strong>Action:</strong> This command configures the mouse pointer.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mode</p></th>
 <th class="head"><p>Description</p></th>
@@ -2129,7 +1696,6 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><code class="docutils literal notranslate"><span class="pre">MOUSE</span> <span class="pre">1</span></code> turns on the mouse pointer and <code class="docutils literal notranslate"><span class="pre">MOUSE</span> <span class="pre">0</span></code> turns it off. If the BASIC program has its own mouse pointer sprite configured, it can use <code class="docutils literal notranslate"><span class="pre">MOUSE</span> <span class="pre">-1</span></code>, which will turn the mouse pointer on, but not set the default pointer sprite.</p>
 <p>The sprite attributes for the mouse pointer are always read from VERA address $1:FC00-$1:FC07, the attributes for sprite 0. The default cursor will be written to the default sprite 0 data address in VERA at $1:3000 when Mode is set to 1.</p>
 <p>The size of the mouse pointer’s area will be configured according to the current screen mode. If the screen mode is changed, the MOUSE statement has to be repeated.</p>
@@ -2140,7 +1706,7 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </div>
 </section>
 <section id="movspr">
-<h3>MOVSPR<a class="headerlink" href="#movspr" title="Link to this heading">#</a></h3>
+<h3>MOVSPR<a class="headerlink" href="#movspr" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: MOVSPR &lt;sprite idx&gt;,&lt;x&gt;,&lt;y&gt;</strong></p>
 <p><strong>Action:</strong> This command positions a sprite’s upper left corner at a specific pixel location.  It does not change its visibility.</p>
@@ -2155,14 +1721,14 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </div>
 </section>
 <section id="mx-my-mb">
-<h3>MX/MY/MB<a class="headerlink" href="#mx-my-mb" title="Link to this heading">#</a></h3>
+<h3>MX/MY/MB<a class="headerlink" href="#mx-my-mb" title="Link to this heading"></a></h3>
 <p><strong>TYPE: System variable</strong><br />
 <strong>FORMAT: MX</strong><br />
 <strong>FORMAT: MY</strong><br />
 <strong>FORMAT: MB</strong></p>
 <p><strong>Action:</strong> Return the horizontal (<code class="docutils literal notranslate"><span class="pre">MX</span></code>) or vertical (<code class="docutils literal notranslate"><span class="pre">MY</span></code>) position of the mouse pointer, or the mouse button state (<code class="docutils literal notranslate"><span class="pre">MB</span></code>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">MB</span></code> returns the sum of the following values depending on the state of the buttons:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Value</p></th>
 <th class="head"><p>Button</p></th>
@@ -2183,7 +1749,6 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>EXAMPLE of MX/MY/MB variables:</strong></p>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="c1">REM SIMPLE DRAWING PROGRAM</span>
 <span class="nl">10</span><span class="w"> </span><span class="kr">SCREEN</span><span class="err">$</span><span class="il">80</span>
@@ -2199,14 +1764,14 @@ The values are 1-based. If no column is given, only the line is changed.</p>
 </div>
 </section>
 <section id="mwheel">
-<h3>MWHEEL<a class="headerlink" href="#mwheel" title="Link to this heading">#</a></h3>
+<h3>MWHEEL<a class="headerlink" href="#mwheel" title="Link to this heading"></a></h3>
 <p><strong>TYPE: System variable</strong><br />
 <strong>FORMAT: MWHEEL</strong></p>
 <p><strong>Action:</strong> Return the mouse scroll wheel movement since the value was last read. The value is negative if the scroll wheel is
 moved away from the user, and positive if it is moved towards the user. The range of the returned value is -128 to +127.</p>
 </section>
 <section id="old">
-<h3>OLD<a class="headerlink" href="#old" title="Link to this heading">#</a></h3>
+<h3>OLD<a class="headerlink" href="#old" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: OLD</strong></p>
 <p><strong>Action:</strong> This command recovers the BASIC program in RAM that has been previously deleted using the <code class="docutils literal notranslate"><span class="pre">NEW</span></code> command or through a RESET.</p>
@@ -2216,7 +1781,7 @@ moved away from the user, and positive if it is moved towards the user. The rang
 </div>
 </section>
 <section id="oval">
-<h3>OVAL<a class="headerlink" href="#oval" title="Link to this heading">#</a></h3>
+<h3>OVAL<a class="headerlink" href="#oval" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: OVAL &lt;x1&gt;,&lt;y1&gt;,&lt;x2&gt;,&lt;y2&gt;,&lt;color&gt;</strong></p>
 <p><strong>Action:</strong> This command draws a filled oval on the graphics screen in a given color.</p>
@@ -2229,7 +1794,7 @@ moved away from the user, and positive if it is moved towards the user. The rang
 </div>
 </section>
 <section id="peek">
-<h3>PEEK<a class="headerlink" href="#peek" title="Link to this heading">#</a></h3>
+<h3>PEEK<a class="headerlink" href="#peek" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PEEK(&lt;address&gt;)</strong></p>
 <p><strong>Action:</strong> Returns the value at given memory address</p>
@@ -2242,7 +1807,7 @@ requires using <code class="docutils literal notranslate"><span class="pre">BANK
 </div>
 </section>
 <section id="pointer">
-<h3>POINTER<a class="headerlink" href="#pointer" title="Link to this heading">#</a></h3>
+<h3>POINTER<a class="headerlink" href="#pointer" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Function</strong><br />
 <strong>FORMAT: POINTER(&lt;variable&gt;)</strong></p>
 <p><strong>Action:</strong> Returns the memory address of the internal structure representing a BASIC variable.</p>
@@ -2255,7 +1820,7 @@ requires using <code class="docutils literal notranslate"><span class="pre">BANK
 </div>
 </section>
 <section id="poke">
-<h3>POKE<a class="headerlink" href="#poke" title="Link to this heading">#</a></h3>
+<h3>POKE<a class="headerlink" href="#poke" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Function</strong><br />
 <strong>FORMAT: POKE &lt;address&gt;, &lt;value&gt;</strong></p>
 <p><strong>Action:</strong> Sets the contents of the memory address to given value.</p>
@@ -2272,7 +1837,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="poweroff">
-<h3>POWEROFF<a class="headerlink" href="#poweroff" title="Link to this heading">#</a></h3>
+<h3>POWEROFF<a class="headerlink" href="#poweroff" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: POWEROFF</strong></p>
 <p><strong>Action:</strong> This command instructs the SMC to power down the system. This is equivalent to pressing the physical power switch.</p>
@@ -2282,7 +1847,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="pset">
-<h3>PSET<a class="headerlink" href="#pset" title="Link to this heading">#</a></h3>
+<h3>PSET<a class="headerlink" href="#pset" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSET &lt;x&gt;,&lt;y&gt;,&lt;color&gt;</strong></p>
 <p><strong>Action:</strong> This command sets a pixel on the graphics screen to a given color.</p>
@@ -2294,7 +1859,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="psgchord">
-<h3>PSGCHORD<a class="headerlink" href="#psgchord" title="Link to this heading">#</a></h3>
+<h3>PSGCHORD<a class="headerlink" href="#psgchord" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGCHORD &lt;first voice&gt;,&lt;string&gt;</strong></p>
 <p><strong>Action:</strong> This command uses the same syntax as <code class="docutils literal notranslate"><span class="pre">PSGPLAY</span></code>, but instead of playing a series of notes, it will start all of the notes in the string simultaneously on one or more voices. The first parameter to <code class="docutils literal notranslate"><span class="pre">PSGCHORD</span></code> is the first voice to use, and will be used for the first note in the string, and subsequent notes in the string will be started on subsequent voices, with the voice after 15 being voice 0.</p>
@@ -2313,7 +1878,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="psgfreq">
-<h3>PSGFREQ<a class="headerlink" href="#psgfreq" title="Link to this heading">#</a></h3>
+<h3>PSGFREQ<a class="headerlink" href="#psgfreq" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGFREQ &lt;voice&gt;,&lt;frequency&gt;</strong></p>
 <p><strong>Action:</strong> Play a note by frequency on the VERA PSG. The accepted range is in Hz from 1 to 24319. PSGFREQ also accepts a frequency of 0 to release the note.</p>
@@ -2328,17 +1893,17 @@ called with appropriate arguments.</p>
 <p>The above BASIC program plays a sound similar to a North American dial tone for a few seconds.</p>
 </section>
 <section id="psginit">
-<h3>PSGINIT<a class="headerlink" href="#psginit" title="Link to this heading">#</a></h3>
+<h3>PSGINIT<a class="headerlink" href="#psginit" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGINIT</strong></p>
 <p><strong>Action:</strong> Initialize VERA PSG, silence all voices, set volume to 63 on all voices, and set the waveform to pulse and the duty cycle to 63 (50%) for all 16 voices.</p>
 </section>
 <section id="psgnote">
-<h3>PSGNOTE<a class="headerlink" href="#psgnote" title="Link to this heading">#</a></h3>
+<h3>PSGNOTE<a class="headerlink" href="#psgnote" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGNOTE &lt;voice&gt;,&lt;note&gt;</strong></p>
 <p><strong>Action:</strong> Play a note on the VERA PSG. The note value is constructed as follows. Using hexadecimal notation, the first nybble is the octave, 0-7, and the second nybble is the note within the octave as follows:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">$x0</span></code></p></th>
 <th class="head"><p><code class="docutils literal notranslate"><span class="pre">$x1</span></code></p></th>
@@ -2374,7 +1939,6 @@ called with appropriate arguments.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>EXAMPLE of PSGNOTE statement:</strong></p>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="vg">PSGNOTE</span><span class="w"> </span><span class="il">1</span><span class="p">,</span><span class="err">$</span><span class="il">4</span><span class="vg">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kr">REM</span><span class="w"> </span><span class="vg">PLAYS</span><span class="w"> </span><span class="vg">CONCERT</span><span class="w"> </span><span class="vg">A</span>
 <span class="nl">20</span><span class="w"> </span><span class="kr">FOR</span><span class="w"> </span><span class="vg">X</span><span class="o">=</span><span class="il">1</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="il">5000</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kr">NEXT</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kr">REM</span><span class="w"> </span><span class="vg">DELAYS</span><span class="w"> </span><span class="kr">FOR</span><span class="w"> </span><span class="vg">A</span><span class="w"> </span><span class="vg">BIT</span>
@@ -2387,7 +1951,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="psgpan">
-<h3>PSGPAN<a class="headerlink" href="#psgpan" title="Link to this heading">#</a></h3>
+<h3>PSGPAN<a class="headerlink" href="#psgpan" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGPAN &lt;voice&gt;,&lt;panning&gt;</strong></p>
 <p><strong>Action:</strong> Sets the simple stereo panning on a VERA PSG voice. Valid values are as follows:</p>
@@ -2398,7 +1962,7 @@ called with appropriate arguments.</p>
 </ul>
 </section>
 <section id="psgplay">
-<h3>PSGPLAY<a class="headerlink" href="#psgplay" title="Link to this heading">#</a></h3>
+<h3>PSGPLAY<a class="headerlink" href="#psgplay" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGPLAY &lt;voice&gt;,&lt;string&gt;</strong></p>
 <p><strong>Action:</strong> This command is very similar to <code class="docutils literal notranslate"><span class="pre">PLAY</span></code> on other BASICs such as GWBASIC. It takes a string of notes, rests, tempo changes, note lengths, and other macros, and plays all of the notes synchronously.  That is, the PSGPLAY command will not return control until all of the notes and rests in the string have been fully played.</p>
@@ -2413,13 +1977,13 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="psgvol">
-<h3>PSGVOL<a class="headerlink" href="#psgvol" title="Link to this heading">#</a></h3>
+<h3>PSGVOL<a class="headerlink" href="#psgvol" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGVOL &lt;voice&gt;,&lt;volume&gt;</strong></p>
 <p><strong>Action:</strong> This command sets the voice’s volume. The volume remains at the requested level until another <code class="docutils literal notranslate"><span class="pre">PSGVOL</span></code> command for that voice or <code class="docutils literal notranslate"><span class="pre">PSGINIT</span></code> is called.  Valid range is from 0 (completely silent) to 63 (full volume).</p>
 </section>
 <section id="psgwav">
-<h3>PSGWAV<a class="headerlink" href="#psgwav" title="Link to this heading">#</a></h3>
+<h3>PSGWAV<a class="headerlink" href="#psgwav" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: PSGWAV &lt;voice&gt;,&lt;w&gt;</strong></p>
 <p><strong>Action:</strong> Sets the waveform and duty cycle for a PSG voice.</p>
@@ -2450,7 +2014,7 @@ called with appropriate arguments.</p>
 <p>This example plays a chromatic scale while applying pulse-width modulation on the voice.</p>
 </section>
 <section id="ring">
-<h3>RING<a class="headerlink" href="#ring" title="Link to this heading">#</a></h3>
+<h3>RING<a class="headerlink" href="#ring" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: RING &lt;x1&gt;,&lt;y1&gt;,&lt;x2&gt;,&lt;y2&gt;,&lt;color&gt;</strong></p>
 <p><strong>Action:</strong> This command draws an oval outline on the graphics screen in a given color.</p>
@@ -2463,7 +2027,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="rect">
-<h3>RECT<a class="headerlink" href="#rect" title="Link to this heading">#</a></h3>
+<h3>RECT<a class="headerlink" href="#rect" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: RECT &lt;x1&gt;,&lt;y1&gt;,&lt;x2&gt;,&lt;y2&gt;,&lt;color&gt;</strong></p>
 <p><strong>Action:</strong> This command draws a solid rectangle on the graphics screen in a given color.</p>
@@ -2475,7 +2039,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="reboot">
-<h3>REBOOT<a class="headerlink" href="#reboot" title="Link to this heading">#</a></h3>
+<h3>REBOOT<a class="headerlink" href="#reboot" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: REBOOT</strong></p>
 <p><strong>Action:</strong> Performs a software reset of the system by calling the ROM reset vector.</p>
@@ -2485,7 +2049,7 @@ called with appropriate arguments.</p>
 </div>
 </section>
 <section id="ren">
-<h3>REN<a class="headerlink" href="#ren" title="Link to this heading">#</a></h3>
+<h3>REN<a class="headerlink" href="#ren" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: REN [&lt;new line num&gt;[, &lt;increment&gt;[, &lt;first old line num&gt;]]]</strong></p>
 <p><strong>Action:</strong> Renumbers a BASIC program while updating the line number arguments of GOSUB, GOTO, RESTORE, RUN, and THEN.</p>
@@ -2534,7 +2098,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 </div>
 </section>
 <section id="reset">
-<h3>RESET<a class="headerlink" href="#reset" title="Link to this heading">#</a></h3>
+<h3>RESET<a class="headerlink" href="#reset" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: RESET</strong></p>
 <p><strong>Action:</strong> This command instructs the SMC to assert the reset line on the system, which performs a hard reset. This is equivalent to pressing the physical reset switch.</p>
@@ -2544,7 +2108,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 </div>
 </section>
 <section id="restore">
-<h3>RESTORE<a class="headerlink" href="#restore" title="Link to this heading">#</a></h3>
+<h3>RESTORE<a class="headerlink" href="#restore" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: RESTORE [&lt;linenum&gt;]</strong></p>
 <p><strong>Action:</strong> This command resets the pointer for the <code class="docutils literal notranslate"><span class="pre">READ</span></code> command. Without arguments, it will reset the pointer to the first <code class="docutils literal notranslate"><span class="pre">DATA</span></code> constant in the program.  With a parameter <code class="docutils literal notranslate"><span class="pre">linenum</span></code>, the command will reset the pointer to the first <code class="docutils literal notranslate"><span class="pre">DATA</span></code> constant at or after that line number.</p>
@@ -2561,7 +2125,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 <p>This program will output the number 1 followed by the number 4.</p>
 </section>
 <section id="rpt">
-<h3>RPT$<a class="headerlink" href="#rpt" title="Link to this heading">#</a></h3>
+<h3>RPT$<a class="headerlink" href="#rpt" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Function</strong><br />
 <strong>FORMAT: RPT$(&lt;byte&gt;,&lt;count&gt;)</strong></p>
 <p><strong>Action:</strong> Returns a string of &lt;count&gt; instances of the PETSCII character represented by the numeric value &lt;byte&gt;.  This function is similar in behavior to <code class="docutils literal notranslate"><span class="pre">CHR$()</span></code> but takes a second argument as a repeat count.</p>
@@ -2578,7 +2142,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 </div>
 </section>
 <section id="save">
-<h3>SAVE<a class="headerlink" href="#save" title="Link to this heading">#</a></h3>
+<h3>SAVE<a class="headerlink" href="#save" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong>
 <strong>FORMAT: SAVE &lt;filename&gt; [, &lt;device&gt;</strong>]</p>
 <p><strong>Action:</strong> Saves a BASIC program to a file.</p>
@@ -2595,7 +2159,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 <p>The above example overwrites an existing file on drive 9, which would be a Commodore style disk drive plugged into the IEC port.</p>
 </section>
 <section id="screen">
-<h3>SCREEN<a class="headerlink" href="#screen" title="Link to this heading">#</a></h3>
+<h3>SCREEN<a class="headerlink" href="#screen" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: SCREEN &lt;mode&gt;</strong></p>
 <p><strong>Action:</strong> This command switches screen modes.</p>
@@ -2608,7 +2172,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 </div>
 </section>
 <section id="sleep">
-<h3>SLEEP<a class="headerlink" href="#sleep" title="Link to this heading">#</a></h3>
+<h3>SLEEP<a class="headerlink" href="#sleep" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: SLEEP [&lt;jiffies&gt;]</strong></p>
 <p><strong>Action:</strong> With the default interrupt source configured and enabled, this command waits for <code class="docutils literal notranslate"><span class="pre">jiffies</span></code>+1 VSYNC events and then resumes program execution. In other words, <code class="docutils literal notranslate"><span class="pre">SLEEP</span></code> with no arguments is equivalent to <code class="docutils literal notranslate"><span class="pre">SLEEP</span> <span class="pre">0</span></code>, which waits until the beginning of the next frame. Another useful example, <code class="docutils literal notranslate"><span class="pre">SLEEP</span> <span class="pre">60</span></code>, pauses for approximately 1 second.</p>
@@ -2622,7 +2186,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 </div>
 </section>
 <section id="sprite">
-<h3>SPRITE<a class="headerlink" href="#sprite" title="Link to this heading">#</a></h3>
+<h3>SPRITE<a class="headerlink" href="#sprite" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: SPRITE &lt;sprite idx&gt;,&lt;priority&gt;[,&lt;palette offset&gt;[,&lt;flip&gt;[,&lt;x-width&gt;[,&lt;y-width&gt;[,&lt;color depth&gt;]]]]]</strong></p>
 <p><strong>Action:</strong> This command configures a sprite’s geometry, palette, and visibility.</p>
@@ -2645,7 +2209,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 </div>
 </section>
 <section id="sprmem">
-<h3>SPRMEM<a class="headerlink" href="#sprmem" title="Link to this heading">#</a></h3>
+<h3>SPRMEM<a class="headerlink" href="#sprmem" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: SPRMEM &lt;sprite idx&gt;,&lt;VRAM bank&gt;,&lt;VRAM address&gt;[,&lt;color depth&gt;]</strong></p>
 <p><strong>Action:</strong> This command configures the address of where the sprite’s pixel data is to be found. It also can change or set the color depth of the sprite.</p>
@@ -2665,7 +2229,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 </div>
 </section>
 <section id="strptr">
-<h3>STRPTR<a class="headerlink" href="#strptr" title="Link to this heading">#</a></h3>
+<h3>STRPTR<a class="headerlink" href="#strptr" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Function</strong><br />
 <strong>FORMAT: STRPTR(&lt;variable&gt;)</strong></p>
 <p><strong>Action:</strong> Returns the memory address of the first character of a string contained within a string variable. If the string variable has zero length, this function will likely still return a non-zero value pointing either to the close quotation mark in the literal assignment, or to somewhere undefined in string memory. Programs should check the <code class="docutils literal notranslate"><span class="pre">LEN()</span></code> of string variables before using the pointer returned from <code class="docutils literal notranslate"><span class="pre">STRPTR</span></code>.</p>
@@ -2688,7 +2252,7 @@ In release R43, due to improper parsing of escape tokens, REN will improperly tr
 <p>In this case, the pointer returned on line 70 pointed to the first character after the open quote on line 60. Since it was an empty string, the pointer ended up pointing to the close quote. To avoid this scenario, we should have checked the <code class="docutils literal notranslate"><span class="pre">LEN(A$)</span></code> before line 80 and skipped over the loop.</p>
 </section>
 <section id="sys">
-<h3>SYS<a class="headerlink" href="#sys" title="Link to this heading">#</a></h3>
+<h3>SYS<a class="headerlink" href="#sys" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: SYS &lt;address&gt;</strong></p>
 <p><strong>Action:</strong> The SYS command executes a machine language subroutine located at &lt;address&gt;.
@@ -2714,7 +2278,7 @@ memory locations:</p>
 </div>
 </section>
 <section id="tile">
-<h3>TILE<a class="headerlink" href="#tile" title="Link to this heading">#</a></h3>
+<h3>TILE<a class="headerlink" href="#tile" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: TILE &lt;x&gt;,&lt;y&gt;,&lt;tile/screen code&gt;[,&lt;attribute&gt;]</strong></p>
 <p><strong>Action:</strong> The <code class="docutils literal notranslate"><span class="pre">TILE</span></code> command sets the tile or text character at the given x/y tile/character coordinate to the given screen code or tile index, optionally resetting the attribute byte. It works for tiles or text on Layer 1.</p>
@@ -2731,7 +2295,7 @@ memory locations:</p>
 </div>
 </section>
 <section id="tattr">
-<h3>TATTR<a class="headerlink" href="#tattr" title="Link to this heading">#</a></h3>
+<h3>TATTR<a class="headerlink" href="#tattr" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Function</strong><br />
 <strong>FORMAT: TATTR(&lt;x coordinate&gt;,&lt;y coordinate&gt;)</strong></p>
 <p><strong>Action:</strong> The <code class="docutils literal notranslate"><span class="pre">TATTR</span></code>function retrieves the text/tile attribute at the given x/y coordinate. It works for tiles or text on Layer 1.</p>
@@ -2749,7 +2313,7 @@ memory locations:</p>
 </div>
 </section>
 <section id="tdata">
-<h3>TDATA<a class="headerlink" href="#tdata" title="Link to this heading">#</a></h3>
+<h3>TDATA<a class="headerlink" href="#tdata" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Function</strong><br />
 <strong>FORMAT: TDATA(&lt;x coordinate&gt;,&lt;y coordinate&gt;)</strong></p>
 <p><strong>Action:</strong> The <code class="docutils literal notranslate"><span class="pre">TDATA</span></code>function retrieves the text/tile at the given x/y coordinate. It works for tiles or text on Layer 1.</p>
@@ -2766,7 +2330,7 @@ memory locations:</p>
 </div>
 </section>
 <section id="vpeek">
-<h3>VPEEK<a class="headerlink" href="#vpeek" title="Link to this heading">#</a></h3>
+<h3>VPEEK<a class="headerlink" href="#vpeek" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Integer Function</strong><br />
 <strong>FORMAT: VPEEK (&lt;bank&gt;, &lt;address&gt;)</strong></p>
 <p><strong>Action:</strong> Return a byte from the video address space. The video address space has 17 bit addresses, which is exposed as 2 banks of 65536 addresses each.</p>
@@ -2779,7 +2343,7 @@ BANK 4-5 is for IO4 (VERA at $9F80-$9F9F)</p>
 </div>
 </section>
 <section id="vpoke">
-<h3>VPOKE<a class="headerlink" href="#vpoke" title="Link to this heading">#</a></h3>
+<h3>VPOKE<a class="headerlink" href="#vpoke" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: VPOKE &lt;bank&gt;, &lt;address&gt;, &lt;value&gt;</strong></p>
 <p><strong>Action:</strong> Set a byte in the video address space. The video address space has 17 bit addresses, which is exposed as 2 banks of 65536 addresses each.</p>
@@ -2793,7 +2357,7 @@ BANK 4-5 is for IO4 (VERA at $9F80-$9F9F)</p>
 </div>
 </section>
 <section id="vload">
-<h3>VLOAD<a class="headerlink" href="#vload" title="Link to this heading">#</a></h3>
+<h3>VLOAD<a class="headerlink" href="#vload" title="Link to this heading"></a></h3>
 <p><strong>TYPE: Command</strong><br />
 <strong>FORMAT: VLOAD &lt;filename&gt;, &lt;device&gt;, &lt;VERA_high_address&gt;, &lt;VERA_low_address&gt;</strong></p>
 <p><strong>Action:</strong> Loads a file directly into VERA RAM, skipping the two-byte header that is presumed to be in the file.</p>
@@ -2806,9 +2370,9 @@ BANK 4-5 is for IO4 (VERA at $9F80-$9F9F)</p>
 </section>
 </section>
 <section id="other-new-features">
-<h2>Other New Features<a class="headerlink" href="#other-new-features" title="Link to this heading">#</a></h2>
+<h2>Other New Features<a class="headerlink" href="#other-new-features" title="Link to this heading"></a></h2>
 <section id="hexadecimal-and-binary-literals">
-<h3>Hexadecimal and Binary Literals<a class="headerlink" href="#hexadecimal-and-binary-literals" title="Link to this heading">#</a></h3>
+<h3>Hexadecimal and Binary Literals<a class="headerlink" href="#hexadecimal-and-binary-literals" title="Link to this heading"></a></h3>
 <p>The numeric constants parser supports both hex (<code class="docutils literal notranslate"><span class="pre">$</span></code>) and binary (<code class="docutils literal notranslate"><span class="pre">%</span></code>) literals, like this:</p>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="kr">PRINT</span><span class="w"> </span><span class="err">$</span><span class="vg">EA31</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">%</span><span class="il">1010</span>
 </pre></div>
@@ -2816,7 +2380,7 @@ BANK 4-5 is for IO4 (VERA at $9F80-$9F9F)</p>
 <p>The size of hex and binary values is only restricted by the range that can be represented by BASIC’s internal floating point representation.</p>
 </section>
 <section id="load-into-vram">
-<h3>LOAD into VRAM<a class="headerlink" href="#load-into-vram" title="Link to this heading">#</a></h3>
+<h3>LOAD into VRAM<a class="headerlink" href="#load-into-vram" title="Link to this heading"></a></h3>
 <p>In BASIC, the contents of files can be directly loaded into VRAM with the <code class="docutils literal notranslate"><span class="pre">LOAD</span></code> statement. When a secondary address greater than one is used, the KERNAL will now load the file into the VERA’s VRAM address space. The first two bytes of the file are used as lower 16 bits of the address. The upper 4 bits are <code class="docutils literal notranslate"><span class="pre">(SA-2)</span> <span class="pre">&amp;</span> <span class="pre">0x0ff</span></code> where <code class="docutils literal notranslate"><span class="pre">SA</span></code> is the secondary address.</p>
 <p>Examples:</p>
 <div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="c1">REM LOAD VERA SETTINGS</span>
@@ -2829,12 +2393,12 @@ BANK 4-5 is for IO4 (VERA at $9F80-$9F9F)</p>
 </div>
 </section>
 <section id="default-device-numbers">
-<h3>Default Device Numbers<a class="headerlink" href="#default-device-numbers" title="Link to this heading">#</a></h3>
+<h3>Default Device Numbers<a class="headerlink" href="#default-device-numbers" title="Link to this heading"></a></h3>
 <p>In BASIC, the LOAD, SAVE and OPEN statements default to the last-used IEEE device (device numbers 8 and above), or 8.</p>
 </section>
 </section>
 <section id="internal-representation">
-<h2>Internal Representation<a class="headerlink" href="#internal-representation" title="Link to this heading">#</a></h2>
+<h2>Internal Representation<a class="headerlink" href="#internal-representation" title="Link to this heading"></a></h2>
 <p>Like on the C64, BASIC keywords are tokenized.</p>
 <ul class="simple">
 <li><p>The C64 BASIC V2 keywords occupy the range of $80 (<code class="docutils literal notranslate"><span class="pre">END</span></code>) to $CB (<code class="docutils literal notranslate"><span class="pre">GO</span></code>).</p></li>
@@ -2845,7 +2409,7 @@ BANK 4-5 is for IO4 (VERA at $9F80-$9F9F)</p>
 <p>The X16 BASIC aims to be as compatible as possible with this encoding. Keywords added to X16 BASIC that also exist in other versions of BASIC match the token, and new keywords are encoded in the ranges $CE-$80+ and $FE-$80+.</p>
 </section>
 <section id="auto-boot">
-<h2>Auto-Boot<a class="headerlink" href="#auto-boot" title="Link to this heading">#</a></h2>
+<h2>Auto-Boot<a class="headerlink" href="#auto-boot" title="Link to this heading"></a></h2>
 <p>When BASIC starts, it automatically executes the <code class="docutils literal notranslate"><span class="pre">BOOT</span></code> command, which tries to load a PRG file named <code class="docutils literal notranslate"><span class="pre">AUTOBOOT.X16</span></code> from device 8 and, if successful, runs it. Here are some use cases for this:</p>
 <ul class="simple">
 <li><p>An SD card with a game can auto-boot this way.</p></li>
@@ -2858,213 +2422,34 @@ BANK 4-5 is for IO4 (VERA at $9F80-$9F9F)</p>
 </section>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%2003%20-%20Editor.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 3: Editor</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%2005%20-%20KERNAL.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 5: KERNAL</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-basic-statements-and-functions">Table of BASIC statements and functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commodore-64-compatibility">Commodore 64 Compatibility</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-files">Saving Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-statements-and-functions">New Statements and Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asc">ASC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bin">BIN$</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bank">BANK</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basload">BASLOAD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binput">BINPUT#</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boot">BOOT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bload">BLOAD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bsave">BSAVE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bvload">BVLOAD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#char">CHAR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#close">CLOSE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cls">CLS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color">COLOR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dos">DOS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit">EDIT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exec">EXEC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmchord">FMCHORD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmdrum">FMDRUM</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmfreq">FMFREQ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fminit">FMINIT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fminst">FMINST</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmnote">FMNOTE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmpan">FMPAN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmplay">FMPLAY</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmpoke">FMPOKE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmvib">FMVIB</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fmvol">FMVOL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame">FRAME</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hex">HEX$</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help">HELP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2cpeek">I2CPEEK</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2cpoke">I2CPOKE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joy">JOY</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keymap">KEYMAP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line">LINE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linput">LINPUT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">LINPUT#</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">LIST</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locate">LOCATE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menu">MENU</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mon">MON</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mouse">MOUSE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#movspr">MOVSPR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mx-my-mb">MX/MY/MB</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mwheel">MWHEEL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#old">OLD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oval">OVAL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peek">PEEK</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer">POINTER</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poke">POKE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poweroff">POWEROFF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pset">PSET</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psgchord">PSGCHORD</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psgfreq">PSGFREQ</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psginit">PSGINIT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psgnote">PSGNOTE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psgpan">PSGPAN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psgplay">PSGPLAY</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psgvol">PSGVOL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psgwav">PSGWAV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ring">RING</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rect">RECT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reboot">REBOOT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ren">REN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reset">RESET</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restore">RESTORE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rpt">RPT$</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save">SAVE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#screen">SCREEN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sleep">SLEEP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sprite">SPRITE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sprmem">SPRMEM</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strptr">STRPTR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sys">SYS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tile">TILE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tattr">TATTR</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tdata">TDATA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vpeek">VPEEK</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vpoke">VPOKE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vload">VLOAD</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-new-features">Other New Features</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hexadecimal-and-binary-literals">Hexadecimal and Binary Literals</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-into-vram">LOAD into VRAM</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-device-numbers">Default Device Numbers</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-representation">Internal Representation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-boot">Auto-Boot</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - 04 - BASIC.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%2003%20-%20Editor.html" class="btn btn-neutral float-left" title="Chapter 3: Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%2005%20-%20KERNAL.html" class="btn btn-neutral float-right" title="Chapter 5: KERNAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>

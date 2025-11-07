@@ -1,645 +1,157 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 9: VERA Programmer’s Reference &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Chapter 9: VERA Programmer’s Reference &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - 09 - VERA Programmer's Reference';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 10: VERA FX Reference" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html" />
-    <link rel="prev" title="Chapter 8: Memory Map" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Chapter 8: Memory Map" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">Chapter 4: BASIC Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">Chapter 5: KERNAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#registers">Registers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#f20-9f28">$9F20-$9F28</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#f29-9f2c">$9F29-$9F2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#f2d-9f3f">$9F2D-$9F3F</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vram-address-space-layout">VRAM address space layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#video-ram-access">Video RAM access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reset">Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interrupts">Interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-composer">Display composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layer-0-1-registers">Layer 0/1 registers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layer-display-modes">Layer display modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tile-mode-1-bpp-16-color-text-mode">Tile mode 1 bpp (16 color text mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tile-mode-1-bpp-256-color-text-mode">Tile mode 1 bpp (256 color text mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tile-mode-2-4-8-bpp">Tile mode 2/4/8 bpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bitmap-mode-1-2-4-8-bpp">Bitmap mode 1/2/4/8 bpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spi-controller">SPI controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#palette">Palette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sprite-attributes">Sprite attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#composite-video">Composite video</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#color-bleed">Color bleed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overscan">Overscan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sprite-collisions">Sprite collisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vera-fx">VERA FX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#audio">Audio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#programmable-sound-generator-psg">Programmable Sound Generator (PSG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pcm-audio">PCM audio</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#audio-registers">Audio registers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#audio-ctrl-9f3b"><code class="docutils literal notranslate"><span class="pre">AUDIO_CTRL</span> <span class="pre">($9F3B)</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#audio-data-formats">Audio data formats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">Appendix C: The 65C02 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">Appendix F: The 65C816 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">Appendix G: ZSM File Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Chapter 9: VERA Programmer’s Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - 09 - VERA Programmer&#39;s Reference.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 9: VERA Programmer’s Reference</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="chapter-9-vera-programmer-s-reference">
-<h1>Chapter 9: VERA Programmer’s Reference<a class="headerlink" href="#chapter-9-vera-programmer-s-reference" title="Link to this heading">#</a></h1>
+<h1>Chapter 9: VERA Programmer’s Reference<a class="headerlink" href="#chapter-9-vera-programmer-s-reference" title="Link to this heading"></a></h1>
 <p>This document describes the <strong>V</strong>ersatile <strong>E</strong>mbedded <strong>R</strong>etro <strong>A</strong>dapter or VERA.
 Which was originally written and conceived by Frank van den Hoef.</p>
 <p>The VERA video chip supports resolutions up to 640x480 with up to 256 colors
@@ -670,9 +182,9 @@ for more information on the FX additions.</p>
 </ul>
 </section>
 <section id="registers">
-<h1>Registers<a class="headerlink" href="#registers" title="Link to this heading">#</a></h1>
+<h1>Registers<a class="headerlink" href="#registers" title="Link to this heading"></a></h1>
 <section id="f20-9f28">
-<h2>$9F20-$9F28<a class="headerlink" href="#f20-9f28" title="Link to this heading">#</a></h2>
+<h2>$9F20-$9F28<a class="headerlink" href="#f20-9f28" title="Link to this heading"></a></h2>
 <table>
 	<tr>
 		<th>Addr</th>
@@ -755,7 +267,7 @@ for more information on the FX additions.</p>
 </table>
 </section>
 <section id="f29-9f2c">
-<h2>$9F29-$9F2C<a class="headerlink" href="#f29-9f2c" title="Link to this heading">#</a></h2>
+<h2>$9F29-$9F2C<a class="headerlink" href="#f29-9f2c" title="Link to this heading"></a></h2>
 <details open>
 	<summary>DCSEL=0</summary>
 	<table>
@@ -1113,7 +625,7 @@ for more information on the FX additions.</p>
 </details>
 </section>
 <section id="f2d-9f3f">
-<h2>$9F2D-$9F3F<a class="headerlink" href="#f2d-9f3f" title="Link to this heading">#</a></h2>
+<h2>$9F2D-$9F3F<a class="headerlink" href="#f2d-9f3f" title="Link to this heading"></a></h2>
 <table>
 	<tr>
 		<th>Addr</th>
@@ -1252,8 +764,8 @@ for more information on the FX additions.</p>
 </table>
 </section>
 <section id="vram-address-space-layout">
-<h2>VRAM address space layout<a class="headerlink" href="#vram-address-space-layout" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>VRAM address space layout<a class="headerlink" href="#vram-address-space-layout" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Address range</p></th>
 <th class="head"><p>Description</p></th>
@@ -1274,9 +786,8 @@ for more information on the FX additions.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>The X16 KERNAL uses the following video memory layout:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Addresses</p></th>
 <th class="head"><p>Description</p></th>
@@ -1315,7 +826,6 @@ for more information on the FX additions.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>This memory map is not fixed</strong>: All of the address space between $0:0000 and $1:F9BF is available for any use in your programs, if you do not need text displayed by KERNAL or BASIC. This includes allocating multiple text or graphic buffers, or simply re-arranging the buffers to allow for
 certain tile set layouts. Just be aware that once you move things around, you’ll have to fully manage your bitmaps, tiles, and text/tile buffers.</p>
 <p>To restore the standard text mode, call <code class="docutils literal notranslate"><span class="pre">CINT</span></code> ($FF81). This will reset the screen to the default screen mode. If you have configured custom settings in your NVRAM, these will be used.</p>
@@ -1324,12 +834,12 @@ To make sure this data is filled with known values, we recommend fully initializ
 need to make sure this block gets initialized to known values.</p>
 </section>
 <section id="video-ram-access">
-<h2>Video RAM access<a class="headerlink" href="#video-ram-access" title="Link to this heading">#</a></h2>
+<h2>Video RAM access<a class="headerlink" href="#video-ram-access" title="Link to this heading"></a></h2>
 <p>The video RAM (VRAM) isn’t directly accessible on the CPU bus. VERA only exposes an address space of 32 bytes to the CPU as described in the section <a class="reference internal" href="#registers"><span class="xref myst">Registers</span></a>. To access the VRAM (which is 128kB in size) an indirection mechanism is used. First the address to be accessed needs to be set (ADDRx_L/ADDRx_M/ADDRx_H) and then the data on that VRAM address can be read from or written to via the DATA0/1 register. To make accessing the VRAM more efficient an auto-increment mechanism is present.</p>
 <p>There are 2 data ports to the VRAM. Which can be accessed using DATA0 and DATA1. The address and increment associated with the data port is specified in ADDRx_L/ADDRx_M/ADDRx_H. These 3 registers are multiplexed using the ADDR_SEL in the CTRL register. When ADDR_SEL = 0, ADDRx_L/ADDRx_M/ADDRx_H become ADDR0_L/ADDR0_M/ADDR0_H.<br />
 When ADDR_SEL = 1, ADDRx_L/ADDRx_M/ADDRx_H become ADDR1_L/ADDR1_M/ADDR1_H.</p>
 <p>By setting the ‘Address Increment’ field in ADDRx_H, the address will be increment after each access to the data register. The increment register values and corresponding increment amounts are shown in the following table:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-right"><p>Register value</p></th>
 <th class="head text-right"><p>Increment amount</p></th>
@@ -1386,15 +896,14 @@ When ADDR_SEL = 1, ADDRx_L/ADDRx_M/ADDRx_H become ADDR1_L/ADDR1_M/ADDR1_H.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Setting the <strong>DECR</strong> bit, will decrement instead of increment by the value set by the ‘Address Increment’ field.</p>
 </section>
 <section id="reset">
-<h2>Reset<a class="headerlink" href="#reset" title="Link to this heading">#</a></h2>
+<h2>Reset<a class="headerlink" href="#reset" title="Link to this heading"></a></h2>
 <p>When <strong>RESET</strong> in <strong>CTRL</strong> is set to 1, the FPGA will reconfigure itself. All registers will be reset. The palette RAM will be set to its default values.</p>
 </section>
 <section id="interrupts">
-<h2>Interrupts<a class="headerlink" href="#interrupts" title="Link to this heading">#</a></h2>
+<h2>Interrupts<a class="headerlink" href="#interrupts" title="Link to this heading"></a></h2>
 <p>Interrupts will be generated for the interrupt sources set in the lower 4 bits of <strong>IEN</strong>.
 <strong>ISR</strong> will indicate the interrupts that have occurred. Writing a 1 to one of the lower 3 bits in <strong>ISR</strong> will clear that interrupt status. <strong>AFLOW</strong> can only be cleared by filling the audio FIFO for at least 1/4.</p>
 <p><strong>IRQ_LINE</strong> (write-only) specifies at which line the <strong>LINE</strong> interrupt will be generated. Note that bit 8 of this value is present in the <strong>IEN</strong> register. For interlaced modes the interrupt will be generated each field and the bit 0 of <strong>IRQ_LINE</strong> is ignored.</p>
@@ -1402,10 +911,10 @@ When ADDR_SEL = 1, ADDRx_L/ADDRx_M/ADDRx_H become ADDR1_L/ADDR1_M/ADDR1_H.</p>
 <p>The upper 4 (read-only) bits of the <strong>ISR</strong> register contain the <a class="reference internal" href="#sprite-collisions"><span class="xref myst">sprite collisions</span></a> as determined by the sprite renderer.</p>
 </section>
 <section id="display-composer">
-<h2>Display composer<a class="headerlink" href="#display-composer" title="Link to this heading">#</a></h2>
+<h2>Display composer<a class="headerlink" href="#display-composer" title="Link to this heading"></a></h2>
 <p>The display composer is responsible of combining the output of the 2 layer renderers and the sprite renderer into the image that is sent to the video output.</p>
 <p>The video output mode can be selected using OUT_MODE in DC_VIDEO.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-right"><p>OUT_MODE</p></th>
 <th class="head"><p>Description</p></th>
@@ -1426,7 +935,6 @@ When ADDR_SEL = 1, ADDRx_L/ADDRx_M/ADDRx_H become ADDR1_L/ADDR1_M/ADDR1_H.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Setting <strong>‘Chroma Disable’</strong> disables output of chroma in NTSC composite mode and will give a better picture on a monochrome display. <em>(Setting this bit will also disable the chroma output on the S-video output.)</em></p>
 <p>Setting <strong>‘HV Sync’</strong> enables separate HSync/VSync signals in RGB output mode. Clearing the bit will enable the default of composite sync over RGB.</p>
 <p>Setting <strong>‘240P’</strong> enables 240P progressive mode over NTSC or RGB. It has no effect if the VGA output mode is active. Instead of 262.5 scanlines per field, this mode outputs 263 scanlines per field.  On CRT displays, the scanlines from both the even and odd fields will be displayed on even scanlines.</p>
@@ -1438,7 +946,7 @@ When ADDR_SEL = 1, ADDRx_L/ADDRx_M/ADDRx_H become ADDR1_L/ADDR1_M/ADDR1_H.</p>
 <p><strong>DC_VER0</strong>, <strong>DC_VER1</strong>, <strong>DC_VER2</strong>, and <strong>DC_VER3</strong> can be queried for the version number of the VERA bitstream.  If reading <strong>DC_VER0</strong> returns <code class="docutils literal notranslate"><span class="pre">$56</span></code>, the remaining registers returns values forming the major, minor, and build numbers respectively.  If <strong>DC_VER0</strong> returns a value other than <code class="docutils literal notranslate"><span class="pre">$56</span></code>, the VERA bitstream version number is undefined.</p>
 </section>
 <section id="layer-0-1-registers">
-<h2>Layer 0/1 registers<a class="headerlink" href="#layer-0-1-registers" title="Link to this heading">#</a></h2>
+<h2>Layer 0/1 registers<a class="headerlink" href="#layer-0-1-registers" title="Link to this heading"></a></h2>
 <p><strong>‘Map Base Address’</strong> specifies the base address of the tile map. <em>Note that the register only specifies bits 16:9 of the address, so the address is always aligned to a multiple of 512 bytes.</em></p>
 <p><strong>‘Tile Base Address’</strong> specifies the base address of the tile data. <em>Note that the register only specifies bits 16:11 of the address, so the address is always aligned to a multiple of 2048 bytes.</em></p>
 <p><strong>‘H-Scroll’</strong> specifies the horizontal scroll offset. A value between 0 and 4095 can be used. Increasing the value will cause the picture to move left, decreasing will cause the picture to move right.
@@ -1446,7 +954,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 <p><strong>‘V-Scroll’</strong> specifies the vertical scroll offset. A value between 0 and 4095 can be used. Increasing the value will cause the picture to move up, decreasing will cause the picture to move down.
 Hardware scrolling is only possible in tile mode; in bitmap mode, this register is not functional.</p>
 <p><strong>‘Map Width’</strong>, <strong>‘Map Height’</strong> specify the dimensions of the tile map:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-right"><p>Value</p></th>
 <th class="head"><p>Map width / height</p></th>
@@ -1467,9 +975,8 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>‘Tile Width’</strong>, <strong>‘Tile Height’</strong> specify the dimensions of a single tile:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-right"><p>Value</p></th>
 <th class="head"><p>Tile width / height</p></th>
@@ -1484,12 +991,11 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </tr>
 </tbody>
 </table>
-</div>
 <section id="layer-display-modes">
-<h3>Layer display modes<a class="headerlink" href="#layer-display-modes" title="Link to this heading">#</a></h3>
+<h3>Layer display modes<a class="headerlink" href="#layer-display-modes" title="Link to this heading"></a></h3>
 <p>The features of the 2 layers are the same. Each layer supports a few different modes which are specified using <strong>T256C</strong> / <strong>‘Bitmap Mode’</strong> / <strong>‘Color Depth’</strong> in Lx_CONFIG.</p>
 <p><strong>‘Color Depth’</strong> specifies the number of bits used per pixel to encode color information:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-right"><p>Color Depth</p></th>
 <th class="head"><p>Description</p></th>
@@ -1510,12 +1016,11 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </tr>
 </tbody>
 </table>
-</div>
 <p>The layer can either operate in tile mode or bitmap mode. This is selected using the <strong>‘Bitmap Mode’</strong> bit; 0 selects tile mode, 1 selects bitmap mode.</p>
 <p>The handling of 1 bpp tile mode is different from the other tile modes. Depending on the <strong>T256C</strong> bit the tiles use either a 16-color foreground and background color or a 256-color foreground color. Other modes ignore the <strong>T256C</strong> bit.</p>
 </section>
 <section id="tile-mode-1-bpp-16-color-text-mode">
-<h3>Tile mode 1 bpp (16 color text mode)<a class="headerlink" href="#tile-mode-1-bpp-16-color-text-mode" title="Link to this heading">#</a></h3>
+<h3>Tile mode 1 bpp (16 color text mode)<a class="headerlink" href="#tile-mode-1-bpp-16-color-text-mode" title="Link to this heading"></a></h3>
 <p><strong>T256C</strong> should be set to 0.</p>
 <p><strong>MAP_BASE</strong> points to a tile map containing tile map entries, which are 2 bytes each:</p>
 <table>
@@ -1544,7 +1049,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 <p>Each bit in the tile data specifies one pixel. If the bit is set the foreground color as specified in the map data is used, otherwise the background color as specified in the map data is used.</p>
 </section>
 <section id="tile-mode-1-bpp-256-color-text-mode">
-<h3>Tile mode 1 bpp (256 color text mode)<a class="headerlink" href="#tile-mode-1-bpp-256-color-text-mode" title="Link to this heading">#</a></h3>
+<h3>Tile mode 1 bpp (256 color text mode)<a class="headerlink" href="#tile-mode-1-bpp-256-color-text-mode" title="Link to this heading"></a></h3>
 <p><strong>T256C</strong> should be set to 1.</p>
 <p><strong>MAP_BASE</strong> points to a tile map containing tile map entries, which are 2 bytes each:</p>
 <table>
@@ -1572,7 +1077,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 <p>Each bit in the tile data specifies one pixel. If the bit is set the foreground color as specified in the map data is used, otherwise color 0 is used (transparent).</p>
 </section>
 <section id="tile-mode-2-4-8-bpp">
-<h3>Tile mode 2/4/8 bpp<a class="headerlink" href="#tile-mode-2-4-8-bpp" title="Link to this heading">#</a></h3>
+<h3>Tile mode 2/4/8 bpp<a class="headerlink" href="#tile-mode-2-4-8-bpp" title="Link to this heading"></a></h3>
 <p><strong>MAP_BASE</strong> points to a tile map containing tile map entries, which are 2 bytes each:</p>
 <table>
 	<tr>
@@ -1608,7 +1113,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 <p>Note that 2bpp mode packs 4 pixels per byte and 4bpp mode packs 2 pixels per byte. For packed pixels, bit 7 refers to the leftmost pixel and bit 0 refers to the rightmost pixel.</p>
 </section>
 <section id="bitmap-mode-1-2-4-8-bpp">
-<h3>Bitmap mode 1/2/4/8 bpp<a class="headerlink" href="#bitmap-mode-1-2-4-8-bpp" title="Link to this heading">#</a></h3>
+<h3>Bitmap mode 1/2/4/8 bpp<a class="headerlink" href="#bitmap-mode-1-2-4-8-bpp" title="Link to this heading"></a></h3>
 <p><strong>MAP_BASE</strong> isn’t used in these modes. <strong>TILE_BASE</strong> points to the bitmap data.</p>
 <p><strong>TILEW</strong> specifies the bitmap width. TILEW=0 results in 320 pixels width and TILEW=1 results in 640 pixels width.</p>
 <p>When a layer is in bitmap mode, it can no longer be hardware scrolled using the HSCROLL and VSCROLL registers.
@@ -1617,7 +1122,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </section>
 </section>
 <section id="spi-controller">
-<h2>SPI controller<a class="headerlink" href="#spi-controller" title="Link to this heading">#</a></h2>
+<h2>SPI controller<a class="headerlink" href="#spi-controller" title="Link to this heading"></a></h2>
 <p>VERA contains a built-in SPI controller. This is connected to both the SD card connector, and the flash chip used for VERA bitstream.</p>
 <p>An SPI transfer causes one byte to be clocked out to the slave, simultaneously as one byte is clocked in to the master, one bit at a time.</p>
 <p>When JP1 jumper is unconnected, chip-select will select the SD card. When JP1 jumper is connected, chip-select will select the flash chip.</p>
@@ -1627,7 +1132,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 <p>If the <strong>Auto-TX</strong> bit is set, reading from <strong>SPI_DATA</strong> will automatically start a new SPI transfer, in addition to returning the latest received value. Useful when reading many consecutive bytes from SPI. The new SPI transfer will transmit the dummy byte $FF.</p>
 </section>
 <section id="palette">
-<h2>Palette<a class="headerlink" href="#palette" title="Link to this heading">#</a></h2>
+<h2>Palette<a class="headerlink" href="#palette" title="Link to this heading"></a></h2>
 <p>The palette translates 8-bit color indexes into 12-bit output colors. The palette has 256 entries, each with the following format:</p>
 <table>
 	<tr>
@@ -1661,7 +1166,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </ul>
 </section>
 <section id="sprite-attributes">
-<h2>Sprite attributes<a class="headerlink" href="#sprite-attributes" title="Link to this heading">#</a></h2>
+<h2>Sprite attributes<a class="headerlink" href="#sprite-attributes" title="Link to this heading"></a></h2>
 <p>128 entries of the following format:</p>
 <table>
 	<tr>
@@ -1717,7 +1222,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 		<td align="center" colspan="4">Palette offset</td>
 	</tr>
 </table>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mode</p></th>
 <th class="head"><p>Description</p></th>
@@ -1732,8 +1237,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </tr>
 </tbody>
 </table>
-</div>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Z-depth</p></th>
 <th class="head"><p>Description</p></th>
@@ -1754,8 +1258,7 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </tr>
 </tbody>
 </table>
-</div>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Sprite width / height</p></th>
 <th class="head"><p>Description</p></th>
@@ -1776,19 +1279,18 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>Rendering Priority</strong> The sprite memory location dictates the order in which it is rendered. The sprite whose attributes are at the lowest location will be rendered in front of all other sprites; the sprite at the highest location will be rendered behind all other sprites, and so forth.</p>
 <p><strong>Palette offset</strong> works in the same way as with the layers.</p>
 </section>
 <section id="composite-video">
-<h2>Composite video<a class="headerlink" href="#composite-video" title="Link to this heading">#</a></h2>
+<h2>Composite video<a class="headerlink" href="#composite-video" title="Link to this heading"></a></h2>
 <section id="color-bleed">
-<h3>Color bleed<a class="headerlink" href="#color-bleed" title="Link to this heading">#</a></h3>
+<h3>Color bleed<a class="headerlink" href="#color-bleed" title="Link to this heading"></a></h3>
 <p>CRT Televisions and composite monitors experience color bleeding when certain colors are placed next to each other.  Color bleed is especially apparent when choosing text color against certain background colors.  Sprite pixel colors, character colors, and tiles will require careful color choice for better contrast.  This chart shows which color combinations to avoid, and which work especially well together.</p>
 <img src="images/CompositeColors.png">
 </section>
 <section id="overscan">
-<h3>Overscan<a class="headerlink" href="#overscan" title="Link to this heading">#</a></h3>
+<h3>Overscan<a class="headerlink" href="#overscan" title="Link to this heading"></a></h3>
 <p>Overscan is the border region in composite televisions and monitors that extend off screen.  This overscan region varies by device, so there are no exact pixel measurements to describe the overscan region.  Enabling the border can be a guideline for the visible draw region.</p>
 <img src="images/CompositeOverscan.png">
 <p>A game or application developer can use techniques adjust on-screen artifacts when composite video is in use.</p>
@@ -1801,12 +1303,12 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 </section>
 </section>
 <section id="sprite-collisions">
-<h2>Sprite collisions<a class="headerlink" href="#sprite-collisions" title="Link to this heading">#</a></h2>
+<h2>Sprite collisions<a class="headerlink" href="#sprite-collisions" title="Link to this heading"></a></h2>
 <p>At the start of the vertical blank <strong>Collisions</strong> in <strong>ISR</strong> is updated. This field indicates which groups of sprites have collided. If the field is non-zero the <strong>SPRCOL</strong> interrupt will be set. The interrupt is generated once per field / frame and can be cleared by making sure the sprites no longer collide.</p>
 <p><em>Note that collisions are only detected on lines that are actually rendered. This can result in subtle differences between non-interlaced and interlaced video modes.</em></p>
 </section>
 <section id="vera-fx">
-<h2>VERA FX<a class="headerlink" href="#vera-fx" title="Link to this heading">#</a></h2>
+<h2>VERA FX<a class="headerlink" href="#vera-fx" title="Link to this heading"></a></h2>
 <p>The FX feature set is available in VERA firmware version v0.3.1 or later. The Commander X16 emulators also have this feature officially as of R44.</p>
 <p>FX is a set of mainly addressing mode changes. VERA FX does not accelerate rendering, but it merely assists the CPU with some of the slower tasks, and when used cleverly, can allow for the programmer to perform some limited perspective transforms or basic 3D effects.</p>
 <p>FX features are controlled mainly by registers $9F29-$9F2C with DCSEL set to 2 through 6.  FX_CTRL ($9F29 w/ DCSEL=2) is the master switch for enabling or disabling FX behaviors.  When writing an application that uses FX, it is important that the FX mode be preserved and disabled in interrupt handlers in cases where the handler accesses VERA registers or VRAM, including the PSG sound registers. Reading from FX_CTRL returns the current state, and writing 0 to FX_CTRL suspends the FX behaviors so that the VERA can be accessed normally without mutating other FX state.</p>
@@ -1814,10 +1316,10 @@ Hardware scrolling is only possible in tile mode; in bitmap mode, this register 
 feature, examples and documentation still need to be written.</p>
 </section>
 <section id="audio">
-<h2>Audio<a class="headerlink" href="#audio" title="Link to this heading">#</a></h2>
+<h2>Audio<a class="headerlink" href="#audio" title="Link to this heading"></a></h2>
 <p>The audio functionality contains of 2 independent systems. The first is the PSG or Programmable Sound Generator. The second is the PCM (or Pulse-Code Modulation) playback system.</p>
 <section id="programmable-sound-generator-psg">
-<h3>Programmable Sound Generator (PSG)<a class="headerlink" href="#programmable-sound-generator-psg" title="Link to this heading">#</a></h3>
+<h3>Programmable Sound Generator (PSG)<a class="headerlink" href="#programmable-sound-generator-psg" title="Link to this heading"></a></h3>
 <p>The PSG consists of 16 voices, each with their own set of registers:</p>
 <table>
 	<tr>
@@ -1864,7 +1366,7 @@ output_frequency = sample_rate / (2^17) * frequency_word
 is the loudest. The <strong>Left</strong> and <strong>Right</strong> bits control to which channels the sound
 should be output.</p>
 <p><strong>Waveform</strong> controls the waveform of the sound:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-right"><p>Waveform</p></th>
 <th class="head"><p>Description</p></th>
@@ -1885,7 +1387,6 @@ should be output.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>Pulse Width / XOR</strong> controls the duty cycle of the pulse waveform or the XOR
 permutation when used with the triangle or saw. For pulse, a value of 63 ($3F) will
 give a 50% duty cycle or square wave, 0 will give a very narrow pulse.</p>
@@ -1901,13 +1402,13 @@ Be aware of phasing effects that this difference could cause.</p>
 the noise shape.</p>
 </section>
 <section id="pcm-audio">
-<h3>PCM audio<a class="headerlink" href="#pcm-audio" title="Link to this heading">#</a></h3>
+<h3>PCM audio<a class="headerlink" href="#pcm-audio" title="Link to this heading"></a></h3>
 <p>For PCM playback, VERA contains a 4kB FIFO buffer. This buffer needs to be filled in a timely fashion by the CPU. To facilitate this an <strong>AFLOW</strong> (Audio FIFO low) interrupt can be generated when the FIFO is less than 1/4 filled.</p>
 <section id="audio-registers">
-<h4>Audio registers<a class="headerlink" href="#audio-registers" title="Link to this heading">#</a></h4>
+<h4>Audio registers<a class="headerlink" href="#audio-registers" title="Link to this heading"></a></h4>
 </section>
 <section id="audio-ctrl-9f3b">
-<h4><code class="docutils literal notranslate"><span class="pre">AUDIO_CTRL</span> <span class="pre">($9F3B)</span></code><a class="headerlink" href="#audio-ctrl-9f3b" title="Link to this heading">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">AUDIO_CTRL</span> <span class="pre">($9F3B)</span></code><a class="headerlink" href="#audio-ctrl-9f3b" title="Link to this heading"></a></h4>
 <p><strong>FIFO Full</strong> (bit 7) is a read-only flag that indicates whether the FIFO is full. Any writes to the FIFO while this flag is 1 will be ignored. Writing a 1 to this register
 (<strong>FIFO Reset</strong>) will perform a FIFO reset, which will clear the contents of the FIFO buffer, except when written in combination with a 1 in bit 6.</p>
 <p><strong>FIFO Loop</strong> (bit 6+7): If a 1 is written to both bit 6 and 7 (at the same time), the FIFO will loop when played. Any other write to AUDIO_CTRL clears this loop flag.  Note: this feature is currently only available in x16-emulator and is not in any released VERA firmware.</p>
@@ -1916,9 +1417,9 @@ the noise shape.</p>
 <p><strong>Stereo</strong> (bit 4) sets the data format to stereo. If this bit is 0 (mono), the same audio data is send to both channels.</p>
 <p><strong>PCM Volume</strong> (bits 0..3)controls the volume of the PCM playback, this has a logarithmic curve. A value of 0 is silence, 15 is the loudest.</p>
 <section id="audio-rate-9f3c">
-<h5><code class="docutils literal notranslate"><span class="pre">AUDIO_RATE</span> <span class="pre">($9F3C)</span></code><a class="headerlink" href="#audio-rate-9f3c" title="Link to this heading">#</a></h5>
+<h5><code class="docutils literal notranslate"><span class="pre">AUDIO_RATE</span> <span class="pre">($9F3C)</span></code><a class="headerlink" href="#audio-rate-9f3c" title="Link to this heading"></a></h5>
 <p><strong>PCM sample rate</strong> controls the speed at which samples are read from the FIFO. A few example values:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-right"><p>PCM sample rate</p></th>
 <th class="head"><p>Description</p></th>
@@ -1942,21 +1443,20 @@ the noise shape.</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Using a value of 128 will give the best quality (lowest distortion); at this value for every output sample, an input sample from the FIFO is read. Lower values will output the same sample multiple times to the audio DAC. Input samples are always read as a complete set (being 1/2/4 bytes).</p>
 </section>
 <section id="audio-data-9f3d">
-<h5><code class="docutils literal notranslate"><span class="pre">AUDIO_DATA</span> <span class="pre">($9F3D)</span></code><a class="headerlink" href="#audio-data-9f3d" title="Link to this heading">#</a></h5>
+<h5><code class="docutils literal notranslate"><span class="pre">AUDIO_DATA</span> <span class="pre">($9F3D)</span></code><a class="headerlink" href="#audio-data-9f3d" title="Link to this heading"></a></h5>
 <p><strong>Audio FIFO data</strong> Writes to this register add one byte to the PCM FIFO. If the FIFO is full, the write will be ignored.</p>
 <p><em>NOTE: When setting up for PCM playback it is advised to first set the sample rate at 0 to stop playback. First fill the FIFO buffer with some initial data and then set the desired sample rate. This can prevent undesired FIFO underruns.</em></p>
 </section>
 </section>
 </section>
 <section id="audio-data-formats">
-<h3>Audio data formats<a class="headerlink" href="#audio-data-formats" title="Link to this heading">#</a></h3>
+<h3>Audio data formats<a class="headerlink" href="#audio-data-formats" title="Link to this heading"></a></h3>
 <p>Audio data is two’s complement signed.
 Depending on the selected mode the data needs to be written to the FIFO in the following order:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mode</p></th>
 <th class="head"><p>Order in which to write data to FIFO</p></th>
@@ -1977,7 +1477,6 @@ Depending on the selected mode the data needs to be written to the FIFO in the f
 </tr>
 </tbody>
 </table>
-</div>
 <!-- For PDF formatting -->
 <div class="page-break"></div>
 </section>
@@ -1985,164 +1484,34 @@ Depending on the selected mode the data needs to be written to the FIFO in the f
 </section>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%2008%20-%20Memory%20Map.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 8: Memory Map</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 10: VERA FX Reference</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 9: VERA Programmer’s Reference</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#registers">Registers</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f20-9f28">$9F20-$9F28</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f29-9f2c">$9F29-$9F2C</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f2d-9f3f">$9F2D-$9F3F</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vram-address-space-layout">VRAM address space layout</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-ram-access">Video RAM access</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reset">Reset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupts">Interrupts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-composer">Display composer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-0-1-registers">Layer 0/1 registers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-display-modes">Layer display modes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tile-mode-1-bpp-16-color-text-mode">Tile mode 1 bpp (16 color text mode)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tile-mode-1-bpp-256-color-text-mode">Tile mode 1 bpp (256 color text mode)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tile-mode-2-4-8-bpp">Tile mode 2/4/8 bpp</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bitmap-mode-1-2-4-8-bpp">Bitmap mode 1/2/4/8 bpp</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spi-controller">SPI controller</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#palette">Palette</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sprite-attributes">Sprite attributes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-video">Composite video</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-bleed">Color bleed</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overscan">Overscan</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sprite-collisions">Sprite collisions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vera-fx">VERA FX</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio">Audio</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programmable-sound-generator-psg">Programmable Sound Generator (PSG)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcm-audio">PCM audio</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-registers">Audio registers</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-ctrl-9f3b"><code class="docutils literal notranslate"><span class="pre">AUDIO_CTRL</span> <span class="pre">($9F3B)</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-rate-9f3c"><code class="docutils literal notranslate"><span class="pre">AUDIO_RATE</span> <span class="pre">($9F3C)</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-data-9f3d"><code class="docutils literal notranslate"><span class="pre">AUDIO_DATA</span> <span class="pre">($9F3D)</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-data-formats">Audio data formats</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - 09 - VERA Programmer&#39;s Reference.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%2008%20-%20Memory%20Map.html" class="btn btn-neutral float-left" title="Chapter 8: Memory Map" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html" class="btn btn-neutral float-right" title="Chapter 10: VERA FX Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>

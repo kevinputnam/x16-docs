@@ -1,645 +1,274 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 5: KERNAL &mdash; Commander X16  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-<html lang="en" data-content_root="./" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Chapter 5: KERNAL &#8212; Commander X16  documentation</title>
   
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - 05 - KERNAL';</script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 6: Math Library" href="X16%20Reference%20-%2006%20-%20Math%20Library.html" />
-    <link rel="prev" title="Chapter 4: BASIC Programming" href="X16%20Reference%20-%2004%20-%20BASIC.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+    <link rel="prev" title="Chapter 4: BASIC Programming" href="X16%20Reference%20-%2004%20-%20BASIC.html" /> 
+</head>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="README.html">
-  
-  
-  
-  
-  
-  
-    <p class="title logo__title">Commander X16</p>
-  
-</a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
           
+          
+          <a href="README.html" class="icon icon-home">
+            Commander X16
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2001%20-%20Overview.html">Chapter 1: Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">Chapter 2: Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2003%20-%20Editor.html">Chapter 3: Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">Chapter 4: BASIC Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 5: KERNAL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kernal-version">KERNAL Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compatibility-considerations">Compatibility Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commodore-64-api-compatibility">Commodore 64 API Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commodore-128-api-compatibility">Commodore 128 API Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-api-for-the-commander-x16">New API for the Commander X16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kernal-api-functions">KERNAL API functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kernal-vectors">KERNAL Vectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#handling-nmi">Handling NMI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#commodore-peripheral-bus">Commodore Peripheral Bus</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-acptr">Function Name: ACPTR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-macptr">Function Name: MACPTR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-mciout">Function Name: MCIOUT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-i-o">Channel I/O</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-bsave">Function Name: <code class="docutils literal notranslate"><span class="pre">BSAVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-bsout">Function Name: <code class="docutils literal notranslate"><span class="pre">BSOUT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-close">Function Name: <code class="docutils literal notranslate"><span class="pre">CLOSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-chkin">Function Name: <code class="docutils literal notranslate"><span class="pre">CHKIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-load">Function Name: <code class="docutils literal notranslate"><span class="pre">LOAD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-open">Function Name: <code class="docutils literal notranslate"><span class="pre">OPEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-save">Function Name: <code class="docutils literal notranslate"><span class="pre">SAVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-setlfs">Function Name: <code class="docutils literal notranslate"><span class="pre">SETLFS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-setnam">Function Name: <code class="docutils literal notranslate"><span class="pre">SETNAM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#memory">Memory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-memory-fill">Function Name: memory_fill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-memory-copy">Function Name: memory_copy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-memory-crc">Function Name: memory_crc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-memory-decompress">Function Name: memory_decompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fetch">Function Name: fetch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-stash">Function Name: stash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-memtop">Function Name: MEMTOP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#clock">Clock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-clock-set-date-time">Function Name: clock_set_date_time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-clock-get-date-time">Function Name: clock_get_date_time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-rdtim">Function Name: RDTIM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#keyboard">Keyboard</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-kbdbuf-peek">Function Name: kbdbuf_peek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-kbdbuf-get-modifiers">Function Name: kbdbuf_get_modifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-kbdbuf-put">Function Name: kbdbuf_put</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-keymap">Function Name: keymap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-kbd-scan">Function Name: kbd_scan</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mouse">Mouse</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-mouse-config">Function Name: mouse_config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-mouse-scan">Function Name: mouse_scan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-mouse-get">Function Name: mouse_get</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#joystick">Joystick</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-joystick-scan">Function Name: joystick_scan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-joystick-get">Function Name: joystick_get</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#i2c">I2C</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-i2c-batch-read">Function Name: i2c_batch_read</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-i2c-batch-write">Function Name: i2c_batch_write</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-i2c-read-byte">Function Name: i2c_read_byte</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-i2c-write-byte">Function Name: i2c_write_byte</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sprites">Sprites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-sprite-set-image">Function Name: sprite_set_image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-sprite-set-position">Function Name: sprite_set_position</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#framebuffer">Framebuffer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-init">Function Name: FB_init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-get-info">Function Name: FB_get_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-set-palette">Function Name: FB_set_palette</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-cursor-position">Function Name: FB_cursor_position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-cursor-next-line">Function Name: FB_cursor_next_line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-get-pixel">Function Name: FB_get_pixel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-get-pixels">Function Name: FB_get_pixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-set-pixel">Function Name: FB_set_pixel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-set-pixels">Function Name: FB_set_pixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-set-8-pixels">Function Name: FB_set_8_pixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-set-8-pixels-opaque">Function Name: FB_set_8_pixels_opaque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-fill-pixels">Function Name: FB_fill_pixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-filter-pixels">Function Name: FB_filter_pixels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-fb-move-pixels">Function Name: FB_move_pixels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graphics">Graphics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-init">Function Name: GRAPH_init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-clear">Function Name: GRAPH_clear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-set-window">Function Name: GRAPH_set_window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-set-colors">Function Name: GRAPH_set_colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-draw-line">Function Name: GRAPH_draw_line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-draw-rect">Function Name: GRAPH_draw_rect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-move-rect">Function Name: GRAPH_move_rect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-draw-oval">Function Name: GRAPH_draw_oval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-draw-image">Function Name: GRAPH_draw_image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-set-font">Function Name: GRAPH_set_font</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-get-char-size">Function Name: GRAPH_get_char_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-graph-put-char">Function Name: GRAPH_put_char</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#console">Console</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-console-init">Function Name: console_init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-console-put-char">Function Name: console_put_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-console-put-image">Function Name: console_put_image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-console-get-char">Function Name: console_get_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-console-set-paging-message">Function Name: console_set_paging_message</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other">Other</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-enter-basic">Function Name: enter_basic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-entropy-get">Function Name: entropy_get</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-extapi">Function Name: extapi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-clear-status">extapi Function Name: clear_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-getlfs">extapi Function Name: getlfs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-mouse-sprite-offset">extapi Function Name: mouse_sprite_offset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-joystick-ps2-keycodes">extapi Function Name: joystick_ps2_keycodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-iso-cursor-char">extapi Function Name: iso_cursor_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-ps2kbd-typematic">extapi Function Name: ps2kbd_typematic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-pfkey">extapi Function Name: pfkey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-ps2data-fetch">extapi Function Name: ps2data_fetch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-ps2data-raw">extapi Function Name: ps2data_raw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-cursor-blink">extapi Function Name: cursor_blink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-led-update">extapi Function Name: led_update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-mouse-set-position">extapi Function Name: mouse_set_position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-scnsiz">extapi Function Name: scnsiz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-kbd-leds">extapi Function Name: kbd_leds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-memory-decompress-from-func">extapi Function Name: memory_decompress_from_func</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extapi-function-name-default-palette">extapi Function Name: default_palette</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-monitor">Function Name: monitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-screen">Function Name: SCREEN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-screen-mode">Function Name: screen_mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-screen-set-charset">Function Name: screen_set_charset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-jsrfar">Function Name: JSRFAR</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#c816-support">65C816 support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-name-extapi16">Function Name: extapi16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c816-extapi16-function-name-test">65C816 extapi16 Function Name: test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c816-extapi16-function-name-stack-push">65C816 extapi16 Function Name: stack_push</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c816-extapi16-function-name-stack-pop">65C816 extapi16 Function Name: stack_pop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c816-extapi16-function-name-stack-enter-kernal-stack">65C816 extapi16 Function Name: stack_enter_kernal_stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c816-extapi16-function-name-stack-leave-kernal-stack">65C816 extapi16 Function Name: stack_leave_kernal_stack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">Chapter 15: Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">Appendix A: Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">Appendix B: VERA Firmware Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">Appendix C: The 65C02 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">Appendix D: Official Expansion Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">Appendix E: Diagnostic Bank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">Appendix F: The 65C816 Processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">Appendix G: ZSM File Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">Appendix H: How to update your X16 to latest release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">Appendix I: Character Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso">ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics">PET Uppercase / Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase">PET Uppercase / Lowercase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-graphics-thin">PET Uppercase / Graphics (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#pet-uppercase-lowercase-thin">PET Uppercase / Lowercase (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#iso-thin">ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cp437">CP437</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso">Cyrillic ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#cyrillic-iso-thin">Cyrillic ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-latin-iso">Eastern Latin ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#eastern-iso-thin">Eastern ISO (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#katakana-thin">Katakana (thin)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">Appendix J: ROM Recovery</a></li>
+</ul>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
         </div>
-      
-      
-        <div class="navbar-item">
+      </div>
+    </nav>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="README.html">Commander X16</a>
+      </nav>
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
-    Chapter 1: Overview
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
-    Chapter 2: Getting Started
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
-    Chapter 3: Editor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
-    Chapter 4: BASIC Programming
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    Chapter 5: KERNAL
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
-    Chapter 6: Math Library
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
-    Chapter 7: Machine Language Monitor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
-    Chapter 8: Memory Map
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
-    Chapter 9: VERA Programmer’s Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
-    Chapter 10: VERA FX Reference
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
-    Chapter 11: Sound Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
-    Chapter 12: I/O Programming
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
-    Chapter 13: Working With CMDR-DOS
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
-    Chapter 14: Hardware Pinouts
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
-    Chapter 15: Upgrade Guide
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
-    Appendix A: Sound
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
-    Appendix B: VERA Firmware Recovery
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
-    Appendix C: The 65C02 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
-    Appendix D: Official Expansion Cards
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
-    Appendix E: Diagnostic Bank
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
-    Appendix F: The 65C816 Processor
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
-    Appendix G: ZSM File Format
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
-    Appendix H: How to update your X16 to latest release
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
-    Appendix I: Character Sets
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
-    Appendix J: ROM Recovery
-  </a>
-</li>
-
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="README.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Chapter 5: KERNAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/X16 Reference - 05 - KERNAL.md.txt" rel="nofollow"> View page source</a>
+      </li>
   </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="README.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 5: KERNAL</span></li>
-  </ul>
-</nav>
+  <hr/>
 </div>
-      
-    </div>
-  
-  
-</div>
-</div>
-              
-              
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="chapter-5-kernal">
-<h1>Chapter 5: KERNAL<a class="headerlink" href="#chapter-5-kernal" title="Link to this heading">#</a></h1>
+<h1>Chapter 5: KERNAL<a class="headerlink" href="#chapter-5-kernal" title="Link to this heading"></a></h1>
 <!--
 ********************************************************************************
 NOTICE: This file uses two trailing spaces on some lines to indicate line
@@ -663,11 +292,11 @@ breaks for GitHub's Markdown flavor. Do not remove!
 </li>
 </ul>
 <section id="kernal-version">
-<h2>KERNAL Version<a class="headerlink" href="#kernal-version" title="Link to this heading">#</a></h2>
+<h2>KERNAL Version<a class="headerlink" href="#kernal-version" title="Link to this heading"></a></h2>
 <p>The KERNAL version can be read from location $FF80 in ROM. A value of $FF indicates a custom build. All other values encode the build number. Positive numbers are release versions ($02 = release version 2), two’s complement negative numbers are prerelease versions ($FE = $100 - 2 = prerelease version 2).</p>
 </section>
 <section id="compatibility-considerations">
-<h2>Compatibility Considerations<a class="headerlink" href="#compatibility-considerations" title="Link to this heading">#</a></h2>
+<h2>Compatibility Considerations<a class="headerlink" href="#compatibility-considerations" title="Link to this heading"></a></h2>
 <p>For applications to remain compatible between different versions of the ROM, they can rely upon:</p>
 <ul class="simple">
 <li><p>the KERNAL API calls at $FF81-$FFF3</p></li>
@@ -680,7 +309,7 @@ breaks for GitHub's Markdown flavor. Do not remove!
 </ul>
 </section>
 <section id="commodore-64-api-compatibility">
-<h2>Commodore 64 API Compatibility<a class="headerlink" href="#commodore-64-api-compatibility" title="Link to this heading">#</a></h2>
+<h2>Commodore 64 API Compatibility<a class="headerlink" href="#commodore-64-api-compatibility" title="Link to this heading"></a></h2>
 <p>The KERNAL <a class="reference internal" href="#kernal-api-functions"><span class="xref myst">fully supports</span></a> the C64 KERNAL API.</p>
 <p>These routines have been stable ever since the C64 came out and are extensively documented
 in various resources dedicated to the C64. Currently, they are not documented <em>here</em> so if you
@@ -688,10 +317,10 @@ need to look them up, here is a very thorough <a class="reference external" href
 It integrates a dozen or so different sources for documentation about these routines.</p>
 </section>
 <section id="commodore-128-api-compatibility">
-<h2>Commodore 128 API Compatibility<a class="headerlink" href="#commodore-128-api-compatibility" title="Link to this heading">#</a></h2>
+<h2>Commodore 128 API Compatibility<a class="headerlink" href="#commodore-128-api-compatibility" title="Link to this heading"></a></h2>
 <p>In addition, the X16 <a class="reference internal" href="#kernal-api-functions"><span class="xref myst">supports a subset</span></a> of the C128 API.</p>
 <p>The following C128 APIs have equivalent functionality on the X16 but are not compatible:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Address</p></th>
 <th class="head"><p>C128 Name</p></th>
@@ -717,14 +346,13 @@ It integrates a dozen or so different sources for documentation about these rout
 </tr>
 </tbody>
 </table>
-</div>
 <!---
 *** undocumented - we might remove it
 | $FF7A   | `CMPARE`  | `cmpare`             |
 --->
 </section>
 <section id="new-api-for-the-commander-x16">
-<h2>New API for the Commander X16<a class="headerlink" href="#new-api-for-the-commander-x16" title="Link to this heading">#</a></h2>
+<h2>New API for the Commander X16<a class="headerlink" href="#new-api-for-the-commander-x16" title="Link to this heading"></a></h2>
 <p>There are lots of new APIs. Please note that their addresses and their behavior is still preliminary and can change between revisions.</p>
 <p>Some new APIs use the “16 bit” ABI, which uses virtual 16 bit registers r0 through r15, which are located in zero page locations $02 through $21: r0 = r0L = $02, r0H = $03, r1 = r1L = $04 etc.</p>
 <p>The 16 bit ABI generally follows the following conventions:</p>
@@ -754,8 +382,8 @@ It integrates a dozen or so different sources for documentation about these rout
 </ul>
 </section>
 <section id="kernal-api-functions">
-<h2>KERNAL API functions<a class="headerlink" href="#kernal-api-functions" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
+<h2>KERNAL API functions<a class="headerlink" href="#kernal-api-functions" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Label</p></th>
 <th class="head"><p>Address</p></th>
@@ -1617,7 +1245,6 @@ It integrates a dozen or so different sources for documentation about these rout
 </tr>
 </tbody>
 </table>
-</div>
 <p>🚫 = Currently unimplemented<br />
 † = Partially implemented</p>
 <p>Some notes:</p>
@@ -1628,7 +1255,7 @@ It integrates a dozen or so different sources for documentation about these rout
 <li><p>The layout of the zero page ($0000-$00FF) and the KERNAL/BASIC variable space ($0200+) are generally <strong>not</strong> compatible with the C64.</p></li>
 </ul>
 <section id="kernal-vectors">
-<h3>KERNAL Vectors<a class="headerlink" href="#kernal-vectors" title="Link to this heading">#</a></h3>
+<h3>KERNAL Vectors<a class="headerlink" href="#kernal-vectors" title="Link to this heading"></a></h3>
 <p>The KERNAL indirect vectors ($0314-$0333) are fully compatible with the C64:</p>
 <p>$0314-$0315: <code class="docutils literal notranslate"><span class="pre">CINV</span></code> – IRQ Interrupt Routine<br />
 $0316-$0317: <code class="docutils literal notranslate"><span class="pre">CBINV</span></code> – BRK Instruction Interrupt<br />
@@ -1654,7 +1281,7 @@ $033C-$033D: <code class="docutils literal notranslate"><span class="pre">INNMI<
 $033E-$033F: <code class="docutils literal notranslate"><span class="pre">INCOP</span></code> - COP Instruction Interrupt Routine (native mode)<br />
 $0340-$0341: <code class="docutils literal notranslate"><span class="pre">INABORT</span></code> - ABORT Routine (native mode)</p>
 <section id="handling-nmi">
-<h4>Handling NMI<a class="headerlink" href="#handling-nmi" title="Link to this heading">#</a></h4>
+<h4>Handling NMI<a class="headerlink" href="#handling-nmi" title="Link to this heading"></a></h4>
 <p>If the NMI vector is replaced with a user function and that function does not call
 back to the replaced NMI routine, some cleanup will need to be done. Before the user
 NMI function is called, the KERNAL pushes <code class="docutils literal notranslate"><span class="pre">a</span></code> and the rom bank onto the stack. These
@@ -1673,13 +1300,13 @@ values will need to be popped before returning from the NMI:</p>
 </section>
 <hr class="docutils" />
 <section id="commodore-peripheral-bus">
-<h3>Commodore Peripheral Bus<a class="headerlink" href="#commodore-peripheral-bus" title="Link to this heading">#</a></h3>
+<h3>Commodore Peripheral Bus<a class="headerlink" href="#commodore-peripheral-bus" title="Link to this heading"></a></h3>
 <p>The X16 adds two new functions for dealing with the Commodore Peripheral Bus (“IEEE”):</p>
 <p>$FEB1: <code class="docutils literal notranslate"><span class="pre">MCIOUT</span></code> - write multiple bytes to peripheral bus
 $FF44: <code class="docutils literal notranslate"><span class="pre">MACPTR</span></code> - read multiple bytes from peripheral bus</p>
 <hr class="docutils" />
 <section id="function-name-acptr">
-<h4>Function Name: ACPTR<a class="headerlink" href="#function-name-acptr" title="Link to this heading">#</a></h4>
+<h4>Function Name: ACPTR<a class="headerlink" href="#function-name-acptr" title="Link to this heading"></a></h4>
 <p>Purpose: Read a byte from the peripheral bus<br />
 Call address: $FFA5<br />
 Communication registers: .A<br />
@@ -1690,7 +1317,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-macptr">
-<h4>Function Name: MACPTR<a class="headerlink" href="#function-name-macptr" title="Link to this heading">#</a></h4>
+<h4>Function Name: MACPTR<a class="headerlink" href="#function-name-macptr" title="Link to this heading"></a></h4>
 <p>Purpose: Read multiple bytes from the peripheral bus<br />
 Call address: $FF44<br />
 Communication registers: .A .X .Y c<br />
@@ -1707,7 +1334,7 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-mciout">
-<h4>Function Name: MCIOUT<a class="headerlink" href="#function-name-mciout" title="Link to this heading">#</a></h4>
+<h4>Function Name: MCIOUT<a class="headerlink" href="#function-name-mciout" title="Link to this heading"></a></h4>
 <p>Purpose: Write multiple bytes to the peripheral bus<br />
 Call address: $FEB1<br />
 Communication registers: .A .X .Y c<br />
@@ -1725,10 +1352,10 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="channel-i-o">
-<h3>Channel I/O<a class="headerlink" href="#channel-i-o" title="Link to this heading">#</a></h3>
+<h3>Channel I/O<a class="headerlink" href="#channel-i-o" title="Link to this heading"></a></h3>
 <hr class="docutils" />
 <section id="function-name-bsave">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">BSAVE</span></code><a class="headerlink" href="#function-name-bsave" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">BSAVE</span></code><a class="headerlink" href="#function-name-bsave" title="Link to this heading"></a></h4>
 <p>Purpose: Save an area of memory to a file without writing an address header.<br />
 Call Address: $FEBA<br />
 Communication Registers: .A .X .Y<br />
@@ -1743,7 +1370,7 @@ Upon return, if C is clear, there were no errors.  C being set indicates an erro
 </section>
 <hr class="docutils" />
 <section id="function-name-bsout">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">BSOUT</span></code><a class="headerlink" href="#function-name-bsout" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">BSOUT</span></code><a class="headerlink" href="#function-name-bsout" title="Link to this heading"></a></h4>
 <p>(This routine is also referred to as <code class="docutils literal notranslate"><span class="pre">CHROUT</span></code>)</p>
 <p>Purpose: Write a character to the default output device.<br />
 Call Address: $FFD2<br />
@@ -1757,7 +1384,7 @@ Registers affected: .P</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-close">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">CLOSE</span></code><a class="headerlink" href="#function-name-close" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">CLOSE</span></code><a class="headerlink" href="#function-name-close" title="Link to this heading"></a></h4>
 <p>Purpose: Close a logical file<br />
 Call address: $FFC3<br />
 Communication registers: .A<br />
@@ -1768,7 +1395,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-chkin">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">CHKIN</span></code><a class="headerlink" href="#function-name-chkin" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">CHKIN</span></code><a class="headerlink" href="#function-name-chkin" title="Link to this heading"></a></h4>
 <p>Purpose: Set file to be used for character input<br />
 Call address: $FFC6<br />
 Communication registers: .X<br />
@@ -1781,7 +1408,7 @@ should contain the logical file number. <code class="docutils literal notranslat
 </section>
 <hr class="docutils" />
 <section id="function-name-load">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">LOAD</span></code><a class="headerlink" href="#function-name-load" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">LOAD</span></code><a class="headerlink" href="#function-name-load" title="Link to this heading"></a></h4>
 <p>Purpose: Load the contents of a file from disk to memory<br />
 Call address: $FFD5<br />
 Communication registers: .A .X .Y<br />
@@ -1811,7 +1438,7 @@ additional feature to load the contents of a file directly into VRAM.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-open">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">OPEN</span></code><a class="headerlink" href="#function-name-open" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">OPEN</span></code><a class="headerlink" href="#function-name-open" title="Link to this heading"></a></h4>
 <p>Purpose: Opens a channel/file<br />
 Call address: $FFC0<br />
 Communication registers: None<br />
@@ -1825,7 +1452,7 @@ The most common pattern is to then redirect the standard input or output to the 
 </section>
 <hr class="docutils" />
 <section id="function-name-save">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">SAVE</span></code><a class="headerlink" href="#function-name-save" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">SAVE</span></code><a class="headerlink" href="#function-name-save" title="Link to this heading"></a></h4>
 <p>Purpose: Save an area of memory to a file.<br />
 Call Address: $FFD8<br />
 Communication Registers: .A .X .Y<br />
@@ -1840,7 +1467,7 @@ If C is zero there were no errors; 1 is an error in which case A will have the e
 </section>
 <hr class="docutils" />
 <section id="function-name-setlfs">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">SETLFS</span></code><a class="headerlink" href="#function-name-setlfs" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">SETLFS</span></code><a class="headerlink" href="#function-name-setlfs" title="Link to this heading"></a></h4>
 <p>Purpose: Set file parameters<br />
 Call Address: $FFBA<br />
 Communication Registers: .A .X .Y<br />
@@ -1871,7 +1498,7 @@ $08 would be the SD card.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-setnam">
-<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">SETNAM</span></code><a class="headerlink" href="#function-name-setnam" title="Link to this heading">#</a></h4>
+<h4>Function Name: <code class="docutils literal notranslate"><span class="pre">SETNAM</span></code><a class="headerlink" href="#function-name-setnam" title="Link to this heading"></a></h4>
 <p>Purpose: Set file name<br />
 Call Address: $FFBD<br />
 Communication Registers: .A .X .Y<br />
@@ -1895,7 +1522,7 @@ A is filename length, X is low byte of filename pointer, Y is high byte of filen
 </section>
 <hr class="docutils" />
 <section id="memory">
-<h3>Memory<a class="headerlink" href="#memory" title="Link to this heading">#</a></h3>
+<h3>Memory<a class="headerlink" href="#memory" title="Link to this heading"></a></h3>
 <p>$FEE4: <code class="docutils literal notranslate"><span class="pre">memory_fill</span></code> - fill memory region with a byte value<br />
 $FEE7: <code class="docutils literal notranslate"><span class="pre">memory_copy</span></code> - copy memory region<br />
 $FEEA: <code class="docutils literal notranslate"><span class="pre">memory_crc</span></code> - calculate CRC16 of memory region<br />
@@ -1909,7 +1536,7 @@ $FF7A: `cmpare` - compare a byte on any RAM or ROM bank
 --->
 <hr class="docutils" />
 <section id="function-name-memory-fill">
-<h4>Function Name: memory_fill<a class="headerlink" href="#function-name-memory-fill" title="Link to this heading">#</a></h4>
+<h4>Function Name: memory_fill<a class="headerlink" href="#function-name-memory-fill" title="Link to this heading"></a></h4>
 <p>Signature: void memory_fill(word address: r0, word num_bytes: r1, byte value: .A);<br />
 Purpose: Fill a memory region with a byte value.<br />
 Call address: $FEE4</p>
@@ -1918,7 +1545,7 @@ Call address: $FEE4</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-memory-copy">
-<h4>Function Name: memory_copy<a class="headerlink" href="#function-name-memory-copy" title="Link to this heading">#</a></h4>
+<h4>Function Name: memory_copy<a class="headerlink" href="#function-name-memory-copy" title="Link to this heading"></a></h4>
 <p>Signature: void memory_copy(word source: r0, word target: r1, word num_bytes: r2);<br />
 Purpose: Copy a memory region to a different region.<br />
 Call address: $FEE7</p>
@@ -1927,7 +1554,7 @@ Call address: $FEE7</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-memory-crc">
-<h4>Function Name: memory_crc<a class="headerlink" href="#function-name-memory-crc" title="Link to this heading">#</a></h4>
+<h4>Function Name: memory_crc<a class="headerlink" href="#function-name-memory-crc" title="Link to this heading"></a></h4>
 <p>Signature: (word result: r2) memory_crc(word address: r0, word num_bytes: r1);<br />
 Purpose: Calculate the CRC16 of a memory region.<br />
 Call address: $FEEA</p>
@@ -1937,7 +1564,7 @@ Call address: $FEEA</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-memory-decompress">
-<h4>Function Name: memory_decompress<a class="headerlink" href="#function-name-memory-decompress" title="Link to this heading">#</a></h4>
+<h4>Function Name: memory_decompress<a class="headerlink" href="#function-name-memory-decompress" title="Link to this heading"></a></h4>
 <p>Signature: void memory_decompress(word input: r0, inout word output: r1);<br />
 Purpose: Decompress an LZSA2 block<br />
 Call address: $FEED</p>
@@ -1956,7 +1583,7 @@ Call address: $FEED</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fetch">
-<h4>Function Name: fetch<a class="headerlink" href="#function-name-fetch" title="Link to this heading">#</a></h4>
+<h4>Function Name: fetch<a class="headerlink" href="#function-name-fetch" title="Link to this heading"></a></h4>
 <p>Purpose: Read a byte from any RAM or ROM bank<br />
 Call address: $FF74<br />
 Communication registers: .A .X .Y .P</p>
@@ -1964,7 +1591,7 @@ Communication registers: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-stash">
-<h4>Function Name: stash<a class="headerlink" href="#function-name-stash" title="Link to this heading">#</a></h4>
+<h4>Function Name: stash<a class="headerlink" href="#function-name-stash" title="Link to this heading"></a></h4>
 <p>Purpose: Write a byte to any RAM bank<br />
 Call address: $FF77<br />
 Communication registers: .A .X .Y</p>
@@ -1972,7 +1599,7 @@ Communication registers: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-memtop">
-<h4>Function Name: MEMTOP<a class="headerlink" href="#function-name-memtop" title="Link to this heading">#</a></h4>
+<h4>Function Name: MEMTOP<a class="headerlink" href="#function-name-memtop" title="Link to this heading"></a></h4>
 <p>Purpose: Get/Set top of RAM, number of usable RAM banks.<br />
 Call address: $FF99<br />
 Communication registers: .A .X .Y .P (Carry)<br />
@@ -2037,12 +1664,12 @@ the default values, set Y=$9F and X=0.</p>
 </section>
 <hr class="docutils" />
 <section id="clock">
-<h3>Clock<a class="headerlink" href="#clock" title="Link to this heading">#</a></h3>
+<h3>Clock<a class="headerlink" href="#clock" title="Link to this heading"></a></h3>
 <p>$FF4D: <code class="docutils literal notranslate"><span class="pre">clock_set_date_time</span></code> - set date and time<br />
 $FF50: <code class="docutils literal notranslate"><span class="pre">clock_get_date_time</span></code> - get date and time</p>
 <hr class="docutils" />
 <section id="function-name-clock-set-date-time">
-<h4>Function Name: clock_set_date_time<a class="headerlink" href="#function-name-clock-set-date-time" title="Link to this heading">#</a></h4>
+<h4>Function Name: clock_set_date_time<a class="headerlink" href="#function-name-clock-set-date-time" title="Link to this heading"></a></h4>
 <p>Purpose: Set the date and time<br />
 Call address: $FF4D<br />
 Communication registers: r0 r1 r2 r3<br />
@@ -2050,7 +1677,7 @@ Preparatory routines: None<br />
 Error returns: None<br />
 Registers affected: .A .X .Y</p>
 <p><strong>Description:</strong> The routine <code class="docutils literal notranslate"><span class="pre">clock_set_date_time</span></code> sets the system’s real-time-clock.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Register</p></th>
 <th class="head"><p>Contents</p></th>
@@ -2083,12 +1710,11 @@ Registers affected: .A .X .Y</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Jiffies are 1/60th seconds.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-clock-get-date-time">
-<h4>Function Name: clock_get_date_time<a class="headerlink" href="#function-name-clock-get-date-time" title="Link to this heading">#</a></h4>
+<h4>Function Name: clock_get_date_time<a class="headerlink" href="#function-name-clock-get-date-time" title="Link to this heading"></a></h4>
 <p>Purpose: Get the date and time<br />
 Call address: $FF50<br />
 Communication registers: r0 r1 r2 r3<br />
@@ -2100,7 +1726,7 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-rdtim">
-<h4>Function Name: RDTIM<a class="headerlink" href="#function-name-rdtim" title="Link to this heading">#</a></h4>
+<h4>Function Name: RDTIM<a class="headerlink" href="#function-name-rdtim" title="Link to this heading"></a></h4>
 <p>Purpose: Read system clock<br />
 Call address: $FFDE<br />
 Communication registers: .A .X .Y<br />
@@ -2120,14 +1746,14 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="keyboard">
-<h3>Keyboard<a class="headerlink" href="#keyboard" title="Link to this heading">#</a></h3>
+<h3>Keyboard<a class="headerlink" href="#keyboard" title="Link to this heading"></a></h3>
 <p>$FEBD: <code class="docutils literal notranslate"><span class="pre">kbdbuf_peek</span></code> - get first char in keyboard queue and queue length<br />
 $FEC0: <code class="docutils literal notranslate"><span class="pre">kbdbuf_get_modifiers</span></code> - get currently pressed modifiers<br />
 $FEC3: <code class="docutils literal notranslate"><span class="pre">kbdbuf_put</span></code> - append a char to the keyboard queue<br />
 $FED2: <code class="docutils literal notranslate"><span class="pre">keymap</span></code> - set or get the current keyboard layout</p>
 <hr class="docutils" />
 <section id="function-name-kbdbuf-peek">
-<h4>Function Name: kbdbuf_peek<a class="headerlink" href="#function-name-kbdbuf-peek" title="Link to this heading">#</a></h4>
+<h4>Function Name: kbdbuf_peek<a class="headerlink" href="#function-name-kbdbuf-peek" title="Link to this heading"></a></h4>
 <p>Purpose: Get next char and keyboard queue length<br />
 Call address: $FEBD<br />
 Communication registers: .A .X<br />
@@ -2138,7 +1764,7 @@ Registers affected: -</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-kbdbuf-get-modifiers">
-<h4>Function Name: kbdbuf_get_modifiers<a class="headerlink" href="#function-name-kbdbuf-get-modifiers" title="Link to this heading">#</a></h4>
+<h4>Function Name: kbdbuf_get_modifiers<a class="headerlink" href="#function-name-kbdbuf-get-modifiers" title="Link to this heading"></a></h4>
 <p>Purpose: Get currently pressed modifiers<br />
 Call address: $FEC0<br />
 Communication registers: .A<br />
@@ -2146,7 +1772,7 @@ Preparatory routines: None<br />
 Error returns: None<br />
 Registers affected: -</p>
 <p><strong>Description:</strong> The routine <code class="docutils literal notranslate"><span class="pre">kbdbuf_get_modifiers</span></code> returns a bitmask that represents the currently pressed modifier keys in .A:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Bit</p></th>
 <th class="head"><p>Value</p></th>
@@ -2182,12 +1808,11 @@ Registers affected: -</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>This allows detecting combinations of a regular key and a modifier key in cases where there is no dedicated PETSCII code for the combination, e.g. Ctrl+Esc or Alt+F1.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-kbdbuf-put">
-<h4>Function Name: kbdbuf_put<a class="headerlink" href="#function-name-kbdbuf-put" title="Link to this heading">#</a></h4>
+<h4>Function Name: kbdbuf_put<a class="headerlink" href="#function-name-kbdbuf-put" title="Link to this heading"></a></h4>
 <p>Purpose: Append a char to the keyboard queue<br />
 Call address: $FEC3<br />
 Communication registers: .A<br />
@@ -2198,7 +1823,7 @@ Registers affected: .X</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-keymap">
-<h4>Function Name: keymap<a class="headerlink" href="#function-name-keymap" title="Link to this heading">#</a></h4>
+<h4>Function Name: keymap<a class="headerlink" href="#function-name-keymap" title="Link to this heading"></a></h4>
 <p>Purpose: Set or get the current keyboard layout
 Call address: $FED2<br />
 Communication registers: .X .Y<br />
@@ -2210,7 +1835,7 @@ Registers affected: -</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-kbd-scan">
-<h4>Function Name: kbd_scan<a class="headerlink" href="#function-name-kbd-scan" title="Link to this heading">#</a></h4>
+<h4>Function Name: kbd_scan<a class="headerlink" href="#function-name-kbd-scan" title="Link to this heading"></a></h4>
 <p>Also Known As: SCNKEY<br />
 Purpose: Read a keycode previously fetched from the SMC, apply keymap localization, and add it to the X16’s buffer.<br />
 Call address: $FF9F<br />
@@ -2225,13 +1850,13 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="mouse">
-<h3>Mouse<a class="headerlink" href="#mouse" title="Link to this heading">#</a></h3>
+<h3>Mouse<a class="headerlink" href="#mouse" title="Link to this heading"></a></h3>
 <p>$FF68: <code class="docutils literal notranslate"><span class="pre">mouse_config</span></code> - configure mouse pointer<br />
 $FF71: <code class="docutils literal notranslate"><span class="pre">mouse_scan</span></code> - query mouse<br />
 $FF6B: <code class="docutils literal notranslate"><span class="pre">mouse_get</span></code> - get state of mouse</p>
 <hr class="docutils" />
 <section id="function-name-mouse-config">
-<h4>Function Name: mouse_config<a class="headerlink" href="#function-name-mouse-config" title="Link to this heading">#</a></h4>
+<h4>Function Name: mouse_config<a class="headerlink" href="#function-name-mouse-config" title="Link to this heading"></a></h4>
 <p>Purpose: Configure the mouse pointer<br />
 Call address: $FF68<br />
 Communication registers: .A .X .Y<br />
@@ -2249,7 +1874,7 @@ JSR mouse_config ; show the default mouse pointer</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-mouse-scan">
-<h4>Function Name: mouse_scan<a class="headerlink" href="#function-name-mouse-scan" title="Link to this heading">#</a></h4>
+<h4>Function Name: mouse_scan<a class="headerlink" href="#function-name-mouse-scan" title="Link to this heading"></a></h4>
 <p>Purpose: Query the mouse and save its state<br />
 Call address: $FF71<br />
 Communication registers: None<br />
@@ -2260,7 +1885,7 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-mouse-get">
-<h4>Function Name: mouse_get<a class="headerlink" href="#function-name-mouse-get" title="Link to this heading">#</a></h4>
+<h4>Function Name: mouse_get<a class="headerlink" href="#function-name-mouse-get" title="Link to this heading"></a></h4>
 <p>Purpose: Get the mouse state<br />
 Call address: $FF6B<br />
 Communication registers: .X<br />
@@ -2268,7 +1893,7 @@ Preparatory routines: <code class="docutils literal notranslate"><span class="pr
 Error returns: None<br />
 Registers affected: .A .X</p>
 <p><strong>Description:</strong> The routine <code class="docutils literal notranslate"><span class="pre">mouse_get</span></code> returns the state of the mouse. The caller passes the offset of a zero-page location in .X, which the routine will populate with the mouse position in 4 consecutive bytes:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
 <th class="head"><p>Size</p></th>
@@ -2286,9 +1911,8 @@ Registers affected: .A .X</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>The state of the mouse buttons is returned in the .A register:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Bit</p></th>
 <th class="head"><p>Description</p></th>
@@ -2315,7 +1939,6 @@ Registers affected: .A .X</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>If a button is pressed, the corresponding bit is set. Buttons 4 and 5 are extended buttons not supported by all mice.</p>
 <p>If available, the movement of the scroll wheel since the last call to this function is returned in the .X register as an 8-bit signed value. Moving the scroll wheel away from the user is represented
 by a negative value, and moving it towards the user is represented by a positive value. If the connected mouse has no scroll wheel, the value 0 is returned in the .X register.</p>
@@ -2330,12 +1953,12 @@ by a negative value, and moving it towards the user is represented by a positive
 </section>
 <hr class="docutils" />
 <section id="joystick">
-<h3>Joystick<a class="headerlink" href="#joystick" title="Link to this heading">#</a></h3>
+<h3>Joystick<a class="headerlink" href="#joystick" title="Link to this heading"></a></h3>
 <p>$FF53: <code class="docutils literal notranslate"><span class="pre">joystick_scan</span></code> - query joysticks<br />
 $FF56: <code class="docutils literal notranslate"><span class="pre">joystick_get</span></code> - get state of one joystick</p>
 <hr class="docutils" />
 <section id="function-name-joystick-scan">
-<h4>Function Name: joystick_scan<a class="headerlink" href="#function-name-joystick-scan" title="Link to this heading">#</a></h4>
+<h4>Function Name: joystick_scan<a class="headerlink" href="#function-name-joystick-scan" title="Link to this heading"></a></h4>
 <p>Purpose: Query the joysticks and save their state<br />
 Call address: $FF53<br />
 Communication registers: None<br />
@@ -2346,7 +1969,7 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-joystick-get">
-<h4>Function Name: joystick_get<a class="headerlink" href="#function-name-joystick-get" title="Link to this heading">#</a></h4>
+<h4>Function Name: joystick_get<a class="headerlink" href="#function-name-joystick-get" title="Link to this heading"></a></h4>
 <p>Purpose: Get the state of one of the joysticks<br />
 Call address: $FF56<br />
 Communication registers: .A<br />
@@ -2367,7 +1990,7 @@ Registers affected: .A .X .Y</p>
 <p>If a button is pressed, the corresponding bit is zero.</p>
 <p>(With a dedicated handler, the API can also be used for other devices with an SNES controller connector. The data returned in .A/.X/Y is just the raw 24 bits returned by the device.)</p>
 <p>The keyboard joystick uses the standard SNES9X/ZSNES mapping:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>SNES Button</p></th>
 <th class="head"><p>Keyboard Key</p></th>
@@ -2413,7 +2036,6 @@ Registers affected: .A .X .Y</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Note that the keyboard joystick will allow LEFT and RIGHT as well as UP and DOWN to be pressed at the same time, while controllers usually prevent this mechanically.</p>
 <p><strong>How to Use:</strong></p>
 <p>If the default interrupt handler is used:</p>
@@ -2438,14 +2060,14 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="i2c">
-<h3>I2C<a class="headerlink" href="#i2c" title="Link to this heading">#</a></h3>
+<h3>I2C<a class="headerlink" href="#i2c" title="Link to this heading"></a></h3>
 <p>$FEB4: <code class="docutils literal notranslate"><span class="pre">i2c_batch_read</span></code> - read multiple bytes from an I2C device<br />
 $FEB7: <code class="docutils literal notranslate"><span class="pre">i2c_batch_write</span></code> - write multiple bytes to an I2C device<br />
 $FEC6: <code class="docutils literal notranslate"><span class="pre">i2c_read_byte</span></code> - read a byte from an I2C device<br />
 $FEC9: <code class="docutils literal notranslate"><span class="pre">i2c_write_byte</span></code> - write a byte to an I2C device</p>
 <hr class="docutils" />
 <section id="function-name-i2c-batch-read">
-<h4>Function Name: i2c_batch_read<a class="headerlink" href="#function-name-i2c-batch-read" title="Link to this heading">#</a></h4>
+<h4>Function Name: i2c_batch_read<a class="headerlink" href="#function-name-i2c-batch-read" title="Link to this heading"></a></h4>
 <p>Purpose: Read bytes from a given I2C device into a RAM location<br />
 Call address: $FEB4<br />
 Communication registers: .X r0 r1 c<br />
@@ -2471,7 +2093,7 @@ Registers affected: .A .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-i2c-batch-write">
-<h4>Function Name: i2c_batch_write<a class="headerlink" href="#function-name-i2c-batch-write" title="Link to this heading">#</a></h4>
+<h4>Function Name: i2c_batch_write<a class="headerlink" href="#function-name-i2c-batch-write" title="Link to this heading"></a></h4>
 <p>Purpose: Write bytes to a given I2C device with data in RAM<br />
 Call address: $FEB7<br />
 Communication registers: .X r0 r1 r2 c<br />
@@ -2502,7 +2124,7 @@ Registers affected: .A .Y .P r2</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-i2c-read-byte">
-<h4>Function Name: i2c_read_byte<a class="headerlink" href="#function-name-i2c-read-byte" title="Link to this heading">#</a></h4>
+<h4>Function Name: i2c_read_byte<a class="headerlink" href="#function-name-i2c-read-byte" title="Link to this heading"></a></h4>
 <p>Purpose: Read a byte at a given offset from a given I2C device<br />
 Call address: $FEC6<br />
 Communication registers: .A .X .Y<br />
@@ -2519,7 +2141,7 @@ Registers affected: .A</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-i2c-write-byte">
-<h4>Function Name: i2c_write_byte<a class="headerlink" href="#function-name-i2c-write-byte" title="Link to this heading">#</a></h4>
+<h4>Function Name: i2c_write_byte<a class="headerlink" href="#function-name-i2c-write-byte" title="Link to this heading"></a></h4>
 <p>Purpose: Write a byte at a given offset to a given I2C device<br />
 Call address: $FEC9<br />
 Communication registers: .A .X .Y<br />
@@ -2549,12 +2171,12 @@ Registers affected: .A .P</p>
 </section>
 <hr class="docutils" />
 <section id="sprites">
-<h3>Sprites<a class="headerlink" href="#sprites" title="Link to this heading">#</a></h3>
+<h3>Sprites<a class="headerlink" href="#sprites" title="Link to this heading"></a></h3>
 <p>$FEF0: <code class="docutils literal notranslate"><span class="pre">sprite_set_image</span></code> - set the image of a sprite<br />
 $FEF3: <code class="docutils literal notranslate"><span class="pre">sprite_set_position</span></code> - set the position of a sprite</p>
 <hr class="docutils" />
 <section id="function-name-sprite-set-image">
-<h4>Function Name: sprite_set_image<a class="headerlink" href="#function-name-sprite-set-image" title="Link to this heading">#</a></h4>
+<h4>Function Name: sprite_set_image<a class="headerlink" href="#function-name-sprite-set-image" title="Link to this heading"></a></h4>
 <p>Purpose: Set the image of a sprite<br />
 Call address: $FEF0<br />
 Signature: bool sprite_set_image(byte number: .A, width: .X, height: .Y, apply_mask: c, word pixels: r0, word mask: r1, byte bpp: r2L);<br />
@@ -2569,7 +2191,7 @@ Error returns: c = 1 in case of error</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-sprite-set-position">
-<h4>Function Name: sprite_set_position<a class="headerlink" href="#function-name-sprite-set-position" title="Link to this heading">#</a></h4>
+<h4>Function Name: sprite_set_position<a class="headerlink" href="#function-name-sprite-set-position" title="Link to this heading"></a></h4>
 <p>Purpose: Set the position of a sprite or hide it.<br />
 Call address: $FEF3<br />
 Signature: void sprite_set_position(byte number: .A, word x: r0, word y: r1);<br />
@@ -2580,7 +2202,7 @@ Error returns: None</p>
 </section>
 <hr class="docutils" />
 <section id="framebuffer">
-<h3>Framebuffer<a class="headerlink" href="#framebuffer" title="Link to this heading">#</a></h3>
+<h3>Framebuffer<a class="headerlink" href="#framebuffer" title="Link to this heading"></a></h3>
 <p>The framebuffer API is a low-level graphics API that completely abstracts the framebuffer by exposing a minimal set of high-performance functions. It is useful as an abstraction and as a convenience library for applications that need high performance framebuffer access.</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">$FEF6:</span><span class="w"> </span><span class="err">`</span><span class="nf">FB_init</span><span class="err">`</span><span class="w"> </span><span class="p">-</span><span class="w"> </span><span class="no">enable</span><span class="w"> </span><span class="no">graphics</span><span class="w"> </span><span class="no">mode</span><span class="w">  </span>
 <span class="no">$FEF9</span><span class="p">:</span><span class="w"> </span><span class="err">`</span><span class="no">FB_get_info</span><span class="err">`</span><span class="w"> </span><span class="p">-</span><span class="w"> </span><span class="no">get</span><span class="w"> </span><span class="no">screen</span><span class="w"> </span><span class="no">size</span><span class="w"> </span><span class="no">and</span><span class="w"> </span><span class="no">color</span><span class="w"> </span><span class="no">depth</span><span class="w">  </span>
@@ -2619,95 +2241,95 @@ Error returns: None</p>
 <p>The default driver supports the VERA framebuffer at a resolution of 320x240 pixels and 256 colors. Using <code class="docutils literal notranslate"><span class="pre">screen_mode</span></code> to set mode $80 will enable this driver.</p>
 <hr class="docutils" />
 <section id="function-name-fb-init">
-<h4>Function Name: FB_init<a class="headerlink" href="#function-name-fb-init" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_init<a class="headerlink" href="#function-name-fb-init" title="Link to this heading"></a></h4>
 <p>Signature: void FB_init();<br />
 Purpose: Enter graphics mode.</p>
 <p>The default driver for this call activates VERA layer 0 without changing the state of any other VERA layers.  If layer 1 (such as the KERNAL text layer) is active and opaque, it may occlude layer 0 entirely.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-get-info">
-<h4>Function Name: FB_get_info<a class="headerlink" href="#function-name-fb-get-info" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_get_info<a class="headerlink" href="#function-name-fb-get-info" title="Link to this heading"></a></h4>
 <p>Signature: void FB_get_info(out word width: r0, out word height: r1, out byte color_depth: .A);<br />
 Purpose: Return the resolution and color depth</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-set-palette">
-<h4>Function Name: FB_set_palette<a class="headerlink" href="#function-name-fb-set-palette" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_set_palette<a class="headerlink" href="#function-name-fb-set-palette" title="Link to this heading"></a></h4>
 <p>Signature: void FB_set_palette(word pointer: r0, index: .A, color count: .X);<br />
 Purpose: Set (parts of) the palette</p>
 <p><strong>Description:</strong> <code class="docutils literal notranslate"><span class="pre">FB_set_palette</span></code> copies color data from the address pointed to by r0, updates the color in VERA palette RAM starting at the index A, with the length of the update (in words) in X.  If X is 0, all 256 colors are copied (512 bytes)</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-cursor-position">
-<h4>Function Name: FB_cursor_position<a class="headerlink" href="#function-name-fb-cursor-position" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_cursor_position<a class="headerlink" href="#function-name-fb-cursor-position" title="Link to this heading"></a></h4>
 <p>Signature: void FB_cursor_position(word x: r0, word y: r1);<br />
 Purpose: Position the direct-access cursor</p>
 <p><strong>Description:</strong> <code class="docutils literal notranslate"><span class="pre">FB_cursor_position</span></code> sets the direct-access cursor to the given screen coordinate. Future operations will access pixels at the cursor location and update the cursor.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-cursor-next-line">
-<h4>Function Name: FB_cursor_next_line<a class="headerlink" href="#function-name-fb-cursor-next-line" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_cursor_next_line<a class="headerlink" href="#function-name-fb-cursor-next-line" title="Link to this heading"></a></h4>
 <p>Signature: void FB_cursor_next_line(word x: r0);<br />
 Purpose: Move the direct-access cursor to next line</p>
 <p><strong>Description:</strong> <code class="docutils literal notranslate"><span class="pre">FB_cursor_next_line</span></code> increments the y position of the direct-access cursor, and sets the x position to the same one that was passed to the previous <code class="docutils literal notranslate"><span class="pre">FB_cursor_position</span></code> call. This is useful for drawing rectangular shapes, and faster than explicitly positioning the cursor.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-get-pixel">
-<h4>Function Name: FB_get_pixel<a class="headerlink" href="#function-name-fb-get-pixel" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_get_pixel<a class="headerlink" href="#function-name-fb-get-pixel" title="Link to this heading"></a></h4>
 <p>Signature: byte FB_get_pixel();<br />
 Purpose: Read one pixel, update cursor</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-get-pixels">
-<h4>Function Name: FB_get_pixels<a class="headerlink" href="#function-name-fb-get-pixels" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_get_pixels<a class="headerlink" href="#function-name-fb-get-pixels" title="Link to this heading"></a></h4>
 <p>Signature: void FB_get_pixels(word ptr: r0, word count: r1);<br />
 Purpose: Copy pixels into RAM, update cursor</p>
 <p><strong>Description:</strong> This function copies pixels into an array in RAM. The array consists of one byte per pixel.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-set-pixel">
-<h4>Function Name: FB_set_pixel<a class="headerlink" href="#function-name-fb-set-pixel" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_set_pixel<a class="headerlink" href="#function-name-fb-set-pixel" title="Link to this heading"></a></h4>
 <p>Signature: void FB_set_pixel(byte color: .A);<br />
 Purpose: Set one pixel, update cursor</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-set-pixels">
-<h4>Function Name: FB_set_pixels<a class="headerlink" href="#function-name-fb-set-pixels" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_set_pixels<a class="headerlink" href="#function-name-fb-set-pixels" title="Link to this heading"></a></h4>
 <p>Signature: void FB_set_pixels(word ptr: r0, word count: r1);<br />
 Purpose: Copy pixels from RAM, update cursor</p>
 <p><strong>Description:</strong> This function sets pixels from an array of pixels in RAM. The array consists of one byte per pixel.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-set-8-pixels">
-<h4>Function Name: FB_set_8_pixels<a class="headerlink" href="#function-name-fb-set-8-pixels" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_set_8_pixels<a class="headerlink" href="#function-name-fb-set-8-pixels" title="Link to this heading"></a></h4>
 <p>Signature: void FB_set_8_pixels(byte pattern: .A, byte color: .X);<br />
 Purpose: Set 8 pixels from bit mask (transparent), update cursor</p>
 <p><strong>Description:</strong> This function sets all 1-bits of the pattern to a given color and skips a pixel for every 0 bit. The order is MSB to LSB. The cursor will be moved by 8 pixels.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-set-8-pixels-opaque">
-<h4>Function Name: FB_set_8_pixels_opaque<a class="headerlink" href="#function-name-fb-set-8-pixels-opaque" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_set_8_pixels_opaque<a class="headerlink" href="#function-name-fb-set-8-pixels-opaque" title="Link to this heading"></a></h4>
 <p>Signature: void FB_set_8_pixels_opaque(byte pattern: .A, byte mask: r0L, byte color1: .X, byte color2: .Y);<br />
 Purpose: Set 8 pixels from bit mask (opaque), update cursor</p>
 <p><strong>Description:</strong> For every 1-bit in the mask, this function sets the pixel to color1 if the corresponding bit in the pattern is 1, and to color2 otherwise. For every 0-bit in the mask, it skips a pixel. The order is MSB to LSB. The cursor will be moved by 8 pixels.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-fill-pixels">
-<h4>Function Name: FB_fill_pixels<a class="headerlink" href="#function-name-fb-fill-pixels" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_fill_pixels<a class="headerlink" href="#function-name-fb-fill-pixels" title="Link to this heading"></a></h4>
 <p>Signature: void FB_fill_pixels(word count: r0, word step: r1, byte color: .A);<br />
 Purpose: Fill pixels with constant color, update cursor</p>
 <p><strong>Description:</strong> <code class="docutils literal notranslate"><span class="pre">FB_fill_pixels</span></code> sets pixels with a constant color. The argument <code class="docutils literal notranslate"><span class="pre">step</span></code> specifies the increment between pixels. A value of 0 or 1 will cause consecutive pixels to be set. Passing a <code class="docutils literal notranslate"><span class="pre">step</span></code> value of the screen width will set vertically adjacent pixels going top down. Smaller values allow drawing dotted horizontal lines, and multiples of the screen width allow drawing dotted vertical lines.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-filter-pixels">
-<h4>Function Name: FB_filter_pixels<a class="headerlink" href="#function-name-fb-filter-pixels" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_filter_pixels<a class="headerlink" href="#function-name-fb-filter-pixels" title="Link to this heading"></a></h4>
 <p>Signature: void FB_filter_pixels(word ptr: r0, word count: r1);<br />
 Purpose: Apply transform to pixels, update cursor</p>
 <p><strong>Description:</strong> This function allows modifying consecutive pixels. The function pointer will be called for every pixel, with the color in .A, and it needs to return the new color in .A.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-fb-move-pixels">
-<h4>Function Name: FB_move_pixels<a class="headerlink" href="#function-name-fb-move-pixels" title="Link to this heading">#</a></h4>
+<h4>Function Name: FB_move_pixels<a class="headerlink" href="#function-name-fb-move-pixels" title="Link to this heading"></a></h4>
 <p>Signature: void FB_move_pixels(word sx: r0, word sy: r1, word tx: r2, word ty: r3, word count: r4);<br />
 Purpose: Copy horizontally consecutive pixels to a different position</p>
 <p><em>[Note: Overlapping regions are not yet supported.]</em></p>
@@ -2715,7 +2337,7 @@ Purpose: Copy horizontally consecutive pixels to a different position</p>
 </section>
 <hr class="docutils" />
 <section id="graphics">
-<h3>Graphics<a class="headerlink" href="#graphics" title="Link to this heading">#</a></h3>
+<h3>Graphics<a class="headerlink" href="#graphics" title="Link to this heading"></a></h3>
 <p>The high-level graphics API exposes a set of standard functions. It allows applications to easily perform some common high-level actions like drawing lines, rectangles and images, as well as moving parts of the screen. All commands are completely implemented on top of the framebuffer API, that is, they will continue working after replacing the framebuffer driver with one that supports a different resolution, color depth or even graphics device.</p>
 <p>$FF20: <code class="docutils literal notranslate"><span class="pre">GRAPH_init</span></code> - initialize graphics<br />
 $FF23: <code class="docutils literal notranslate"><span class="pre">GRAPH_clear</span></code> - clear screen<br />
@@ -2731,7 +2353,7 @@ $FF3E: <code class="docutils literal notranslate"><span class="pre">GRAPH_get_ch
 $FF41: <code class="docutils literal notranslate"><span class="pre">GRAPH_put_char</span></code> - print a character</p>
 <hr class="docutils" />
 <section id="function-name-graph-init">
-<h4>Function Name: GRAPH_init<a class="headerlink" href="#function-name-graph-init" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_init<a class="headerlink" href="#function-name-graph-init" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_init(word vectors: r0);<br />
 Purpose: Activate framebuffer driver, enter and initialize graphics mode</p>
 <p><strong>Description</strong>: This call activates the framebuffer driver whose vector table is passed in r0. If r0 is 0, the default driver is activated. It then switches the video hardware into graphics mode, sets the window to full screen, initializes the colors and activates the system font.</p>
@@ -2739,13 +2361,13 @@ Purpose: Activate framebuffer driver, enter and initialize graphics mode</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-clear">
-<h4>Function Name: GRAPH_clear<a class="headerlink" href="#function-name-graph-clear" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_clear<a class="headerlink" href="#function-name-graph-clear" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_clear();<br />
 Purpose: Clear the current window with the current background color.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-set-window">
-<h4>Function Name: GRAPH_set_window<a class="headerlink" href="#function-name-graph-set-window" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_set_window<a class="headerlink" href="#function-name-graph-set-window" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_set_window(word x: r0, word y: r1, word width: r2, word height: r3);<br />
 Purpose: Set the clipping region</p>
 <p><strong>Description:</strong> All graphics commands are clipped to the window. This function configures the origin and size of the window. All 0 arguments set the window to full screen.</p>
@@ -2753,20 +2375,20 @@ Purpose: Set the clipping region</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-set-colors">
-<h4>Function Name: GRAPH_set_colors<a class="headerlink" href="#function-name-graph-set-colors" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_set_colors<a class="headerlink" href="#function-name-graph-set-colors" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_set_colors(byte stroke: .A, byte fill: .X, byte background: .Y);<br />
 Purpose: Set the three colors</p>
 <p><strong>Description:</strong> This function sets the three colors: The stroke color, the fill color and the background color.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-draw-line">
-<h4>Function Name: GRAPH_draw_line<a class="headerlink" href="#function-name-graph-draw-line" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_draw_line<a class="headerlink" href="#function-name-graph-draw-line" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_draw_line(word x1: r0, word y1: r1, word x2: r2, word y2: r3);<br />
 Purpose: Draw a line using the stroke color</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-draw-rect">
-<h4>Function Name: GRAPH_draw_rect<a class="headerlink" href="#function-name-graph-draw-rect" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_draw_rect<a class="headerlink" href="#function-name-graph-draw-rect" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_draw_rect(word x: r0, word y: r1, word width: r2, word height: r3, word corner_radius: r4, bool fill: c);<br />
 Purpose: Draw a rectangle.</p>
 <p><strong>Description:</strong> This function will draw the frame of a rectangle using the stroke color. If <code class="docutils literal notranslate"><span class="pre">fill</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, it will also fill the area using the fill color. To only fill a rectangle, set the stroke color to the same value as the fill color.</p>
@@ -2774,7 +2396,7 @@ Purpose: Draw a rectangle.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-move-rect">
-<h4>Function Name: GRAPH_move_rect<a class="headerlink" href="#function-name-graph-move-rect" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_move_rect<a class="headerlink" href="#function-name-graph-move-rect" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_move_rect(word sx: r0, word sy: r1, word tx: r2, word ty: r3, word width: r4, word height: r5);<br />
 Purpose: Copy a rectangular screen area to a different location</p>
 <p><strong>Description:</strong> <code class="docutils literal notranslate"><span class="pre">GRAPH_move_rect</span></code> coll copy a rectangular area of the screen to a different location. The two areas may overlap.</p>
@@ -2782,28 +2404,28 @@ Purpose: Copy a rectangular screen area to a different location</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-draw-oval">
-<h4>Function Name: GRAPH_draw_oval<a class="headerlink" href="#function-name-graph-draw-oval" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_draw_oval<a class="headerlink" href="#function-name-graph-draw-oval" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_draw_oval(word x: r0, word y: r1, word width: r2, word height: r3, bool fill: c);<br />
 Purpose: Draw an oval or a circle</p>
 <p><strong>Description:</strong> This function draws an oval filling the given bounding box. If width equals height, the resulting shape is a circle. The oval will be outlined by the stroke color. If <code class="docutils literal notranslate"><span class="pre">fill</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, it will be filled using the fill color. To only fill an oval, set the stroke color to the same value as the fill color.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-draw-image">
-<h4>Function Name: GRAPH_draw_image<a class="headerlink" href="#function-name-graph-draw-image" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_draw_image<a class="headerlink" href="#function-name-graph-draw-image" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_draw_image(word x: r0, word y: r1, word ptr: r2, word width: r3, word height: r4);<br />
 Purpose: Draw a rectangular image from data in memory</p>
 <p><strong>Description:</strong> This function copies pixel data from memory onto the screen. The representation of the data in memory has to have one byte per pixel, with the pixels organized line by line top to bottom, and within the line left to right.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-set-font">
-<h4>Function Name: GRAPH_set_font<a class="headerlink" href="#function-name-graph-set-font" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_set_font<a class="headerlink" href="#function-name-graph-set-font" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_set_font(void ptr: r0);<br />
 Purpose: Set the current font</p>
 <p><strong>Description:</strong> This function sets the current font to be used for the remaining font-related functions. The argument is a pointer to the font data structure in memory, which must be in the format of a single point size GEOS font (i.e. one GEOS font file VLIR chunk). An argument of 0 will activate the built-in system font.</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-get-char-size">
-<h4>Function Name: GRAPH_get_char_size<a class="headerlink" href="#function-name-graph-get-char-size" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_get_char_size<a class="headerlink" href="#function-name-graph-get-char-size" title="Link to this heading"></a></h4>
 <p>Signature: (byte baseline: .A, byte width: .X, byte height_or_style: .Y, bool is_control: c) GRAPH_get_char_size(byte c: .A, byte format: .X);<br />
 Purpose: Get the size and baseline of a character, or interpret a control code</p>
 <p><strong>Description:</strong> This functionality of <code class="docutils literal notranslate"><span class="pre">GRAPH_get_char_size</span></code> depends on the type of code that is passed in: For a printable character, this function returns the metrics of the character in a given format. For a control code, it returns the resulting format. In either case, the current format is passed in .X, and the character in .A.</p>
@@ -2815,7 +2437,7 @@ Purpose: Get the size and baseline of a character, or interpret a control code</
 </section>
 <hr class="docutils" />
 <section id="function-name-graph-put-char">
-<h4>Function Name: GRAPH_put_char<a class="headerlink" href="#function-name-graph-put-char" title="Link to this heading">#</a></h4>
+<h4>Function Name: GRAPH_put_char<a class="headerlink" href="#function-name-graph-put-char" title="Link to this heading"></a></h4>
 <p>Signature: void GRAPH_put_char(inout word x: r0, inout word y: r1, byte c: .A);<br />
 Purpose: Print a character onto the graphics screen</p>
 <p><strong>Description:</strong> This function prints a single character at a given location on the graphics screen. The location is then updated. The following control codes are supported:</p>
@@ -2850,7 +2472,7 @@ Purpose: Print a character onto the graphics screen</p>
 </section>
 <hr class="docutils" />
 <section id="console">
-<h3>Console<a class="headerlink" href="#console" title="Link to this heading">#</a></h3>
+<h3>Console<a class="headerlink" href="#console" title="Link to this heading"></a></h3>
 <p>$FEDB: <code class="docutils literal notranslate"><span class="pre">console_init</span></code> - initialize console mode<br />
 $FEDE: <code class="docutils literal notranslate"><span class="pre">console_put_char</span></code> - print character to console<br />
 $FED8: <code class="docutils literal notranslate"><span class="pre">console_put_image</span></code> - draw image as if it was a character<br />
@@ -2859,7 +2481,7 @@ $FED5: <code class="docutils literal notranslate"><span class="pre">console_set_
 <p>The console is a screen mode that allows text output and input in proportional fonts that support the usual styles. It is useful for rich text-based interfaces.</p>
 <hr class="docutils" />
 <section id="function-name-console-init">
-<h4>Function Name: console_init<a class="headerlink" href="#function-name-console-init" title="Link to this heading">#</a></h4>
+<h4>Function Name: console_init<a class="headerlink" href="#function-name-console-init" title="Link to this heading"></a></h4>
 <p>Signature: void console_init(word x: r0, word y: r1, word width: r2, word height: r3);<br />
 Purpose: Initialize console mode.<br />
 Call address: $FEDB</p>
@@ -2867,7 +2489,7 @@ Call address: $FEDB</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-console-put-char">
-<h4>Function Name: console_put_char<a class="headerlink" href="#function-name-console-put-char" title="Link to this heading">#</a></h4>
+<h4>Function Name: console_put_char<a class="headerlink" href="#function-name-console-put-char" title="Link to this heading"></a></h4>
 <p>Signature: void console_put_char(byte char: .A, bool wrapping: c);<br />
 Purpose: Print a character to the console.<br />
 Call address: $FEDE</p>
@@ -2876,7 +2498,7 @@ Call address: $FEDE</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-console-put-image">
-<h4>Function Name: console_put_image<a class="headerlink" href="#function-name-console-put-image" title="Link to this heading">#</a></h4>
+<h4>Function Name: console_put_image<a class="headerlink" href="#function-name-console-put-image" title="Link to this heading"></a></h4>
 <p>Signature: void console_put_image(word ptr: r0, word width: r1, word height: r2);<br />
 Purpose: Draw image as if it was a character.<br />
 Call address: $FED8</p>
@@ -2889,7 +2511,7 @@ Call address: $FED8</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-console-get-char">
-<h4>Function Name: console_get_char<a class="headerlink" href="#function-name-console-get-char" title="Link to this heading">#</a></h4>
+<h4>Function Name: console_get_char<a class="headerlink" href="#function-name-console-get-char" title="Link to this heading"></a></h4>
 <p>Signature: (byte char: .A) console_get_char();<br />
 Purpose: Get a character from the console.<br />
 Call address: $FEE1</p>
@@ -2898,7 +2520,7 @@ Call address: $FEE1</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-console-set-paging-message">
-<h4>Function Name: console_set_paging_message<a class="headerlink" href="#function-name-console-set-paging-message" title="Link to this heading">#</a></h4>
+<h4>Function Name: console_set_paging_message<a class="headerlink" href="#function-name-console-set-paging-message" title="Link to this heading"></a></h4>
 <p>Signature: void console_set_paging_message(word message: r0);<br />
 Purpose: Set the paging message or disable paging.<br />
 Call address: $FED5</p>
@@ -2908,7 +2530,7 @@ Call address: $FED5</p>
 </section>
 <hr class="docutils" />
 <section id="other">
-<h3>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading"></a></h3>
 <p>$FF47: <code class="docutils literal notranslate"><span class="pre">enter_basic</span></code> - enter BASIC<br />
 $FECF: <code class="docutils literal notranslate"><span class="pre">entropy_get</span></code> - get 24 random bits<br />
 $FEAB: <code class="docutils literal notranslate"><span class="pre">extapi</span></code> - extended API<br />
@@ -2917,7 +2539,7 @@ $FF5F: <code class="docutils literal notranslate"><span class="pre">screen_mode<
 $FF62: <code class="docutils literal notranslate"><span class="pre">screen_set_charset</span></code> - activate 8x8 text mode charset<br />
 $FFED: <code class="docutils literal notranslate"><span class="pre">SCREEN</span></code> - get the text resolution</p>
 <section id="function-name-enter-basic">
-<h4>Function Name: enter_basic<a class="headerlink" href="#function-name-enter-basic" title="Link to this heading">#</a></h4>
+<h4>Function Name: enter_basic<a class="headerlink" href="#function-name-enter-basic" title="Link to this heading"></a></h4>
 <p>Purpose: Enter BASIC<br />
 Call address: $FF47<br />
 Communication registers: .P<br />
@@ -2932,7 +2554,7 @@ Error returns: Does not return</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-entropy-get">
-<h4>Function Name: entropy_get<a class="headerlink" href="#function-name-entropy-get" title="Link to this heading">#</a></h4>
+<h4>Function Name: entropy_get<a class="headerlink" href="#function-name-entropy-get" title="Link to this heading"></a></h4>
 <p>Purpose: Get 24 random bits<br />
 Call address: $FECF<br />
 Communication registers: .A .X .Y<br />
@@ -2970,7 +2592,7 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-extapi">
-<h4>Function Name: extapi<a class="headerlink" href="#function-name-extapi" title="Link to this heading">#</a></h4>
+<h4>Function Name: extapi<a class="headerlink" href="#function-name-extapi" title="Link to this heading"></a></h4>
 <p>Purpose: Additional API functions<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB<br />
@@ -2979,7 +2601,7 @@ Preparatory routines: None<br />
 Error returns: Varies, but usually c=1<br />
 Registers affected: Varies</p>
 <p><strong>Description:</strong> This API slot provides access to various extended calls. The call is selected by the .A register, and each call has its own register use and return behavior.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Call #</p></th>
 <th class="head"><p>Name</p></th>
@@ -3104,11 +2726,10 @@ Registers affected: Varies</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-clear-status">
-<h4>extapi Function Name: clear_status<a class="headerlink" href="#extapi-function-name-clear-status" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: clear_status<a class="headerlink" href="#extapi-function-name-clear-status" title="Link to this heading"></a></h4>
 <p>Purpose: Reset the IEC status byte to 0<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=1<br />
@@ -3120,7 +2741,7 @@ Registers affected: .A</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-getlfs">
-<h4>extapi Function Name: getlfs<a class="headerlink" href="#extapi-function-name-getlfs" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: getlfs<a class="headerlink" href="#extapi-function-name-getlfs" title="Link to this heading"></a></h4>
 <p>Purpose: Return the values from the last call to <code class="docutils literal notranslate"><span class="pre">setlfs</span></code><br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=2<br />
@@ -3157,7 +2778,7 @@ Registers affected: .A .X .Y</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-mouse-sprite-offset">
-<h4>extapi Function Name: mouse_sprite_offset<a class="headerlink" href="#extapi-function-name-mouse-sprite-offset" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: mouse_sprite_offset<a class="headerlink" href="#extapi-function-name-mouse-sprite-offset" title="Link to this heading"></a></h4>
 <p>Purpose: Set the mouse sprite x/y offset<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=3<br />
@@ -3199,7 +2820,7 @@ Registers affected: .A .X .Y .P r0 r1</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-joystick-ps2-keycodes">
-<h4>extapi Function Name: joystick_ps2_keycodes<a class="headerlink" href="#extapi-function-name-joystick-ps2-keycodes" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: joystick_ps2_keycodes<a class="headerlink" href="#extapi-function-name-joystick-ps2-keycodes" title="Link to this heading"></a></h4>
 <p>Purpose: Set or get the keyboard mapping for joystick 0<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=4<br />
@@ -3212,7 +2833,7 @@ Registers affected: .A .X .Y .P r0L-r6H</p>
 <li><p>Set: If carry is clear when called, the current values are set based on the contents of the 14 registers r0L-r6H.</p></li>
 <li><p>Get: If carry is set when called, the current values are retrieved and placed in the 14 registers r0L-r6H.</p></li>
 </ul>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Register</p></th>
 <th class="head"><p>Controller Input</p></th>
@@ -3278,7 +2899,6 @@ Registers affected: .A .X .Y .P r0L-r6H</p>
 </tr>
 </tbody>
 </table>
-</div>
 <ul class="simple">
 <li><p>Note that there are two mappings for the controller button B, and two mappings for the controller button A. Both mapped keys will activate the controller button.</p></li>
 </ul>
@@ -3305,7 +2925,7 @@ Registers affected: .A .X .Y .P r0L-r6H</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-iso-cursor-char">
-<h4>extapi Function Name: iso_cursor_char<a class="headerlink" href="#extapi-function-name-iso-cursor-char" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: iso_cursor_char<a class="headerlink" href="#extapi-function-name-iso-cursor-char" title="Link to this heading"></a></h4>
 <p>Purpose: get or set the ISO mode cursor character<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=5<br />
@@ -3322,7 +2942,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-ps2kbd-typematic">
-<h4>extapi Function Name: ps2kbd_typematic<a class="headerlink" href="#extapi-function-name-ps2kbd-typematic" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: ps2kbd_typematic<a class="headerlink" href="#extapi-function-name-ps2kbd-typematic" title="Link to this heading"></a></h4>
 <p>Purpose: set the PS/2 typematic delay and repeat rate<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=6<br />
@@ -3358,7 +2978,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-pfkey">
-<h4>extapi Function Name: pfkey<a class="headerlink" href="#extapi-function-name-pfkey" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: pfkey<a class="headerlink" href="#extapi-function-name-pfkey" title="Link to this heading"></a></h4>
 <p>Purpose: Reprogram a function key macro<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=7<br />
@@ -3432,7 +3052,7 @@ Registers affected: .A .X .Y .P r0</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-ps2data-fetch">
-<h4>extapi Function Name: ps2data_fetch<a class="headerlink" href="#extapi-function-name-ps2data-fetch" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: ps2data_fetch<a class="headerlink" href="#extapi-function-name-ps2data-fetch" title="Link to this heading"></a></h4>
 <p>Purpose: Poll the SMC for PS/2 events<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=8<br />
@@ -3446,7 +3066,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-ps2data-raw">
-<h4>extapi Function Name: ps2data_raw<a class="headerlink" href="#extapi-function-name-ps2data-raw" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: ps2data_raw<a class="headerlink" href="#extapi-function-name-ps2data-raw" title="Link to this heading"></a></h4>
 <p>Purpose: Return the most recently-fetched PS/2 mouse packet and keycode<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=9<br />
@@ -3460,7 +3080,7 @@ Registers affected: .A .X .Y .P r0L-r1H</p>
 <p>This call is mainly useful when overriding the default KERNAL ISR and implementing a fully custom mouse and keyboard routine.  It is also available when using the default ISR as these values are kept even after processing, until the next <code class="docutils literal notranslate"><span class="pre">ps2data_fetch</span></code> call.</p>
 <p>Return values:</p>
 <section id="id2">
-<h5>Keyboard<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<h5>Keyboard<a class="headerlink" href="#id2" title="Link to this heading"></a></h5>
 <ul class="simple">
 <li><p>.A = keycode</p></li>
 </ul>
@@ -3470,7 +3090,7 @@ Registers affected: .A .X .Y .P r0L-r1H</p>
 </ul>
 </section>
 <section id="id3">
-<h5>Mouse<a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
+<h5>Mouse<a class="headerlink" href="#id3" title="Link to this heading"></a></h5>
 <ul class="simple">
 <li><p>.X = number of mouse bytes</p></li>
 </ul>
@@ -3571,7 +3191,7 @@ Registers affected: .A .X .Y .P r0L-r1H</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-cursor-blink">
-<h4>extapi Function Name: cursor_blink<a class="headerlink" href="#extapi-function-name-cursor-blink" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: cursor_blink<a class="headerlink" href="#extapi-function-name-cursor-blink" title="Link to this heading"></a></h4>
 <p>Purpose: Blink or un-blink the cursor in the KERNAL editor<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=10<br />
@@ -3584,7 +3204,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-led-update">
-<h4>extapi Function Name: led_update<a class="headerlink" href="#extapi-function-name-led-update" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: led_update<a class="headerlink" href="#extapi-function-name-led-update" title="Link to this heading"></a></h4>
 <p>Purpose: Set the illumination status of the SMC’s activity LED based on disk status<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=11<br />
@@ -3597,7 +3217,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-mouse-set-position">
-<h4>extapi Function Name: mouse_set_position<a class="headerlink" href="#extapi-function-name-mouse-set-position" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: mouse_set_position<a class="headerlink" href="#extapi-function-name-mouse-set-position" title="Link to this heading"></a></h4>
 <p>Purpose: Move the mouse pointer to an absolute X/Y position<br />
 Minimum ROM version: R47<br />
 Call address: $FEAB, .A=12<br />
@@ -3662,7 +3282,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-scnsiz">
-<h4>extapi Function Name: scnsiz<a class="headerlink" href="#extapi-function-name-scnsiz" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: scnsiz<a class="headerlink" href="#extapi-function-name-scnsiz" title="Link to this heading"></a></h4>
 <p>Purpose: Set the number of text rows and columns for the kernal screen editor<br />
 Minimum ROM version: R48<br />
 Call address: $FEAB, .A=13<br />
@@ -3719,7 +3339,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-kbd-leds">
-<h4>extapi Function Name: kbd_leds<a class="headerlink" href="#extapi-function-name-kbd-leds" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: kbd_leds<a class="headerlink" href="#extapi-function-name-kbd-leds" title="Link to this heading"></a></h4>
 <p>Purpose: Set or retrieve the PS/2 keyboard LED state<br />
 Minimum ROM version: R48<br />
 Call address: $FEAB, .A=14<br />
@@ -3756,7 +3376,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-memory-decompress-from-func">
-<h4>extapi Function Name: memory_decompress_from_func<a class="headerlink" href="#extapi-function-name-memory-decompress-from-func" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: memory_decompress_from_func<a class="headerlink" href="#extapi-function-name-memory-decompress-from-func" title="Link to this heading"></a></h4>
 <p>Purpose: Decompress LZSA2 data
 Minimum ROM version: R49<br />
 Call address: $FEAB, .A=15<br />
@@ -3772,7 +3392,7 @@ Registers affected: .A .X .Y .P r1</p>
 <li><p>Call <code class="docutils literal notranslate"><span class="pre">memory_decompress_from_func</span></code></p></li>
 </ol>
 <section id="lzsa2-streaming-function">
-<h5>LZSA2 Streaming function<a class="headerlink" href="#lzsa2-streaming-function" title="Link to this heading">#</a></h5>
+<h5>LZSA2 Streaming function<a class="headerlink" href="#lzsa2-streaming-function" title="Link to this heading"></a></h5>
 <p>In order to use <code class="docutils literal notranslate"><span class="pre">memory_decompress_from_func</span></code>, you obviously have to design a function, that you can provide to the decompressing routine. It should preferably be located in low-ram (it <em><strong>may not</strong></em> be on a cartridge, it probably can be located in high-ram though, if the decompressed data destination is somewhere else). There are some prerequisites for such a function you need to apply:</p>
 <ul class="simple">
 <li><p>It returns bytes of LZSA2 each call byte by byte via <code class="docutils literal notranslate"><span class="pre">.A</span></code> register. That is, for example, if your LZSA2 data starts with <code class="docutils literal notranslate"><span class="pre">.byte</span> <span class="pre">$65,</span> <span class="pre">$02,</span> <span class="pre">$66,</span> <span class="pre">$55,</span> <span class="pre">$00,</span> <span class="pre">$22</span> <span class="pre">...</span></code>, your function has to return <code class="docutils literal notranslate"><span class="pre">$65</span></code> of the first call, <code class="docutils literal notranslate"><span class="pre">$02</span></code> on the 2nd, <code class="docutils literal notranslate"><span class="pre">$66</span></code> on the 3rd one and so on.</p></li>
@@ -3844,7 +3464,7 @@ Registers affected: .A .X .Y .P r1</p>
 </section>
 <hr class="docutils" />
 <section id="extapi-function-name-default-palette">
-<h4>extapi Function Name: default_palette<a class="headerlink" href="#extapi-function-name-default-palette" title="Link to this heading">#</a></h4>
+<h4>extapi Function Name: default_palette<a class="headerlink" href="#extapi-function-name-default-palette" title="Link to this heading"></a></h4>
 <p>Purpose: Get or upload the default palette
 Minimum ROM version: R49
 Call address: $FEAB, .A=16
@@ -3862,7 +3482,7 @@ Registers affected: .A .X .Y .P</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-monitor">
-<h4>Function Name: monitor<a class="headerlink" href="#function-name-monitor" title="Link to this heading">#</a></h4>
+<h4>Function Name: monitor<a class="headerlink" href="#function-name-monitor" title="Link to this heading"></a></h4>
 <p>Purpose: Enter the machine language monitor<br />
 Call address: $FECC<br />
 Communication registers: None<br />
@@ -3881,7 +3501,7 @@ Registers affected: Does not return</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-screen">
-<h4>Function Name: SCREEN<a class="headerlink" href="#function-name-screen" title="Link to this heading">#</a></h4>
+<h4>Function Name: SCREEN<a class="headerlink" href="#function-name-screen" title="Link to this heading"></a></h4>
 <p>Purpose: Get the text resolution of the screen<br />
 Call address: $FFED<br />
 Communication registers: .X, .Y<br />
@@ -3903,7 +3523,7 @@ Registers affected: .A, .X, .Y, .P</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-screen-mode">
-<h4>Function Name: screen_mode<a class="headerlink" href="#function-name-screen-mode" title="Link to this heading">#</a></h4>
+<h4>Function Name: screen_mode<a class="headerlink" href="#function-name-screen-mode" title="Link to this heading"></a></h4>
 <p>Purpose: Get/Set the screen mode<br />
 Call address: $FF5F<br />
 Communication registers: .A, .X, .Y, .P<br />
@@ -3923,14 +3543,14 @@ For a list of possible values, see <a class="reference internal" href="X16%20Ref
 </section>
 <hr class="docutils" />
 <section id="function-name-screen-set-charset">
-<h4>Function Name: screen_set_charset<a class="headerlink" href="#function-name-screen-set-charset" title="Link to this heading">#</a></h4>
+<h4>Function Name: screen_set_charset<a class="headerlink" href="#function-name-screen-set-charset" title="Link to this heading"></a></h4>
 <p>Purpose: Activate a 8x8 text mode charset<br />
 Call address: $FF62</p>
 <p>Communication registers: .A, .X, .Y<br />
 Preparatory routines: None<br />
 Registers affected: .A, .X, .Y</p>
 <p><strong>Description:</strong> A call to this routine uploads a character set to the video hardware and activates it. The value of .A decides what charset to upload:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Value</p></th>
 <th class="head"><p>Description</p></th>
@@ -3978,7 +3598,6 @@ Registers affected: .A, .X, .Y</p>
 </tr>
 </tbody>
 </table>
-</div>
 <p>See <a class="reference internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html#appendix-i-character-sets"><span class="std std-ref">Appendix I</span></a></p>
 <p>If .A is zero, .X (lo) and .Y (hi) contain a pointer to a 2 KB RAM area that gets uploaded as the new 8x8 character set. The data has to consist of 256 characters of 8 bytes each, top to bottom, with the MSB on the left, set bits (1) represent the foreground colored pixels.</p>
 <p><strong>EXAMPLE:</strong></p>
@@ -3991,7 +3610,7 @@ Registers affected: .A, .X, .Y</p>
 </section>
 <hr class="docutils" />
 <section id="function-name-jsrfar">
-<h4>Function Name: JSRFAR<a class="headerlink" href="#function-name-jsrfar" title="Link to this heading">#</a></h4>
+<h4>Function Name: JSRFAR<a class="headerlink" href="#function-name-jsrfar" title="Link to this heading"></a></h4>
 <p>Purpose: Execute a routine on another RAM or ROM bank<br />
 Call address: $FF6E<br />
 Communication registers: None<br />
@@ -4014,7 +3633,7 @@ The 16 bit address and the 8 bit bank number have to follow the instruction stre
 </section>
 </section>
 <section id="c816-support">
-<h3>65C816 support<a class="headerlink" href="#c816-support" title="Link to this heading">#</a></h3>
+<h3>65C816 support<a class="headerlink" href="#c816-support" title="Link to this heading"></a></h3>
 <p>When writing native 65C816 code for the Commander X16, extra care must be given when using the KERNAL API. With the exception of <code class="docutils literal notranslate"><span class="pre">extapi16</span></code>, documented below, the entire kernal API must be called:</p>
 <ul class="simple">
 <li><p>With m=1, x=1 (accumulator and index are 8 bits)</p></li>
@@ -4024,7 +3643,7 @@ The 16 bit address and the 8 bit bank number have to follow the instruction stre
 <p>$FEA8: <code class="docutils literal notranslate"><span class="pre">extapi16</span></code> - 16-bit extended API for 65C816 native mode</p>
 <hr class="docutils" />
 <section id="function-name-extapi16">
-<h4>Function Name: extapi16<a class="headerlink" href="#function-name-extapi16" title="Link to this heading">#</a></h4>
+<h4>Function Name: extapi16<a class="headerlink" href="#function-name-extapi16" title="Link to this heading"></a></h4>
 <p>Purpose: API functions for 65C816<br />
 Minimum ROM version: R47<br />
 Call address: $FEA8<br />
@@ -4038,7 +3657,7 @@ Registers affected: Varies</p>
 <li><p>All of the calls behind this API <strong>must</strong> be called in native 65C816 mode, with m=0, .DP=$0000.</p></li>
 <li><p>In addition, some of these <strong>must</strong> be called with <code class="docutils literal notranslate"><span class="pre">rom_bank</span></code> (zp address $01) set to bank 0 (the KERNAL bank) and not via KERNAL support in other ROM banks. If your program is launched from BASIC, the default bank is usually 4 until explicitly changed by your program.</p></li>
 </ul>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Call #</p></th>
 <th class="head"><p>Name</p></th>
@@ -4086,11 +3705,10 @@ Registers affected: Varies</p>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <hr class="docutils" />
 <section id="c816-extapi16-function-name-test">
-<h4>65C816 extapi16 Function Name: test<a class="headerlink" href="#c816-extapi16-function-name-test" title="Link to this heading">#</a></h4>
+<h4>65C816 extapi16 Function Name: test<a class="headerlink" href="#c816-extapi16-function-name-test" title="Link to this heading"></a></h4>
 <p>Purpose: Used by unit tests for jsrfar<br />
 Minimum ROM version: R47<br />
 Call address: $FEA8, .C=0<br />
@@ -4102,7 +3720,7 @@ Registers affected: .C</p>
 </section>
 <hr class="docutils" />
 <section id="c816-extapi16-function-name-stack-push">
-<h4>65C816 extapi16 Function Name: stack_push<a class="headerlink" href="#c816-extapi16-function-name-stack-push" title="Link to this heading">#</a></h4>
+<h4>65C816 extapi16 Function Name: stack_push<a class="headerlink" href="#c816-extapi16-function-name-stack-push" title="Link to this heading"></a></h4>
 <p>Purpose: Point the SP to a new stack<br />
 Minimum ROM version: R47<br />
 Call address: $FEA8, .C=1<br />
@@ -4124,7 +3742,7 @@ Registers affected: .A .X .Y .P .SP</p>
 </section>
 <hr class="docutils" />
 <section id="c816-extapi16-function-name-stack-pop">
-<h4>65C816 extapi16 Function Name: stack_pop<a class="headerlink" href="#c816-extapi16-function-name-stack-pop" title="Link to this heading">#</a></h4>
+<h4>65C816 extapi16 Function Name: stack_pop<a class="headerlink" href="#c816-extapi16-function-name-stack-pop" title="Link to this heading"></a></h4>
 <p>Purpose: Point the SP to the previously-saved stack<br />
 Minimum ROM version: R47<br />
 Call address: $FEA8, .C=2<br />
@@ -4142,7 +3760,7 @@ Registers affected: .A .X .Y .P .SP</p>
 </section>
 <hr class="docutils" />
 <section id="c816-extapi16-function-name-stack-enter-kernal-stack">
-<h4>65C816 extapi16 Function Name: stack_enter_kernal_stack<a class="headerlink" href="#c816-extapi16-function-name-stack-enter-kernal-stack" title="Link to this heading">#</a></h4>
+<h4>65C816 extapi16 Function Name: stack_enter_kernal_stack<a class="headerlink" href="#c816-extapi16-function-name-stack-enter-kernal-stack" title="Link to this heading"></a></h4>
 <p>Purpose: Point the SP to the previously-saved $01xx stack, preserving the current one<br />
 Minimum ROM version: R47<br />
 Call address: $FEA8, .C=3<br />
@@ -4160,7 +3778,7 @@ Registers affected: .A .X .Y .P .SP</p>
 </section>
 <hr class="docutils" />
 <section id="c816-extapi16-function-name-stack-leave-kernal-stack">
-<h4>65C816 extapi16 Function Name: stack_leave_kernal_stack<a class="headerlink" href="#c816-extapi16-function-name-stack-leave-kernal-stack" title="Link to this heading">#</a></h4>
+<h4>65C816 extapi16 Function Name: stack_leave_kernal_stack<a class="headerlink" href="#c816-extapi16-function-name-stack-leave-kernal-stack" title="Link to this heading"></a></h4>
 <p>Purpose: Point the SP to the previously-preserved stack<br />
 Minimum ROM version: R47<br />
 Call address: $FEA8, .C=4<br />
@@ -4186,284 +3804,39 @@ Registers affected: .A .X .Y .P .SP</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id4" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p><a class="github reference external" href="https://github.com/emmanuel-marty/lzsa">emmanuel-marty/lzsa</a></p>
+<p><a class="reference external" href="https://github.com/emmanuel-marty/lzsa">https://github.com/emmanuel-marty/lzsa</a></p>
 </aside>
 </aside>
 
 
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="X16%20Reference%20-%2004%20-%20BASIC.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 4: BASIC Programming</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="X16%20Reference%20-%2006%20-%20Math%20Library.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 6: Math Library</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernal-version">KERNAL Version</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-considerations">Compatibility Considerations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commodore-64-api-compatibility">Commodore 64 API Compatibility</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commodore-128-api-compatibility">Commodore 128 API Compatibility</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-api-for-the-commander-x16">New API for the Commander X16</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernal-api-functions">KERNAL API functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernal-vectors">KERNAL Vectors</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-nmi">Handling NMI</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commodore-peripheral-bus">Commodore Peripheral Bus</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-acptr">Function Name: ACPTR</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-macptr">Function Name: MACPTR</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-mciout">Function Name: MCIOUT</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-i-o">Channel I/O</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-bsave">Function Name: <code class="docutils literal notranslate"><span class="pre">BSAVE</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-bsout">Function Name: <code class="docutils literal notranslate"><span class="pre">BSOUT</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-close">Function Name: <code class="docutils literal notranslate"><span class="pre">CLOSE</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-chkin">Function Name: <code class="docutils literal notranslate"><span class="pre">CHKIN</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-load">Function Name: <code class="docutils literal notranslate"><span class="pre">LOAD</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-open">Function Name: <code class="docutils literal notranslate"><span class="pre">OPEN</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-save">Function Name: <code class="docutils literal notranslate"><span class="pre">SAVE</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-setlfs">Function Name: <code class="docutils literal notranslate"><span class="pre">SETLFS</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-setnam">Function Name: <code class="docutils literal notranslate"><span class="pre">SETNAM</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-memory-fill">Function Name: memory_fill</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-memory-copy">Function Name: memory_copy</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-memory-crc">Function Name: memory_crc</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-memory-decompress">Function Name: memory_decompress</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fetch">Function Name: fetch</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-stash">Function Name: stash</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-memtop">Function Name: MEMTOP</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clock">Clock</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-clock-set-date-time">Function Name: clock_set_date_time</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-clock-get-date-time">Function Name: clock_get_date_time</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-rdtim">Function Name: RDTIM</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard">Keyboard</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-kbdbuf-peek">Function Name: kbdbuf_peek</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-kbdbuf-get-modifiers">Function Name: kbdbuf_get_modifiers</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-kbdbuf-put">Function Name: kbdbuf_put</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-keymap">Function Name: keymap</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-kbd-scan">Function Name: kbd_scan</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mouse">Mouse</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-mouse-config">Function Name: mouse_config</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-mouse-scan">Function Name: mouse_scan</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-mouse-get">Function Name: mouse_get</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joystick">Joystick</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-joystick-scan">Function Name: joystick_scan</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-joystick-get">Function Name: joystick_get</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i2c">I2C</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-i2c-batch-read">Function Name: i2c_batch_read</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-i2c-batch-write">Function Name: i2c_batch_write</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-i2c-read-byte">Function Name: i2c_read_byte</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-i2c-write-byte">Function Name: i2c_write_byte</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sprites">Sprites</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-sprite-set-image">Function Name: sprite_set_image</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-sprite-set-position">Function Name: sprite_set_position</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framebuffer">Framebuffer</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-init">Function Name: FB_init</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-get-info">Function Name: FB_get_info</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-set-palette">Function Name: FB_set_palette</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-cursor-position">Function Name: FB_cursor_position</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-cursor-next-line">Function Name: FB_cursor_next_line</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-get-pixel">Function Name: FB_get_pixel</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-get-pixels">Function Name: FB_get_pixels</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-set-pixel">Function Name: FB_set_pixel</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-set-pixels">Function Name: FB_set_pixels</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-set-8-pixels">Function Name: FB_set_8_pixels</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-set-8-pixels-opaque">Function Name: FB_set_8_pixels_opaque</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-fill-pixels">Function Name: FB_fill_pixels</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-filter-pixels">Function Name: FB_filter_pixels</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-fb-move-pixels">Function Name: FB_move_pixels</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics">Graphics</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-init">Function Name: GRAPH_init</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-clear">Function Name: GRAPH_clear</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-set-window">Function Name: GRAPH_set_window</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-set-colors">Function Name: GRAPH_set_colors</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-draw-line">Function Name: GRAPH_draw_line</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-draw-rect">Function Name: GRAPH_draw_rect</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-move-rect">Function Name: GRAPH_move_rect</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-draw-oval">Function Name: GRAPH_draw_oval</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-draw-image">Function Name: GRAPH_draw_image</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-set-font">Function Name: GRAPH_set_font</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-get-char-size">Function Name: GRAPH_get_char_size</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-graph-put-char">Function Name: GRAPH_put_char</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#console">Console</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-console-init">Function Name: console_init</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-console-put-char">Function Name: console_put_char</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-console-put-image">Function Name: console_put_image</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-console-get-char">Function Name: console_get_char</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-console-set-paging-message">Function Name: console_set_paging_message</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-enter-basic">Function Name: enter_basic</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-entropy-get">Function Name: entropy_get</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-extapi">Function Name: extapi</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-clear-status">extapi Function Name: clear_status</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-getlfs">extapi Function Name: getlfs</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-mouse-sprite-offset">extapi Function Name: mouse_sprite_offset</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-joystick-ps2-keycodes">extapi Function Name: joystick_ps2_keycodes</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-iso-cursor-char">extapi Function Name: iso_cursor_char</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-ps2kbd-typematic">extapi Function Name: ps2kbd_typematic</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-pfkey">extapi Function Name: pfkey</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-ps2data-fetch">extapi Function Name: ps2data_fetch</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-ps2data-raw">extapi Function Name: ps2data_raw</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Keyboard</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Mouse</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-cursor-blink">extapi Function Name: cursor_blink</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-led-update">extapi Function Name: led_update</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-mouse-set-position">extapi Function Name: mouse_set_position</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-scnsiz">extapi Function Name: scnsiz</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-kbd-leds">extapi Function Name: kbd_leds</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-memory-decompress-from-func">extapi Function Name: memory_decompress_from_func</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#lzsa2-streaming-function">LZSA2 Streaming function</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extapi-function-name-default-palette">extapi Function Name: default_palette</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-monitor">Function Name: monitor</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-screen">Function Name: SCREEN</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-screen-mode">Function Name: screen_mode</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-screen-set-charset">Function Name: screen_set_charset</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-jsrfar">Function Name: JSRFAR</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c816-support">65C816 support</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#function-name-extapi16">Function Name: extapi16</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c816-extapi16-function-name-test">65C816 extapi16 Function Name: test</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c816-extapi16-function-name-stack-push">65C816 extapi16 Function Name: stack_push</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c816-extapi16-function-name-stack-pop">65C816 extapi16 Function Name: stack_pop</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c816-extapi16-function-name-stack-enter-kernal-stack">65C816 extapi16 Function Name: stack_enter_kernal_stack</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c816-extapi16-function-name-stack-leave-kernal-stack">65C816 extapi16 Function Name: stack_leave_kernal_stack</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/X16 Reference - 05 - KERNAL.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
-
-</div></div>
-              
-            
+           </div>
           </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="X16%20Reference%20-%2004%20-%20BASIC.html" class="btn btn-neutral float-left" title="Chapter 4: BASIC Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="X16%20Reference%20-%2006%20-%20Math%20Library.html" class="btn btn-neutral float-right" title="Chapter 6: Math Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Commander X16.</p>
   </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-  <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
-  <p class="copyright">
-    
-      © Copyright 2025, Commander X16.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
-      
-    </div>
-  
-</div>
-
-  </footer>
-  </body>
+</body>
 </html>
