@@ -58,4 +58,12 @@ first.
 * [Documentation Source](https://github.com/X16Community/x16-docs)
 * [User Guide Source](https://github.com/X16Community/x16-user-guide)
 
+```{toctree}
+:maxdepth: 1
+:hidden:
+:glob:
+
+*
+```
+
 <div class="page-break"></div>
