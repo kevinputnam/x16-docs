@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Appendix J: ROM Recovery &#8212; Commander X16  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - Appendix J - ROM Recovery';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Appendix I: Character Sets" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Commander X16</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
+    Chapter 1: Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
+    Chapter 2: Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
+    Chapter 3: Editor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
+    Chapter 4: BASIC Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
+    Chapter 5: KERNAL
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
+    Chapter 6: Math Library
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
+    Chapter 7: Machine Language Monitor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
+    Chapter 8: Memory Map
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
+    Chapter 9: VERA Programmer’s Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
+    Chapter 10: VERA FX Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
+    Chapter 11: Sound Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
+    Chapter 12: I/O Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
+    Chapter 13: Working With CMDR-DOS
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
+    Chapter 14: Hardware Pinouts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
+    Chapter 15: Upgrade Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
+    Appendix A: Sound
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
+    Appendix B: VERA Firmware Recovery
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
+    Appendix C: The 65C02 Processor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
+    Appendix D: Official Expansion Cards
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
+    Appendix E: Diagnostic Bank
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
+    Appendix F: The 65C816 Processor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
+    Appendix G: ZSM File Format
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
+    Appendix H: How to update your X16 to latest release
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
+    Appendix I: Character Sets
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Appendix J: ROM Recovery
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
+    Chapter 1: Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
+    Chapter 2: Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
+    Chapter 3: Editor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
+    Chapter 4: BASIC Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
+    Chapter 5: KERNAL
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
+    Chapter 6: Math Library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
+    Chapter 7: Machine Language Monitor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
+    Chapter 8: Memory Map
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
+    Chapter 9: VERA Programmer’s Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
+    Chapter 10: VERA FX Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
+    Chapter 11: Sound Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
+    Chapter 12: I/O Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
+    Chapter 13: Working With CMDR-DOS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
+    Chapter 14: Hardware Pinouts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
+    Chapter 15: Upgrade Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
+    Appendix A: Sound
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
+    Appendix B: VERA Firmware Recovery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
+    Appendix C: The 65C02 Processor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
+    Appendix D: Official Expansion Cards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
+    Appendix E: Diagnostic Bank
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
+    Appendix F: The 65C816 Processor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
+    Appendix G: ZSM File Format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
+    Appendix H: How to update your X16 to latest release
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
+    Appendix I: Character Sets
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Appendix J: ROM Recovery
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="README.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Appendix J: ROM Recovery</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="appendix-j-rom-recovery">
+<h1>Appendix J: ROM Recovery<a class="headerlink" href="#appendix-j-rom-recovery" title="Link to this heading">#</a></h1>
+<p><strong>WARNING: This is a draft that may contain errors or omissions that could damage your hardware.</strong></p>
+<section id="option-1-using-a-pc-to-upgrade-or-recover-rom-using-relatively-universal-rom-programmer-rurp">
+<h2>Option 1: Using a PC to upgrade or recover ROM using Relatively Universal ROM Programmer (RURP)<a class="headerlink" href="#option-1-using-a-pc-to-upgrade-or-recover-rom-using-relatively-universal-rom-programmer-rurp" title="Link to this heading">#</a></h2>
+<p><strong>Target Component:</strong> ROM</p>
+<p><strong>Programmer:</strong> Relatively Universal ROM Programmer (RURP) + Arduino UNO</p>
+<p><strong>Software:</strong> Firestarter</p>
+<p><strong>Host OS:</strong> Windows (should also be compatible with Mac/Linux)</p>
+<section id="before-you-start-read-project-page-and-watch-instruction-videos-optional">
+<h3>Before you start: Read project page and watch instruction videos (optional)<a class="headerlink" href="#before-you-start-read-project-page-and-watch-instruction-videos-optional" title="Link to this heading">#</a></h3>
+<p>https://github.com/AndersBNielsen/Relatively-Universal-ROM-Programmer</p>
+<p>https://hackaday.io/project/192273-relatively-universal-rom-programmer</p>
+<p>https://www.youtube.com/watch?v=SZQ50XZlk5o</p>
+<p>https://www.youtube.com/watch?v=JDHOKbyNnrE</p>
+<p>https://discord.com/invite/kmhbxAjQc3</p>
+</section>
+<section id="warning-sst39sf040-only">
+<h3>Warning: SST39SF040 only<a class="headerlink" href="#warning-sst39sf040-only" title="Link to this heading">#</a></h3>
+<p>These instructions are only intended for the SST39SF040 parallel flash chip, used by X16.</p>
+<p>If you follow these instructions but have a different chip, make sure to adjust voltage and jumpers accordingly. You may also want to consult with the videos and/or the RURP discord server.</p>
+<p>These instructions have only been tested with V2 hardware.</p>
+</section>
+<section id="get-the-programmer">
+<h3>Get the programmer<a class="headerlink" href="#get-the-programmer" title="Link to this heading">#</a></h3>
+<p>Follow instructions at https://github.com/AndersBNielsen/Relatively-Universal-ROM-Programmer . You also need an Arduino Uno.</p>
+<p>(Pro tip: Buy one additional black ZIF socket. It can be placed directly into the ROM socket, no soldering needed. Makes it much easier to remove the ROM IC later.)</p>
+</section>
+<section id="solder-through-hole-components">
+<h3>Solder through-hole components<a class="headerlink" href="#solder-through-hole-components" title="Link to this heading">#</a></h3>
+<p>Instruction video: https://www.youtube.com/watch?v=SZQ50XZlk5o</p>
+<p>For use with the x16 rom (SST39SF040), you only need to solder the Arduino headers and the socket. Jumper and OLED headers are not needed, assuming HW revision 2.</p>
+</section>
+<section id="install-firestarter-app">
+<h3>Install Firestarter app<a class="headerlink" href="#install-firestarter-app" title="Link to this heading">#</a></h3>
+<p>Instruction video: https://www.youtube.com/watch?v=JDHOKbyNnrE</p>
+<p>Firestarter is a 3rd party software/firmware improvement to the ROM programmer, which includes a large database of chip definitions, including SST39SF040.</p>
+<p>Install using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">firestarter</span></code></p>
+<p>Test version using <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">--version</span></code>. These instructions are tested with app version 1.3.39.</p>
+<p>Firestarter commands are explained by adding <code class="docutils literal notranslate"><span class="pre">-h</span></code> to it. To get more detailed output, use <code class="docutils literal notranslate"><span class="pre">-v</span></code>.</p>
+</section>
+<section id="install-firestarter-firmware">
+<h3>Install Firestarter firmware<a class="headerlink" href="#install-firestarter-firmware" title="Link to this heading">#</a></h3>
+<p>Do not have anything connected to your Arduino UNO. Connect the UNO to the PC.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">fw</span> <span class="pre">-h</span></code> to get instructions for how to program and verify firmware.</p>
+<p>Install the firmware using the command <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">fw</span> <span class="pre">-i</span></code>. You may need to specify path to avrdude, if it is not in path. On Windows, it may be here: <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Arduino\hardware\tools\avr\bin</span></code>. You may also specify path to avrdude.conf, e.g <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">&quot;C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Arduino\hardware\tools\avr\etc&quot;</span></code>.</p>
+<p>After install, confirm version using <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">fw</span></code>. These instructions are tested with firmware 1.4.2.</p>
+<p>Disconnect UNO from PC. Connect RURP shield to Arduino, without any ROM chip. Connect UNO to PC.</p>
+<p>Identify hardware revision using <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">hw</span></code>. These instructions are tested with Rev2.</p>
+</section>
+<section id="disconnect-rom-chip">
+<h3>Disconnect ROM chip<a class="headerlink" href="#disconnect-rom-chip" title="Link to this heading">#</a></h3>
+<p>Disconnect power from the Commander X16. Remove the ROM chip, which is a SST39SF040 parallel flash IC, inside the “SYSTEM ROM” socket in the lower left corner of the board.</p>
+</section>
+<section id="warning-high-voltage">
+<h3>Warning: High voltage<a class="headerlink" href="#warning-high-voltage" title="Link to this heading">#</a></h3>
+<p>EEPROM chips requires high voltage (12-24V) to program and to erase. The parallel flash chip used by X16 does not need high voltage for anything. However, RURP can output high voltage to some of the pins, based on the control register. During Arduino reset, this control register is uninitialized, and may be in a state where it causes high voltage to some pins, which may damage a flash IC. Because of this, it is NOT recommended to connect an IC to RURP while it is powered off. Instead, power on RURP first, and then connect your IC just before programming it.</p>
+</section>
+<section id="insert-rom-chip-into-programmer">
+<h3>Insert ROM chip into programmer<a class="headerlink" href="#insert-rom-chip-into-programmer" title="Link to this heading">#</a></h3>
+<p>Send the command <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">info</span> <span class="pre">SST39SF040</span></code> to view the IC details and jumper config, based on the database. For HW rev2, no jumper is needed.</p>
+<p>Make sure RURP is powered.</p>
+<p>Connect the IC. The notch should go toward the nearest PCB edge. (For the record: If connecting a 24 or 28 pin IC, connect it according to the drawing on the back of the PCB).</p>
+<p>To test communication with the flash chip, send <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">id</span> <span class="pre">SST39SF040</span></code>.</p>
+<p>If you want to dump the contents of the chip, use the command <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">read</span> <span class="pre">SST39SF040</span></code>. This should dump to <code class="docutils literal notranslate"><span class="pre">SST39SF040.bin</span></code>, taking approx. 2 minutes.</p>
+</section>
+<section id="program-new-rom-file">
+<h3>Program new rom file<a class="headerlink" href="#program-new-rom-file" title="Link to this heading">#</a></h3>
+<p>Make sure the new rom file (e.g <code class="docutils literal notranslate"><span class="pre">rom.bin</span></code> for r48) is in the current folder.</p>
+<p>To erase the chip and program this rom file, use the command <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">write</span> <span class="pre">SST39SF040</span> <span class="pre">rom.bin</span></code>. This command will erase the chip, then verify that the entire chip is blank (0xFF), and then program the file.</p>
+<p>Erase + blank check takes 45 seconds. Writing 256 kB, takes 1.5 additional minutes.</p>
+<p>After write, you may want to verify that the contents of flash matches the contents of the <code class="docutils literal notranslate"><span class="pre">rom.bin</span></code> file. This can be done with <code class="docutils literal notranslate"><span class="pre">firestarter</span> <span class="pre">verify</span> <span class="pre">SST39SF040</span> <span class="pre">rom.bin</span></code>. This takes a little over 1 minute.</p>
+</section>
+<section id="insert-rom-chip-into-x16">
+<h3>Insert ROM chip into X16<a class="headerlink" href="#insert-rom-chip-into-x16" title="Link to this heading">#</a></h3>
+<p>Make sure there are no blinkenlight activity on the RURP. There may be a few red stationary LEDs.</p>
+<p>Remove the flash IC from RURP. If you have a ZIF socket on RURP, it is likely least risk of damaging anything if IC is disconnected while RURP is powered, since a sudden reconnect may give high voltage to a pin.</p>
+<p>Insert the flash IC into X16, while X16 is disconnected from power. (You may optionally insert a ZIF socket into the ROM socket first, to make the ROM easier to remove next time.)</p>
+<p>Power on your X16. Enjoy!</p>
+</section>
+</section>
+<section id="option-2-using-a-cartridge-to-program-recover-rom">
+<h2>Option 2: Using a cartridge to program/recover ROM<a class="headerlink" href="#option-2-using-a-cartridge-to-program-recover-rom" title="Link to this heading">#</a></h2>
+<p><strong>Target Component:</strong> ROM</p>
+<p><strong>Programmer:</strong> X16 + cartridge</p>
+<p><strong>Software:</strong> CX16-UPDATE</p>
+<p><strong>Host OS:</strong> CBM Basic</p>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
+<p>If you have a working Commander X16, and a cartridge with a ROM socket, and an extra ROM IC (SST39SF040), you can use it to make a backup ROM IC using CX16-UPDATE. In case you later brick your ROM IC, you can replace it with the backup. Using the backup, you can program the ROM IC again, using CX16-UPDATE.</p>
+</section>
+<section id="connect-rom-via-cartridge-to-cx16">
+<h3>Connect ROM via cartridge to CX16<a class="headerlink" href="#connect-rom-via-cartridge-to-cx16" title="Link to this heading">#</a></h3>
+<p>Disconnect power from the Commander X16.</p>
+<p>Ensure that there is a working ROM in CX16.</p>
+<p>Connect the ROM to be programmed, to a socket in the cartridge.</p>
+<p>If the cartridge requires a “write enable” jumper, insert it.</p>
+<p>Connect cartridge to CX16.</p>
+</section>
+<section id="prepare-sd-card">
+<h3>Prepare SD card<a class="headerlink" href="#prepare-sd-card" title="Link to this heading">#</a></h3>
+<p>Prepare a new folder on the SD card which contains CX16-UPDATE, and the rom.bin file to program.</p>
+<p>Rename rom.bin to e.g “ROM1.BIN”, if the ROM IC is inserted into the slot corresponding to ROM bank 32-63, which is the cartridge starting point. (You can also use ROM2.BIN .. ROM7.BIN, depending on how this ROM IC is accessed by the system).</p>
+<p>Ensure that there are no files called rom.bin, smc.bin or vera.bin in this folder. Only CX16-UPDATE.PRG and e.g ROM1.BIN.</p>
+</section>
+<section id="power-on-the-machine-and-enter-basic">
+<h3>Power on the machine and enter BASIC<a class="headerlink" href="#power-on-the-machine-and-enter-basic" title="Link to this heading">#</a></h3>
+<p>Power on the machine.</p>
+<p>If you get the READY prompt, proceed to the next step.</p>
+<p>If not, Commander X16 may try to boot the cartridge. This is done if the machine reads “CX16” at offset $20:$C000.</p>
+<p>If you have ROM R49 or newer:</p>
+<ul class="simple">
+<li><p>Press and hold the “shift” key, while powering on CX16. This will bypass cartridge boot.</p></li>
+</ul>
+<p>If you have older ROM:</p>
+<ul class="simple">
+<li><p>Press NMI. This may start BASIC or monitor.</p></li>
+</ul>
+<p>If you are in monitor:</p>
+<ul class="simple">
+<li><p>Change RO to 00 (set ROM bank to $00)</p></li>
+<li><p>Set carry flag (ensure it have an asterisk, “*”)</p></li>
+<li><p>Press “enter” at end of line to apply the new registers</p></li>
+<li><p>Enter <code class="docutils literal notranslate"><span class="pre">R</span></code> (show registers, confirm that registers are updated)</p></li>
+<li><p>Enter <code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">FF47</span></code> (Jump to FF47, enter_basic)</p></li>
+</ul>
+</section>
+<section id="start-cx16-update">
+<h3>Start CX16-UPDATE<a class="headerlink" href="#start-cx16-update" title="Link to this heading">#</a></h3>
+<p>Enter the correct folder using <code class="docutils literal notranslate"><span class="pre">&#64;CD:name_of_folder</span></code>. Use <code class="docutils literal notranslate"><span class="pre">&#64;$</span></code> to view contents of current folder.</p>
+<p>Start CX16-UPDATE.</p>
+<p>Run the program. This should program the IC with the contents from e.g ROM1.BIN.</p>
+<p>Power off the machine. Disconnect power. Place the ROM IC where appropriate (backup storage, or, into ROM socket).</p>
+<!-- For PDF formatting -->
+<div class="page-break"></div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Appendix I: Character Sets</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-using-a-pc-to-upgrade-or-recover-rom-using-relatively-universal-rom-programmer-rurp">Option 1: Using a PC to upgrade or recover ROM using Relatively Universal ROM Programmer (RURP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-start-read-project-page-and-watch-instruction-videos-optional">Before you start: Read project page and watch instruction videos (optional)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-sst39sf040-only">Warning: SST39SF040 only</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-programmer">Get the programmer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solder-through-hole-components">Solder through-hole components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-firestarter-app">Install Firestarter app</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-firestarter-firmware">Install Firestarter firmware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disconnect-rom-chip">Disconnect ROM chip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-high-voltage">Warning: High voltage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-rom-chip-into-programmer">Insert ROM chip into programmer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#program-new-rom-file">Program new rom file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-rom-chip-into-x16">Insert ROM chip into X16</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-using-a-cartridge-to-program-recover-rom">Option 2: Using a cartridge to program/recover ROM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-rom-via-cartridge-to-cx16">Connect ROM via cartridge to CX16</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-sd-card">Prepare SD card</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-on-the-machine-and-enter-basic">Power on the machine and enter BASIC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-cx16-update">Start CX16-UPDATE</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/X16 Reference - Appendix J - ROM Recovery.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Commander X16.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

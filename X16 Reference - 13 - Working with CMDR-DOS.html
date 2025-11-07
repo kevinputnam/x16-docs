@@ -1,0 +1,1607 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 13: Working With CMDR-DOS &#8212; Commander X16  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - 13 - Working with CMDR-DOS';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 14: Hardware Pinouts" href="X16%20Reference%20-%2014%20-%20Hardware.html" />
+    <link rel="prev" title="Chapter 12: I/O Programming" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Commander X16</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
+    Chapter 1: Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
+    Chapter 2: Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
+    Chapter 3: Editor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
+    Chapter 4: BASIC Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
+    Chapter 5: KERNAL
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
+    Chapter 6: Math Library
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
+    Chapter 7: Machine Language Monitor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
+    Chapter 8: Memory Map
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
+    Chapter 9: VERA Programmer’s Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
+    Chapter 10: VERA FX Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
+    Chapter 11: Sound Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
+    Chapter 12: I/O Programming
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Chapter 13: Working With CMDR-DOS
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
+    Chapter 14: Hardware Pinouts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
+    Chapter 15: Upgrade Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
+    Appendix A: Sound
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
+    Appendix B: VERA Firmware Recovery
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
+    Appendix C: The 65C02 Processor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
+    Appendix D: Official Expansion Cards
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
+    Appendix E: Diagnostic Bank
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
+    Appendix F: The 65C816 Processor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
+    Appendix G: ZSM File Format
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
+    Appendix H: How to update your X16 to latest release
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
+    Appendix I: Character Sets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
+    Appendix J: ROM Recovery
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
+    Chapter 1: Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
+    Chapter 2: Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
+    Chapter 3: Editor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
+    Chapter 4: BASIC Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
+    Chapter 5: KERNAL
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
+    Chapter 6: Math Library
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">
+    Chapter 7: Machine Language Monitor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
+    Chapter 8: Memory Map
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
+    Chapter 9: VERA Programmer’s Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
+    Chapter 10: VERA FX Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
+    Chapter 11: Sound Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
+    Chapter 12: I/O Programming
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Chapter 13: Working With CMDR-DOS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
+    Chapter 14: Hardware Pinouts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
+    Chapter 15: Upgrade Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
+    Appendix A: Sound
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
+    Appendix B: VERA Firmware Recovery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
+    Appendix C: The 65C02 Processor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
+    Appendix D: Official Expansion Cards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
+    Appendix E: Diagnostic Bank
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
+    Appendix F: The 65C816 Processor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
+    Appendix G: ZSM File Format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
+    Appendix H: How to update your X16 to latest release
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
+    Appendix I: Character Sets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
+    Appendix J: ROM Recovery
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="README.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 13: Working With CMDR-DOS</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="chapter-13-working-with-cmdr-dos">
+<h1>Chapter 13: Working With CMDR-DOS<a class="headerlink" href="#chapter-13-working-with-cmdr-dos" title="Link to this heading">#</a></h1>
+<p>This manual describes Commodore DOS on FAT32, aka CMDR-DOS.</p>
+<section id="cmdr-dos">
+<h2>CMDR-DOS<a class="headerlink" href="#cmdr-dos" title="Link to this heading">#</a></h2>
+<p>Commander X16 duplicates and extends the programming interface used by Commodore’s line of disk drives, including the
+famous (or infamous) VIC-1541. CMDR-DOS uses the industry-standard FAT-32 format. Partitions can be 32MB up to
+(in theory) 2TB and supports CMD-style partitions, subdirectories, timestamps and filenames up to 255 characters.
+It is the DOS built into the <a class="reference external" href="https://www.commanderx16.com">Commander X16</a>.</p>
+<p>There are three basic interfaces for CMDR-DOS: the binary interface (LOAD, SAVE, etc.), the data file interface (OPEN,
+PRINT#, INPUT#, GET#), and the command interface. We will give a brief summary of BASIC commands here, but please refer
+to  <a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html#chapter-4-basic-programming"><span class="std std-ref">Chapter 4: BASIC Programming</span></a> for full syntax of each command.</p>
+<p>If you are familiar with the SD2IEC or the CMD hard drive, navigating partitions and subdirectories is similar, with “CD”, “MD”, and “RD” commands
+to navigate directories.</p>
+</section>
+<section id="binary-load-save">
+<h2>Binary Load/Save<a class="headerlink" href="#binary-load-save" title="Link to this heading">#</a></h2>
+<p>The primary use of the binary interface is loading and saving program files and loading binary files into RAM.</p>
+<p>Your binary commands are LOAD, SAVE, BLOAD, VLOAD, BVLOAD, VERIFY, and BVERIFY.</p>
+<p>This is a brief summary of the LOAD and SAVE commands. For full documentation, refer to <a class="reference internal" href="X16%20Reference%20-%2004%20-%20BASIC.html#chapter-4-basic-programming"><span class="std std-ref">Chapter 4: BASIC Programming</span></a>.</p>
+<section id="load">
+<h3>LOAD<a class="headerlink" href="#load" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&lt;filename&gt;</span> <span class="pre">[,device][,secondary_address]</span></code>
+<code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&lt;filename&gt;</span> <span class="pre">[,device][,ram_bank,start_address]</span></code></p>
+<p>This reads a program file from disk. The first two bytes of the file are the memory location to which the file will be
+loaded, with the low byte first. BASIC programs will start with $01 $08, which translates to $0801, the start of BASIC
+memory.
+The device number should be 8 for reading from the SD card.</p>
+<p>If using the first form, secondary_address has multiple meanings:</p>
+<ul class="simple">
+<li><p>0 or not present: load the data to address $0801, regardless of the address header.</p></li>
+<li><p>1: load to the address specified in the file’s header</p></li>
+<li><p>2: load the file headerless to the location $0801.</p></li>
+</ul>
+<p>If using the second form, ram_bank sets the bank for the load, and start_address is the location to read your data into.</p>
+<p>The value of the ram_bank argument only affects the load when the start_address is set in the range of $A000-$BFFF.</p>
+<p>Examples:</p>
+<p><code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&quot;ROBOTS.PRG&quot;,8,1</span></code> loads the program “ROBOTS.PRG” into memory at the address encoded in the file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&quot;HELLO&quot;,8</span></code> loads a program to the start of BASIC at $0801.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&quot;*&quot;,8,1</span></code> loads the first program in the current directory. See the section below on wildcards for more
+information about using * and ? to access files of a certain type or with unprintable characters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LOAD</span> <span class="pre">&quot;DATA.BIN&quot;,8,1,$A000</span></code> loads a file into banked RAM, RAM bank 1, starting at $A000. The first two bytes of the file are skipped. To avoid skipping the first two bytes, use the <code class="docutils literal notranslate"><span class="pre">BLOAD</span></code> command instead.</p>
+</section>
+<section id="save">
+<h3>SAVE<a class="headerlink" href="#save" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SAVE</span> <span class="pre">&lt;filename&gt;[,device]</span></code></p>
+<p>Saves a file from the computer to the SD card. SAVE always reads from the beginning of BASIC memory at $0801, up to the
+end of the BASIC program. Device is optional and defaults to 8 (the SD card, or an IEC disk drive, if one is plugged in.)</p>
+<p>One word of caution: CMDR-DOS will not let you overwrite a file by default. To overwrite a file, you need to prefix
+the filename with &#64;:, like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">SAVE</span> <span class="pre">&quot;&#64;:DEMO.PRG&quot;</span></code></p>
+</section>
+<section id="bsave">
+<h3>BSAVE<a class="headerlink" href="#bsave" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BSAVE</span> <span class="pre">&lt;filename&gt;,&lt;device&gt;,&lt;ram_bank&gt;,&lt;start_address&gt;,&lt;end_address&gt;</span></code></p>
+<p>Saves an arbitrary region of memory to a file without a two-byte header. To allow concatenating multiple regions of RAM into a single file with multiple successive calls to BSAVE, BSAVE allows the use of append mode in the filename string. To make use of this option, the first call to BSAVE can be called normally, which creates the file anew, while subsequent calls should be in append mode to the same file.</p>
+<p>Another way to save arbitrary binary data from arbitrary locations is to use the S command in the MONITOR: <a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html#chapter-7-machine-language-monitor"><span class="std std-ref">Chapter 7: Machine Language Monitor</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&quot;filename&quot;,8,&lt;start_address&gt;,&lt;end_address&gt;</span></code></p>
+<p>Where &lt;start_address&gt; and &lt;end_address&gt; are a 16-bit hexadecimal address.</p>
+<p>After a SAVE or BSAVE, the DOS command is implicitly run to show the drive status. The Commodore file I/O model does not report certain failures back to BASIC, so you should double-check the result after a write operation.</p>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">00</span><span class="p">,</span><span class="w"> </span><span class="vg">OK</span><span class="p">,</span><span class="il">00</span><span class="p">,</span><span class="il">00</span>
+
+<span class="vg">READY</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>An OK reply means the file saved correctly. Any other result is an error that should be addressed:</p>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">63</span><span class="p">,</span><span class="vg">FILE</span><span class="w"> </span><span class="vg">EXISTS</span><span class="p">,</span><span class="il">00</span><span class="p">,</span><span class="il">00</span>
+</pre></div>
+</div>
+<p>CMDR-DOS does not allow files to be overwritten without special handling. If you get FILE EXISTS, either change your file’s name or save it with the &#64;: prefix, like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">SAVE</span> <span class="pre">&quot;&#64;:HELLO&quot;</span></code></p>
+</section>
+<section id="bload">
+<h3>BLOAD<a class="headerlink" href="#bload" title="Link to this heading">#</a></h3>
+<p>BLOAD loads a file <em>without an address header</em> to an arbitrary location in memory. Usage is similar to LOAD. However, BLOAD does not require
+or use the 2-byte header. The first byte in the file is the first byte loaded into memory.</p>
+<p><code class="docutils literal notranslate"><span class="pre">BLOAD</span> <span class="pre">&quot;filename&quot;,8,&lt;ram_bank&gt;,&lt;start_address&gt;</span></code></p>
+</section>
+<section id="vload">
+<h3>VLOAD<a class="headerlink" href="#vload" title="Link to this heading">#</a></h3>
+<p>Read binary data into VERA. VLOAD skips the 2-byte address header and starts reading at the third byte of the file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">VLOAD</span> <span class="pre">&quot;filename&quot;,8,&lt;vram_bank&gt;,&lt;start_address&gt;</span></code></p>
+</section>
+<section id="bvload">
+<h3>BVLOAD<a class="headerlink" href="#bvload" title="Link to this heading">#</a></h3>
+<p>Read binary data into VERA without a header. This works like BLOAD, but into VERA RAM.</p>
+<p><code class="docutils literal notranslate"><span class="pre">BVLOAD</span> <span class="pre">&quot;filename&quot;,8,&lt;vram_bank&gt;,&lt;start_address&gt;</span></code></p>
+</section>
+<section id="dos-wedge">
+<h3>DOS WEDGE<a class="headerlink" href="#dos-wedge" title="Link to this heading">#</a></h3>
+<p>The DOS wedge allows you to issue quick commands from BASIC with the &gt; or &#64;
+symbol.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/&lt;filename&gt;</span></code></p></td>
+<td><p>Load a BASIC program into RAM</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%&lt;filename&gt;</span></code></p></td>
+<td><p>Load a machine language program into RAM (like <code class="docutils literal notranslate"><span class="pre">,8,1</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">↑&lt;filename&gt;</span></code></p></td>
+<td><p>Load a BASIC program into RAM and then unconditionally run it</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">←&lt;filename&gt;</span></code></p></td>
+<td><p>Save a BASIC program to disk</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
+<td><p>Display (and clear) the disk drive status</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;$</span></code></p></td>
+<td><p>Display the disk directory without overwriting the BASIC program in memory</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;#&lt;device</span> <span class="pre">number&gt;</span></code></p></td>
+<td><p>Change default DOS device</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;&lt;command&gt;</span></code></p></td>
+<td><p>Execute a disk drive command (e.g. <code class="docutils literal notranslate"><span class="pre">&#64;S0:&lt;filename&gt;</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&lt;command&gt;</span></code></p></td>
+<td><p>Execute a disk drive command (e.g. <code class="docutils literal notranslate"><span class="pre">&gt;CD:&lt;dir&gt;</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="sequential-files">
+<h2>Sequential Files<a class="headerlink" href="#sequential-files" title="Link to this heading">#</a></h2>
+<p>Sequential files have two basic modes: read and write. The OPEN command opens a file for reading or writing. The PRINT# command writes to a file, and the GET# and INPUT# commands read from the file.</p>
+<p>todo: examples</p>
+</section>
+<section id="command-channel">
+<h2>Command Channel<a class="headerlink" href="#command-channel" title="Link to this heading">#</a></h2>
+<p>The command channel allows you to send commands to the CMDR-DOS interface. You can open and write to the command channel using the OPEN command, or you can use the DOS command to issue commands and read the status. While DOS can be used in immediate mode or in a program, only the combination of OPEN/INPUT# can read the command response back into a variable for later processing.</p>
+<p>In either case, the ST pseudo-variable will allow you to quickly check the status. A status of 64 is “okay”, and any
+other value should be checked by reading the error channel (shown below.)</p>
+<p>To open the command channel, you can use the OPEN command with secondary address 15.</p>
+<p><code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">OPEN</span> <span class="pre">15,8,15</span></code></p>
+<p>If you want to issue a command immediately, add your command string at the end of the OPEN statement:</p>
+<p><code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">OPEN</span> <span class="pre">15,8,15,</span> <span class="pre">&quot;CD:/&quot;</span></code></p>
+<p>This example changes to the root directory of your SD card.</p>
+<p>To know whether the OPEN command succeeded, you must open the command channel and read the result. To read the command channel (and clear the error status if an error occurred), you need to read four values:</p>
+<p><code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">INPUT#15,A,B$,C,D</span></code></p>
+<p>A is the error number. B$ is the error message. C and D are unused in CMDR-DOS for most responses, but will return the track and sector when used with a disk drive on the IEC connector.</p>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">30</span><span class="w"> </span><span class="kr">PRINT</span><span class="w"> </span><span class="vg">A</span><span class="p">;</span><span class="vg">B$</span><span class="p">;</span><span class="vg">C</span><span class="p">;</span><span class="vg">D</span>
+<span class="nl">40</span><span class="w"> </span><span class="kr">CLOSE</span><span class="w"> </span><span class="il">15</span>
+</pre></div>
+</div>
+<p>So the entire program looks like:</p>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="kr">OPEN</span><span class="w"> </span><span class="il">15</span><span class="p">,</span><span class="il">8</span><span class="p">,</span><span class="il">15</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CD:/&quot;</span>
+<span class="nl">20</span><span class="w"> </span><span class="kr">INPUT</span><span class="err">#</span><span class="il">15</span><span class="p">,</span><span class="vg">A</span><span class="p">,</span><span class="vg">B$</span><span class="p">,</span><span class="vg">C</span><span class="p">,</span><span class="vg">D</span>
+<span class="nl">30</span><span class="w"> </span><span class="kr">PRINT</span><span class="w"> </span><span class="vg">A</span><span class="p">;</span><span class="vg">B$</span><span class="p">;</span><span class="vg">C</span><span class="p">;</span><span class="vg">D</span>
+<span class="nl">40</span><span class="w"> </span><span class="kr">CLOSE</span><span class="w"> </span><span class="il">15</span>
+</pre></div>
+</div>
+<p>If the error number (<code class="docutils literal notranslate"><span class="pre">A</span></code>) is less than 20, no error occurred. Usually this result is 0 (or 00) for OK.</p>
+<p>You can also use the DOS command to send a command to CMDR-DOS. Entering DOS by itself will print the drive’s status on the screen. Entering a command in quotes or a string variable will execute the command. We will talk more about the status variable and DOS status message in the next section.</p>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="vg">DOS</span>
+<span class="nl">00</span><span class="p">,</span><span class="w"> </span><span class="il">0</span><span class="vg">K</span><span class="p">,</span><span class="w"> </span><span class="il">00</span><span class="p">,</span><span class="w"> </span><span class="il">00</span>
+<span class="vg">READY</span><span class="o">.</span>
+<span class="vg">DOS</span><span class="w"> </span><span class="s2">&quot;CD:/&quot;</span>
+</pre></div>
+</div>
+<p>The special case of <code class="docutils literal notranslate"><span class="pre">DOS</span> <span class="pre">&quot;$&quot;</span></code> will print a directory listing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DOS</span> <span class="pre">&quot;$&quot;</span></code></p>
+<p>You can also read the name of the current directory with DOS”$=C”</p>
+<p><code class="docutils literal notranslate"><span class="pre">DOS</span> <span class="pre">&quot;$=C&quot;</span></code></p>
+</section>
+<section id="dos-features">
+<h2>DOS Features<a class="headerlink" href="#dos-features" title="Link to this heading">#</a></h2>
+<p>This is the base features set compared to other Commodore DOS devices:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>1541</p></th>
+<th class="head"><p>1571/1581</p></th>
+<th class="head"><p>CMD HD/FD</p></th>
+<th class="head"><p>SD2IEC</p></th>
+<th class="head"><p><em>CMDR-DOS</em></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sequential files</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Relative files</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-even"><td><p>Block access</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code execution</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Burst commands</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>Timestamps</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Time API</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>Partitions</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Subdirectories</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>It consists of the following components:</p>
+<ul class="simple">
+<li><p>Commodore DOS interface</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos/main.s</span></code>: TALK/LISTEN dispatching</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos/parser.s</span></code>: filename/path parsing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos/cmdch.s</span></code>: command channel parsing, status messages</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos/file.s</span></code>: file read/write</p></li>
+</ul>
+</li>
+<li><p>FAT32 interface</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos/match.s</span></code>: FAT32 character set conversion, wildcard matching</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos/dir.s</span></code>: FAT32 directory listing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos/function.s</span></code>: command implementations for FAT32</p></li>
+</ul>
+</li>
+<li><p>FAT32 implementation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">fat32/*</span></code>: <a class="reference external" href="https://github.com/X16Community/x16-rom/tree/master/fat32">FAT32 for 65c02 library</a></p></li>
+</ul>
+</li>
+</ul>
+<p>All currently unsupported commands are decoded in <code class="docutils literal notranslate"><span class="pre">cmdch.s</span></code> anyway, but hooked into <code class="docutils literal notranslate"><span class="pre">31,SYNTAX</span> <span class="pre">ERROR,00,00</span></code>, so adding features should be as easy as adding the implementation.</p>
+<p>CMDR-DOS implements the TALK/LISTEN layer (Commodore Peripheral Bus layer 3), it can therefore be directly hooked up to the Commodore IEEE KERNAL API (<code class="docutils literal notranslate"><span class="pre">talk</span></code>, <code class="docutils literal notranslate"><span class="pre">tksa</span></code>, <code class="docutils literal notranslate"><span class="pre">untlk</span></code>, <code class="docutils literal notranslate"><span class="pre">listn</span></code>, <code class="docutils literal notranslate"><span class="pre">secnd</span></code>, <code class="docutils literal notranslate"><span class="pre">unlsn</span></code>, <code class="docutils literal notranslate"><span class="pre">acptr</span></code>, <code class="docutils literal notranslate"><span class="pre">ciout</span></code>) and be used as a computer-based DOS, like on the C65 and the X16.</p>
+<p>CMDR-DOS does not contain a layer 2 implementation, i.e. IEEE-488 (PET) or Commodore Serial (C64, C128, …). By adding a Commodore Serial (aka “IEC”) implementation, CMDR-DOS could be adapted for use as the system software of a standalone 65c02-based Serial device for Commodore computers, similar to an sd2iec device.</p>
+<p>The Commodore DOS side and the FAT32 side are well separated, so a lot of code could be reused for a DOS that uses a different filesystem.</p>
+<p>Or the core feature set, these are the supported functions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Supported</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reading</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,?,R</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Writing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,?,W</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Appending</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,?,A</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>Warning, see below<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Modifying</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,?,M</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Types</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,S</span></code>/<code class="docutils literal notranslate"><span class="pre">,P</span></code>/<code class="docutils literal notranslate"><span class="pre">,U</span></code>/<code class="docutils literal notranslate"><span class="pre">,L</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>ignored on FAT32</p></td>
+</tr>
+<tr class="row-odd"><td><p>Overwriting</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&#64;:</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Magic channels 0/1</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Channel 15 command</p></td>
+<td><p><em>command</em><code class="docutils literal notranslate"><span class="pre">:</span></code><em>args</em>…</p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Channel 15 status</p></td>
+<td><p><em>code</em><code class="docutils literal notranslate"><span class="pre">,</span></code><em>string</em><code class="docutils literal notranslate"><span class="pre">,</span></code><em>a</em><code class="docutils literal notranslate"><span class="pre">,</span></code><em>b</em></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CMD partition syntax</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0:</span></code>/<code class="docutils literal notranslate"><span class="pre">1:</span></code>/…</p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CMD subdirectory syntax</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">//DIR/:</span></code>/<code class="docutils literal notranslate"><span class="pre">/DIR/:</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Directory listing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Dir with name filtering</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$:FIL*</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Dir with name and type filtering</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$:*=P</span></code>/<code class="docutils literal notranslate"><span class="pre">$:*=D</span></code>/<code class="docutils literal notranslate"><span class="pre">$:*=A</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Dir with timestamps</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$=T</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>with ISO-8601 times</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dir with time filtering</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$=T&lt;</span></code>/<code class="docutils literal notranslate"><span class="pre">$=T&gt;</span></code></p></td>
+<td><p>not yet</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Dir long listing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$=L</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>shows human readable file size instead of blocks, time in ISO-8601 syntax, attribute byte, and exact file size in hexadecimal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Partition listing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$=P</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Partition filtering</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$:NAME*=P</span></code></p></td>
+<td><p>no</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Current Working Directory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$=C</span></code></p></td>
+<td><p>yes</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><sup>1</sup>: Warning: Risk of corrupting SD cards on older ROM versions, see <a class="reference internal" href="#appending-to-file"><span class="xref myst">Appending to file</span></a></p></li>
+</ul>
+<p>And this table shows which of the standard commands are supported:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Supported</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BLOCK-ALLOCATE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B-A</span></code> <em>medium</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Allocate a block in the BAM</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>BLOCK-EXECUTE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B-E</span></code> <em>channel</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Load and execute a block</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-even"><td><p>BLOCK-FREE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B-F</span></code> <em>medium</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Free a block in the BAM</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>BLOCK-READ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B-R</span></code> <em>channel</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Read block</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>BLOCK-STATUS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B-S</span></code> <em>channel</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Check if block is allocated</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>BLOCK-WRITE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B-W</span></code> <em>channel</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Write block</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>BUFFER-POINTER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B-P</span></code> <em>channel</em> <em>index</em></p></td>
+<td><p>Set r/w pointer within buffer</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>CHANGE DIRECTORY</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CD</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em></p></td>
+<td><p>Change the current sub-directory</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>CHANGE DIRECTORY</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CD</span></code>[<em>medium</em>]<code class="docutils literal notranslate"><span class="pre">:←</span></code></p></td>
+<td><p>Change sub-directory up</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>CHANGE PARTITION</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CP</span></code> <em>num</em></p></td>
+<td><p>Make a partition the default</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>COPY</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">C</span></code>[<em>path_a</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>target_name</em><code class="docutils literal notranslate"><span class="pre">=</span></code>[<em>path_b</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>source_name</em>[<code class="docutils literal notranslate"><span class="pre">,</span></code>…]</p></td>
+<td><p>Copy/concatenate files</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>COPY</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">C</span></code><em>dst_medium</em><code class="docutils literal notranslate"><span class="pre">=</span></code><em>src_medium</em></p></td>
+<td><p>Copy all files between disk</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>DUPLICATE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">D:</span></code><em>dst_medium</em><code class="docutils literal notranslate"><span class="pre">=</span></code><em>src_medium</em></p></td>
+<td><p>Duplicate disk</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>FILE LOCK</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">F-L</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em>[<code class="docutils literal notranslate"><span class="pre">,</span></code>…]</p></td>
+<td><p>Enable file write-protect</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>FILE RESTORE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">F-R</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em>[<code class="docutils literal notranslate"><span class="pre">,</span></code>…]</p></td>
+<td><p>Restore a deleted file</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>FILE UNLOCK</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">F-U</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em>[<code class="docutils literal notranslate"><span class="pre">,</span></code>…]</p></td>
+<td><p>Disable file write-protect</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>GET DISKCHANGE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">G-D</span></code></p></td>
+<td><p>Query disk change</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>GET PARTITION</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">G-P</span></code>[<em>num</em>]</p></td>
+<td><p>Get information about partition</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>INITIALIZE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">I</span></code>[<em>medium</em>]</p></td>
+<td><p>Re-mount filesystem</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>LOCK</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">L</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em></p></td>
+<td><p>Toggle file write protect</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>MAKE DIRECTORY</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MD</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em></p></td>
+<td><p>Create a sub-directory</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>MEMORY-EXECUTE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">M-E</span></code> <em>addr_lo</em> <em>addr_hi</em></p></td>
+<td><p>Execute code</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>MEMORY-READ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">M-R</span></code> <em>addr_lo</em> <em>addr_hi</em> [<em>count</em>]</p></td>
+<td><p>Read RAM</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>MEMORY-WRITE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">M-W</span></code> <em>addr_lo</em> <em>addr_hi</em> <em>count</em> <em>data</em></p></td>
+<td><p>Write RAM</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>NEW</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">N</span></code>[<em>medium</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em><code class="docutils literal notranslate"><span class="pre">,</span></code><em>id</em><code class="docutils literal notranslate"><span class="pre">,FAT32</span></code></p></td>
+<td><p>File system creation</p></td>
+<td><p>yes<sup>3</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>PARTITION</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code>[<em>medium</em>][<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em>]</p></td>
+<td><p>Select 1581 partition</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p>PARTITION</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code>[<em>medium</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em><code class="docutils literal notranslate"><span class="pre">,</span></code><em>track</em> <em>sector</em> <em>count_lo</em> <em>count_hi</em> <code class="docutils literal notranslate"><span class="pre">,C</span></code></p></td>
+<td><p>Create 1581 partition</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>POSITION</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">P</span></code> <em>channel</em> <em>record_lo</em> <em>record_hi</em> <em>offset</em></p></td>
+<td><p>Set record index in REL file</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-even"><td><p>REMOVE DIRECTORY</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RD</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>name</em></p></td>
+<td><p>Delete a sub-directory</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>RENAME</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">R</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>new_name</em><code class="docutils literal notranslate"><span class="pre">=</span></code><em>old_name</em></p></td>
+<td><p>Rename file</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>RENAME-HEADER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">R-H</span></code>[<em>medium</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>new_name</em></p></td>
+<td><p>Rename a filesystem</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>RENAME-PARTITION</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">R-P:</span></code><em>new_name</em><code class="docutils literal notranslate"><span class="pre">=</span></code><em>old_name</em></p></td>
+<td><p>Rename a partition</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>SCRATCH</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">S</span></code>[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code><em>pattern</em>[<code class="docutils literal notranslate"><span class="pre">,</span></code>…]</p></td>
+<td><p>Delete files</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>SWAP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">S-</span></code>{<code class="docutils literal notranslate"><span class="pre">8</span></code>|<code class="docutils literal notranslate"><span class="pre">9</span></code>|<code class="docutils literal notranslate"><span class="pre">D</span></code>}</p></td>
+<td><p>Change primary address</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>TIME READ ASCII</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-RA</span></code></p></td>
+<td><p>Read Time/Date (ASCII)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>TIME READ BCD</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-RB</span></code></p></td>
+<td><p>Read Time/Date (BCD)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>TIME READ DECIMAL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-RD</span></code></p></td>
+<td><p>Read Time/Date (Decimal)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>TIME READ ISO</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-RI</span></code></p></td>
+<td><p>Read Time/Date (ISO)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>TIME WRITE ASCII</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-WA</span></code> <em>dow</em> <em>mo</em><code class="docutils literal notranslate"><span class="pre">/</span></code><em>da</em><code class="docutils literal notranslate"><span class="pre">/</span></code><em>yr</em> <em>hr</em><code class="docutils literal notranslate"><span class="pre">:</span></code><em>mi</em><code class="docutils literal notranslate"><span class="pre">:</span></code><em>se</em> <em>ampm</em></p></td>
+<td><p>Write Time/Date (ASCII)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>TIME WRITE BCD</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-WB</span></code> <em>b0</em> <em>b1</em> <em>b2</em> <em>b3</em> <em>b4</em> <em>b5</em> <em>b6</em> <em>b7</em> <em>b8</em></p></td>
+<td><p>Write Time/Date (BCD)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>TIME WRITE DECIMAL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-WD</span></code> <em>b0</em> <em>b1</em> <em>b2</em> <em>b3</em> <em>b4</em> <em>b5</em> <em>b6</em> <em>b7</em></p></td>
+<td><p>Write Time/Date (Decimal)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>TIME WRITE ISO</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T-WI</span></code> <em>yyyy</em><code class="docutils literal notranslate"><span class="pre">-</span></code><em>mm</em><code class="docutils literal notranslate"><span class="pre">-</span></code><em>dd</em><code class="docutils literal notranslate"><span class="pre">T</span></code><em>hh</em><code class="docutils literal notranslate"><span class="pre">:</span></code><em>mm</em><code class="docutils literal notranslate"><span class="pre">:</span></code><em>ss</em> <em>dow</em></p></td>
+<td><p>Write Time/Date (ISO)</p></td>
+<td><p>no<sup>4</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>U1/UA</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U1</span></code> <em>channel</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Raw read of a block</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>U2/UB</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U2</span></code> <em>channel</em> <em>medium</em> <em>track</em> <em>sector</em></p></td>
+<td><p>Raw write of a block</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-even"><td><p>U3-U8/UC-UH</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U3</span></code> - <code class="docutils literal notranslate"><span class="pre">U8</span></code></p></td>
+<td><p>Execute in user buffer</p></td>
+<td><p>not yet</p></td>
+</tr>
+<tr class="row-odd"><td><p>U9/UI</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UI</span></code></p></td>
+<td><p>Soft RESET</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>U:/UJ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UJ</span></code></p></td>
+<td><p>Hard RESET</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;</span></code> <em>pa</em></p></td>
+<td><p>Set unit primary address</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;B</span></code> <em>flag</em></p></td>
+<td><p>Enable/disable Fast Serial</p></td>
+<td><p>yes<sup>6</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;D</span></code><em>val</em></p></td>
+<td><p>Set directory sector interleave</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;H</span></code> <em>number</em></p></td>
+<td><p>Select head 0/1</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;L</span></code><em>flag</em></p></td>
+<td><p>Large REL file support on/off</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;M</span></code> <em>flag</em></p></td>
+<td><p>Enable/disable 1541 emulation mode</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;R</span></code> <em>num</em></p></td>
+<td><p>Set number fo retries</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;S</span></code> <em>val</em></p></td>
+<td><p>Set sector interleave</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;T</span></code></p></td>
+<td><p>Test ROM checksum</p></td>
+<td><p>no<sup>5</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;V</span></code> <em>flag</em></p></td>
+<td><p>Enable/disable verify</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U0&gt;</span></code> <em>pa</em></p></td>
+<td><p>Set unit primary address</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>USER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UI</span></code>{<code class="docutils literal notranslate"><span class="pre">+</span></code>|<code class="docutils literal notranslate"><span class="pre">-</span></code>}</p></td>
+<td><p>Use C64/VIC-20 Serial protocol</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>UTILITY LOADER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code>[[<em>path</em>]<code class="docutils literal notranslate"><span class="pre">:</span></code>]<em>name</em></p></td>
+<td><p>Load and execute program</p></td>
+<td><p>no<sup>1</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>VALIDATE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">V</span></code>[<em>medium</em>]</p></td>
+<td><p>Filesystem check</p></td>
+<td><p>no<sup>2</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>WRITE PROTECT</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">W-</span></code>{<code class="docutils literal notranslate"><span class="pre">0</span></code>|<code class="docutils literal notranslate"><span class="pre">1</span></code>}</p></td>
+<td><p>Set/unset device write protect</p></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><sup>1</sup>: outdated API, not useful, or can’t be supported on FAT32</p></li>
+<li><p><sup>2</sup>: is a no-op, returns <code class="docutils literal notranslate"><span class="pre">00,</span> <span class="pre">OK,00,00</span></code></p></li>
+<li><p><sup>3</sup>: third argument <code class="docutils literal notranslate"><span class="pre">FAT32</span></code> <em>has</em> to be passed</p></li>
+<li><p><sup>4</sup>: CMDR-DOS was architected to run on the main computer, so it shouldn’t be DOS that keeps track of the time</p></li>
+<li><p><sup>5</sup>: Instead of testing the ROM, this command currently verifies that no buffers are allocated, otherwise it halts. This is used by unit tests to detect leaks.</p></li>
+<li><p><sup>6</sup>: Repurposed for SD card read and write mode. <em>flag</em> selects whether fast read (auto_tx) and fast writes are enabled. 0=none, 1=auto_tx, 2=fast writes, 3=both</p></li>
+</ul>
+<p>The following special file syntax and <code class="docutils literal notranslate"><span class="pre">OPEN</span></code> options are specific to CMDR-DOS:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Open for Read &amp; Write</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,?,M</span></code></p></td>
+<td><p>Allows arbitrarily reading, writing and setting the position (<code class="docutils literal notranslate"><span class="pre">P</span></code>)<sup>7</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p>Get current working directory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$=C</span></code></p></td>
+<td><p>Produces a directory listing containing the name of the current working directory followed by all parent directory names all the way up to <code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><sup>7</sup>: once the EOF has been reached while reading, no further reads or writes are possible.</p></li>
+</ul>
+<p>The following added command channel features are specific to CMDR-DOS:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>POSITION</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">P</span></code> <em>channel</em> <em>p0</em> <em>p1</em> <em>p2</em> <em>p3</em></p></td>
+<td><p>Set position within file (like sd2iec); all args binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>TELL<sup>8</sup></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">T</span></code> <em>channel</em></p></td>
+<td><p>Return the current position within a file and the file’s size; channel arg is binary</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><sup>8</sup>: available in ROM version R48 and later</p></li>
+</ul>
+<p>To use the POSITION and TELL commands, you need to open two channels: a data channel and the command channel. The <em>channel</em> argument should be the same as the secondary address of the data channel.</p>
+<p>If POSITION succeeds, <code class="docutils literal notranslate"><span class="pre">00,</span> <span class="pre">OK,00,00</span></code> is returned on the command channel.</p>
+<p>If TELL succeeds, <code class="docutils literal notranslate"><span class="pre">07,pppppppp</span> <span class="pre">ssssssss,00,00</span></code> is returned on the command channel, where <code class="docutils literal notranslate"><span class="pre">pppppppp</span></code> is a hexadecimal representation of the position, and <code class="docutils literal notranslate"><span class="pre">ssssssss</span></code> is a hexadecimal representation of the file’s size.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="kr">OPEN</span><span class="w"> </span><span class="il">1</span><span class="p">,</span><span class="il">8</span><span class="p">,</span><span class="il">2</span><span class="p">,</span><span class="s2">&quot;LEVEL.DAT,S,R&quot;</span>
+<span class="kr">OPEN</span><span class="w"> </span><span class="il">15</span><span class="p">,</span><span class="il">8</span><span class="p">,</span><span class="il">15</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">2</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">0</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">1</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">0</span><span class="p">)</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above opens LEVEL.DAT for reading and positions the read/write pointer at byte 256.</p>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="kr">OPEN</span><span class="w"> </span><span class="il">2</span><span class="p">,</span><span class="il">8</span><span class="p">,</span><span class="il">5</span><span class="p">,</span><span class="s2">&quot;LEVEL.DAT,S,R&quot;</span>
+<span class="nl">20</span><span class="w"> </span><span class="kr">OPEN</span><span class="w"> </span><span class="il">15</span><span class="p">,</span><span class="il">8</span><span class="p">,</span><span class="il">15</span><span class="p">,</span><span class="s2">&quot;T&quot;</span><span class="o">+</span><span class="kr">CHR$</span><span class="p">(</span><span class="il">5</span><span class="p">)</span>
+<span class="nl">30</span><span class="w"> </span><span class="kr">INPUT</span><span class="err">#</span><span class="il">15</span><span class="p">,</span><span class="vg">A</span><span class="p">,</span><span class="vg">A$</span><span class="p">,</span><span class="vg">T</span><span class="p">,</span><span class="vg">S</span>
+<span class="nl">40</span><span class="w"> </span><span class="kr">CLOSE</span><span class="w"> </span><span class="il">15</span>
+<span class="nl">50</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">A</span><span class="o">&gt;=</span><span class="il">20</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="il">90</span>
+<span class="nl">60</span><span class="w"> </span><span class="vg">SZ</span><span class="o">=</span><span class="kr">VAL</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="o">+</span><span class="kr">MID$</span><span class="p">(</span><span class="vg">A$</span><span class="p">,</span><span class="il">10</span><span class="p">))</span>
+<span class="nl">70</span><span class="w"> </span><span class="kr">PRINT</span><span class="w"> </span><span class="s2">&quot;SIZE=&quot;</span><span class="p">;</span><span class="vg">SZ</span>
+<span class="nl">80</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">100</span>
+<span class="nl">90</span><span class="w"> </span><span class="kr">PRINT</span><span class="s2">&quot;ERROR&quot;</span>
+<span class="nl">100</span><span class="w"> </span><span class="kr">CLOSE</span><span class="w"> </span><span class="il">2</span>
+</pre></div>
+</div>
+<p>This time, the secondary address is 5, and we’re fetching only the file’s size.</p>
+</section>
+<section id="current-working-directory">
+<h3>Current Working Directory<a class="headerlink" href="#current-working-directory" title="Link to this heading">#</a></h3>
+<p>The $=C command will list the current working directory and its parent path. The current directory will be at the top of the listing, with each parent
+directory beneath, with / at the bottom.</p>
+<div class="highlight-BASIC notranslate"><div class="highlight"><pre><span></span><span class="vg">DOS</span><span class="s2">&quot;$=C&quot;</span>
+
+<span class="nl">0</span><span class="w"> </span><span class="s2">&quot;/TEST            &quot;</span><span class="w"> </span>
+<span class="nl">0</span><span class="w">    </span><span class="s2">&quot;TEST&quot;</span><span class="w">             </span><span class="vg">DIR</span>
+<span class="nl">0</span><span class="w">    </span><span class="s2">&quot;/&quot;</span><span class="w">                </span><span class="vg">DIR</span>
+<span class="nl">65535</span><span class="w"> </span><span class="vg">BLOCKS</span><span class="w"> </span><span class="vg">FREE</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="appending-to-file">
+<h3>Appending to file<a class="headerlink" href="#appending-to-file" title="Link to this heading">#</a></h3>
+<p>To append data to an existing file, open the file with <code class="docutils literal notranslate"><span class="pre">,?,A</span></code> and write to it.</p>
+<p><strong>Warning:</strong> Appending to an empty file using R48 or older, will corrupt the file system, due to a severe Kernal bug. The bug is fixed in <a class="reference external" href="https://github.com/X16Community/x16-rom/pull/369">#369</a>. Keep this in mind when releasing software which appends to files, as some users may have older ROM versions installed.</p>
+</section>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>Copyright 2020-2024 Michael Steil &lt;<a class="reference external" href="mailto:mist64&#37;&#52;&#48;mac&#46;com">mist64<span>&#64;</span>mac<span>&#46;</span>com</a>&gt;, et al.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol class="arabic simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p></li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<!-- For PDF formatting -->
+<div class="page-break"></div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="X16%20Reference%20-%2012%20-%20IO%20Programming.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 12: I/O Programming</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="X16%20Reference%20-%2014%20-%20Hardware.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 14: Hardware Pinouts</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmdr-dos">CMDR-DOS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-load-save">Binary Load/Save</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load">LOAD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save">SAVE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bsave">BSAVE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bload">BLOAD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vload">VLOAD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bvload">BVLOAD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dos-wedge">DOS WEDGE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-files">Sequential Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-channel">Command Channel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dos-features">DOS Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current Working Directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-to-file">Appending to file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/X16 Reference - 13 - Working with CMDR-DOS.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Commander X16.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

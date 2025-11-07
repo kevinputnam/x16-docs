@@ -1,0 +1,971 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 7: Machine Language Monitor &#8212; Commander X16  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'X16 Reference - 07 - Machine Language Monitor';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 8: Memory Map" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html" />
+    <link rel="prev" title="Chapter 6: Math Library" href="X16%20Reference%20-%2006%20-%20Math%20Library.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Commander X16</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
+    Chapter 1: Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
+    Chapter 2: Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
+    Chapter 3: Editor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
+    Chapter 4: BASIC Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
+    Chapter 5: KERNAL
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
+    Chapter 6: Math Library
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Chapter 7: Machine Language Monitor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
+    Chapter 8: Memory Map
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
+    Chapter 9: VERA Programmer’s Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
+    Chapter 10: VERA FX Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
+    Chapter 11: Sound Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
+    Chapter 12: I/O Programming
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
+    Chapter 13: Working With CMDR-DOS
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
+    Chapter 14: Hardware Pinouts
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
+    Chapter 15: Upgrade Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
+    Appendix A: Sound
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
+    Appendix B: VERA Firmware Recovery
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
+    Appendix C: The 65C02 Processor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
+    Appendix D: Official Expansion Cards
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
+    Appendix E: Diagnostic Bank
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
+    Appendix F: The 65C816 Processor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
+    Appendix G: ZSM File Format
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
+    Appendix H: How to update your X16 to latest release
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
+    Appendix I: Character Sets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
+    Appendix J: ROM Recovery
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2001%20-%20Overview.html">
+    Chapter 1: Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2002%20-%20Getting%20Started.html">
+    Chapter 2: Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2003%20-%20Editor.html">
+    Chapter 3: Editor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2004%20-%20BASIC.html">
+    Chapter 4: BASIC Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2005%20-%20KERNAL.html">
+    Chapter 5: KERNAL
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">
+    Chapter 6: Math Library
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Chapter 7: Machine Language Monitor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">
+    Chapter 8: Memory Map
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">
+    Chapter 9: VERA Programmer’s Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">
+    Chapter 10: VERA FX Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">
+    Chapter 11: Sound Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">
+    Chapter 12: I/O Programming
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">
+    Chapter 13: Working With CMDR-DOS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">
+    Chapter 14: Hardware Pinouts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%2015%20-%20Upgrade%20Guide.html">
+    Chapter 15: Upgrade Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20A%20-%20Sound.html">
+    Appendix A: Sound
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20B%20-%20VERA%20Recovery.html">
+    Appendix B: VERA Firmware Recovery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20C%20-%2065C02%20Processor.html">
+    Appendix C: The 65C02 Processor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20D%20-%20Official%20Expansion%20Cards.html">
+    Appendix D: Official Expansion Cards
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20E%20-%20Diagnostic%20Bank.html">
+    Appendix E: Diagnostic Bank
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20F%20-%2065C816%20Processor.html">
+    Appendix F: The 65C816 Processor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20G%20-%20ZSM%20File%20Format.html">
+    Appendix G: ZSM File Format
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20H%20-%20Onboard%20Upgrade%20Guide.html">
+    Appendix H: How to update your X16 to latest release
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20I%20-%20Character%20Sets.html">
+    Appendix I: Character Sets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="X16%20Reference%20-%20Appendix%20J%20-%20ROM%20Recovery.html">
+    Appendix J: ROM Recovery
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="README.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 7: Machine Language Monitor</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="chapter-7-machine-language-monitor">
+<h1>Chapter 7: Machine Language Monitor<a class="headerlink" href="#chapter-7-machine-language-monitor" title="Link to this heading">#</a></h1>
+<img src="images/monitor.png">
+<p>The built-in machine language monitor can be started with the <code class="docutils literal notranslate"><span class="pre">MON</span></code> BASIC command. It is based on the monitor of the Final Cartridge III and supports most of its features.</p>
+<p>If you invoke the monitor by mistake, you can exit with by typing <code class="docutils literal notranslate"><span class="pre">X</span></code>, followed by the <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> key.</p>
+<p>Some features specific to this monitor are:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">I</span></code> command prints a PETSCII/ISO-encoded memory dump.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">EC</span></code> command prints a binary memory dump. This is also useful for character sets.</p></li>
+<li><p>Scrolling the screen with the cursor keys or F3/F5 will continue memory dumps and disassemblies, and even disassemble backwards.</p></li>
+</ul>
+<p>The following commands are used to dump memory contents in various formats:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dump</p></th>
+<th class="head"><p>Prefix</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">M</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">:</span></code></p></td>
+<td><p>8 hex bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">I</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'</span></code></p></td>
+<td><p>32 PETSCII/ISO characters</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EC</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span></code></p></td>
+<td><p>1 binary byte (character data)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">]</span></code></p></td>
+<td><p>3 binary bytes (sprite data)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">,</span></code></p></td>
+<td><p>disassemble</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">R</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">;</span></code></p></td>
+<td><p>registers</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Except for <code class="docutils literal notranslate"><span class="pre">R</span></code>, these commands take a start address and an optional end address (inclusive). The dumps are prefixed with one of the “Prefix” characters in the table above, so they can be edited by navigating the cursor over a printed line, changing the data and pressing RETURN.</p>
+<p>Note that editing a disassembled line (prefix <code class="docutils literal notranslate"><span class="pre">,</span></code>) only allows changing the 1-3 opcode bytes. To edit the assembly, change the prefix to <code class="docutils literal notranslate"><span class="pre">A</span></code> (see below).</p>
+<p>These are the remaining commands:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F</span></code></p></td>
+<td><p><em>start</em> <em>end</em> <em>byte</em></p></td>
+<td><p>fill</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">H</span></code></p></td>
+<td><p><em>start</em> <em>end</em> <em>byte</em> [<em>byte</em>…]</p></td>
+<td><p>hunt</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">C</span></code></p></td>
+<td><p><em>start</em> <em>end</em> <em>start</em></p></td>
+<td><p>compare</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">T</span></code></p></td>
+<td><p><em>start</em> <em>end</em> <em>start</em></p></td>
+<td><p>transfer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">A</span></code></p></td>
+<td><p><em>address</em> <em>instruction</em></p></td>
+<td><p>assemble</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">G</span></code></p></td>
+<td><p>[<em>address</em>]</p></td>
+<td><p>run code</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J</span></code></p></td>
+<td><p>[<em>address</em>]</p></td>
+<td><p>run subroutine</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td><p><em>value</em></p></td>
+<td><p>convert hex to decimal</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
+<td><p><em>value</em></p></td>
+<td><p>convert decimal to hex</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p></p></td>
+<td><p>exit monitor</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">O</span></code></p></td>
+<td><p><em>bank</em></p></td>
+<td><p>set ROM bank</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">K</span></code></p></td>
+<td><p><em>bank</em></p></td>
+<td><p>set RAM/VRAM bank/I2C</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">L</span></code></p></td>
+<td><p>[”<em>filename</em>”[,<em>dev</em>[,<em>start</em>]]]</p></td>
+<td><p>load file</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S</span></code></p></td>
+<td><p>“<em>filename</em>”,<em>dev</em>,<em>start</em>,<em>end</em></p></td>
+<td><p>save file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
+<td><p><em>command</em></p></td>
+<td><p>send drive command</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>All addresses have to be 4 digits.</p></li>
+<li><p>All bytes have to be 2 digits (including device numbers).</p></li>
+<li><p>The end address of <code class="docutils literal notranslate"><span class="pre">S</span></code> is exclusive.</p></li>
+<li><p>The bank argument for <code class="docutils literal notranslate"><span class="pre">K</span></code> is</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">00</span></code>-<code class="docutils literal notranslate"><span class="pre">FF</span></code>: switch to main RAM, set RAM bank</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">V0</span></code>-<code class="docutils literal notranslate"><span class="pre">V1</span></code>: switch to Video RAM, set VRAM bank</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I</span></code>: switch to the I2C address space</p></li>
+</ul>
+</li>
+<li><p>The bank argument for <code class="docutils literal notranslate"><span class="pre">O</span></code> is</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">00</span></code>-<code class="docutils literal notranslate"><span class="pre">FF</span></code>: set ROM bank</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code> takes:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">8</span></code>, <code class="docutils literal notranslate"><span class="pre">9</span></code> to change the default drive (also for <code class="docutils literal notranslate"><span class="pre">L</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span></code> to display the disk directory</p></li>
+<li><p>anything else as a disk command</p></li>
+</ul>
+</li>
+</ul>
+<p>Monitor Display</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MON</span>
+<span class="n">C</span><span class="o">*</span>
+   <span class="n">PC</span>  <span class="n">RA</span> <span class="n">RO</span> <span class="n">AC</span> <span class="n">XR</span> <span class="n">YR</span> <span class="n">SP</span> <span class="n">NV</span><span class="c1">#BDIZC</span>
+<span class="o">.</span><span class="p">;</span><span class="n">E3bb</span> <span class="mi">01</span> <span class="mi">04</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="n">F6</span> <span class="o">........</span>
+<span class="o">.</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PC</p></td>
+<td><p>Program Counter and the current address</p></td>
+</tr>
+<tr class="row-odd"><td><p>RA</p></td>
+<td><p>Active RAM Bank</p></td>
+</tr>
+<tr class="row-even"><td><p>RO</p></td>
+<td><p>Active ROM Bank</p></td>
+</tr>
+<tr class="row-odd"><td><p>AC</p></td>
+<td><p>Accumulator Value</p></td>
+</tr>
+<tr class="row-even"><td><p>XR</p></td>
+<td><p>X Register Value</p></td>
+</tr>
+<tr class="row-odd"><td><p>YR</p></td>
+<td><p>Y Register Value</p></td>
+</tr>
+<tr class="row-even"><td><p>SP</p></td>
+<td><p>Stack Pointer</p></td>
+</tr>
+<tr class="row-odd"><td><p>NV#BDIZC</p></td>
+<td><p>Status Register</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Status Register Bits</p></th>
+<th class="head"><p>Bit Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>N</p></td>
+<td><p>Negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>V</p></td>
+<td><p>Overflow Vector</p></td>
+</tr>
+<tr class="row-even"><td><p>#</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>A Break Point is Active</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>Decimal Mode Active (also known as Binary Code Decimal)</p></td>
+</tr>
+<tr class="row-odd"><td><p>I</p></td>
+<td><p>IRQ is Inhibited</p></td>
+</tr>
+<tr class="row-even"><td><p>Z</p></td>
+<td><p>Zero Bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td><p>Carry Bit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- For PDF formatting -->
+<div class="page-break"></div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="X16%20Reference%20-%2006%20-%20Math%20Library.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 6: Math Library</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="X16%20Reference%20-%2008%20-%20Memory%20Map.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 8: Memory Map</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/X16 Reference - 07 - Machine Language Monitor.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Commander X16.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
