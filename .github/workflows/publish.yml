@@ -22,7 +22,7 @@ jobs:
     - name: Build the docs
       run: |
         . .venv/bin/activate
-        make html
+        sphinx-build -b html . _build/html
         touch _build/html/.nojekyll
     - name: Push the docs
       uses: peaceiris/actions-gh-pages@v4
