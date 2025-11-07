@@ -1,0 +1,32 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - sphinx-docs
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt-get install -y python3-venv python3-setuptools git make
+        python -m venv .venv
+        . .venv/bin/activate
+        pip install -r sphinx pydata-sphinx-theme myst-parser
+    - name: Build the docs
+      run: |
+        . .venv/bin/activate
+        make html
+        touch _build/html/.nojekyll
+    - name: Push the docs
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: _build/html
+        publish_branch: gh-pages
