@@ -5,7 +5,7 @@
 
 **This is preliminary documentation and the specification can still change at any point.**
 
-# Introduction
+## Introduction
 
 This is a reference for the VERA FX features.  It is meant to be a complement to the tutorial, currently found [here](https://docs.google.com/document/d/1q34uWOiM3Be2pnaHRVgSdHySI-qsiQWPTo_gfE54PTg).
 
@@ -15,7 +15,7 @@ In other words: the CPU is still the orchestrator of all that is done, but it is
 
 **FX Update extends addressing modes, it does not add or extend renderers.**
 
-# Usage
+## Usage
 
 ### DCSEL
 
@@ -90,7 +90,7 @@ By default, Addr1 Mode is set to 0 (=00b), which is the **normal** and already-k
 <!-- For PDF formatting -->
 <div class="page-break"></div>
 
-# Line draw helper
+## Line draw helper
 
 When Addr1 Mode is set to 1 (=01b) the **line draw helper** is enabled.
 

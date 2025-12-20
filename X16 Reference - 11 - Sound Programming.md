@@ -554,9 +554,9 @@ Range|Type|Description
   </tr>
 </table>
 
-# YM2151 Register Details
+## YM2151 Register Details
 
-## Global Parameters
+### Global Parameters
 
 **LR** (LFO Reset)
 
@@ -678,7 +678,7 @@ Register $1B, Bits 0-1
 Sets the LFO waveform:
 0: Sawtooth, 1: Square (50% duty cycle), 2: Triangle, 3: Noise
 
-## Channel Control Parameters
+### Channel Control Parameters
 
 **RL** (Right/Left output enable)
 
@@ -744,7 +744,7 @@ Sensitivity values: (dB)
 -|-|-|-
 0|23.90625|47.8125|95.625
 
-## Operator Control Parameters
+### Operator Control Parameters
 
 Operators are arranged as follows:
 
@@ -832,7 +832,7 @@ Sets the rate at which the level drops to zero when a note is released. 0=none, 
 
 ___
 
-# Getting sound out of the YM2151 (a brief tutorial)
+## Getting sound out of the YM2151 (a brief tutorial)
 
 While there is a large number of parameters that affect the sound of the YM2151, its operation can be thought of in simplified terms if you consider that there are basically three components to deal with: Instrument configuration (patch), voice pitch selection,
 and "pressing/releasing" the "key" to trigger (begin) and release (end) notes. It's essentially the
@@ -845,7 +845,7 @@ YM2151, these are two distinct actions.
 
 For this tutorial, we will start with the simplest operation, (triggering notes) and proceed to note selection, and finally patch configuration.
 
-## Triggering and Releasing Notes
+### Triggering and Releasing Notes
 
 **Key On/Off (KON) Register ($08):**
 

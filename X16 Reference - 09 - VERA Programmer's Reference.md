@@ -30,9 +30,9 @@ The VERA consists of:
 * High quality PCM audio playback from an 4kB FIFO buffer featuring up to 48kHz 16-bit stereo sound.
 * SPI controller for SecureDigital storage.
 
-# Registers
+## Registers
 
-## \$9F20-\$9F28
+### \$9F20-\$9F28
 
 <table>
 	<tr>
@@ -115,7 +115,7 @@ The VERA consists of:
 	</tr>
 </table>
 
-## \$9F29-\$9F2C
+### \$9F29-\$9F2C
 
 <details open>
 	<summary>DCSEL=0</summary>
@@ -480,7 +480,7 @@ The VERA consists of:
 	</table>
 </details>
 
-## \$9F2D-\$9F3F
+### \$9F2D-\$9F3F
 
 <table>
 	<tr>
@@ -653,6 +653,7 @@ To make sure this data is filled with known values, we recommend fully initializ
 need to make sure this block gets initialized to known values. 
 
 ## Video RAM access
+
 The video RAM (VRAM) isn't directly accessible on the CPU bus. VERA only exposes an address space of 32 bytes to the CPU as described in the section [Registers](#registers). To access the VRAM (which is 128kB in size) an indirection mechanism is used. First the address to be accessed needs to be set (ADDRx_L/ADDRx_M/ADDRx_H) and then the data on that VRAM address can be read from or written to via the DATA0/1 register. To make accessing the VRAM more efficient an auto-increment mechanism is present.
 
 There are 2 data ports to the VRAM. Which can be accessed using DATA0 and DATA1. The address and increment associated with the data port is specified in ADDRx_L/ADDRx_M/ADDRx_H. These 3 registers are multiplexed using the ADDR_SEL in the CTRL register. When ADDR_SEL = 0, ADDRx_L/ADDRx_M/ADDRx_H become ADDR0_L/ADDR0_M/ADDR0_H.  
@@ -1152,7 +1153,7 @@ For PCM playback, VERA contains a 4kB FIFO buffer. This buffer needs to be fille
 
 #### Audio registers
 
-#### `AUDIO_CTRL ($9F3B)` ####
+#### `AUDIO_CTRL ($9F3B)`
 
 **FIFO Full** (bit 7) is a read-only flag that indicates whether the FIFO is full. Any writes to the FIFO while this flag is 1 will be ignored. Writing a 1 to this register
 (**FIFO Reset**) will perform a FIFO reset, which will clear the contents of the FIFO buffer, except when written in combination with a 1 in bit 6.
@@ -1167,7 +1168,7 @@ For PCM playback, VERA contains a 4kB FIFO buffer. This buffer needs to be fille
 
 **PCM Volume** (bits 0..3)controls the volume of the PCM playback, this has a logarithmic curve. A value of 0 is silence, 15 is the loudest.
 
-##### `AUDIO_RATE ($9F3C)` #####
+##### `AUDIO_RATE ($9F3C)`
 
 **PCM sample rate** controls the speed at which samples are read from the FIFO. A few example values:
 
@@ -1181,7 +1182,7 @@ For PCM playback, VERA contains a 4kB FIFO buffer. This buffer needs to be fille
 
 Using a value of 128 will give the best quality (lowest distortion); at this value for every output sample, an input sample from the FIFO is read. Lower values will output the same sample multiple times to the audio DAC. Input samples are always read as a complete set (being 1/2/4 bytes).
 
-##### `AUDIO_DATA ($9F3D)` #####
+##### `AUDIO_DATA ($9F3D)`
 
 **Audio FIFO data** Writes to this register add one byte to the PCM FIFO. If the FIFO is full, the write will be ignored.
 
