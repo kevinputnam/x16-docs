@@ -52,11 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 11: Sound Programming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#audio-bank-api">Audio bank API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#audio-api-routines">Audio API routines</a></li>
@@ -81,16 +77,16 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#ym2151-register-details">YM2151 Register Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-parameters">Global Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-control-parameters">Channel Control Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operator-control-parameters">Operator Control Parameters</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#ym2151-register-details">YM2151 Register Details</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#global-parameters">Global Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#channel-control-parameters">Channel Control Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#operator-control-parameters">Operator Control Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#triggering-and-releasing-notes">Triggering and Releasing Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#triggering-and-releasing-notes">Triggering and Releasing Notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pitch-control">Pitch Control</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ym-registers">YM Registers</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#key-code-kc">Key Code (KC)</a></li>
@@ -1128,11 +1124,10 @@ make writes when it is not ready to receive them, they will be dropped and the s
 </section>
 </section>
 </section>
-</section>
 <section id="ym2151-register-details">
-<h1>YM2151 Register Details<a class="headerlink" href="#ym2151-register-details" title="Link to this heading"></a></h1>
+<h2>YM2151 Register Details<a class="headerlink" href="#ym2151-register-details" title="Link to this heading"></a></h2>
 <section id="global-parameters">
-<h2>Global Parameters<a class="headerlink" href="#global-parameters" title="Link to this heading"></a></h2>
+<h3>Global Parameters<a class="headerlink" href="#global-parameters" title="Link to this heading"></a></h3>
 <p><strong>LR</strong> (LFO Reset)</p>
 <p>Register $01, bit 1</p>
 <p>Setting this bit will disable the LFO and hold it at level 0. Clearing this bit
@@ -1209,7 +1204,7 @@ it running.</p>
 0: Sawtooth, 1: Square (50% duty cycle), 2: Triangle, 3: Noise</p>
 </section>
 <section id="channel-control-parameters">
-<h2>Channel Control Parameters<a class="headerlink" href="#channel-control-parameters" title="Link to this heading"></a></h2>
+<h3>Channel Control Parameters<a class="headerlink" href="#channel-control-parameters" title="Link to this heading"></a></h3>
 <p><strong>RL</strong> (Right/Left output enable)</p>
 <p>Register $20 (+ channel), Bits 6-7</p>
 <p>Setting/Clearing these bits enables/disables audio output for the selected channel. (bit6=left, bit7=right)</p>
@@ -1311,7 +1306,7 @@ each 4th value is skipped. Thus if concert A (A-4, 440hz) is KC=$4A, then middle
 </table>
 </section>
 <section id="operator-control-parameters">
-<h2>Operator Control Parameters<a class="headerlink" href="#operator-control-parameters" title="Link to this heading"></a></h2>
+<h3>Operator Control Parameters<a class="headerlink" href="#operator-control-parameters" title="Link to this heading"></a></h3>
 <p>Operators are arranged as follows:</p>
 <table class="docutils align-default">
 <thead>
@@ -1376,7 +1371,7 @@ until the level reaches zero or until the note is released.</p>
 </section>
 <hr class="docutils" />
 <section id="getting-sound-out-of-the-ym2151-a-brief-tutorial">
-<h1>Getting sound out of the YM2151 (a brief tutorial)<a class="headerlink" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial" title="Link to this heading"></a></h1>
+<h2>Getting sound out of the YM2151 (a brief tutorial)<a class="headerlink" href="#getting-sound-out-of-the-ym2151-a-brief-tutorial" title="Link to this heading"></a></h2>
 <p>While there is a large number of parameters that affect the sound of the YM2151, its operation can be thought of in simplified terms if you consider that there are basically three components to deal with: Instrument configuration (patch), voice pitch selection,
 and “pressing/releasing” the “key” to trigger (begin) and release (end) notes. It’s essentially the
 same as using a music keyboard. Pressing an instrument button (e.g. Marimba) makes the keyboard
@@ -1387,7 +1382,7 @@ On the music keyboard, pitch and note stop/start are done with a single piano ke
 YM2151, these are two distinct actions.</p>
 <p>For this tutorial, we will start with the simplest operation, (triggering notes) and proceed to note selection, and finally patch configuration.</p>
 <section id="triggering-and-releasing-notes">
-<h2>Triggering and Releasing Notes<a class="headerlink" href="#triggering-and-releasing-notes" title="Link to this heading"></a></h2>
+<h3>Triggering and Releasing Notes<a class="headerlink" href="#triggering-and-releasing-notes" title="Link to this heading"></a></h3>
 <p><strong>Key On/Off (KON) Register ($08):</strong></p>
 <p>This is probably the most important single register in the YM2151. It is used to trigger and release notes. It controls the key on/off state for all 8 channels. A note is triggered whenever its key state changes from off to on, and is released whenever the state changes from on to off. Repeated writes of the same state (off-&gt;off or on-&gt;on) have no effect.</p>
 <p>Whenever an operator is triggered, it progresses through the states of attack, decay1, and sustain/decay2. Whenever an active note is released, it enters the release state where the volume decreases until reaching zero. It then remains silent until the next time the operator is triggered. If you are familiar with the C64 SID chip, this is the same behavior as the “gate” bit on that chip.</p>
@@ -1431,6 +1426,7 @@ YM2151, these are two distinct actions.</p>
     <td colspan="3">Channel</td>
   </tr>
 </table>
+</section>
 </section>
 <section id="pitch-control">
 <h2>Pitch Control<a class="headerlink" href="#pitch-control" title="Link to this heading"></a></h2>

@@ -52,16 +52,17 @@
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html">Chapter 9: VERA Programmer’s Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2009%20-%20VERA%20Programmer%27s%20Reference.html#registers">Registers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 10: VERA FX Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#usage">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#dcsel">DCSEL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#addr1-mode">Addr1 Mode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 10: VERA FX Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dcsel">DCSEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addr1-mode">Addr1 Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#line-draw-helper">Line draw helper</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-line-draw-helper">Setting up the line draw helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-draw-helper">Line draw helper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-line-draw-helper">Setting up the line draw helper</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#polygon-filler-helper">Polygon filler helper</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#setting-up-the-polygon-filler-helper">Setting up the polygon filler helper</a></li>
 </ul>
@@ -81,8 +82,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
@@ -139,18 +138,17 @@
 <h1>Chapter 10: VERA FX Reference<a class="headerlink" href="#chapter-10-vera-fx-reference" title="Link to this heading"></a></h1>
 <p><em>Author: MooingLemur, based on documentation written by JeffreyH</em></p>
 <p><strong>This is preliminary documentation and the specification can still change at any point.</strong></p>
-</section>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>This is a reference for the VERA FX features.  It is meant to be a complement to the tutorial, currently found <a class="reference external" href="https://docs.google.com/document/d/1q34uWOiM3Be2pnaHRVgSdHySI-qsiQWPTo_gfE54PTg">here</a>.</p>
 <p>The FX Update mainly adds “helpers” inside of VERA that can be used by the CPU. There is no “magic button” that allows you to do 3D graphics for example. It mainly helps at certain CPU time-consuming tasks, most notably the ones that are present in the (deep) inner-loop of a game/graphics engine. The FX Update does therefore not fundamentally change the architecture or nature of VERA, it extends and improves it.</p>
 <p>In other words: the CPU is still the orchestrator of all that is done, but it is alleviated from certain operations where it is not (very) good at or does not have direct access to.</p>
 <p><strong>FX Update extends addressing modes, it does not add or extend renderers.</strong></p>
 </section>
 <section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
 <section id="dcsel">
-<h2>DCSEL<a class="headerlink" href="#dcsel" title="Link to this heading"></a></h2>
+<h3>DCSEL<a class="headerlink" href="#dcsel" title="Link to this heading"></a></h3>
 <p>VERA is mapped as 32 8-bit registers in the memory space of the Commander X16, starting at address $9F20 and ending at $9F3F. Many of these are (fully) used, but some bits remain unused. The DCSEL bits in register $9F25 (also called CTRL) has been extended to 6-bits to allow for the 4 registers $9F29-$9F2C to have additional meanings.</p>
 <table>
 	<tr>
@@ -177,7 +175,7 @@
 <p><em><strong>Important</strong></em>: <em>unless DCSEL values of 2-6 are used, the behavior of VERA is exactly the same as it was before the FX update. This ensures that the FX update is backwards compatible with traditional non-FX uses of VERA.</em></p>
 </section>
 <section id="addr1-mode">
-<h2>Addr1 Mode<a class="headerlink" href="#addr1-mode" title="Link to this heading"></a></h2>
+<h3>Addr1 Mode<a class="headerlink" href="#addr1-mode" title="Link to this heading"></a></h3>
 <p>When DCSEL=2, the main FX configuration register becomes available (FX_CTRL/$9F29), which is both readable and writable. The 2 lower bits are the addr1 mode bits, which will change the behavior of how and when ADDR1 is updated. This puts the FX helpers in a certain “role”.</p>
 <table>
 	<tr>
@@ -231,10 +229,10 @@
 </section>
 </section>
 <section id="line-draw-helper">
-<h1>Line draw helper<a class="headerlink" href="#line-draw-helper" title="Link to this heading"></a></h1>
+<h2>Line draw helper<a class="headerlink" href="#line-draw-helper" title="Link to this heading"></a></h2>
 <p>When Addr1 Mode is set to 1 (=01b) the <strong>line draw helper</strong> is enabled.</p>
 <section id="setting-up-the-line-draw-helper">
-<h2>Setting up the line draw helper<a class="headerlink" href="#setting-up-the-line-draw-helper" title="Link to this heading"></a></h2>
+<h3>Setting up the line draw helper<a class="headerlink" href="#setting-up-the-line-draw-helper" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Set <code class="docutils literal notranslate"><span class="pre">ADDR1</span></code> to the address of the starting pixel</p></li>
 <li><p>Determine the octant (see below) you are going to draw in, which will inform your <code class="docutils literal notranslate"><span class="pre">ADDR0</span></code> and <code class="docutils literal notranslate"><span class="pre">ADDR1</span></code> increments.</p>
@@ -376,6 +374,7 @@
 <p><em>Note: There is no need to set the higher bits of the X position, since the FX X position (accumulator) is only used to track the fractional (subpixel) part of the line draw.</em></p>
 <!-- For PDF formatting -->
 <div class="page-break"></div>
+</section>
 </section>
 <section id="polygon-filler-helper">
 <h2>Polygon filler helper<a class="headerlink" href="#polygon-filler-helper" title="Link to this heading"></a></h2>

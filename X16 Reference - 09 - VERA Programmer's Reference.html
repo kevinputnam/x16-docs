@@ -51,11 +51,13 @@
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2006%20-%20Math%20Library.html">Chapter 6: Math Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2007%20-%20Machine%20Language%20Monitor.html">Chapter 7: Machine Language Monitor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2008%20-%20Memory%20Map.html">Chapter 8: Memory Map</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 9: VERA Programmer’s Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#registers">Registers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#f20-9f28">$9F20-$9F28</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#f29-9f2c">$9F29-$9F2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#f2d-9f3f">$9F2D-$9F3F</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 9: VERA Programmer’s Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#registers">Registers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#f20-9f28">$9F20-$9F28</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#f29-9f2c">$9F29-$9F2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#f2d-9f3f">$9F2D-$9F3F</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#vram-address-space-layout">VRAM address space layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#video-ram-access">Video RAM access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reset">Reset</a></li>
@@ -92,12 +94,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html">Chapter 10: VERA FX Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#introduction">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2010%20-%20VERA%20FX%20Reference.html#line-draw-helper">Line draw helper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html">Chapter 11: Sound Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#ym2151-register-details">YM2151 Register Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2011%20-%20Sound%20Programming.html#getting-sound-out-of-the-ym2151-a-brief-tutorial">Getting sound out of the YM2151 (a brief tutorial)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2012%20-%20IO%20Programming.html">Chapter 12: I/O Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2013%20-%20Working%20with%20CMDR-DOS.html">Chapter 13: Working With CMDR-DOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="X16%20Reference%20-%2014%20-%20Hardware.html">Chapter 14: Hardware Pinouts</a></li>
@@ -180,11 +177,10 @@ for more information on the FX additions.</p>
 <li><p>High quality PCM audio playback from an 4kB FIFO buffer featuring up to 48kHz 16-bit stereo sound.</p></li>
 <li><p>SPI controller for SecureDigital storage.</p></li>
 </ul>
-</section>
 <section id="registers">
-<h1>Registers<a class="headerlink" href="#registers" title="Link to this heading"></a></h1>
+<h2>Registers<a class="headerlink" href="#registers" title="Link to this heading"></a></h2>
 <section id="f20-9f28">
-<h2>$9F20-$9F28<a class="headerlink" href="#f20-9f28" title="Link to this heading"></a></h2>
+<h3>$9F20-$9F28<a class="headerlink" href="#f20-9f28" title="Link to this heading"></a></h3>
 <table>
 	<tr>
 		<th>Addr</th>
@@ -267,7 +263,7 @@ for more information on the FX additions.</p>
 </table>
 </section>
 <section id="f29-9f2c">
-<h2>$9F29-$9F2C<a class="headerlink" href="#f29-9f2c" title="Link to this heading"></a></h2>
+<h3>$9F29-$9F2C<a class="headerlink" href="#f29-9f2c" title="Link to this heading"></a></h3>
 <details open>
 	<summary>DCSEL=0</summary>
 	<table>
@@ -625,7 +621,7 @@ for more information on the FX additions.</p>
 </details>
 </section>
 <section id="f2d-9f3f">
-<h2>$9F2D-$9F3F<a class="headerlink" href="#f2d-9f3f" title="Link to this heading"></a></h2>
+<h3>$9F2D-$9F3F<a class="headerlink" href="#f2d-9f3f" title="Link to this heading"></a></h3>
 <table>
 	<tr>
 		<th>Addr</th>
@@ -762,6 +758,7 @@ for more information on the FX additions.</p>
 		<td colspan="1" align="center">Select</td>
 	</tr>
 </table>
+</section>
 </section>
 <section id="vram-address-space-layout">
 <h2>VRAM address space layout<a class="headerlink" href="#vram-address-space-layout" title="Link to this heading"></a></h2>
